@@ -5,6 +5,10 @@ public abstract class Persona {
 	String direccion;
 	String correo;
 	
+	Persona(){
+		
+	}
+	
 	Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){
 		
 	}
