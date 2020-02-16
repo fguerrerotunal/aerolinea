@@ -1,8 +1,22 @@
-
+import java.util.*;
 public class CuentaMillas {
 	static int cantidadCuentas;
 	int numeroCuenta;
 	Cliente titular;
-	String historial;
 	int millas = 100;
+	
+	CuentaMillas(Cliente titular, int numeroCuenta){
+		this.titular = titular;
+		this.numeroCuenta = numeroCuenta;
+		cantidadCuentas += 1;		
+	}
+	
+	void setMillas(int millas){
+		this.millas = millas;
+	}
+	
+	int getMillas(){
+		return millas;
+	}
+	
 }
