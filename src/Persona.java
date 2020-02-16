@@ -1,9 +1,9 @@
 public abstract class Persona {
-	private int identificacion;
-	private CuentaBancaria cuentabancaria;
-	private String nombre;
-	private String direccion;
-	private String correo;
+	int identificacion;
+	CuentaBancaria cuentabancaria;
+	String nombre;
+	String direccion;
+	String correo;
 	
 	Persona(){
 		
