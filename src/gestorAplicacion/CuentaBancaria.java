@@ -1,3 +1,4 @@
+package gestorAplicacion;
 
 public class CuentaBancaria {
 	static int cantidadCuentas;

@@ -1,3 +1,4 @@
+package gestorAplicacion;
 import java.util.*;
 public class Vuelo {
 	static int cantidadVuelos;

@@ -1,3 +1,4 @@
+package gestorAplicacion;
 import java.util.*;
 public class Persona {
 	int identificacion;
@@ -15,11 +16,13 @@ public class Persona {
 		this.correo = correo;
 	}
 	
-	void Historial(){
+	String Historial(){
 		Iterator i = historial.iterator();
+		String historial = "";
 		while(i.hasNext()) {
-			System.out.println(i.next());
+			historial = historial + "\n" + i.next();
 		}
+		return historial;
 	}
 	
 }
