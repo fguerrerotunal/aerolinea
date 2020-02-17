@@ -5,7 +5,7 @@ public class Reserva {
 	Cliente pasajero;
 	int silla;
 	int equipaje;
-	int costo;
+	int costo = 0;
 	
 	Reserva(Vuelo vuelo, Cliente pasajero){
 		this.vuelo = vuelo;

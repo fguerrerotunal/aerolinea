@@ -9,8 +9,9 @@ public class Admin {
 	Aeropuerto A5 = new Aeropuerto("Miami International Airport","Miami","Esados Unidos");
 	Aeropuerto A6 = new Aeropuerto("UNAL","Bloque 11","Combativa");
 
-	static void Premios(Cliente cliente, String premio) {
-		int precio;
+	static String Premios(Cliente cliente, String premio) {
+		String aviso = "Millas insuficientes";
+		int precio = 0;
 		switch (premio) {
 			case "Carro":
 				precio = 15000;
@@ -22,7 +23,11 @@ public class Admin {
 				precio = 950;
 				break;
 		}
-		Empleado.
+		if(cliente.cuentamillas.getMillas() > precio) {
+			Empleado.ModMillas(cliente, -precio);
+			aviso = "Premio canjeado correctamente";
+		}
+		return aviso;
 	}
 //	public static void main(String[] args) {
 		

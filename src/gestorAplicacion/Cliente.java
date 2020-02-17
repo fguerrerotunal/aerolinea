@@ -34,25 +34,28 @@ public class Cliente extends Persona{
 			case "Efectivo":
 				if(this.cuentabancaria.getSaldo() > reserva.costo) {
 					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - reserva.costo);
+					reserva.costo=0;
 					transaccion = true;
 				}
 				break;
 				
 			case "millas":
-				if(this.cuentamillas.millas  > reserva.costo) {
-					this.cuentamillas.millas -= reserva.costo;
+				int millas=(int)reserva.costo*2;
+				if(this.cuentamillas.getMillas()  > millas) {
+					Empleado.ModMillas(reserva.pasajero, -millas);
+					reserva.costo=0;
 					transaccion = true;
 				}
 				break;
 		}
 		if(transaccion) {
-			return "Pago realizado satisfactoriamente";
+			return "Transaccion realizada satisfactoriamente";
 		}else {
-			return "Saldo insuficiente";
+			return "Transaccion fallida";
 		}
 	}
 	
-	void CanjearMillas(String premio) {
-		Admin.Premios(this, premio);
+	String CanjearMillas(String premio) {
+		return Admin.Premios(this, premio);
 	}
 }

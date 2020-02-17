@@ -43,7 +43,7 @@ public class Empleado extends Persona{
 		Empleado.vuelos.add(new Vuelo(numeroVuelo, fecha, destino, salida, puertaAbordaje));
 	}
 
-	void ModMillas(Cliente cliente, int precio) {
-		
+	static void ModMillas(Cliente cliente, int precio) {
+		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
 }

@@ -4,7 +4,7 @@ public class CuentaMillas {
 	static int cantidadCuentas;
 	int numeroCuenta;
 	Cliente titular;
-	int millas = 100;
+	private int millas = 100;
 	
 	CuentaMillas(Cliente titular, int numeroCuenta){
 		this.titular = titular;
