@@ -25,7 +25,19 @@ public class Empleado extends Persona{
 		}
 		return vuelosDisponibles;
 	}
-	
+
+	static String EstadoVuelos() {
+		String estadoVuelos = "(Numero de Vuelo, Estado, Puerta de abordaje, Salida-Destino)";
+		Iterator i = vuelos.iterator();
+		while(i.hasNext()) {
+			Vuelo vuelo = (Vuelo)i.next();
+			if(!vuelo.estado.equals("Venta")) {
+				estadoVuelos = estadoVuelos + "\n" + vuelo.toString("estado");
+			}
+		}
+		return estadoVuelos;
+	}
+
 	void NuevoVuelo(String numeroVuelo) {
 		puertaAbordaje += 1;
 		if(puertaAbordaje > 18) {

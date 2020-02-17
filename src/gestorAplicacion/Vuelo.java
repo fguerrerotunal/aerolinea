@@ -13,7 +13,8 @@ public class Vuelo {
 	String estado;
 	int capacidad;
 	int puertaAbordaje;
-
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+	
 	Vuelo(String numeroVuelo, Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
 		capacidad = (int)(Math.random() * (15-5)+5);
@@ -28,10 +29,10 @@ public class Vuelo {
 	
 	String toString(String tipo) {
 		String info = "";
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm"); 
+		String recorrido = this.salida.getCiudad() + this.destino.getCiudad();
+		
 		switch (tipo) {
 		case "consulta":
-			String recorrido = this.salida.getCiudad() + this.destino.getCiudad();
 			info = info + (String) numeroVuelo +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
 			break;
 		case "pasabordo":
@@ -40,6 +41,10 @@ public class Vuelo {
 					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
 					"ORIGEN: " + salida + "\n"+
 					"DESTINO: " + destino;
+			break;
+		
+		case "estado":
+			info = info + (String) numeroVuelo +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
 			break;
 		}
 		return info;
