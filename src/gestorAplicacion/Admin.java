@@ -1,4 +1,6 @@
 package gestorAplicacion;
+import java.text.DateFormat;
+
 import java.util.*;
 public class Admin {
 	static Vector<Aeropuerto> destinos = new Vector<>();
@@ -26,6 +28,9 @@ public class Admin {
 		if(cliente.cuentamillas.getMillas() > precio) {
 			Empleado.ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
+			cliente.AñadirHistorial("Canjeo Premio "+ premio);
+		}else {
+			cliente.AñadirHistorial("Canjeo premio fallido, millas insuficientes");
 		}
 		return aviso;
 	}

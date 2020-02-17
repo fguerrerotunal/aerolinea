@@ -41,6 +41,7 @@ public class Empleado extends Persona{
 		Aeropuerto destino = Admin.destinos.get(index);
 		Aeropuerto salida = Admin.destinos.get(index1);
 		Empleado.vuelos.add(new Vuelo(numeroVuelo, fecha, destino, salida, puertaAbordaje));
+		this.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
 
 	static void ModMillas(Cliente cliente, int precio) {
