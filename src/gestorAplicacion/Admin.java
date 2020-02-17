@@ -8,7 +8,22 @@ public class Admin {
 	Aeropuerto A4 = new Aeropuerto("","Cali","Colombia");
 	Aeropuerto A5 = new Aeropuerto("Miami International Airport","Miami","Esados Unidos");
 	Aeropuerto A6 = new Aeropuerto("UNAL","Bloque 11","Combativa");
-	
+
+	static void Premios(Cliente cliente, String premio) {
+		int precio;
+		switch (premio) {
+			case "Carro":
+				precio = 15000;
+				break;
+			case "Sala-Comedor":
+				precio = 400;
+				break;
+			case "iphone A20":
+				precio = 950;
+				break;
+		}
+		Empleado.
+	}
 //	public static void main(String[] args) {
 		
 		

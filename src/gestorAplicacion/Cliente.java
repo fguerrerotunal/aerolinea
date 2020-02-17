@@ -28,6 +28,7 @@ public class Cliente extends Persona{
 	}
 	
 	String Pago(String medio, Reserva reserva) {
+
 		boolean transaccion = false;
 		switch (medio) {
 			case "Efectivo":
@@ -51,4 +52,7 @@ public class Cliente extends Persona{
 		}
 	}
 	
+	void CanjearMillas(String premio) {
+		Admin.Premios(this, premio);
+	}
 }

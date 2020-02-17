@@ -42,4 +42,8 @@ public class Empleado extends Persona{
 		Aeropuerto salida = Admin.destinos.get(index1);
 		Empleado.vuelos.add(new Vuelo(numeroVuelo, fecha, destino, salida, puertaAbordaje));
 	}
+
+	void ModMillas(Cliente cliente, int precio) {
+		
+	}
 }
