@@ -5,7 +5,7 @@ public class Cliente extends Persona{
 	int pasaporte;
 	Vector<Reserva> cartera = new Vector<>();
 	
-	Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
+	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
 		this.cuentamillas = new CuentaMillas(this,identificacion);
 		this.pasaporte = pasaporte;

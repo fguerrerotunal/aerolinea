@@ -5,22 +5,22 @@ public class Aeropuerto {
 	private String ciudad;
 	private String pais;
 	
-	Aeropuerto(String nombre, String ciudad, String pais){
+	public Aeropuerto(String nombre, String ciudad, String pais){
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.pais = pais;
 		Admin.destinos.add(this);
 	}
 	
-	String getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 	
-	String getCiudad() {
+	public String getCiudad() {
 		return ciudad;
 	}
 	
-	String getPais() {
+	public String getPais() {
 		return pais;
 	}
 }
