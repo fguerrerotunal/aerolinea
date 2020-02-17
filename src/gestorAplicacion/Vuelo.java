@@ -31,11 +31,14 @@ public class Vuelo {
 	
 	String toString(String tipo) {
 		String info = "";
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss"); 
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm"); 
 		switch (tipo) {
 		case "consulta":
 			String recorrido = this.salida.getCiudad() + this.destino.getCiudad();
 			info = info + (String) numeroVuelo +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
+			break;
+		case "pasabordo":
+			
 			break;
 		}
 		return info;

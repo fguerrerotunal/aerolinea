@@ -13,7 +13,7 @@ public class Empleado extends Persona{
 	}
 	
 	static String VuelosDisponibles() {
-		String vuelosDisponibles = "(Numero de Vuelo, Precio, Fecha, Salida-Destino)";
+		String vuelosDisponibles = "(Numero de Vuelo, Precio, Fecha/Hora, Salida-Destino)";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
