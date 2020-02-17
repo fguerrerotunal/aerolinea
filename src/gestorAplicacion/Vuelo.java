@@ -12,13 +12,11 @@ public class Vuelo {
 	Aeropuerto salida;
 	String estado;
 	int capacidad;
-	int max = 15;
-	int min = 5;
 	int puertaAbordaje;
 
 	Vuelo(String numeroVuelo, Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
-		capacidad = (int)(Math.random() + (max - min + 1)+min);
+		capacidad = (int)(Math.random() * (15-5)+5);
 		precioTiquete = capacidad*12500;
 		estado = "Venta";
 		this.numeroVuelo = numeroVuelo;
@@ -26,7 +24,6 @@ public class Vuelo {
 		this.salida = salida;
 		this.destino= destino;
 		this.puertaAbordaje = puertaAbordaje;
-		Empleado.vuelos.add(this);
 	}
 	
 	String toString(String tipo) {

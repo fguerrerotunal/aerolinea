@@ -18,7 +18,7 @@ public class Persona {
 	
 	String Historial(){
 		Iterator i = historial.iterator();
-		String historial = "";
+		String historial = "Historial de acciones de: " + nombre;
 		while(i.hasNext()) {
 			historial = historial + "\n" + i.next();
 		}

@@ -9,6 +9,7 @@ public class Aeropuerto {
 		this.nombre = nombre;
 		this.ciudad = ciudad;
 		this.pais = pais;
+		Admin.destinos.add(this);
 	}
 	
 	String getNombre() {
