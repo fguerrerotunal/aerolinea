@@ -58,4 +58,12 @@ public class Cliente extends Persona{
 	String CanjearMillas(String premio) {
 		return Admin.Premios(this, premio);
 	}
+	
+	String Pasabordo(Reserva reserva) {
+		String A = "PASE DE ABORDAR/BOARDING PASS" +"\n"+
+					"PASAJERO: " + nombre + "\n" + 
+					"ASIENTO: " + reserva.silla + "\n";
+		
+		return A + reserva.vuelo.toString("Pasabordo");
+	}
 }

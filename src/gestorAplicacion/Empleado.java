@@ -19,7 +19,7 @@ public class Empleado extends Persona{
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(vuelo.puestos.size() < vuelo.capacidad) {
+			if(vuelo.puestos.size() < vuelo.capacidad && vuelo.estado.equals("Venta")) {
 				vuelosDisponibles = vuelosDisponibles + "\n" + vuelo.toString("consulta");
 			}
 		}

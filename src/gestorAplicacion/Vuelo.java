@@ -35,7 +35,11 @@ public class Vuelo {
 			info = info + (String) numeroVuelo +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
 			break;
 		case "pasabordo":
-			
+			info = "VUELO: " + numeroVuelo +"\n"+
+					"EN SALA: " + dateFormat.format(fecha)+ "\n"+
+					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
+					"ORIGEN: " + salida + "\n"+
+					"DESTINO: " + destino;
 			break;
 		}
 		return info;
