@@ -38,16 +38,16 @@ public class Persona {
 	//lista de get 
 	//
 	//
-	public getIdentificacion(Persona persona) {
+	public int getIdentificacion(Persona persona) {
 		return this.identificacion;
 	}
-	public getNombre(Persona persona) {
+	public String getNombre(Persona persona) {
 		return this.nombre;
 	}
-	public getDireccion(Persona persona) {
+	public String getDireccion(Persona persona) {
 		return this.direccion;
 	}
-	public getCorreo(Persona persona) {
+	public String getCorreo(Persona persona) {
 		return this.correo;
 	}
 }
