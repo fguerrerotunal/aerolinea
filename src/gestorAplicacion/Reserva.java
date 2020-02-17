@@ -10,6 +10,7 @@ public class Reserva {
 	Reserva(Vuelo vuelo, Cliente pasajero){
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
+		this.pasajero.cartera.add(this);
 	}
 	
 	int getSilla() {
@@ -27,6 +28,9 @@ public class Reserva {
 
 	void setEquipaje(int equipaje) {
 		this.equipaje = equipaje;
+		if(this.equipaje >= 20) {
+			costo += 30000;
+		}
 	}
 
 }
