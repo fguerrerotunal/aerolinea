@@ -4,7 +4,7 @@ public class CuentaBancaria {
 	static int cantidadCuentas;
 	int numeroCuenta;
 	Persona titular;
-	int saldo = 12500*4*15;
+	private int saldo = 12500*4*15;
 	
 	CuentaBancaria(int numeroCuenta, Persona titular){
 		cantidadCuentas += 1;
@@ -14,6 +14,10 @@ public class CuentaBancaria {
 	
 	int getSaldo() {
 		return saldo;
+	}
+	
+	void setSaldo(int saldo) {
+		this.saldo = saldo;
 	}
 	
 	void Actualizar(){

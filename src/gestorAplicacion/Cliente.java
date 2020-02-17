@@ -22,4 +22,28 @@ public class Cliente extends Persona{
 		reserva.setEquipaje(equipaje);
 	}
 	
+	String Pago(String medio, Reserva reserva) {
+		boolean transaccion = false;
+		switch (medio) {
+			case "Efectivo":
+				if(this.cuentabancaria.getSaldo() > reserva.costo) {
+					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - reserva.costo);
+					transaccion = true;
+				}
+				break;
+				
+			case "millas":
+				if(this.cuentamillas.millas  > reserva.costo) {
+					this.cuentamillas.millas -= reserva.costo;
+					transaccion = true;
+				}
+				break;
+		}
+		if(transaccion) {
+			return "Pago realizado satisfactoriamente";
+		}else {
+			return "Saldo insuficiente";
+		}
+	}
+	
 }

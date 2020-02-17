@@ -11,6 +11,7 @@ public class Reserva {
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
 		this.pasajero.cartera.add(this);
+		this.costo += vuelo.precioTiquete;
 	}
 	
 	int getSilla() {
