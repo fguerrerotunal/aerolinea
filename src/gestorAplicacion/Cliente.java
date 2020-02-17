@@ -10,4 +10,7 @@ public class Cliente extends Persona{
 		this.pasaporte = pasaporte;
 	}
 	
+	String ConsultarVuelos(){
+		return Empleado.VuelosDisponibles();
+	}
 }

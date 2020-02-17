@@ -11,5 +11,15 @@ public class Aeropuerto {
 		this.pais = pais;
 	}
 	
+	String getNombre() {
+		return nombre;
+	}
 	
+	String getCiudad() {
+		return ciudad;
+	}
+	
+	String getPais() {
+		return pais;
+	}
 }
