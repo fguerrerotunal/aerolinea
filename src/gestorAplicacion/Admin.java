@@ -24,7 +24,7 @@ public class Admin {
 				precio = 950;
 				break;
 		}
-		if(cliente.cuentamillas.getMillas() > precio) {
+		if(cliente.cuentamillas.getMillas() >= precio) {
 			Empleado.ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
 			cliente.AñadirHistorial("Canjeo Premio "+ premio);

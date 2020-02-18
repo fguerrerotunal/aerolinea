@@ -17,7 +17,7 @@ public class Vuelo {
 	
 	Vuelo(String numeroVuelo, Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
-		capacidad = (int)(Math.random() * (15-5)+5);
+		capacidad = (int)(Math.random() * (10-5)+5);
 		precioTiquete = capacidad*12500;
 		estado = "Venta";
 		this.numeroVuelo = numeroVuelo;
