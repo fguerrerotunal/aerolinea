@@ -44,7 +44,6 @@ public class Empleado extends Persona{
 			puertaAbordaje = 1;
 		}
 		Date fecha = new Date();
-		
 		Empleado.vuelos.add(new Vuelo(numeroVuelo, fecha, destino, salida, puertaAbordaje));
 		this.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
@@ -52,10 +51,10 @@ public class Empleado extends Persona{
 	static void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
-	static String CosultarVuelo(Vuelo vuelo) {
+	static void CosultarVuelo(Vuelo vuelo) {
 		String consulta="Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n";
-		
-	return consulta;
+	
+	
 	}
 	
 	
