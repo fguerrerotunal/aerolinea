@@ -59,4 +59,11 @@ public class Empleado extends Persona{
 	static void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
+	static String CosultarVuelo(Vuelo vuelo) {
+		String consulta="Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n";
+		
+	return consulta;
+	}
+	
+	
 }
