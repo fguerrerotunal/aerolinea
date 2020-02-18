@@ -38,7 +38,7 @@ public class Empleado extends Persona{
 		return estadoVuelos;
 	}
 
-	void NuevoVuelo(String numeroVuelo, Aeropuerto salida, Aeropuerto Destino) {
+	void NuevoVuelo(String numeroVuelo, Aeropuerto Salida, Aeropuerto destinoo) {
 		puertaAbordaje += 1;
 		if(puertaAbordaje > 18) {
 			puertaAbordaje = 1;
