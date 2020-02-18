@@ -14,6 +14,20 @@ public class Empleado extends Persona{
 		this.ocupacion = ocupacion;
 	}
 	
+	public String Historial(){
+		Iterator i = historial.iterator();
+		String historial = "Historial de acciones del sistema";
+		while(i.hasNext()) {
+			historial = historial + "\n" + i.next();
+		}
+		this.AñadirHistorial("Consulta historial de acciones");
+		return historial;
+	}
+	
+	public void AñadirHistorial(String accion) {
+		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
+	}
+	
 	static String VuelosDisponibles() {
 		String vuelosDisponibles = "(Numero de Vuelo, Precio, Fecha/Hora, Salida-Destino)";
 		Iterator i = vuelos.iterator();

@@ -11,6 +11,20 @@ public class Cliente extends Persona{
 		this.pasaporte = pasaporte;
 	}
 	
+	public String Historial(){
+		Iterator i = historial.iterator();
+		String historial = "Historial de acciones de: " + nombre;
+		while(i.hasNext()) {
+			historial = historial + "\n" + i.next();
+		}
+		this.AñadirHistorial("Consulta historial de acciones");
+		return historial;
+	}
+	
+	public void AñadirHistorial(String accion) {
+		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
+	}
+	
 	void Reservar(Vuelo vuelo) {
 		this.cartera.add(new Reserva(vuelo, this));
 	}

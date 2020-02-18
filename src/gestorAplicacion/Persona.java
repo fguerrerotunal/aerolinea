@@ -3,7 +3,7 @@ package gestorAplicacion;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-public class Persona {
+public abstract class Persona {
 	protected int identificacion;
 	public  CuentaBancaria cuentabancaria;
 	protected String nombre;
@@ -22,19 +22,9 @@ public class Persona {
 		this.AñadirHistorial("Registro en el sistema");
 	}
 	
-	public String Historial(){
-		Iterator i = historial.iterator();
-		String historial = "Historial de acciones de: " + nombre;
-		while(i.hasNext()) {
-			historial = historial + "\n" + i.next();
-		}
-		this.AñadirHistorial("Consulta historial de acciones");
-		return historial;
-	}
+	public abstract String Historial();
 	
-	public void AñadirHistorial(String accion) {
-		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
-	}
+	public abstract void AñadirHistorial(String accion);
 	//lista de get 
 	//
 	//
