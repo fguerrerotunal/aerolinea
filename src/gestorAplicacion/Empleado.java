@@ -51,11 +51,21 @@ public class Empleado extends Persona{
 	static void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
-	static void CosultarVuelo(Vuelo vuelo) {
-		String consulta="Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n";
+	static String CosultarVuelo(Vuelo vuelo) {
+		return "Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n"+Consultarpasajeros(vuelo);
+		}
+	static String Consultarpasajeros(Vuelo vuelo) {
+		String pasajeros="(Nombre,Identificacion)\n";
+		Iterator i=vuelo.puestos.iterator();
+		while(i.hasNext()) {
+			Persona pasajero=(Persona)i.next();
+			pasajeros=pasajeros+pasajero.nombre+" "+pasajero.identificacion+"\n";
+		}
+		return pasajeros;
+		
+	}
 	
 	
 	}
 	
 	
-}
