@@ -13,7 +13,6 @@ public class Cliente extends Persona{
 	
 	void Reservar(Vuelo vuelo) {
 		this.cartera.add(new Reserva(vuelo, this));
-		this.AñadirHistorial("Compra tiquete vuelo "+vuelo.numeroVuelo);
 	}
 	
 	String ConsultarVuelos(){
@@ -33,7 +32,6 @@ public class Cliente extends Persona{
 	
 	void CambiarEquipaje(Reserva reserva, int equipaje) {
 		reserva.setEquipaje(equipaje);
-		this.AñadirHistorial("Cambio peso del equipaje en vuelo "+reserva.vuelo.numeroVuelo);
 	}
 	
 	String Pago(String medio, Reserva reserva) {
@@ -61,7 +59,6 @@ public class Cliente extends Persona{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			this.AñadirHistorial("trasaccon fallida por $"+reserva.getCosto());
 			return "Transaccion fallida";
 		}
 	}
@@ -74,7 +71,6 @@ public class Cliente extends Persona{
 		String A = "PASE DE ABORDAR/BOARDING PASS" +"\n"+
 					"PASAJERO: " + nombre + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
-		this.AñadirHistorial("Impresion pasabordo "+ reserva.vuelo.numeroVuelo);
 		return A + reserva.vuelo.toString("Pasabordo");
 	}
 
@@ -87,7 +83,6 @@ public class Cliente extends Persona{
 				cartera = cartera + Pasabordo((Reserva) i.next()) + "\n";
 			}
 		}
-		this.AñadirHistorial("Consulta cartera de reservas activas");
 		return cartera;
 	}
 }
