@@ -2,7 +2,7 @@ package gestorAplicacion;
 import java.text.DateFormat;
 import java.util.*;
 public class Admin {
-	public static Vector<Persona>clientes= new Vector <>();
+	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
 	Aeropuerto A1 = new Aeropuerto("Jose Maria Cordoba","Rio Negro","Colombia"); 
