@@ -34,7 +34,7 @@ public class Cliente extends Persona{
 		return Empleado.VuelosDisponibles();
 	}
 	
-	String ConsultarEstadoVuelos(){
+	public String ConsultarEstadoVuelos(){
 		this.AñadirHistorial("Consulta estado de vuelos");
 		return Empleado.EstadoVuelos();
 	}
