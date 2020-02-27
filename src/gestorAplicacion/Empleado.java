@@ -79,6 +79,41 @@ public class Empleado extends Persona{
 		
 	}
 	
+	public static void ActualizarVuelos() {
+		Iterator i = vuelos.iterator();
+		while(i.hasNext()) {
+			Vuelo x = (Vuelo) i.next();
+			switch (x.estado) {
+			case "Venta":
+				x.estado = "Abordaje";
+				break;
+			case "Abordaje":
+				int azar = (int)(Math.random() * 10);
+				if(azar >= 5) {
+					x.estado = "Despego";
+				}else {
+					x.estado = "Restrasado";
+				}
+				break;
+			case "Retrasado":
+				int azarremaster = (int)(Math.random() * 10);
+				if(azarremaster >= 2) {
+					x.estado = "Despego";
+				}
+				break;
+			case "Despego":
+				x.estado = "Volando";
+				break;
+			case "Volando":
+				x.estado = "Aterrizo";
+				break;
+			case "Aterrizo":
+				x.finalize();
+				break;
+			}
+		}
+	}
+	
 	
 	}
 	

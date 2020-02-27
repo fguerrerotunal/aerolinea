@@ -50,5 +50,8 @@ public class Vuelo {
 		return info;
 	}
 	
+	public void finalize() {
+		
+	}
 
 }
