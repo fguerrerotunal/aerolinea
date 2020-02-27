@@ -4,7 +4,7 @@ import gestorAplicacion.Admin;
 import gestorAplicacion.Cliente;
 
 public class NuevoRegistro extends OpcionDeMenu{
-
+	
 	public String Nombre() {
 		return "Nuevo registro.";
 	}
