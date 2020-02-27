@@ -88,7 +88,7 @@ public class Cliente extends Persona{
 		return A + reserva.vuelo.toString("Pasabordo");
 	}
 
-	String Cartera() {
+	public String Cartera() {
 		String cartera = "No cuentas con reservas activas por el momento.";
 		if(!this.cartera.isEmpty()) {
 			cartera = "";
