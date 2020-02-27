@@ -25,11 +25,11 @@ public class Cliente extends Persona{
 		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
 	}
 	
-	void Reservar(Vuelo vuelo) {
+	public void Reservar(Vuelo vuelo) {
 		this.cartera.add(new Reserva(vuelo, this));
 	}
 	
-	String ConsultarVuelos(){
+	public String ConsultarVuelos(){
 		this.AñadirHistorial("Consulta vuelos disponibles");
 		return Empleado.VuelosDisponibles();
 	}

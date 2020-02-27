@@ -7,7 +7,7 @@ import java.util.Vector;
 public class Empleado extends Persona{
 	String ocupacion;
 	int puertaAbordaje = 0;
-	static Vector<Vuelo> vuelos = new Vector<>();
+	public static Vector<Vuelo> vuelos = new Vector<>();
 	
 	Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
