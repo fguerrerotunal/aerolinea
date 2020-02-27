@@ -35,6 +35,23 @@ public class Admin {
 		}
 		return aviso;
 	}
+	
+	public static int BuscarCliente(int id) {
+		int posicion = 0;
+		Cliente busqueda;
+		Iterator i = clientes.iterator();
+		while(i.hasNext()) {
+			busqueda = (Cliente) i.next();
+			if(busqueda.identificacion == id) {
+				break;
+			}
+			posicion++;
+		}
+		if(posicion==clientes.size()) {
+			posicion = -1;
+		}
+		return posicion;
+	}
 //	public static void main(String[] args) {
 		
 		

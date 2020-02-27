@@ -3,7 +3,7 @@ import java.util.*;
 public class Cliente extends Persona{
 	CuentaMillas cuentamillas;
 	int pasaporte;
-	Vector<Reserva> cartera = new Vector<>();
+	public Vector<Reserva> cartera = new Vector<>();
 	
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
@@ -34,7 +34,7 @@ public class Cliente extends Persona{
 		return Empleado.VuelosDisponibles();
 	}
 	
-	String ConsultarEstadoVuelos(){
+	public String ConsultarEstadoVuelos(){
 		this.AñadirHistorial("Consulta estado de vuelos");
 		return Empleado.EstadoVuelos();
 	}
@@ -48,7 +48,7 @@ public class Cliente extends Persona{
 		reserva.setEquipaje(equipaje);
 	}
 	
-	String Pago(String medio, Reserva reserva) {
+	public String Pago(String medio, Reserva reserva) {
 
 		boolean transaccion = false;
 		switch (medio) {
@@ -77,11 +77,11 @@ public class Cliente extends Persona{
 		}
 	}
 	
-	String CanjearMillas(String premio) {
+	public String CanjearMillas(String premio) {
 		return Admin.Premios(this, premio);
 	}
 	
-	String Pasabordo(Reserva reserva) {
+	public String Pasabordo(Reserva reserva) {
 		String A = "PASE DE ABORDAR/BOARDING PASS" +"\n"+
 					"PASAJERO: " + nombre + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
