@@ -14,7 +14,7 @@ public class Admin {
 		String aviso = "Millas insuficientes";
 		int precio = 0;
 		switch (premio) {
-			case "Carro":
+			case "Carroo":
 				precio = 15000;
 				break;
 			case "Sala-Comedor":
