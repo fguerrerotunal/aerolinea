@@ -2,7 +2,7 @@ package gestorAplicacion;
 import java.text.DateFormat;
 import java.util.*;
 public class Admin {
-	// por si las moscas
+	// fosiles ta ta ta pup
 	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
