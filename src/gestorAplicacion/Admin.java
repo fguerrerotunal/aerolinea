@@ -1,8 +1,9 @@
 package gestorAplicacion;
 import java.text.DateFormat;
 import java.util.*;
-public class Admin {
-	static Vector<Aeropuerto> destinos = new Vector<>();
+public class Admin { 
+	public static Vector<String> premios = new Vector<>(); 
+	public static Vector<Aeropuerto> destinos = new Vector<>();
 	Aeropuerto A1 = new Aeropuerto("Jose Maria Cordoba","Rio Negro","Colombia"); 
 	Aeropuerto A2 = new Aeropuerto("El Dorado","Bogota","Colombia");
 	Aeropuerto A3 = new Aeropuerto("Rafael Nuñez","Cartagena de Indias","Colombia");
