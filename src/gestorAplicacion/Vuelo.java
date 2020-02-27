@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class Vuelo {
 	static int cantidadVuelos;
-	Vector<Reserva> puestos = new Vector<Reserva>();
+	Reserva[] puestos = new Reserva[20];
 	String numeroVuelo;
 	int precioTiquete;
 	Date fecha;
@@ -17,7 +17,7 @@ public class Vuelo {
 	
 	Vuelo(String numeroVuelo, Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
-		capacidad = (int)(Math.random() * (10-5)+5);
+		capacidad = 20;
 		precioTiquete = capacidad*12500;
 		estado = "Venta";
 		this.numeroVuelo = numeroVuelo;
@@ -26,6 +26,7 @@ public class Vuelo {
 		this.destino= destino;
 		this.puertaAbordaje = puertaAbordaje;
 	}
+	
 	
 	String toString(String tipo) {
 		String info = "";
@@ -46,7 +47,12 @@ public class Vuelo {
 		case "estado":
 			info = info + (String) numeroVuelo +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
 			break;
+		case "sillas":
+			
+			
 		}
+		
+		
 		return info;
 	}
 	

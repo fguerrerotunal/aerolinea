@@ -4,7 +4,7 @@ import gestorAplicacion.Admin;
 import gestorAplicacion.Cliente;
 
 public class NuevoRegistro extends OpcionDeMenu{
-
+	
 	public String Nombre() {
 		return "Nuevo registro.";
 	}
@@ -15,6 +15,7 @@ public class NuevoRegistro extends OpcionDeMenu{
 		int id = sc.nextInt();
 		System.out.println("Nombre completo:");
 		String nombre = sc.next();
+		sc.nextLine();
 		System.out.println("Numero de cuenta bancaria:");
 		int cuenta = sc.nextInt();
 		System.out.println("Direccon:");
