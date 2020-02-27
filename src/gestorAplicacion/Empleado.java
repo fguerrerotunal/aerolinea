@@ -33,7 +33,7 @@ public class Empleado extends Persona{
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(vuelo.puestos.length < vuelo.capacidad && vuelo.estado.equals("Venta")) {
+			if(vuelo.estado.equals("Venta")) {
 				vuelosDisponibles = vuelosDisponibles + "\n" + vuelo.toString("consulta");
 			}
 		}
@@ -70,9 +70,8 @@ public class Empleado extends Persona{
 		}
 	static String Consultarpasajeros(Vuelo vuelo) {
 		String pasajeros="(Nombre,Identificacion)\n";
-		Iterator i=vuelo.puestos.iterator();
-		while(i.hasNext()) {
-			Persona pasajero=(Persona)i.next();
+		for(int i = 0;i<20;i++) {
+			Persona pasajero=vuelo.puestos[i].pasajero;
 			pasajeros=pasajeros+pasajero.nombre+" "+pasajero.identificacion+"\n";
 		}
 		return pasajeros;
