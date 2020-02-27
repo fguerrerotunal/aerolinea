@@ -20,7 +20,7 @@ public class Inicio extends MenuDeConsola{
 		VuelosDelDia vuelos = new VuelosDelDia();  //listo
 		Salir salir = new Salir();  //listo
 		ComprarTiquete comprartiquete = new ComprarTiquete();  //listo
-		CanjearMillas canjearmillas = new CanjearMillas();   
+		CanjearMillas canjearmillas = new CanjearMillas();  // listo 
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
 		Cartera cartera = new Cartera(menucartera);  //listo
 		Cartera cartera1 = new Cartera();  // listo

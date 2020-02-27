@@ -11,11 +11,10 @@ public class CanjearMillas  extends OpcionDeMenu{
 	}
 	
 	public void Ejecutar() {
-		Iterator i = Admin.premios.iterator();
-		while(i.hasNext()) {
-			System.out.println(i.next());
-		}
-		
+		System.out.println(Admin.ImprimirPremios());
+		System.out.println("¿Que premio deseas canjear?");
+		int premio = sc.nextInt();
+		System.out.println(MenuDeConsola.usuarioactual.CanjearMillas(premio));
 	}
 
 }
