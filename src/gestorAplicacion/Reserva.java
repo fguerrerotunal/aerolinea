@@ -11,20 +11,7 @@ public class Reserva {
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
 		this.costo += vuelo.precioTiquete;
-		
-		for(int i = 0; i < vuelo.puestos.length; i++) {
-			if(vuelo.puestos[i] == null) {
-				this.vuelo.puestos[i] = this;
-				this.silla=i;
-				break;
-			}
-			
-		}
-			
-			
-			
-			
-		//this.vuelo.puestos.add(this);
+		this.vuelo.puestos.add(this);
 	}
 	
 	int getSilla() {

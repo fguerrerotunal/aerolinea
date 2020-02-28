@@ -77,7 +77,7 @@ public class Cliente extends Persona{
 		}
 	}
 	
-	public String CanjearMillas(int premio) {
+	public String CanjearMillas(String premio) {
 		return Admin.Premios(this, premio);
 	}
 	

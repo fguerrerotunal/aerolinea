@@ -23,7 +23,7 @@ public class UsuarioRegistrado extends OpcionDeMenu{
 			System.out.println("USUARIO INEXISTENTE");
 		}else {
 			MenuDeConsola.usuarioactual = Admin.clientes.get(posicion);
-			System.out.println("Ingreso exitoso.");
+			System.out.println("bien");
 			sigmenu.LanzarMenu();
 		}
 		

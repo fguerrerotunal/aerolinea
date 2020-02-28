@@ -33,7 +33,7 @@ public class Empleado extends Persona{
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(vuelo.estado.equals("Venta")) {
+			if(vuelo.puestos.size() < vuelo.capacidad && vuelo.estado.equals("Venta")) {
 				vuelosDisponibles = vuelosDisponibles + "\n" + vuelo.toString("consulta");
 			}
 		}
@@ -70,47 +70,13 @@ public class Empleado extends Persona{
 		}
 	static String Consultarpasajeros(Vuelo vuelo) {
 		String pasajeros="(Nombre,Identificacion)\n";
-		for(int i = 0;i<20;i++) {
-			Persona pasajero=vuelo.puestos[i].pasajero;
+		Iterator i=vuelo.puestos.iterator();
+		while(i.hasNext()) {
+			Persona pasajero=(Persona)i.next();
 			pasajeros=pasajeros+pasajero.nombre+" "+pasajero.identificacion+"\n";
 		}
 		return pasajeros;
 		
-	}
-	
-	public static void ActualizarVuelos() {
-		Iterator i = vuelos.iterator();
-		while(i.hasNext()) {
-			Vuelo x = (Vuelo) i.next();
-			switch (x.estado) {
-			case "Venta":
-				x.estado = "Abordaje";
-				break;
-			case "Abordaje":
-				int azar = (int)(Math.random() * 10);
-				if(azar >= 5) {
-					x.estado = "Despego";
-				}else {
-					x.estado = "Restrasado";
-				}
-				break;
-			case "Retrasado":
-				int azarremaster = (int)(Math.random() * 10);
-				if(azarremaster >= 2) {
-					x.estado = "Despego";
-				}
-				break;
-			case "Despego":
-				x.estado = "Volando";
-				break;
-			case "Volando":
-				x.estado = "Aterrizo";
-				break;
-			case "Aterrizo":
-				x.finalize();
-				break;
-			}
-		}
 	}
 	
 	
