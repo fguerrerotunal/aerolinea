@@ -1,5 +1,10 @@
 package uiMain.menuconsola;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import gestorAplicacion.Empleado;
+
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
 		return "AEROLINEA LUNA`S";
@@ -15,7 +20,7 @@ public class Inicio extends MenuDeConsola{
 		VuelosDelDia vuelos = new VuelosDelDia();  //listo
 		Salir salir = new Salir();  //listo
 		ComprarTiquete comprartiquete = new ComprarTiquete();  //listo
-		CanjearMillas canjearmillas = new CanjearMillas();   
+		CanjearMillas canjearmillas = new CanjearMillas();  // listo 
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
 		Cartera cartera = new Cartera(menucartera);  //listo
 		Cartera cartera1 = new Cartera();  // listo
@@ -40,6 +45,13 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(imprimirpasabordo);
 		menucartera.opciones.add(atras);
 		
+		Timer timer = new Timer();
+		TimerTask estadoVuelos =  new TimerTask() {
+			public void run() {
+				Empleado.ActualizarVuelos();
+			}
+		};
+		timer.schedule(estadoVuelos, 0, 180000);//cada 3 min
 		inicio.LanzarMenu();
 		
 	}
