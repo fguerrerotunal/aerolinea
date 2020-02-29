@@ -16,7 +16,7 @@ public abstract class MenuDeConsola {
 		
 		do{
 			System.out.println("");
-			System.out.println("==============================================================================================================================================u");
+			System.out.println("===============================================================================================================================================");
 			Iterator i = opciones.iterator();
 			System.out.println(this.Mensaje());
 			while(i.hasNext()) {
