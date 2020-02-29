@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class Vuelo {
 	static int cantidadVuelos;
-	Vector<Reserva> puestos = new Vector<Reserva>();
+	Reserva[] puestos = new Reserva[20];
 	String numeroVuelo;
 	int precioTiquete;
 	Date fecha;
@@ -47,9 +47,16 @@ public class Vuelo {
 		case "estado":
 			info = info + (String) numeroVuelo +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
 			break;
+		
+		case "sillas":
+		
+			break;
 		}
+	
 		return info;
 	}
-	
 
+	public void finalize() {
+	
+	}
 }
