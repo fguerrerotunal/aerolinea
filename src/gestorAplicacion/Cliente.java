@@ -1,7 +1,7 @@
 package gestorAplicacion;
 import java.util.*;
 public class Cliente extends Persona{
-	CuentaMillas cuentamillas;
+	public CuentaMillas cuentamillas;
 	int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();
 	

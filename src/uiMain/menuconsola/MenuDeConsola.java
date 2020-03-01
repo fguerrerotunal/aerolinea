@@ -22,6 +22,8 @@ public abstract class MenuDeConsola {
 			if(this instanceof MenuCliente) {
 				System.out.print("DEUDA TOTAL: ");
 				System.out.println(usuarioactual.Deuda());
+				System.out.print("\nSALDO CUENTA MILLAS: ");
+				System.out.println(usuarioactual.cuentamillas.getMillas());
 			}
 			while(i.hasNext()) {
 				OpcionDeMenu opcion = (OpcionDeMenu) i.next();

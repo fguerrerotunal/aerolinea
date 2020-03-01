@@ -12,11 +12,11 @@ public class CuentaMillas {
 		cantidadCuentas += 1;		
 	}
 	
-	void setMillas(int millas){
+	public void setMillas(int millas){
 		this.millas = millas;
 	}
 	
-	int getMillas(){
+	public int getMillas(){
 		return millas;
 	}
 	
