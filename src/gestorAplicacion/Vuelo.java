@@ -49,8 +49,25 @@ public class Vuelo {
 			break;
 		
 		case "sillas":
-		
+			String a;
+			String b;
+			for(int i = 0; i < 20; i++) {
+				if(puestos[i] == null) {
+					a = "[ Disponible ]";
+				}
+				else {
+					a = "[ Ocupado ]";
+				}
+				info = info + a;
+				if(i == 4 || i == 9 || i == 14 || i == 19) {
+					info = info + "\n";
+				}
+				if(i == 9) {
+					info = info + "=============================================" + "\n";
+				}
+			}
 			break;
+			
 		}
 	
 		return info;
