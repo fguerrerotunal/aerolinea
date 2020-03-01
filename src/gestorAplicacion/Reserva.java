@@ -21,31 +21,31 @@ public class Reserva {
 		}	
 	}
 	
-	int getSilla() {
+	public int getSilla() {
 		return silla;
 	}
 	
-	int getEquipaje() {
+	public int getEquipaje() {
 		return equipaje;
 	}
 	
-	int getCosto() {
+	public int getCosto() {
 		return costo;
 	}
 	
-	void setSilla(int silla) {
+	public void setSilla(int silla) {
 		this.silla = silla;
 		costo += 45000;
 	}
 
-	void setEquipaje(int equipaje) {
+	public void setEquipaje(int equipaje) {
 		this.equipaje = equipaje;
 		if(this.equipaje >= 20) {
 			costo += 30000;
 		}
 	}
 	
-	void setCosto(int costo) {
+	public void setCosto(int costo) {
 		this.costo = costo;
 	}
 

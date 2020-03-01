@@ -48,29 +48,35 @@ public class Cliente extends Persona{
 		reserva.setEquipaje(equipaje);
 	}
 	
-	public String Pago(String medio, Reserva reserva) {
+	public String Pago(String medio) {
 
 		boolean transaccion = false;
+		int costo = this.Deuda();
 		switch (medio) {
 			case "Efectivo":
-				if(this.cuentabancaria.getSaldo() >= reserva.getCosto()) {
-					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - reserva.getCosto());
+				if(this.cuentabancaria.getSaldo() >= costo) {
+					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
 					transaccion = true;
 				}
 				break;
 				
 			case "millas":
-				int millas=(int)reserva.getCosto()*2;
+				int millas=(int)costo*2;
 				if(this.cuentamillas.getMillas()  >= millas) {
-					Empleado.ModMillas(reserva.pasajero, -millas);
+					Empleado.ModMillas(this, -millas);
 					
 					transaccion = true;
 				}
 				break;
 		}
 		if(transaccion) {
-			this.AñadirHistorial("Transaccion satisfactora por $"+reserva.getCosto());
-			reserva.setCosto(0);
+			this.AñadirHistorial("Transaccion satisfactora por $"+costo);
+			if(!this.cartera.isEmpty()) {
+				Iterator i = this.cartera.iterator();
+				while(i.hasNext()) {
+					((Reserva) i.next()).setCosto(0);
+				}
+			}
 			return "Transaccion realizada satisfactoriamente";
 		}else {
 			return "Transaccion fallida";
