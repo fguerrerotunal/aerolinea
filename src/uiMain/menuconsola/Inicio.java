@@ -21,7 +21,7 @@ public class Inicio extends MenuDeConsola{
 		CanjearMillas canjearmillas = new CanjearMillas();   //listo
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
 		Cartera cartera = new Cartera(menucartera);  //listo
-		Pagar pagar = new Pagar();
+		Pagar pagar = new Pagar(); // listo
 		Cartera cartera1 = new Cartera();  // listo
 		ModificarSilla modificarsilla = new ModificarSilla();
 		ModificarEquipaje modificarequipaje = new ModificarEquipaje();
