@@ -6,7 +6,12 @@ public class Salir extends OpcionDeMenu{
 	}
 	
 	public void Ejecutar() {
-		System.out.print("GRACIAS POR ESCOGERNOS");
-		System.exit(0);
+		if(MenuDeConsola.usuarioactual.Deuda() != 0) {
+			System.out.println("Se debe cancelar la deuda actual \n antes de salir de la aplicacion.");
+		}else {
+			System.out.print("GRACIAS POR ESCOGERNOS");
+			System.exit(0);
+		}
+		
 	}
 }

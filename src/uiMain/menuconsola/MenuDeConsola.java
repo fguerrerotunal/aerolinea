@@ -19,6 +19,10 @@ public abstract class MenuDeConsola {
 			System.out.println("===============================================================================================================================================");
 			Iterator i = opciones.iterator();
 			System.out.println(this.Mensaje());
+			if(this instanceof MenuCliente) {
+				System.out.print("DEUDA TOTAL: ");
+				System.out.println(usuarioactual.Deuda());
+			}
 			while(i.hasNext()) {
 				OpcionDeMenu opcion = (OpcionDeMenu) i.next();
 				System.out.println(posicion+". "+opcion.Nombre());

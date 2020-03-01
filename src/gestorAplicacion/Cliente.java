@@ -99,4 +99,15 @@ public class Cliente extends Persona{
 		}
 		return cartera;
 	}
+	
+	public int Deuda() {
+		int deuda = 0;
+		if(!this.cartera.isEmpty()) {
+			Iterator i = this.cartera.iterator();
+			while(i.hasNext()) {
+				deuda +=  ((Reserva) i.next()).getCosto();
+			}
+		}
+		return deuda;
+	}
 }

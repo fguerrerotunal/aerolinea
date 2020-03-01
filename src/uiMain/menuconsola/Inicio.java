@@ -21,6 +21,7 @@ public class Inicio extends MenuDeConsola{
 		CanjearMillas canjearmillas = new CanjearMillas();   //listo
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
 		Cartera cartera = new Cartera(menucartera);  //listo
+		Pagar pagar = new Pagar();
 		Cartera cartera1 = new Cartera();  // listo
 		ModificarSilla modificarsilla = new ModificarSilla();
 		ModificarEquipaje modificarequipaje = new ModificarEquipaje();
@@ -36,6 +37,7 @@ public class Inicio extends MenuDeConsola{
 		menucliente.opciones.add(historialdevuelo);
 		menucliente.opciones.add(cartera);
 		menucliente.opciones.add(vuelos);
+		menucliente.opciones.add(pagar);
 		menucliente.opciones.add(salir);
 		menucartera.opciones.add(cartera1);
 		menucartera.opciones.add(modificarsilla);

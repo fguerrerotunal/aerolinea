@@ -64,7 +64,7 @@ public class Admin {
 	}
 
 	public static String ImprimirPremios() {
-		String premios = "";
+		String premios = "PREMIOS DISPONIBLES: \n";
 		int posicion=0;
 		Iterator i = Admin.premios.iterator();
 		while(i.hasNext()) {
