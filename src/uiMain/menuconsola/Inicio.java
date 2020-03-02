@@ -25,8 +25,8 @@ public class Inicio extends MenuDeConsola{
 		Cartera cartera = new Cartera(menucartera);  //listo
 		Pagar pagar = new Pagar(); // listo
 		Cartera cartera1 = new Cartera();  // listo
-		ModificarSilla modificarsilla = new ModificarSilla();
-		ModificarEquipaje modificarequipaje = new ModificarEquipaje();
+		ModificarSilla modificarsilla = new ModificarSilla(); //listo
+		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		ImprimirPasabordo imprimirpasabordo = new ImprimirPasabordo();  //listo
 		Atras atras = new Atras(menucliente);  //listo
 		
