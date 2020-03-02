@@ -28,7 +28,7 @@ public class Empleado extends Persona{
 		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
 	}
 	
-	static String VuelosDisponibles() {
+	String VuelosDisponibles() {
 		String vuelosDisponibles = "(Numero de Vuelo, Precio, Fecha/Hora, Salida-Destino)";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
@@ -40,7 +40,7 @@ public class Empleado extends Persona{
 		return vuelosDisponibles;
 	}
 
-	static String EstadoVuelos() {
+	String EstadoVuelos() {
 		String estadoVuelos = "(Numero de Vuelo, Estado, Puerta de abordaje, Salida-Destino)";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
@@ -52,7 +52,7 @@ public class Empleado extends Persona{
 		return estadoVuelos;
 	}
 
-	static void NuevoVuelo(Aeropuerto salida, Aeropuerto destino) {
+	void NuevoVuelo(Aeropuerto salida, Aeropuerto destino) {
 		puertaAbordaje += 1;
 		if(puertaAbordaje > 18) {
 			puertaAbordaje = 1;
@@ -62,15 +62,15 @@ public class Empleado extends Persona{
 		//Empleado.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
 
-	static void ModMillas(Cliente cliente, int precio) {
+	void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
 	
-	static String CosultarVuelo(Vuelo vuelo) {
+	String CosultarVuelo(Vuelo vuelo) {
 		return "Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n"+Consultarpasajeros(vuelo);
 		}
 	
-	static String Consultarpasajeros(Vuelo vuelo) {
+	String Consultarpasajeros(Vuelo vuelo) {
 		String pasajeros="(Nombre,Identificacion)\n";
 		for(int i = 0;i<20;i++) {
 			Persona pasajero = vuelo.puestos[i].pasajero;
@@ -80,7 +80,7 @@ public class Empleado extends Persona{
 		
 	}
 	
-	public static void ActualizarVuelos() {
+	public void ActualizarVuelos() {
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo x = (Vuelo) i.next();

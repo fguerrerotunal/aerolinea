@@ -77,10 +77,10 @@ public class Vuelo {
 			Cliente pasajero = this.puestos[i].pasajero;
 			Reserva reserva = this.puestos[i];
 			pasajero.AñadirHistorial(this.toString("consulta"));
-			Empleado.ModMillas(pasajero, this.precioTiquete/2);
+			Admin.empleados.get(0).ModMillas(pasajero, this.precioTiquete/2);
 			pasajero.cartera.remove(reserva);
 			Empleado.vuelos.remove(this);
-			Empleado.NuevoVuelo(this.salida, this.destino);
+			Admin.empleados.get(0).NuevoVuelo(this.salida, this.destino);
 		}
 	}
 }
