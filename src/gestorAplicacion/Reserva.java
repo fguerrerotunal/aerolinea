@@ -21,24 +21,6 @@ public class Reserva {
 		}	
 	}
 	
-	Reserva cambioDeSilla(Vuelo vuelo,int Nsilla){
-		this.vuelo = vuelo;
-		this.costo += vuelo.precioTiquete;
-		
-			if(vuelo.puestos[Nsilla] == null) {
-				
-				this.vuelo.puestos[Nsilla] = this;
-				this.vuelo.puestos[silla]=null;
-				this.silla=Nsilla;
-		}
-		return this;	
-	}
-	
-	
-	
-
-		
-	
 	public int getSilla() {
 		return silla;
 	}
@@ -67,10 +49,4 @@ public class Reserva {
 		this.costo = costo;
 	}
 
-
-
-				
-	
 }
-
-
