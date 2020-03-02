@@ -36,6 +36,9 @@ public class Reserva {
 	public void setSilla(int silla) {
 		this.silla = silla;
 		costo += 45000;
+		
+		
+		
 	}
 
 	public void setEquipaje(int equipaje) {
