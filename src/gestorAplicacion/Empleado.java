@@ -1,7 +1,8 @@
 package gestorAplicacion;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 public class Empleado extends Persona{
@@ -57,7 +58,9 @@ public class Empleado extends Persona{
 		if(puertaAbordaje > 18) {
 			puertaAbordaje = 1;
 		}
-		Date fecha = new Date();
+		c¿Calendar fecha = Calendar.getInstance();
+		int r = (int)(Math.random()*(10-5+1)+5);
+		fecha.add(fecha.MINUTE,r);
 		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
 		//Empleado.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
