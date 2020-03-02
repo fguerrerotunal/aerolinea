@@ -40,7 +40,7 @@ public class Cliente extends Persona{
 		return Admin.empleados.get(0).EstadoVuelos();
 	}
 	
-	void CambiarSilla(Reserva reserva, int silla) {
+	public void CambiarSilla(Reserva reserva, int silla) {
 		reserva.setSilla(silla);
 	}
 	

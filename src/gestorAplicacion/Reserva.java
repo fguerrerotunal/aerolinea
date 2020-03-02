@@ -1,7 +1,7 @@
 package gestorAplicacion;
 
 public class Reserva {
-	Vuelo vuelo;
+	public Vuelo vuelo;
 	Cliente pasajero;
 	private int silla;
 	private int equipaje;
@@ -33,7 +33,9 @@ public class Reserva {
 	public int getCosto() {
 		return costo;
 	}
-	
+	public Vuelo getVuelo() {
+		return vuelo;
+	}
 
 	public void setSilla(int Nsilla){
 		costo += 45000;
@@ -55,5 +57,7 @@ public class Reserva {
 	public void setCosto(int costo) {
 		this.costo = costo;
 	}
+	
+	
 
 }

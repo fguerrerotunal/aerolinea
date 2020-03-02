@@ -28,7 +28,7 @@ public class Vuelo {
 	}
 	
 	
-	String toString(String tipo) {
+	public String toString(String tipo) {
 		String info = "";
 		String recorrido = this.salida.getCiudad() +"-"+ this.destino.getCiudad();
 		
