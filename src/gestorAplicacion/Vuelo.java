@@ -28,10 +28,6 @@ public class Vuelo {
 	}
 	
 	
-	
-	
-	
-	
 	String toString(String tipo) {
 		String info = "";
 		String recorrido = this.salida.getCiudad() + this.destino.getCiudad();
@@ -54,12 +50,13 @@ public class Vuelo {
 		
 		case "sillas":
 			String a;
+			String b;
 			for(int i = 0; i < 20; i++) {
 				if(puestos[i] == null) {
-					a = "[PUESTO: " + i + " LIBRE ]" ;
+					a = "[ Disponible ]";
 				}
 				else {
-					a = "[PUESTO: " + i + " OCUPADO ]" ;
+					a = "[ Ocupado ]";
 				}
 				info = info + a;
 				if(i == 4 || i == 9 || i == 14 || i == 19) {

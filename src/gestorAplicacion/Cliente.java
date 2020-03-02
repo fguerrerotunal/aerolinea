@@ -12,12 +12,13 @@ public class Cliente extends Persona{
 	}
 	
 	public String Historial(){
-		Iterator i = historial.iterator();
-		String historial = "Historial de acciones de: " + nombre;
-		while(i.hasNext()) {
-			historial = historial + "\n" + i.next();
+		String historial = "Historial de Vuelo: ";
+		if(!this.historial.isEmpty()) {
+			Iterator i = this.historial.iterator();
+			while(i.hasNext()) {
+				historial = historial + "\n" + (String)i.next();
+			}
 		}
-		this.AñadirHistorial("Consulta historial de acciones");
 		return historial;
 	}
 	
@@ -41,7 +42,6 @@ public class Cliente extends Persona{
 	
 	void CambiarSilla(Reserva reserva, int silla) {
 		reserva.setSilla(silla);
-		this.AñadirHistorial("Cambio de silla en vuelo "+reserva.vuelo.numeroVuelo);
 	}
 	
 	void CambiarEquipaje(Reserva reserva, int equipaje) {
@@ -70,7 +70,6 @@ public class Cliente extends Persona{
 				break;
 		}
 		if(transaccion) {
-			this.AñadirHistorial("Transaccion satisfactora por $"+costo);
 			if(!this.cartera.isEmpty()) {
 				Iterator i = this.cartera.iterator();
 				while(i.hasNext()) {

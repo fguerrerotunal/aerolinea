@@ -39,9 +39,6 @@ public class Admin {
 		if(cliente.cuentamillas.getMillas() >= precio) {
 			Empleado.ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
-			cliente.AñadirHistorial("Canjeo Premio "+ premios.get(posicionpremio));
-		}else {
-			cliente.AñadirHistorial("Canjeo premio fallido, millas insuficientes");
 		}
 		return aviso;
 	}
