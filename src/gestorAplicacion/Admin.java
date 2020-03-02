@@ -4,6 +4,7 @@ import java.util.*;
 public class Admin {
 
 	public static Vector<Cliente>clientes= new Vector <>();
+	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
 
@@ -37,7 +38,7 @@ public class Admin {
 			break;
 		}
 		if(cliente.cuentamillas.getMillas() >= precio) {
-			Empleado.ModMillas(cliente, -precio);
+			Admin.empleados.get(0).ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
 		}
 		return aviso;
