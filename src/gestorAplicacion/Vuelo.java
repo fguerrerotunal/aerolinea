@@ -7,7 +7,7 @@ public class Vuelo {
 	Reserva[] puestos = new Reserva[20];
 	int numeroVuelo;
 	int precioTiquete;
-	Date fecha;
+	Calendar fecha;
 	Aeropuerto destino;
 	Aeropuerto salida;
 	String estado;
@@ -15,7 +15,7 @@ public class Vuelo {
 	int puertaAbordaje;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 	
-	Vuelo(Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
+	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
 		this.numeroVuelo = cantidadVuelos;
 		capacidad = 20;

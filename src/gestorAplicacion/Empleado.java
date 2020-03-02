@@ -26,7 +26,7 @@ public class Empleado extends Persona{
 	}
 	
 	public void AñadirHistorial(String accion) {
-		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
+		this.historial.add(dateFormat.format(new Calendar()) + " "+ accion);
 	}
 	
 	String VuelosDisponibles() {
