@@ -6,7 +6,7 @@ import java.util.Vector;
 
 public class Empleado extends Persona{
 	String ocupacion;
-	int puertaAbordaje = 0;
+	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
 	
 	Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
@@ -52,14 +52,14 @@ public class Empleado extends Persona{
 		return estadoVuelos;
 	}
 
-	void NuevoVuelo(String numeroVuelo, Aeropuerto salida, Aeropuerto destino) {
+	static void NuevoVuelo(Aeropuerto salida, Aeropuerto destino) {
 		puertaAbordaje += 1;
 		if(puertaAbordaje > 18) {
 			puertaAbordaje = 1;
 		}
 		Date fecha = new Date();
-		Empleado.vuelos.add(new Vuelo(numeroVuelo, fecha, destino, salida, puertaAbordaje));
-		this.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
+		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
+		//Empleado.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
 
 	static void ModMillas(Cliente cliente, int precio) {

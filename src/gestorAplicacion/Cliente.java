@@ -23,7 +23,7 @@ public class Cliente extends Persona{
 	}
 	
 	public void AñadirHistorial(String accion) {
-		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
+		this.historial.add(accion);
 	}
 	
 	public void Reservar(Vuelo vuelo) {
