@@ -9,7 +9,7 @@ public class Empleado extends Persona{
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
 	
-	Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
+	public Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
 		this.ocupacion = ocupacion;
 	}

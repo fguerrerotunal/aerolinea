@@ -46,7 +46,7 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(modificarequipaje);
 		menucartera.opciones.add(imprimirpasabordo);
 		menucartera.opciones.add(atras);
-		
+		Admin.empleados.add(new Empleado(1,1,"f","f","f","f"));
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {

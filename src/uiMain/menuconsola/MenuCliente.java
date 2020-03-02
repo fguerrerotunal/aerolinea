@@ -5,7 +5,7 @@ public class MenuCliente extends MenuDeConsola{
 	
 	
 	public String Mensaje() {
-		return "CLIENTE";
+		return "CLIENTE: "+ MenuDeConsola.usuarioactual.getNombre(usuarioactual);
 	}
 
 }
