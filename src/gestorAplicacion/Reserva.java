@@ -34,6 +34,11 @@ public class Reserva {
 		return this;	
 	}
 	
+	
+	
+
+		
+	
 	public int getSilla() {
 		return silla;
 	}
@@ -46,14 +51,9 @@ public class Reserva {
 		return costo;
 	}
 	
-
-	public void setSilla(int Nsilla){
+	public void setSilla(int silla) {
+		this.silla = silla;
 		costo += 45000;
-		if(vuelo.puestos[Nsilla] == null) {
-			this.vuelo.puestos[Nsilla] = this;
-			this.vuelo.puestos[silla]=null;
-			this.silla=Nsilla;
-		}	
 	}
 
 	public void setEquipaje(int equipaje) {
