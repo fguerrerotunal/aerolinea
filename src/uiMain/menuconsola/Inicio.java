@@ -1,8 +1,6 @@
 package uiMain.menuconsola;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import gestorAplicacion.Admin;
 import gestorAplicacion.Empleado;
 
 public class Inicio extends MenuDeConsola{
@@ -50,7 +48,7 @@ public class Inicio extends MenuDeConsola{
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {
-				Admin.empleados.get(0).ActualizarVuelos();
+				Empleado.ActualizarVuelos();
 			}
 		};
 		timer.schedule(estadoVuelos, 0, 180000);//cada 3 min

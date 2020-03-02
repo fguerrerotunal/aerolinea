@@ -3,9 +3,9 @@ import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class Vuelo {
-	static int cantidadVuelos = 0;
+	static int cantidadVuelos;
 	Reserva[] puestos = new Reserva[20];
-	int numeroVuelo;
+	String numeroVuelo;
 	int precioTiquete;
 	Date fecha;
 	Aeropuerto destino;
@@ -15,12 +15,12 @@ public class Vuelo {
 	int puertaAbordaje;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 	
-	Vuelo(Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
+	Vuelo(String numeroVuelo, Date fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
-		this.numeroVuelo = cantidadVuelos;
 		capacidad = 20;
 		precioTiquete = capacidad*12500;
 		estado = "Venta";
+		this.numeroVuelo = numeroVuelo;
 		this.fecha = fecha;
 		this.salida = salida;
 		this.destino= destino;
@@ -30,11 +30,11 @@ public class Vuelo {
 	
 	String toString(String tipo) {
 		String info = "";
-		String recorrido = this.salida.getCiudad() +"-"+ this.destino.getCiudad();
+		String recorrido = this.salida.getCiudad() + this.destino.getCiudad();
 		
 		switch (tipo) {
 		case "consulta":
-			info = info + Integer.toString(numeroVuelo) +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
+			info = info + (String) numeroVuelo +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
 			break;
 		case "pasabordo":
 			info = "VUELO: " + numeroVuelo +"\n"+
@@ -45,7 +45,7 @@ public class Vuelo {
 			break;
 		
 		case "estado":
-			info = info + Integer.toString(numeroVuelo) +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
+			info = info + (String) numeroVuelo +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
 			break;
 		
 		case "sillas":
@@ -73,14 +73,6 @@ public class Vuelo {
 	}
 
 	public void finalize() {
-		for(int i = 0;i<20;i++) {
-			Cliente pasajero = this.puestos[i].pasajero;
-			Reserva reserva = this.puestos[i];
-			pasajero.AñadirHistorial(this.toString("consulta"));
-			Admin.empleados.get(0).ModMillas(pasajero, this.precioTiquete/2);
-			pasajero.cartera.remove(reserva);
-			Empleado.vuelos.remove(this);
-			Admin.empleados.get(0).NuevoVuelo(this.salida, this.destino);
-		}
+	
 	}
 }

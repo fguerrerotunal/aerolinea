@@ -23,7 +23,7 @@ public class Cliente extends Persona{
 	}
 	
 	public void AñadirHistorial(String accion) {
-		this.historial.add(accion);
+		this.historial.add(dateFormat.format(new Date()) + " "+ accion);
 	}
 	
 	public void Reservar(Vuelo vuelo) {
@@ -32,12 +32,12 @@ public class Cliente extends Persona{
 	
 	public String ConsultarVuelos(){
 		this.AñadirHistorial("Consulta vuelos disponibles");
-		return Admin.empleados.get(0).VuelosDisponibles();
+		return Empleado.VuelosDisponibles();
 	}
 	
 	public String ConsultarEstadoVuelos(){
 		this.AñadirHistorial("Consulta estado de vuelos");
-		return Admin.empleados.get(0).EstadoVuelos();
+		return Empleado.EstadoVuelos();
 	}
 	
 	void CambiarSilla(Reserva reserva, int silla) {
@@ -63,7 +63,7 @@ public class Cliente extends Persona{
 			case "millas":
 				int millas=(int)costo*2;
 				if(this.cuentamillas.getMillas()  >= millas) {
-					Admin.empleados.get(0).ModMillas(this, -millas);
+					Empleado.ModMillas(this, -millas);
 					
 					transaccion = true;
 				}
