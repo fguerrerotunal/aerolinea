@@ -21,17 +21,7 @@ public class Reserva {
 		}	
 	}
 	
-	public void cambioDeSilla(Vuelo vuelo,int Nsilla){
-		this.vuelo = vuelo;
-		this.costo += vuelo.precioTiquete;
-		
-			if(vuelo.puestos[Nsilla] == null) {
-				
-				this.vuelo.puestos[Nsilla] = this;
-				this.vuelo.puestos[silla]=null;
-				this.silla=Nsilla;
-		}	
-	}
+
 	
 	
 	
@@ -50,9 +40,14 @@ public class Reserva {
 		return costo;
 	}
 	
-	public void setSilla(int silla) {
-		this.silla = silla;
+
+	public void setSilla(int Nsilla){
 		costo += 45000;
+		if(vuelo.puestos[Nsilla] == null) {
+			this.vuelo.puestos[Nsilla] = this;
+			this.vuelo.puestos[silla]=null;
+			this.silla=Nsilla;
+		}	
 	}
 
 	public void setEquipaje(int equipaje) {
