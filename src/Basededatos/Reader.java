@@ -17,10 +17,13 @@ public class Reader {
 		Empleados=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Empleados.txt");
 		Vuelos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Vuelos.txt");
 		Reservas=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Reservas.txt");
-		for (int i=0;i<Admin.destinos.size();i++) {
+		BufferedReader Aeropuerto=new BufferedReader(Aeropuertos);
+		BufferedReader Cliente=new BufferedReader(Clientes);
+		BufferedReader Empleado=new BufferedReader(Empleado);
+		BufferedReader Vuelo=new BufferedReader(Vuelos);
+		BufferedReader Reservas=new BufferedReader(Reservas);
 		
-			
-		}
+		while()
 		
 	}
 	
