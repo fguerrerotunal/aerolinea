@@ -27,9 +27,14 @@ public class Reader {
 				String ciudad=(String)aeropuerto.readLine();
 				String pais=(String)aeropuerto.readLine();
 				new Aeropuerto(nombre,ciudad,pais);
-			}   
+			}
+			while(Vuelo.readLine()!=null) {
+				Calendar fecha;
+			}
+			
+			
 			Cliente nuevo;
-			while(Cliente.readLine()!=null) {
+			while(Cliente.read()!=-1) {
 				nuevo=null;
 				int identificacion=Integer.valueOf((String)aeropuerto.readLine());
 				int cuentabancaria=Integer.valueOf((String)aeropuerto.readLine());
