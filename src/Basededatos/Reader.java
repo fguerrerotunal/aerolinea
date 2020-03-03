@@ -10,11 +10,11 @@ public class Reader {
 	FileReader Clientes;
 	FileReader Empleados;
 	FileReader Vuelos;
-	public void leer() throws FileNotFoundException {
-		Aeropuertos=new FileReader("https://github.com/fguerrerotunal/aerolinea/blob/master/src/Basededatos/Aeropuertos.txt");
-		Clientes=new FileReader("https://github.com/fguerrerotunal/aerolinea/blob/master/src/Basededatos/Clientes.txt");
-		Empleados=new FileReader("https://github.com/fguerrerotunal/aerolinea/blob/master/src/Basededatos/Empleados.txt");
-		Vuelos=new FileReader("https://github.com/fguerrerotunal/aerolinea/blob/master/src/Basededatos/Vuelos.txt");
+	public void leer() throws FileNotFoundException{
+		Aeropuertos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Aeropuerto.txt");
+		Clientes=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Clientes.txt");
+		Empleados=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Empleados.txt");
+		Vuelos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Vuelos.txt");
 	}
 	
 }
