@@ -15,6 +15,10 @@ public class Reader {
 		Clientes=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Clientes.txt");
 		Empleados=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Empleados.txt");
 		Vuelos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Vuelos.txt");
+		for (int j,j<Admin.destinos.size(),i++) {
+			
+		}
+		
 	}
 	
 }
