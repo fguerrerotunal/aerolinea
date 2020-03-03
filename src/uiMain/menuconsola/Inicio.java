@@ -30,6 +30,7 @@ public class Inicio extends MenuDeConsola{
 		ModificarSilla modificarsilla = new ModificarSilla(); //listo
 		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		ImprimirPasabordo imprimirpasabordo = new ImprimirPasabordo();  //listo
+		CancelarReserva cancelarreserva = new CancelarReserva();
 		Atras atras = new Atras(menucliente);  //listo
 		
 		inicio.opciones.add(usuarioregistrado);
@@ -47,6 +48,7 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(modificarsilla);
 		menucartera.opciones.add(modificarequipaje);
 		menucartera.opciones.add(imprimirpasabordo);
+		menucartera.opciones.add(cancelarreserva);
 		menucartera.opciones.add(atras);
 		Admin.empleados.add(new Empleado(1,1,"f","f","f","f"));
 		new Aeropuerto("a","a","a");

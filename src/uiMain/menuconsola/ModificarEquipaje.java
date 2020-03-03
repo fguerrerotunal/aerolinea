@@ -1,6 +1,5 @@
 package uiMain.menuconsola;
 
-import gestorAplicacion.Reserva;
 
 public class ModificarEquipaje  extends OpcionDeMenu{
 
