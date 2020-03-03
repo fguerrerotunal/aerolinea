@@ -27,11 +27,18 @@ public class Reader {
 				String ciudad=(String)aeropuerto.readLine();
 				String pais=(String)aeropuerto.readLine();
 				new Aeropuerto(nombre,ciudad,pais);
-			}
+			}   
+			Cliente nuevo;
 			while(Cliente.readLine()!=null) {
-				int nombre=Integer.valueOf((String)aeropuerto.readLine());
-				int ciudad=Integer.valueOf((String)aeropuerto.readLine());
-				String pais=(String)aeropuerto.readLine();
+				nuevo=null;
+				int identificacion=Integer.valueOf((String)aeropuerto.readLine());
+				int cuentabancaria=Integer.valueOf((String)aeropuerto.readLine());
+				String nombre=(String)aeropuerto.readLine();
+				String direccion=(String)aeropuerto.readLine();
+				String correo=(String)aeropuerto.readLine();
+				int pasaporte=Integer.valueOf((String)aeropuerto.readLine());
+				nuevo=new Cliente(identificacion,cuentabancaria,nombre,direccion,correo,pasaporte);
+				nuevo.cartera
 			}
 			
 			
