@@ -25,10 +25,11 @@ public class Reader {
 			BufferedReader Vuelo=new BufferedReader(Vuelos);
 			BufferedReader Reserva=new BufferedReader(Reservas);
 			for (int i=0;i<Admin.destinos.size();i++) {
-				String nombre=aeropuerto.readLine();
-				String ciudad=aeropuerto.readLine();
-				String pais=aeropuerto.readLine();
-				Aeropuerto(nombre,ciudad,pais);
+				String nombre=(String)aeropuerto.readLine();
+				String ciudad=(String)aeropuerto.readLine();
+				String pais=(String)aeropuerto.readLine();
+				new Aeropuerto(nombre,ciudad,pais);
+				
 			}
 			
 		} catch (IOException e) {
