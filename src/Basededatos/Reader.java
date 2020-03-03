@@ -18,7 +18,7 @@ public class Reader {
 		Vuelos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Vuelos.txt");
 		Reservas=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Reservas.txt");
 		for (int i=0;i<Admin.destinos.size();i++) {
-			
+		
 			
 		}
 		
