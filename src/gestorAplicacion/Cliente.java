@@ -12,7 +12,7 @@ public class Cliente extends Persona{
 	}
 	
 	public String Historial(){
-		String historial = "Historial de Vuelo: \n  # Vuelo \\tPrecio \\t Fecha/Hora \\t \\tSalida-Destino\"";
+		String historial = "Historial de Vuelo: \n# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 		if(!this.historial.isEmpty()) {
 			Iterator i = this.historial.iterator();
 			while(i.hasNext()) {
