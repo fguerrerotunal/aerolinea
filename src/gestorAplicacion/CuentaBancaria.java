@@ -23,7 +23,9 @@ public class CuentaBancaria {
 	void Actualizar(){
 		saldo += 12500*15;
 	}
-	
+	void add(int nv) {
+		saldo=saldo+nv;
+	}
 	
 	
 }

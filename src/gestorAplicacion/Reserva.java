@@ -58,6 +58,10 @@ public class Reserva {
 		this.costo = costo;
 	}
 	
-	
+	public int Finalize(){
+		this.vuelo.puestos[silla]=null;
+		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
+		return vuelo.precioTiquete;
+	}
 
 }
