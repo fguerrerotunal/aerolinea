@@ -1,0 +1,29 @@
+30
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+1
+125000
+	Calendar fecha;
+	Aeropuerto destino;
+	Aeropuerto salida;
+Venta
+20
+1

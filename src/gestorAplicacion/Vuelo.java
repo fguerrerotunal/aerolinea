@@ -34,18 +34,18 @@ public class Vuelo {
 		
 		switch (tipo) {
 		case "consulta":
-			info = info + Integer.toString(numeroVuelo) +"    "+ Integer.toString(precioTiquete) +"    "+ dateFormat.format(fecha) +"    "+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t \t"+ Integer.toString(precioTiquete) +"\t "+ dateFormat.format(fecha.getTime()) +"\t"+ recorrido;
 			break;
 		case "pasabordo":
 			info = "VUELO: " + numeroVuelo +"\n"+
-					"EN SALA: " + dateFormat.format(fecha)+ "\n"+
+					"EN SALA: " + dateFormat.format(fecha.getTime()) + "\n"+
 					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
 					"ORIGEN: " + salida + "\n"+
 					"DESTINO: " + destino;
 			break;
-		
+									
 		case "estado":
-			info = info + Integer.toString(numeroVuelo) +"    "+ estado +"    "+ puertaAbordaje +"    "+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t"+ estado +"\t"+ puertaAbordaje +"\t"+ recorrido;
 			break;
 		
 		case "sillas":

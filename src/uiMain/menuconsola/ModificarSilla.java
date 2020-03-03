@@ -16,7 +16,7 @@ public class ModificarSilla  extends OpcionDeMenu{
 		System.out.println("Escoge un nuevo puesto");
 		int Npuesto=sc.nextInt();
 		MenuDeConsola.usuarioactual.CambiarSilla(x, Npuesto);
-		
+		System.out.println("CAMBIO EXITOSO");
 
 	}
 }

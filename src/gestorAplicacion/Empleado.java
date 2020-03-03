@@ -26,11 +26,11 @@ public class Empleado extends Persona{
 	}
 	
 	public void AñadirHistorial(String accion) {
-		this.historial.add(dateFormat.format(Calendar.getInstance()) + " "+ accion);
+		this.historial.add(Calendar.getInstance() + " "+ accion);
 	}
 	
 	String VuelosDisponibles() {
-		String vuelosDisponibles = "(Numero de Vuelo, Precio, Fecha/Hora, Salida-Destino)";
+		String vuelosDisponibles = "# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
@@ -42,7 +42,7 @@ public class Empleado extends Persona{
 	}
 
 	String EstadoVuelos() {
-		String estadoVuelos = "(Numero de Vuelo, Estado, Puerta de abordaje, Salida-Destino)";
+		String estadoVuelos = "# Vuelo \t Estado \t Puerta de abordaje \t Salida-Destino";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
@@ -53,7 +53,7 @@ public class Empleado extends Persona{
 		return estadoVuelos;
 	}
 
-	void NuevoVuelo(Aeropuerto salida, Aeropuerto destino) {
+	public void NuevoVuelo(Aeropuerto salida, Aeropuerto destino) {
 		puertaAbordaje += 1;
 		if(puertaAbordaje > 18) {
 			puertaAbordaje = 1;
