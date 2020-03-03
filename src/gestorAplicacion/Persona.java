@@ -19,7 +19,7 @@ public abstract class Persona {
 		this.direccion = direccion;
 		this.correo = correo;
 		
-		this.AñadirHistorial("Registro en el sistema");
+		//this.AñadirHistorial("Registro en el sistema");
 	}
 	
 	public abstract String Historial();
