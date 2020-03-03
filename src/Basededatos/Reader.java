@@ -32,7 +32,7 @@ public class Reader {
 				new Aeropuerto(nombre,ciudad,pais);
 			}
 			while(Vuelo.readLine()!=null) {
-				Dateformat fecha=;
+				Calendar fecha=new Calendar((String)Vuelo.readLine());
 			}
 			
 			
