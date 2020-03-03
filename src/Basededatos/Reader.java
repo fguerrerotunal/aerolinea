@@ -30,6 +30,12 @@ public class Reader {
 				String pais=(String)aeropuerto.readLine();
 				new Aeropuerto(nombre,ciudad,pais);
 			}
+			while(Cliente.readLine()!=null) {
+				int nombre=parseInt(aeropuerto.readLine());
+				int ciudad=(String)parseInt(aeropuerto.readLine());
+				String pais=(String)aeropuerto.readLine();
+			}
+			
 			
 		} catch (IOException e) {
 			System.out.println("Error en archivo");
