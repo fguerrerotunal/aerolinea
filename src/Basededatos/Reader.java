@@ -8,7 +8,10 @@ public class Reader {
 	FileReader Empleados;
 	FileReader Vuelos;
 	public void leer() {
-		
+		Aeropuertos=new FileReader();
+		Clientes=new FileReader();
+		Empleados=new FileReader();
+		Vuelos=new FileReader();
 	}
 	
 }
