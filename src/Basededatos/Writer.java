@@ -1,5 +1,13 @@
 package Basededatos;
-
-public class Writer {
+import java.io.*;
+import java.util.*;
+public class Writer{
+	
+	public void Escribir(){
+		
+	}
+	
+	
+	
 
 }
