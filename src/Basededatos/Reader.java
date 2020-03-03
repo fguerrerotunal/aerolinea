@@ -3,8 +3,11 @@ import java.io.*;
 import java.util.Vector;
 import javax.imageio.IIOException;
 import gestorAplicacion.*;
-
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 public class Reader {
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 	FileReader Aeropuertos;
 	FileReader Clientes;
 	FileReader Empleados;
@@ -29,7 +32,7 @@ public class Reader {
 				new Aeropuerto(nombre,ciudad,pais);
 			}
 			while(Vuelo.readLine()!=null) {
-				Calendar fecha;
+				Calendar fecha=new Calendar((String)Vuelo.readLine());
 			}
 			
 			
