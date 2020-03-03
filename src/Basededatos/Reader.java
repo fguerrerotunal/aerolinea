@@ -1,9 +1,7 @@
 package Basededatos;
 import java.io.*;
 import java.util.Vector;
-
 import javax.imageio.IIOException;
-
 import gestorAplicacion.*;
 
 public class Reader {
@@ -31,8 +29,8 @@ public class Reader {
 				new Aeropuerto(nombre,ciudad,pais);
 			}
 			while(Cliente.readLine()!=null) {
-				int nombre=parseInt((String)aeropuerto.readLine());
-				int ciudad=parseInt((String)aeropuerto.readLine());
+				int nombre=Integer.valueOf((String)aeropuerto.readLine());
+				int ciudad=Integer.valueOf((String)aeropuerto.readLine());
 				String pais=(String)aeropuerto.readLine();
 			}
 			
