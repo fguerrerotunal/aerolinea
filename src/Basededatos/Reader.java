@@ -31,8 +31,8 @@ public class Reader {
 				new Aeropuerto(nombre,ciudad,pais);
 			}
 			while(Cliente.readLine()!=null) {
-				int nombre=parseInt(aeropuerto.readLine());
-				int ciudad=(String)parseInt(aeropuerto.readLine());
+				int nombre=parseInt((String)aeropuerto.readLine());
+				int ciudad=parseInt((String)aeropuerto.readLine());
 				String pais=(String)aeropuerto.readLine();
 			}
 			
