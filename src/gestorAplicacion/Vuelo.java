@@ -45,7 +45,7 @@ public class Vuelo {
 			break;
 									
 		case "estado":
-			info = info + Integer.toString(numeroVuelo) +"\t \t"+ estado +"\t"+ puertaAbordaje +"\t \t"+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t \t"+ estado +"    \t  \t"+ puertaAbordaje +"\t \t "+ recorrido;
 			break;
 		
 		case "sillas":
@@ -74,13 +74,15 @@ public class Vuelo {
 
 	public void finalize() {
 		for(int i = 0;i<20;i++) {
+			if(this.puestos[i]!=null) {
 			Cliente pasajero = this.puestos[i].pasajero;
 			Reserva reserva = this.puestos[i];
 			pasajero.AñadirHistorial(this.toString("consulta"));
 			Admin.empleados.get(0).ModMillas(pasajero, this.precioTiquete/2);
 			pasajero.cartera.remove(reserva);
-			Empleado.vuelos.remove(this);
-			Admin.empleados.get(0).NuevoVuelo(this.salida, this.destino);
+			}
 		}
+		Empleado.vuelos.remove(this);
+		Admin.empleados.get(0).NuevoVuelo(this.salida, this.destino);
 	}
 }

@@ -98,7 +98,7 @@ public class Empleado extends Persona{
 				if(azar >= 5) {
 					x.estado = "Despego";
 				}else {
-					x.estado = "Restrasado";
+					x.estado = "Retrasado";
 				}
 				break;
 			case "Retrasado":

@@ -44,6 +44,7 @@ public class Reserva {
 			this.vuelo.puestos[silla]=null;
 			this.silla=Nsilla;
 		}	
+		else System.out.println("La silla esta ocupada");
 	}
 
 
