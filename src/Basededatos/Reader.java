@@ -1,5 +1,6 @@
 package Basededatos;
 import java.io.*;
+import java.util.Vector;
 
 import javax.imageio.IIOException;
 
@@ -18,16 +19,23 @@ public class Reader {
 			Empleados=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Empleados.txt");
 			Vuelos=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Vuelos.txt");
 			Reservas=new FileReader("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Reservas.txt");
-		} catch (FileNotFoundException e) {
+			BufferedReader aeropuerto=new BufferedReader(Aeropuertos);
+			BufferedReader Cliente=new BufferedReader(Clientes);
+			BufferedReader Empleado=new BufferedReader(Empleados);
+			BufferedReader Vuelo=new BufferedReader(Vuelos);
+			BufferedReader Reserva=new BufferedReader(Reservas);
+			for (int i=0;i<Admin.destinos.size();i++) {
+				String nombre=aeropuerto.readLine();
+				String ciudad=aeropuerto.readLine();
+				String pais=aeropuerto.readLine();
+				Aeropuerto(nombre,ciudad,pais);
+			}
+			
+		} catch (IOException e) {
 			System.out.println("Error en archivo");
 			e.printStackTrace();
 		}
-		BufferedReader Aeropuerto=new BufferedReader(Aeropuertos);
-		BufferedReader Cliente=new BufferedReader(Clientes);
-		BufferedReader Empleado=new BufferedReader(Empleados);
-		BufferedReader Vuelo=new BufferedReader(Vuelos);
-		BufferedReader Reserva=new BufferedReader(Reservas);
-		
+
 		
 	}
 	
