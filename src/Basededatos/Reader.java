@@ -38,7 +38,9 @@ public class Reader {
 				String correo=(String)aeropuerto.readLine();
 				int pasaporte=Integer.valueOf((String)aeropuerto.readLine());
 				nuevo=new Cliente(identificacion,cuentabancaria,nombre,direccion,correo,pasaporte);
-				nuevo.cartera
+				while(Cliente.readLine()!="null") {
+					
+				}
 			}
 			
 			
