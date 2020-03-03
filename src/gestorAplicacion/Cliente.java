@@ -106,7 +106,8 @@ public class Cliente extends Persona{
 	}
 	
 	public void cancelarReserva(Reserva reserva) {
-		reserva.Finalize();
+		int retorno=reserva.Finalize();
+		  cuentabancaria.add(retorno);
 	}
 	
 	public int Deuda() {
