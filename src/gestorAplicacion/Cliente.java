@@ -105,6 +105,10 @@ public class Cliente extends Persona{
 		return cartera;
 	}
 	
+	public void cancelarReserva(Reserva reserva) {
+		reserva.Finalize();
+	}
+	
 	public int Deuda() {
 		int deuda = 0;
 		if(!this.cartera.isEmpty()) {

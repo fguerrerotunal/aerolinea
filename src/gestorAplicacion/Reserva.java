@@ -58,6 +58,10 @@ public class Reserva {
 		this.costo = costo;
 	}
 	
-	
+	void Finalize(){
+		this.vuelo.puestos[silla]=null;
+		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
+		
+	}
 
 }
