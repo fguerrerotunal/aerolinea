@@ -45,7 +45,7 @@ public class Vuelo {
 			break;
 									
 		case "estado":
-			info = info + Integer.toString(numeroVuelo) +"\t"+ estado +"\t"+ puertaAbordaje +"\t"+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t \t"+ estado +"\t"+ puertaAbordaje +"\t \t"+ recorrido;
 			break;
 		
 		case "sillas":

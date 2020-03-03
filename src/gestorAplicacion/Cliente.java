@@ -87,10 +87,10 @@ public class Cliente extends Persona{
 	}
 	
 	public String Pasabordo(Reserva reserva) {
-		String A = "PASE DE ABORDAR/BOARDING PASS" +"\n"+
+		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
 					"PASAJERO: " + nombre + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
-		return A + reserva.vuelo.toString("Pasabordo");
+		return A + reserva.vuelo.toString("pasabordo");
 	}
 
 	public String Cartera() {

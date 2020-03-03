@@ -30,12 +30,14 @@ public class Empleado extends Persona{
 	}
 	
 	String VuelosDisponibles() {
-		String vuelosDisponibles = "# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
+		String vuelosDisponibles = "\t # Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 		Iterator i = vuelos.iterator();
+		int posicion = 0;
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
 			if(vuelo.estado.equals("Venta")) {
-				vuelosDisponibles = vuelosDisponibles + "\n" + vuelo.toString("consulta");
+				vuelosDisponibles = vuelosDisponibles + "\n" + posicion +"\t"+vuelo.toString("consulta");
+				posicion++;
 			}
 		}
 		return vuelosDisponibles;
