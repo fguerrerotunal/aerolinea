@@ -14,28 +14,28 @@ public class Admin implements Serializable{
 		int precio = 0;
 		switch (posicionpremio) {
 		case 0:
-			precio = 0;
+			precio = 50;
 			break;
 		case 1:
-			precio = 0;
+			precio = 100;
 			break;	
 		case 2:
-			precio = 0;
+			precio = 200;
 			break;
 		case 3:
-			precio = 0;
+			precio = 300;
 			break;
 		case 4:
-			precio = 0;
+			precio = 500;
 			break;
 		case 5:
-			precio = 0;
+			precio = 800;
 			break;
 		case 6:
-			precio = 0;
+			precio = 1000;
 			break;
 		case 7:
-			precio = 0;
+			precio = 1200;
 			break;
 		}
 		if(cliente.cuentamillas.getMillas() >= precio) {
