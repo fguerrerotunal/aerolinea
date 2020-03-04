@@ -11,6 +11,10 @@ public class Writer{
 			for (int i=0;i<Admin.destinos.size();i++) {
 				entradas.writeObject(Admin.destinos.get(i));
 			}
+			entradas=new ObjectOutputStream(new FileOutputStream("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Clientes.txt"));
+			for (int i=0;i<Admin.clientes.size();i++) {
+				entradas.writeObject(Admin.clientes.get(i));
+			}
 		} catch (IOException e) {
 			System.out.println("ERROR");
 		}
