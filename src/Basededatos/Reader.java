@@ -12,39 +12,28 @@ public class Reader {
 
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
-				if(Objeto instanceof Aeropuerto) {
-					Admin.destinos.add((Aeropuerto) Objeto);
-					
-				}
+				Admin.destinos.add((Aeropuerto) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
-				if(Objeto instanceof Cliente) {
-					Admin.clientes.add((Cliente) Objeto);
-					
-				}
+				Admin.clientes.add((Cliente) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
-				if(Objeto instanceof Empleado) {
-					Admin.empleados.add((Empleado) Objeto);
-					
-				}
+				Admin.empleados.add((Empleado) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
-				if(Objeto instanceof Vuelo) {
-					Empleado.vuelos.add((Vuelo) Objeto);
-				}
+				Empleado.vuelos.add((Vuelo) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
