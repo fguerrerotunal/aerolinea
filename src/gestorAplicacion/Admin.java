@@ -1,8 +1,9 @@
 package gestorAplicacion;
+import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
-public class Admin {
-
+public class Admin implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 

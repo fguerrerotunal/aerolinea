@@ -1,6 +1,8 @@
 package gestorAplicacion;
 import java.util.*;
-public class Cliente extends Persona{
+import java.io.*;
+public class Cliente extends Persona implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public CuentaMillas cuentamillas;
 	int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();

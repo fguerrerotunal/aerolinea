@@ -4,8 +4,9 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
-public class Empleado extends Persona{
+import java.io.*;
+public class Empleado extends Persona implements Serializable{
+	private static final long serialVersionUID = 1L;
 	String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
