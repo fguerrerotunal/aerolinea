@@ -1,6 +1,8 @@
 package gestorAplicacion;
+import java.io.*;
+public class Reserva implements Serializable {
 
-public class Reserva {
+	private static final long serialVersionUID = 1L;
 	public Vuelo vuelo;
 	Cliente pasajero;
 	private int silla;
