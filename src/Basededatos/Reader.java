@@ -6,28 +6,28 @@ public class Reader {
 
 	public static void Leer(){
 		try {
-			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Aeropuertos.txt"));
+			entradas = new ObjectInputStream(new FileInputStream("...Aeropuertos.txt"));
 			Object Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.destinos.add((Aeropuerto) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
-			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Clientes.txt"));
+			entradas = new ObjectInputStream(new FileInputStream("...Clientes.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.clientes.add((Cliente) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
-			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Empleados.txt"));
+			entradas = new ObjectInputStream(new FileInputStream("...Empleados.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.empleados.add((Empleado) Objeto);
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
-			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Vuelos.txt"));
+			entradas = new ObjectInputStream(new FileInputStream("...Vuelos.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Empleado.vuelos.add((Vuelo) Objeto);
@@ -37,7 +37,7 @@ public class Reader {
 			
 			
 		}catch(Exception e) {
-			System.out.println("a");
+			System.out.println("ERROR");
 		}
 	}
 }
