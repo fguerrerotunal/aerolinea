@@ -1,7 +1,7 @@
 package uiMain.menuconsola;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import Basededatos.Reader;
 import gestorAplicacion.Admin;
 import gestorAplicacion.Aeropuerto;
 import gestorAplicacion.Cliente;
@@ -50,6 +50,9 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(imprimirpasabordo);
 		menucartera.opciones.add(cancelarreserva);
 		menucartera.opciones.add(atras);
+		
+		Reader.Leer();
+		
 		Admin.empleados.add(new Empleado(1,1,"f","f","f","f"));
 		new Aeropuerto("a","a","a");
 		new Aeropuerto("b","b","b");
