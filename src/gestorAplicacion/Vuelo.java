@@ -40,8 +40,8 @@ public class Vuelo {
 			info = "VUELO: " + numeroVuelo +"\n"+
 					"EN SALA: " + dateFormat.format(fecha.getTime()) + "\n"+
 					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
-					"ORIGEN: " + salida + "\n"+
-					"DESTINO: " + destino;
+					"ORIGEN: " + salida.getCiudad() + "\n"+
+					"DESTINO: " + destino.getCiudad() + "\n";
 			break;
 									
 		case "estado":

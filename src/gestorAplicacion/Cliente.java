@@ -107,9 +107,14 @@ public class Cliente extends Persona implements Serializable{
 		return cartera;
 	}
 	
-	public void cancelarReserva(Reserva reserva) {
+	public String cancelarReserva(Reserva reserva) {
+		if (reserva.vuelo.estado.equals("Venta")) {
 		int retorno=reserva.Finalize();
 		  cuentabancaria.add(retorno);
+		  return "Cancelado exitosamente";
+		}
+		else
+			return "los vuelos solo se puede cancelar en tiempo de venta";
 	}
 	
 	public int Deuda() {
