@@ -106,7 +106,7 @@ public class Cliente extends Persona{
 	}
 	
 	public String cancelarReserva(Reserva reserva) {
-		if (reserva.vuelo.estado.equals("venta")) {
+		if (reserva.vuelo.estado.equals("Venta")) {
 		int retorno=reserva.Finalize();
 		  cuentabancaria.add(retorno);
 		  return "Cancelado exitosamente";
