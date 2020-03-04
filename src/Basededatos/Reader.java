@@ -4,12 +4,13 @@ import gestorAplicacion.*;
 public class Reader {
 	private static ObjectInputStream entradas;
 	static File fichero = new File("");
+	static Object Objeto;
 	public static void Leer(){
 		try {
 
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
 
-			Object Objeto=entradas.readObject();
+			Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.destinos.add((Aeropuerto) Objeto);
 				Objeto=entradas.readObject();
@@ -36,8 +37,6 @@ public class Reader {
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
-			
-			
 		}catch(Exception e) {
 
 			System.out.println(e.toString());
