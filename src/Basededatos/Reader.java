@@ -3,10 +3,10 @@ import java.io.*;
 import gestorAplicacion.*;
 public class Reader {
 	private static ObjectInputStream entradas;
-
+	static File Aeropuertos = new File("");
 	public static void Leer(){
 		try {
-			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Aeropuertos.txt"));
+			entradas = new ObjectInputStream(new FileInputStream(Aeropuertos.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
 			Object Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.destinos.add((Aeropuerto) Objeto);
@@ -15,7 +15,7 @@ public class Reader {
 			entradas.close();
 			
 		}catch(Exception e) {
-			System.out.println("a");
+			System.out.println(e.toString());
 		}
 	}
 }
