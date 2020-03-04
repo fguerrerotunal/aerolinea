@@ -13,6 +13,28 @@ public class Reader {
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
+			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Clientes.txt"));
+			Objeto=entradas.readObject();
+			while (Objeto!=null) {
+				Admin.clientes.add((Cliente) Objeto);
+				Objeto=entradas.readObject();
+			}
+			entradas.close();
+			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Empleados.txt"));
+			Objeto=entradas.readObject();
+			while (Objeto!=null) {
+				Admin.empleados.add((Empleado) Objeto);
+				Objeto=entradas.readObject();
+			}
+			entradas.close();
+			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Vuelos.txt"));
+			Objeto=entradas.readObject();
+			while (Objeto!=null) {
+				Empleado.vuelos.add((Vuelo) Objeto);
+				Objeto=entradas.readObject();
+			}
+			entradas.close();
+			
 			
 		}catch(Exception e) {
 			System.out.println("a");
