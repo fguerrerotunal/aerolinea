@@ -8,6 +8,6 @@ public class CancelarReserva extends OpcionDeMenu{
 	
 	public void Ejecutar() {
 		int vuelo = sc.nextInt();
-		MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(vuelo));
+		System.out.println(MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(vuelo)));
 	}
 }
