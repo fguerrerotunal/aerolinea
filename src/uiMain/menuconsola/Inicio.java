@@ -30,7 +30,7 @@ public class Inicio extends MenuDeConsola{
 		ModificarSilla modificarsilla = new ModificarSilla(); //listo
 		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		ImprimirPasabordo imprimirpasabordo = new ImprimirPasabordo();  //listo
-		CancelarReserva cancelarreserva = new CancelarReserva();
+		CancelarReserva cancelarreserva = new CancelarReserva(); // listo
 		Atras atras = new Atras(menucliente);  //listo
 		
 		inicio.opciones.add(usuarioregistrado);
