@@ -12,7 +12,7 @@ public abstract class Persona implements Serializable{
 	protected String correo;
 	public Vector<String> historial = new Vector<>();
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
-	//que es este date format? 
+
 	public Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){
 		this.identificacion = identificacion;
 		this.cuentabancaria = new CuentaBancaria(cuentabancaria,this);

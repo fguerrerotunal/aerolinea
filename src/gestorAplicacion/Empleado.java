@@ -5,11 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 public class Empleado extends Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
 	String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 	
 	public Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
@@ -27,7 +30,7 @@ public class Empleado extends Persona implements Serializable{
 	}
 	
 	public void AñadirHistorial(String accion) {
-		this.historial.add(Calendar.getInstance() + " "+ accion);
+		this.historial.add(dateFormat.format(Calendar.getInstance()) + " "+ accion);
 	}
 	
 	String VuelosDisponibles() {
