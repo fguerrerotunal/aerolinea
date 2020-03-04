@@ -55,7 +55,7 @@ public class Cliente extends Persona implements Serializable{
 		boolean transaccion = false;
 		int costo = this.Deuda();
 		switch (medio) {
-			case "Efectivo":
+			case "efectivo":
 				if(this.cuentabancaria.getSaldo() >= costo) {
 					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
 					transaccion = true;
