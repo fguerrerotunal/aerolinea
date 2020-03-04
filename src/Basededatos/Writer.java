@@ -4,8 +4,8 @@ import java.util.*;
 
 import gestorAplicacion.Admin;
 public class Writer{
-	ObjectOutputStream entradas;
-	public void Escribir() {
+	static ObjectOutputStream entradas;
+	public static void Escribir() {
 		try {
 			entradas=new ObjectOutputStream(new FileOutputStream("\\Temp\\GitHub\\aerolinea\\src\\Basededatos\\Aeropuerto.txt"));
 			for (int i=0;i<Admin.destinos.size();i++) {
@@ -16,7 +16,7 @@ public class Writer{
 				entradas.writeObject(Admin.clientes.get(i));
 			}
 		} catch (IOException e) {
-			System.out.println("ERROR");
+			System.out.println("ERROR"+ e.getMessage());
 		}
 		
 	}
