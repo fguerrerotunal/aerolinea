@@ -2,10 +2,17 @@ package Basededatos;
 import java.io.*;
 import gestorAplicacion.*;
 public class Reader {
-	public static void Leer() throws Exception{
+	private static ObjectInputStream entradas;
+
+	public static void Leer(){
 		try {
-			FileInputStream Aeropuertos=new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Aeropuertos.txt");
-			ObjectInputStream entradas=new ObjectInputStream(Aeropuertos);
+			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Aeropuertos.txt"));
+			while (entradas!=null) {
+				Admin.destinos.add((Aeropuerto) entradas.readObject());
+				entradas=(ObjectInputStream) entradas.readObject();
+			}
+			entradas.close();
+			
 		}catch(Exception e) {
 			System.out.println("a");
 		}
