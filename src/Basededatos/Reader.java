@@ -7,9 +7,10 @@ public class Reader {
 	public static void Leer(){
 		try {
 			entradas = new ObjectInputStream(new FileInputStream("C:\\Users\\crist\\Desktop\\aerolinea\\src\\Basededatos\\Aeropuertos.txt"));
-			while (entradas!=null) {
-				Admin.destinos.add((Aeropuerto) entradas.readObject());
-				entradas=(ObjectInputStream) entradas.readObject();
+			Object Objeto=entradas.readObject();
+			while (Objeto!=null) {
+				Admin.destinos.add((Aeropuerto) Objeto);
+				Objeto=entradas.readObject();
 			}
 			entradas.close();
 			
