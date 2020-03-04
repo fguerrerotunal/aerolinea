@@ -53,11 +53,11 @@ public class Inicio extends MenuDeConsola{
 		
 		Reader.Leer();
 		
-		//Admin.empleados.add(new Empleado(1,1,"f","f","f","f"));
-		//new Aeropuerto("a","a","a");
-		//new Aeropuerto("b","b","b");
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
-		//Admin.clientes.add(new Cliente(1,1,"porky","p","p",1));
+		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
+		new Aeropuerto("a","a","a");
+		new Aeropuerto("b","b","b");
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
+		Admin.clientes.add(new Cliente(1,1,"porky","p","p",1));
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {
