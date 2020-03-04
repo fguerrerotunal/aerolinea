@@ -31,6 +31,7 @@ public class Reader {
 				String pais=(String)aeropuerto.readLine();
 				new Aeropuerto(nombre,ciudad,pais);
 			}
+			
 			while(Vuelo.readLine()!=null) {
 				Calendar fecha=new Calendar((String)Vuelo.readLine());
 				if(Vuelo.readLine()) {
