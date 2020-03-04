@@ -33,6 +33,9 @@ public class Reader {
 			}
 			while(Vuelo.readLine()!=null) {
 				Calendar fecha=new Calendar((String)Vuelo.readLine());
+				if(Vuelo.readLine()) {
+					
+				}
 			}
 			
 			
