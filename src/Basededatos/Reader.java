@@ -22,7 +22,7 @@ public class Reader {
 				Objeto=entradas.readObject();
 			}
 			entradas.close();
-			entradas = new ObjectInputStream(new FileInputStream("...Empleados.txt"));
+			entradas = new ObjectInputStream(new FileInputStream("Empleados.txt"));
 			Objeto=entradas.readObject();
 			while (Objeto!=null) {
 				Admin.empleados.add((Empleado) Objeto);
