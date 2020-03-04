@@ -11,17 +11,17 @@ public class Writer{
 				entradas.writeObject(Admin.destinos.get(i));
 			}
 			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
+			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.txt"));
 			for (int i=0;i<Admin.clientes.size();i++) {
 				entradas.writeObject(Admin.clientes.get(i));
 			}
 			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
+			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.txt"));
 			for (int i=0;i<Admin.empleados.size();i++) {
 				entradas.writeObject(Admin.empleados.get(i));
 			}
 			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
+			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.txt"));
 			for (int i=0;i<Empleado.vuelos.size();i++) {
 				entradas.writeObject(Empleado.vuelos.get(i));
 			}
