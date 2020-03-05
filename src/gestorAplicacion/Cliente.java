@@ -30,7 +30,14 @@ public class Cliente extends Persona implements Serializable{
 	}
 	
 	public void Reservar(Vuelo vuelo) {
-		this.cartera.add(new Reserva(vuelo, this));
+		if (vuelo.puestos.length<20) {
+			this.cartera.add(new Reserva(vuelo, this));
+		}
+		else {
+			System.out.println("Vuelo sin asientos disponibles");
+		}
+		
+		
 	}
 	
 	public String ConsultarVuelos(){
