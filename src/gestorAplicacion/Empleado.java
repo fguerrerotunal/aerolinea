@@ -90,9 +90,9 @@ public class Empleado extends Persona implements Serializable{
 	}
 	
 	public void ActualizarVuelos() {
-		Iterator i = vuelos.iterator();
+		Iterator<Vuelo> i = vuelos.iterator();
 		while(i.hasNext()) {
-			Vuelo x = (Vuelo) i.next();
+			Vuelo x = i.next();
 			switch (x.estado) {
 			case "Venta":
 				x.estado = "Abordaje";
