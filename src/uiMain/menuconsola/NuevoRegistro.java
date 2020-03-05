@@ -18,8 +18,9 @@ public class NuevoRegistro extends OpcionDeMenu{
 		String nombre =	sc.nextLine();
 		System.out.println("Numero de cuenta bancaria:");
 		int cuenta = sc.nextInt();
-		System.out.println("Direccon:");
-		String direccion = sc.next();
+		sc.nextLine();
+		System.out.println("Direccion:");
+		String direccion = sc.nextLine();
 		System.out.println("Correo electronico");
 		String correo = sc.next();
 		System.out.println("Numero de Pasaporte");
