@@ -6,8 +6,8 @@ public class Pagar extends OpcionDeMenu{
 	}
 	
 	public void Ejecutar() {
-		System.out.println("¿Que medio de pago desea usar?");
-		String medio = sc.next();
+		System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
+		int medio = sc.nextInt();
 		System.out.println(MenuDeConsola.usuarioactual.Pago(medio));
 	}
 }
