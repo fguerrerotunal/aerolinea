@@ -30,7 +30,7 @@ public class Cliente extends Persona implements Serializable{
 	}
 	
 	public void Reservar(Vuelo vuelo) {
-		if (vuelo.puestos.length<20) {
+		if (Contarpuestos(vuelo)<20) {
 			this.cartera.add(new Reserva(vuelo, this));
 			System.out.println("VUELO RESERVADO SATISFACTORIAMENTE");
 		}
@@ -135,5 +135,14 @@ public class Cliente extends Persona implements Serializable{
 			}
 		}
 		return deuda;
+	}
+	public int Contarpuestos(Vuelo vuelo) {
+		int contador=0;
+		for (int i=0;i<20;i++) {
+			if(vuelo.puestos[i]!=null) {
+				contador++;
+			}
+		}
+		return contador;
 	}
 }
