@@ -51,7 +51,7 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(cancelarreserva);
 		menucartera.opciones.add(atras);
 		
-		Reader.Leer();
+		//Reader.Leer();
 		
 		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
 		new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
