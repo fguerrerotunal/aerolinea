@@ -41,10 +41,10 @@ public class Reserva implements Serializable {
 
 	public void setSilla(int Nsilla){
 		costo += 45000;
-		if(vuelo.puestos[Nsilla] == null) {
-			this.vuelo.puestos[Nsilla] = this;
+		if(vuelo.puestos[Nsilla-1] == null) {
+			this.vuelo.puestos[Nsilla-1] = this;
 			this.vuelo.puestos[silla]=null;
-			this.silla=Nsilla;
+			this.silla=Nsilla-1;
 		}	
 		else System.out.println("La silla esta ocupada");
 	}
