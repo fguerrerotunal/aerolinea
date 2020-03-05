@@ -17,7 +17,7 @@ public class CuentaBancaria implements Serializable{
 		return saldo;
 	}
 	
-	void setSaldo(int saldo) {
+	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 	
