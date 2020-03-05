@@ -14,8 +14,9 @@ public class Cliente extends Persona implements Serializable{
 	}
 	
 	public String Historial(){
-		String historial = "Historial de Vuelo: \n# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
-		if(this.historial.isEmpty()) {
+		String historial = "AUN NO HAS USADO NUESTROS SERVICIOS";
+		if(!this.historial.isEmpty()) {
+			historial = "Historial de Vuelo: \n# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 			Iterator i = this.historial.iterator();
 			while(i.hasNext()) {
 				historial = historial + "\n" + (String)i.next();
@@ -50,19 +51,19 @@ public class Cliente extends Persona implements Serializable{
 		reserva.setEquipaje(equipaje);
 	}
 	
-	public String Pago(String medio) {
+	public String Pago(int medio) {
 
 		boolean transaccion = false;
 		int costo = this.Deuda();
 		switch (medio) {
-			case "efectivo":
+			case 0:
 				if(this.cuentabancaria.getSaldo() >= costo) {
 					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
 					transaccion = true;
 				}
 				break;
 				
-			case "millas":
+			case 1:
 				int millas=(int)costo*2;
 				if(this.cuentamillas.getMillas()  >= millas) {
 					Admin.empleados.get(0).ModMillas(this, -millas);
