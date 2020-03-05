@@ -15,7 +15,7 @@ public class Cliente extends Persona implements Serializable{
 	
 	public String Historial(){
 		String historial = "Historial de Vuelo: \n# Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
-		if(!this.historial.isEmpty()) {
+		if(this.historial.isEmpty()) {
 			Iterator i = this.historial.iterator();
 			while(i.hasNext()) {
 				historial = historial + "\n" + (String)i.next();
