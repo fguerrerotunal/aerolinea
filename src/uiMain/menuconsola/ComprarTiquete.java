@@ -13,7 +13,6 @@ public class ComprarTiquete  extends OpcionDeMenu{
 		System.out.println("Seleccione un vuelo: ");
 		int vuelo = sc.nextInt();
 		MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(vuelo));
-		System.out.println("VUELO RESERVADO SATISFACTORIAMENTE");
 	}
 
 }
