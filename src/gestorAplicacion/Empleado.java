@@ -90,6 +90,7 @@ public class Empleado extends Persona implements Serializable{
 	}
 	
 	public void ActualizarVuelos() {
+		Vector<Integer> posiciones = new Vector<>();
 		Iterator<Vuelo> i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo x = i.next();
@@ -118,9 +119,17 @@ public class Empleado extends Persona implements Serializable{
 				x.estado = "Aterrizo";
 				break;
 			case "Aterrizo":
-				x.finalize();
+				posiciones.add(x.finalizer());
 				break;
 			}
+		}
+		Iterator<Integer> a = posiciones.iterator();
+		while(a.hasNext()) {
+			int x = a.next();
+			Vuelo aux = vuelos.get(x);
+			Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino);
+			vuelos.remove(x);
+			
 		}
 	}
 	

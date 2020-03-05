@@ -74,7 +74,7 @@ public class Vuelo  implements Serializable {
 		return info;
 	}
 
-	public void finalize() {
+	public int finalizer() {
 		for(int i = 0;i<20;i++) {
 			if(this.puestos[i]!=null) {
 			Cliente pasajero = this.puestos[i].pasajero;
@@ -84,7 +84,6 @@ public class Vuelo  implements Serializable {
 			pasajero.cartera.remove(reserva);
 			}
 		}
-		Empleado.vuelos.remove(this);
-		Admin.empleados.get(0).NuevoVuelo(this.salida, this.destino);
+		return Empleado.vuelos.indexOf(this);
 	}
 }
