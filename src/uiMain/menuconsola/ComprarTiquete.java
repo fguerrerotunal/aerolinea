@@ -28,8 +28,7 @@ public class ComprarTiquete  extends OpcionDeMenu{
 			
 			System.out.println("ESTA ACCION TIENE UN COSTO DE: "+Empleado.vuelos.get(vuelo).precioTiquete+"\n¿DESEA CONTINUAR?\nSI=0    NO=1");
 			int continuar = sc.nextInt();
-			if(continuar==0) {
-				MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(vuelo));
+			if(continuar==0 && (MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(vuelo)))==true) {
 				Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
 				System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
 				int medio = sc.nextInt();

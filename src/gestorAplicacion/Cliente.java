@@ -32,11 +32,13 @@ public class Cliente extends Persona implements Serializable{
 		this.historial.add(accion);
 	}
 	
-	public void Reservar(Vuelo vuelo) {
+	public Boolean Reservar(Vuelo vuelo) {
+		Boolean x = false;
 		if(vuelo.estado.equals("Venta")) {
 			if (Contarpuestos(vuelo)<20) {
 				this.cartera.add(new Reserva(vuelo, this));
 				System.out.println("VUELO RESERVADO SATISFACTORIAMENTE");
+				x=true;
 			}
 			else {
 				System.out.println("Vuelo sin asientos disponibles");
@@ -44,7 +46,8 @@ public class Cliente extends Persona implements Serializable{
 		}
 		else {
 			System.out.println("Este vuelo ya no esta a la venta");
-		}		
+		}	
+		return x;
 	}
 	
 	public String ConsultarVuelos(){
