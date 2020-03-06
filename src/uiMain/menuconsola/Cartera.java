@@ -17,7 +17,7 @@ public class Cartera  extends OpcionDeMenu{
 	
 	public void Ejecutar() {
 		System.out.println(MenuDeConsola.usuarioactual.Cartera());
-		if(sigmenu!=null) {
+		if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
 			sigmenu.LanzarMenu();
 		}
 	}
