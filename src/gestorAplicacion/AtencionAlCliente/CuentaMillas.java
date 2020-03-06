@@ -1,4 +1,4 @@
-package gestorAplicacion;
+package gestorAplicacion.AtencionAlCliente;
 import java.util.*;
 import java.io.*;
 public class CuentaMillas implements Serializable {

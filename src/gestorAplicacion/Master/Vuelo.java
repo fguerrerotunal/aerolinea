@@ -1,12 +1,15 @@
-package gestorAplicacion;
+package gestorAplicacion.Master;
 import java.util.*;
+
+import gestorAplicacion.AtencionAlCliente.Reserva;
+
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class Vuelo  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	static int cantidadVuelos = 0;
-	Reserva[] puestos = new Reserva[20];
+	public Reserva[] puestos = new Reserva[20];
 	int numeroVuelo;
 	public int precioTiquete;
 	Calendar fecha=Calendar.getInstance();

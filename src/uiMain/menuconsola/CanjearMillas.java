@@ -2,7 +2,7 @@ package uiMain.menuconsola;
 
 import java.util.Iterator;
 
-import gestorAplicacion.Admin;
+import gestorAplicacion.Master.Admin;
 
 public class CanjearMillas  extends OpcionDeMenu{
 

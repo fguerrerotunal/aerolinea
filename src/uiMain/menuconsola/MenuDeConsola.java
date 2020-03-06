@@ -2,7 +2,7 @@ package uiMain.menuconsola;
 
 import java.util.*;
 
-import gestorAplicacion.Cliente;
+import gestorAplicacion.AtencionAlCliente.Cliente;
 
 public abstract class MenuDeConsola {
 	Vector<OpcionDeMenu> opciones = new Vector<>();

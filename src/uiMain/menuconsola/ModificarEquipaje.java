@@ -1,7 +1,7 @@
 package uiMain.menuconsola;
 
-import gestorAplicacion.Empleado;
-import gestorAplicacion.Reserva;
+import gestorAplicacion.AtencionAlCliente.Reserva;
+import gestorAplicacion.Master.Empleado;
 
 public class ModificarEquipaje  extends OpcionDeMenu{
 

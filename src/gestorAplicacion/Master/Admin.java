@@ -1,7 +1,9 @@
-package gestorAplicacion;
+package gestorAplicacion.Master;
 import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
+
+import gestorAplicacion.AtencionAlCliente.Cliente;
 public class Admin implements Serializable{
 	private static final long serialVersionUID = 1L;
 	public static Vector<Cliente>clientes= new Vector <>();
@@ -9,7 +11,7 @@ public class Admin implements Serializable{
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
 
-	static String Premios(Cliente cliente, int posicionpremio) {
+	public static String Premios(Cliente cliente, int posicionpremio) {
 		String aviso = "Millas insuficientes";
 		int precio = 0;
 		switch (posicionpremio) {

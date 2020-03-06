@@ -1,9 +1,13 @@
-package gestorAplicacion;
+package gestorAplicacion.Master;
 
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
+
+import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.AtencionAlCliente.Persona;
+
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -33,7 +37,7 @@ public class Empleado extends Persona implements Serializable{
 		this.historial.add(dateFormat.format(Calendar.getInstance()) + " "+ accion);
 	}
 	//vuelos en venta
-	String VuelosDisponibles() {
+	public String VuelosDisponibles() {
 		String vuelosDisponibles = "\t # Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 		Iterator i = vuelos.iterator();
 		int posicion = 0;
@@ -47,7 +51,7 @@ public class Empleado extends Persona implements Serializable{
 		return vuelosDisponibles;
 	}
 	
-	String EstadoVuelos() {
+	public String EstadoVuelos() {
 		String estadoVuelos = "# Vuelo \t Estado \t Puerta de abordaje \t Salida-Destino";
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
@@ -69,7 +73,7 @@ public class Empleado extends Persona implements Serializable{
 		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
 	}
 
-	void ModMillas(Cliente cliente, int precio) {
+	public void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
 	}
 	

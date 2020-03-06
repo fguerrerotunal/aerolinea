@@ -1,15 +1,17 @@
-package gestorAplicacion;
+package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
+
+import gestorAplicacion.Master.Vuelo;
 public class Reserva implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	public Vuelo vuelo;
-	Cliente pasajero;
+	public Cliente pasajero;
 	private int silla;
 	private int equipaje;
 	private int costo = 0;
 	
-	Reserva(Vuelo vuelo, Cliente pasajero){
+	public Reserva(Vuelo vuelo, Cliente pasajero){
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
 		this.costo += vuelo.precioTiquete;

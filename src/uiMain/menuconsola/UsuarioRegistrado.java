@@ -1,5 +1,5 @@
 package uiMain.menuconsola;
-import gestorAplicacion.Admin;
+import gestorAplicacion.Master.Admin;
 public class UsuarioRegistrado extends OpcionDeMenu{
 	
 	MenuDeConsola sigmenu;

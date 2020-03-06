@@ -1,13 +1,13 @@
-package gestorAplicacion;
+package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 public abstract class Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
-	protected int identificacion;
+	public int identificacion;
 	public  CuentaBancaria cuentabancaria;
-	protected String nombre;
+	public String nombre;
 	protected String direccion;
 	protected String correo;
 	public Vector<String> historial = new Vector<>();

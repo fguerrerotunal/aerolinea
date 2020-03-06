@@ -2,10 +2,10 @@ package uiMain.menuconsola;
 import java.util.Timer;
 import java.util.TimerTask;
 import Basededatos.Reader;
-import gestorAplicacion.Admin;
-import gestorAplicacion.Aeropuerto;
-import gestorAplicacion.Cliente;
-import gestorAplicacion.Empleado;
+import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Aeropuerto;
+import gestorAplicacion.Master.Empleado;
 
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
