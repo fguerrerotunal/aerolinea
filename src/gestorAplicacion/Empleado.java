@@ -65,19 +65,8 @@ public class Empleado extends Persona implements Serializable{
 			puertaAbordaje = 1;
 		}
 		Calendar fecha = Calendar.getInstance();
-		fecha.add(Calendar.MINUTE,4);
+		fecha.add(Calendar.MINUTE,2);
 		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
-	}
-	
-	public Vuelo NuevoVuelo(Aeropuerto salida, Aeropuerto destino, int a) {
-		puertaAbordaje += 1;
-		if(puertaAbordaje > 18) {
-			puertaAbordaje = 1;
-		}
-		Calendar fecha = Calendar.getInstance();
-		int r = (int)(Math.random()*(10-5+1)+5);
-		fecha.add(Calendar.MINUTE,r);
-		return new Vuelo(fecha, destino, salida, puertaAbordaje);
 	}
 
 	void ModMillas(Cliente cliente, int precio) {
