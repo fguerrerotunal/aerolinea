@@ -90,7 +90,9 @@ public class Cliente extends Persona implements Serializable{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			return "Transaccion fallida";
+			this.cancelarReserva(reserva);
+			this.cuentabancaria.Actualizar();
+			return "Transaccion fallida,se ha cancelado tu reserva";
 		}
 	}
 	
