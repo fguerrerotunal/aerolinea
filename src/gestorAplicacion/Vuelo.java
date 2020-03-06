@@ -53,7 +53,7 @@ public class Vuelo  implements Serializable {
 			String a;
 			for(int i = 0; i < 20; i++) {
 				if(puestos[i] == null) {
-					a = "[PUESTO: " + i+1 + " LIBRE ]" ;
+					a = "[PUESTO: " + (Integer.valueOf(i)+Integer.valueOf(1)) + " LIBRE ]" ;
 				}
 				else {
 					a = "[PUESTO: " + i+1 + " OCUPADO ]" ;
