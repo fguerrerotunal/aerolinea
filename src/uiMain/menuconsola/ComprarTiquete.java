@@ -25,6 +25,9 @@ public class ComprarTiquete  extends OpcionDeMenu{
 			System.out.println("Seleccione un vuelo: ");
 			int vuelo = sc.nextInt();
 			MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(vuelo));
+			System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
+			int medio = sc.nextInt();
+			System.out.println(MenuDeConsola.usuarioactual.Pago(medio));
 		}else {
 			System.out.println("NO HAY VUELOS DISPONIBLES");
 		}

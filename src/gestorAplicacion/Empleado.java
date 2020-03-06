@@ -12,7 +12,7 @@ public class Empleado extends Persona implements Serializable{
 	String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	
 	public Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
@@ -131,8 +131,9 @@ public class Empleado extends Persona implements Serializable{
 		while(a.hasNext()) {
 			int x = a.next();
 			Vuelo aux = vuelos.get(x);
-			Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino);
 			vuelos.remove(x);
+			Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino);
+			
 			
 		}
 	}
