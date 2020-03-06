@@ -70,6 +70,17 @@ public class Empleado extends Persona implements Serializable{
 		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
 		//Empleado.AñadirHistorial("Creacion vuelo "+ numeroVuelo);
 	}
+	
+	public Vuelo NuevoVuelo(Aeropuerto salida, Aeropuerto destino, int a) {
+		puertaAbordaje += 1;
+		if(puertaAbordaje > 18) {
+			puertaAbordaje = 1;
+		}
+		Calendar fecha = Calendar.getInstance();
+		int r = (int)(Math.random()*(10-5+1)+5);
+		fecha.add(Calendar.MINUTE,r);
+		return new Vuelo(fecha, destino, salida, puertaAbordaje);
+	}
 
 	void ModMillas(Cliente cliente, int precio) {
 		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
@@ -117,20 +128,19 @@ public class Empleado extends Persona implements Serializable{
 				break;
 			case "Volando":
 				x.estado = "Aterrizo";
-				break;
-			case "Aterrizo":
 				posiciones.add(x.finalizer());
 				break;
+//			case "Aterrizo":
+//				posiciones.add(x.finalizer());
+//				break;
 			}
 		}
 		Iterator<Integer> a = posiciones.iterator();
 		while(a.hasNext()) {
 			int x = a.next();
 			Vuelo aux = vuelos.get(x);
-			vuelos.remove(x);
-			Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino);
-			
-			
+			Vuelo vuelo = Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino , 0);
+			vuelos.set(x, vuelo);
 		}
 		
 	}
