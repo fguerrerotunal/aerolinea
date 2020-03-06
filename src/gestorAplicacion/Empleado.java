@@ -32,7 +32,7 @@ public class Empleado extends Persona implements Serializable{
 	public void AñadirHistorial(String accion) {
 		this.historial.add(dateFormat.format(Calendar.getInstance()) + " "+ accion);
 	}
-	
+	//vuelos en venta
 	String VuelosDisponibles() {
 		String vuelosDisponibles = "\t # Vuelo \tPrecio \t Fecha/Hora \t \tSalida-Destino";
 		Iterator i = vuelos.iterator();
@@ -46,7 +46,7 @@ public class Empleado extends Persona implements Serializable{
 		}
 		return vuelosDisponibles;
 	}
-
+	//estado de vuelos del dia 
 	String EstadoVuelos() {
 		String estadoVuelos = "# Vuelo \t Estado \t Puerta de abordaje \t Salida-Destino";
 		Iterator i = vuelos.iterator();
