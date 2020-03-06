@@ -65,10 +65,10 @@ public class Cliente extends Persona implements Serializable{
 		reserva.setEquipaje(equipaje);
 	}
 	
-	public String Pago(int medio) {
+	public String Pago(int medio, Reserva reserva) {
 
 		boolean transaccion = false;
-		int costo = this.Deuda();
+		int costo = reserva.getCosto();
 		switch (medio) {
 			case 0:
 				if(this.cuentabancaria.getSaldo() >= costo) {
@@ -88,12 +88,7 @@ public class Cliente extends Persona implements Serializable{
 				break;
 		}
 		if(transaccion) {
-			if(!this.cartera.isEmpty()) {
-				Iterator i = this.cartera.iterator();
-				while(i.hasNext()) {
-					((Reserva) i.next()).setCosto(0);
-				}
-			}
+			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
 			return "Transaccion fallida";
@@ -133,16 +128,6 @@ public class Cliente extends Persona implements Serializable{
 			return "los vuelos solo se puede cancelar en tiempo de venta";
 	}
 	
-	public int Deuda() {
-		int deuda = 0;
-		if(!this.cartera.isEmpty()) {
-			Iterator i = this.cartera.iterator();
-			while(i.hasNext()) {
-				deuda +=  ((Reserva) i.next()).getCosto();
-			}
-		}
-		return deuda;
-	}
 	public int Contarpuestos(Vuelo vuelo) {
 		int contador=0;
 		for (int i=0;i<20;i++) {
