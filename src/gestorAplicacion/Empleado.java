@@ -120,6 +120,7 @@ public class Empleado extends Persona implements Serializable{
 				break;
 			case "Aterrizo":
 				posiciones.add(x.finalizer());
+				x.estado="Venta";
 				break;
 			}
 		}
@@ -132,6 +133,7 @@ public class Empleado extends Persona implements Serializable{
 			
 			
 		}
+		
 	}
 	
 	
