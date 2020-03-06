@@ -72,7 +72,6 @@ public class Vuelo  implements Serializable {
 		return info;
 	}
 
-<<<<<<< HEAD
 	public void finalizer() {
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){
@@ -80,16 +79,6 @@ public class Vuelo  implements Serializable {
 				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
 				this.puestos[i].pasajero.cartera.remove(this.puestos[i]);
 				this.puestos[i]=null;
-=======
-	public int finalizer() {
-		for(int i = 0;i<20;i++) {
-			if(this.puestos[i]!=null) {
-				Cliente pasajero = this.puestos[i].pasajero;
-				Reserva reserva = this.puestos[i];
-				pasajero.AñadirHistorial(this.toString("consulta"));
-				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
-				this.puestos[i].pasajero.cartera.remove(reserva);
->>>>>>> 08658374e0e0b65a278b7d8dbb6878de0d8aa2b1
 			}
 		}
 	}
