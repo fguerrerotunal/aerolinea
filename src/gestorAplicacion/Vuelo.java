@@ -13,15 +13,14 @@ public class Vuelo  implements Serializable {
 	Aeropuerto destino;
 	Aeropuerto salida;
 	public String estado = "Venta";
-	int capacidad;
+	final int capacidad = 20;
 	int puertaAbordaje;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
 		this.numeroVuelo = cantidadVuelos;
-		capacidad = 20;
-		precioTiquete = capacidad*12500;
+		precioTiquete = capacidad*((int)(Math.random()*(500000-125000+1)+125000));
 		this.fecha = fecha;
 		this.salida = salida;
 		this.destino= destino;
