@@ -59,6 +59,16 @@ public class Inicio extends MenuDeConsola{
 		new Aeropuerto("John F.Kennedy","New York","EEUU");
 		new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
 		new Aeropuerto("Pudong","Shanghai","China");
+		Admin.premios.add("Silla: ");
+		Admin.premios.add("Mercado");
+		Admin.premios.add("Olla de arroz:  ");
+		Admin.premios.add("Paila: ");
+		Admin.premios.add("Computador: ");
+		Admin.premios.add("Nevera: ");
+		Admin.premios.add("Viaje gratis: ");
+		Admin.premios.add("Viaje en pareja: ");
+		Admin.premios.add("Viaje Familiar(max 4):");
+		Admin.premios.add("Carro: ");
 
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
