@@ -22,7 +22,7 @@ public class CuentaBancaria implements Serializable{
 	}
 	
 	void Actualizar(){
-		saldo += 12500*15;
+		saldo += 1000000*15;
 	}
 	void add(int nv) {
 		saldo=saldo+nv;

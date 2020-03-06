@@ -34,7 +34,7 @@ public class Cliente extends Persona implements Serializable{
 	
 	public Boolean Reservar(Vuelo vuelo) {
 		Boolean x = false;
-		if(vuelo.estado.equals("Venta")) {
+	
 			if (Contarpuestos(vuelo)<20) {
 				this.cartera.add(new Reserva(vuelo, this));
 				System.out.println("VUELO RESERVADO SATISFACTORIAMENTE");
@@ -42,11 +42,7 @@ public class Cliente extends Persona implements Serializable{
 			}
 			else {
 				System.out.println("Vuelo sin asientos disponibles");
-			}
-		}
-		else {
-			System.out.println("Este vuelo ya no esta a la venta");
-		}	
+			}	
 		return x;
 	}
 	
@@ -94,7 +90,9 @@ public class Cliente extends Persona implements Serializable{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			return "Transaccion fallida";
+			this.cancelarReserva(reserva);
+			this.cuentabancaria.Actualizar();
+			return "Transaccion fallida,se ha cancelado tu reserva";
 		}
 	}
 	

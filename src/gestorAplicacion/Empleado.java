@@ -128,24 +128,18 @@ public class Empleado extends Persona implements Serializable{
 				break;
 			case "Volando":
 				x.estado = "Aterrizo";
-				posiciones.add(x.finalizer());
 				break;
-//			case "Aterrizo":
-//				posiciones.add(x.finalizer());
-//				break;
+			case "Aterrizo":
+				x.finalizer();
+				x.estado="Venta";
+			
 			}
-		}
-		Iterator<Integer> a = posiciones.iterator();
-		while(a.hasNext()) {
-			int x = a.next();
-			Vuelo aux = vuelos.get(x);
-			Vuelo vuelo = Admin.empleados.get(0).NuevoVuelo(aux.salida, aux.destino , 0);
-			vuelos.set(x, vuelo);
-		}
+		}	
+	}
 		
-	}
+}
 	
 	
-	}
+	
 	
 	

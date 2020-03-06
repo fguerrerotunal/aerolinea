@@ -9,7 +9,7 @@ public class Vuelo  implements Serializable {
 	Reserva[] puestos = new Reserva[20];
 	int numeroVuelo;
 	public int precioTiquete;
-	Calendar fecha;
+	Calendar fecha=Calendar.getInstance();
 	Aeropuerto destino;
 	Aeropuerto salida;
 	public String estado = "Venta";
@@ -72,16 +72,21 @@ public class Vuelo  implements Serializable {
 		return info;
 	}
 
-	public int finalizer() {
-		for(int i = 0;i<20;i++) {
-			if(this.puestos[i]!=null) {
-				Cliente pasajero = this.puestos[i].pasajero;
-				Reserva reserva = this.puestos[i];
-				pasajero.AñadirHistorial(this.toString("consulta"));
+	public void finalizer() {
+		cantidadVuelos += 1;
+		this.numeroVuelo = cantidadVuelos;
+		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
+		this.fecha = Calendar.getInstance();
+		int r = (int)(Math.random()*(10-5+1)+5);
+		fecha.add(Calendar.MINUTE,r);
+		this.estado="Venta";
+		for(int i = 0;i<20;i++){ 
+			if(this.puestos[i]!=null){
+				this.puestos[i].pasajero.AñadirHistorial(this.toString("consulta"));
 				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
-				this.puestos[i].pasajero.cartera.remove(reserva);
+				this.puestos[i].pasajero.cartera.remove(this.puestos[i]);
+				this.puestos[i]=null;
 			}
 		}
-		return Empleado.vuelos.indexOf(this);
 	}
 }
