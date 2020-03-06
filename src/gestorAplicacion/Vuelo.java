@@ -15,7 +15,7 @@ public class Vuelo  implements Serializable {
 	public String estado = "Venta";
 	int capacidad;
 	int puertaAbordaje;
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
