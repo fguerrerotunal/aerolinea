@@ -1,5 +1,8 @@
 package gestorAplicacion;
 import java.util.*;
+import uiMain.menuconsola.*;
+import uiMain.menuconsola.MenuDeConsola;
+
 import java.io.*;
 public class Cliente extends Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -70,6 +73,7 @@ public class Cliente extends Persona implements Serializable{
 			case 0:
 				if(this.cuentabancaria.getSaldo() >= costo) {
 					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
+					System.out.println("\nSaldo restante: "+this.cuentabancaria.getSaldo());
 					transaccion = true;
 				}
 				break;

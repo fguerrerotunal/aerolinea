@@ -95,10 +95,6 @@ public class Empleado extends Persona implements Serializable{
 		while(i.hasNext()) {
 			Vuelo x = i.next();
 			switch (x.estado) {
-			
-			case "":
-				x.estado="Venta";
-				break;
 			case "Venta":
 				x.estado = "Abordaje";
 				break;
