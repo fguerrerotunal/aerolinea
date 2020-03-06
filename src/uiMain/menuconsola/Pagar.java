@@ -6,8 +6,13 @@ public class Pagar extends OpcionDeMenu{
 	}
 	
 	public void Ejecutar() {
-		System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
-		int medio = sc.nextInt();
-		System.out.println(MenuDeConsola.usuarioactual.Pago(medio));
+		if(MenuDeConsola.usuarioactual.Deuda()!=0) {
+			System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
+			int medio = sc.nextInt();
+			System.out.println(MenuDeConsola.usuarioactual.Pago(medio));
+		}
+		else {
+			System.out.println("Usted no tiene deudas");
+		}
 	}
 }
