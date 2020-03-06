@@ -20,7 +20,7 @@ public class Vuelo  implements Serializable {
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
 		this.numeroVuelo = cantidadVuelos;
-		precioTiquete = capacidad*((int)(Math.random()*(500000-125000+1)+125000));
+		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
 		this.fecha = fecha;
 		this.salida = salida;
 		this.destino= destino;
