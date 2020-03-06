@@ -48,7 +48,7 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(imprimirpasabordo);
 		menucartera.opciones.add(cancelarreserva);
 		menucartera.opciones.add(atras);
-		
+		//psaa toda la informacion al a base
 		Reader.Leer();
 		
 		//Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
