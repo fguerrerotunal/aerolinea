@@ -136,7 +136,6 @@ public class Cliente extends Persona implements Serializable{
 				contador++;
 			}
 		}
-		System.out.println("Asientos"+contador);
 		return contador;
 	}
 }
