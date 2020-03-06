@@ -92,7 +92,7 @@ public class Inicio extends MenuDeConsola{
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 15000,15000);//cada 1 min
+		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 		
 		inicio.LanzarMenu();
 		
