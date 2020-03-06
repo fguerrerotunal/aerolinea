@@ -20,8 +20,6 @@ public abstract class MenuDeConsola {
 			Iterator i = opciones.iterator();
 			System.out.println(this.Mensaje());
 			if(this instanceof MenuCliente) {
-				System.out.print("DEUDA TOTAL: ");
-				System.out.print(usuarioactual.Deuda());
 				System.out.print("\nSALDO CUENTA MILLAS: ");
 				System.out.println(usuarioactual.cuentamillas.getMillas());
 			}

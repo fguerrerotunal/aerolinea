@@ -8,7 +8,7 @@ public class Vuelo  implements Serializable {
 	static int cantidadVuelos = 0;
 	Reserva[] puestos = new Reserva[20];
 	int numeroVuelo;
-	int precioTiquete;
+	public int precioTiquete;
 	Calendar fecha;
 	Aeropuerto destino;
 	Aeropuerto salida;
