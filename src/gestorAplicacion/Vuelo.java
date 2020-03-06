@@ -78,9 +78,9 @@ public class Vuelo  implements Serializable {
 			if(this.puestos[i]!=null) {
 			Cliente pasajero = this.puestos[i].pasajero;
 			Reserva reserva = this.puestos[i];
-			pasajero.AñadirHistorial(this.toString("consulta"));
-			Admin.empleados.get(0).ModMillas(pasajero, this.precioTiquete/2);
-			pasajero.cartera.remove(reserva);
+			this.puestos[i].pasajero.AñadirHistorial(this.toString("consulta"));
+			Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
+			this.puestos[i].pasajero.cartera.remove(reserva);
 			}
 		}
 		return Empleado.vuelos.indexOf(this);
