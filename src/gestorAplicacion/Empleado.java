@@ -65,7 +65,7 @@ public class Empleado extends Persona implements Serializable{
 			puertaAbordaje = 1;
 		}
 		Calendar fecha = Calendar.getInstance();
-		fecha.add(Calendar.MINUTE,2);
+		fecha.add(Calendar.MINUTE,4);
 		Empleado.vuelos.add(new Vuelo(fecha, destino, salida, puertaAbordaje));
 	}
 	
@@ -99,7 +99,6 @@ public class Empleado extends Persona implements Serializable{
 	}
 	
 	public void ActualizarVuelos() {
-		Vector<Integer> posiciones = new Vector<>();
 		Iterator<Vuelo> i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo x = i.next();
