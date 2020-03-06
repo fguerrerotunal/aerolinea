@@ -77,8 +77,7 @@ public class Vuelo  implements Serializable {
 		this.numeroVuelo = cantidadVuelos;
 		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
 		this.fecha = Calendar.getInstance();
-		int r = (int)(Math.random()*(10-5+1)+5);
-		fecha.add(Calendar.MINUTE,r);
+		fecha.add(Calendar.MINUTE,2);
 		this.estado="Venta";
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){
