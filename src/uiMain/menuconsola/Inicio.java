@@ -59,6 +59,7 @@ public class Inicio extends MenuDeConsola{
 		new Aeropuerto("John F.Kennedy","New York","EEUU");
 		new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
 		new Aeropuerto("Pudong","Shanghai","China");
+
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(3));
