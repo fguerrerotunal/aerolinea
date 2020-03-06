@@ -13,7 +13,6 @@ public class Vuelo  implements Serializable {
 	Aeropuerto destino;
 	Aeropuerto salida;
 	public String estado = "Venta";
-	final int capacidad = 20;
 	int puertaAbordaje;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	
@@ -73,16 +72,25 @@ public class Vuelo  implements Serializable {
 		return info;
 	}
 
+<<<<<<< HEAD
+	public void finalizer() {
+		for(int i = 0;i<20;i++){ 
+			if(this.puestos[i]!=null){
+				this.puestos[i].pasajero.AñadirHistorial(this.toString("consulta"));
+				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
+				this.puestos[i].pasajero.cartera.remove(this.puestos[i]);
+				this.puestos[i]=null;
+=======
 	public int finalizer() {
 		for(int i = 0;i<20;i++) {
 			if(this.puestos[i]!=null) {
-			Cliente pasajero = this.puestos[i].pasajero;
-			Reserva reserva = this.puestos[i];
-			this.puestos[i].pasajero.AñadirHistorial(this.toString("consulta"));
-			Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
-			this.puestos[i].pasajero.cartera.remove(reserva);
+				Cliente pasajero = this.puestos[i].pasajero;
+				Reserva reserva = this.puestos[i];
+				pasajero.AñadirHistorial(this.toString("consulta"));
+				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
+				this.puestos[i].pasajero.cartera.remove(reserva);
+>>>>>>> 08658374e0e0b65a278b7d8dbb6878de0d8aa2b1
 			}
 		}
-		return Empleado.vuelos.indexOf(this);
 	}
 }
