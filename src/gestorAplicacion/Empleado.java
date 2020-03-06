@@ -52,7 +52,7 @@ public class Empleado extends Persona implements Serializable{
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(!vuelo.estado.equals("Venta")&&!vuelo.estado.equals("")) {
+			if(!vuelo.estado.equals("Venta")) {
 				estadoVuelos = estadoVuelos + "\n" + vuelo.toString("estado");
 			}
 		}

@@ -22,7 +22,6 @@ public class Vuelo  implements Serializable {
 		this.numeroVuelo = cantidadVuelos;
 		capacidad = 20;
 		precioTiquete = capacidad*12500;
-		this.estado = "";
 		this.fecha = fecha;
 		this.salida = salida;
 		this.destino= destino;
