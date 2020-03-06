@@ -13,7 +13,7 @@ public class CuentaBancaria implements Serializable{
 		this.titular = titular;
 	}
 	
-	int getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 	
@@ -27,6 +27,5 @@ public class CuentaBancaria implements Serializable{
 	void add(int nv) {
 		saldo=saldo+nv;
 	}
-	
-	
+
 }
