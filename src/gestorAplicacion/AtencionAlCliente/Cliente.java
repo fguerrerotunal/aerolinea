@@ -11,14 +11,14 @@ import uiMain.menuconsola.MenuDeConsola;
 import java.io.*;
 public class Cliente extends Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
-	public CuentaMillas cuentamillas;
-	int pasaporte;
+	private CuentaMillas cuentamillas;
+	private int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();
 	
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
 		this.cuentamillas = new CuentaMillas(this,identificacion);
-		this.pasaporte = pasaporte;
+		this.setPasaporte(pasaporte);
 	}
 	
 	public String Historial(){
@@ -142,5 +142,13 @@ public class Cliente extends Persona implements Serializable{
 			}
 		}
 		return contador;
+	}
+
+	public int getPasaporte() {
+		return pasaporte;
+	}
+
+	public void setPasaporte(int pasaporte) {
+		this.pasaporte = pasaporte;
 	}
 }
