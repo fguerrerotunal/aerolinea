@@ -10,6 +10,7 @@ import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reader {
+	JsonParser parser=new JsonParser();
 	private static ObjectInputStream entradas;
 	static File fichero = new File("");
 	static Object Objeto;
