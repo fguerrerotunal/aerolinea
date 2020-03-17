@@ -4,8 +4,8 @@ import java.io.*;
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
 
-	private public Vuelo vuelo;
-	private public Cliente pasajero;
+	private Vuelo vuelo;
+	private Cliente pasajero;
 	private int silla;
 	private int equipaje;
 	private int costo = 0;
@@ -13,10 +13,10 @@ public class Reserva{
 	public Reserva(Vuelo vuelo, Cliente pasajero){
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
-		this.costo += vuelo.precioTiquete;
-		for(int i = 0; i < vuelo.puestos.length; i++) {
-			if(vuelo.puestos[i] == null) {
-				this.vuelo.puestos[i] = this;
+		this.costo += vuelo.getPrecioTiquete();
+		for(int i = 0; i < vuelo.getPuestos().length; i++) {
+			if(vuelo.getPuestos()[i] == null) {
+				this.vuelo.getPuestos()[i] = this;
 				this.silla=i;
 				break;
 			}
@@ -42,9 +42,9 @@ public class Reserva{
 
 	public void setSilla(int Nsilla){
 		costo += 45000;
-		if(vuelo.puestos[Nsilla-1] == null) {
-			this.vuelo.puestos[Nsilla-1] = this;
-			this.vuelo.puestos[silla]=null;
+		if(vuelo.getPuestos()[Nsilla-1] == null) {
+			this.vuelo.getPuestos()[Nsilla-1] = this;
+			this.vuelo.getPuestos()[silla]=null;
 			this.silla=Nsilla-1;
 		}	
 		else System.out.println("La silla esta ocupada");
@@ -63,9 +63,9 @@ public class Reserva{
 	}
 	
 	public int Finalize(){
-		this.vuelo.puestos[silla]=null;
+		this.vuelo.getPuestos()[silla]=null;
 		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
-		return vuelo.precioTiquete;
+		return vuelo.getPrecioTiquete();
 	}
 
 }
