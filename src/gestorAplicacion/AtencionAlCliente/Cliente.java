@@ -107,7 +107,7 @@ public class Cliente extends Persona{
 		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
 					"PASAJERO: " + getNombre() + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
-		return A + reserva.vuelo.toString("pasabordo");
+		return A + reserva.getVuelo().toString("pasabordo");
 	}
 
 	public String Cartera() {
@@ -123,7 +123,7 @@ public class Cliente extends Persona{
 	}
 	
 	public String cancelarReserva(Reserva reserva) {
-		if (reserva.vuelo.getEstado().equals("Venta")) {
+		if (reserva.getVuelo().getEstado().equals("Venta")) {
 		int retorno=reserva.Finalize();
 		  getCuentabancaria().add(retorno);
 		  return "Cancelado exitosamente";
