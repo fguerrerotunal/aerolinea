@@ -1,4 +1,5 @@
 package Basededatos;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,12 +10,12 @@ import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
-public class Reader {
+public class Reader{
 	JsonParser parser=new JsonParser();
-	private static ObjectInputStream entradas;
-	static File fichero = new File("");
-	static Object Objeto;
-	public static void Leer(){
+	File fichero=new File("");
+	public static void Leer throws java.io.IOExcepcion(){
+		
+		FileReader Reader=new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 		try {
 
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
