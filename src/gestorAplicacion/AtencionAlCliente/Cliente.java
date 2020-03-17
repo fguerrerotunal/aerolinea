@@ -17,7 +17,7 @@ public class Cliente extends Persona{
 	
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
-		this.cuentamillas = new CuentaMillas(this,identificacion);
+		this.setCuentamillas(new CuentaMillas(this,identificacion));
 		this.setPasaporte(pasaporte);
 	}
 	
@@ -82,7 +82,7 @@ public class Cliente extends Persona{
 				
 			case 1:
 				int millas=(int)costo*2;
-				if(this.cuentamillas.getMillas()  >= millas) {
+				if(this.getCuentamillas().getMillas()  >= millas) {
 					Admin.empleados.get(0).ModMillas(this, -millas);
 					
 					transaccion = true;
@@ -148,5 +148,13 @@ public class Cliente extends Persona{
 
 	public void setPasaporte(int pasaporte) {
 		this.pasaporte = pasaporte;
+	}
+
+	public CuentaMillas getCuentamillas() {
+		return cuentamillas;
+	}
+
+	public void setCuentamillas(CuentaMillas cuentamillas) {
+		this.cuentamillas = cuentamillas;
 	}
 }

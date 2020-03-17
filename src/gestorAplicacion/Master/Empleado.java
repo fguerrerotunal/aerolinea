@@ -50,7 +50,7 @@ public class Empleado extends Persona{
 		int posicion = 0;
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(vuelo.estado.equals("Venta")) {
+			if(vuelo.getEstado().equals("Venta")) {
 				vuelosDisponibles = vuelosDisponibles + "\n" + posicion +"\t"+vuelo.toString("consulta");
 				posicion++;
 			}
@@ -63,7 +63,7 @@ public class Empleado extends Persona{
 		Iterator i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo vuelo = (Vuelo)i.next();
-			if(!vuelo.estado.equals("Venta")) {
+			if(!vuelo.getEstado().equals("Venta")) {
 				estadoVuelos = estadoVuelos + "\n" + vuelo.toString("estado");
 			}
 		}
@@ -81,18 +81,18 @@ public class Empleado extends Persona{
 	}
 
 	public void ModMillas(Cliente cliente, int precio) {
-		cliente.cuentamillas.setMillas(cliente.cuentamillas.getMillas() + precio);
+		cliente.getCuentamillas().setMillas(cliente.getCuentamillas().getMillas() + precio);
 	}
 	
 	String CosultarVuelo(Vuelo vuelo) {
-		return "Vuelo:"+vuelo.numeroVuelo+"\n Salida: "+vuelo.salida+"\n Destino: "+vuelo.destino+"\n pasajeros:\n"+Consultarpasajeros(vuelo);
+		return "Vuelo:"+vuelo.getNumeroVuelo()+"\n Salida: "+vuelo.getSalida()+"\n Destino: "+vuelo.getDestino()+"\n pasajeros:\n"+Consultarpasajeros(vuelo);
 		}
 	
 	String Consultarpasajeros(Vuelo vuelo) {
 		String pasajeros="(Nombre,Identificacion)\n";
 		for(int i = 0;i<20;i++) {
-			Persona pasajero = vuelo.puestos[i].pasajero;
-			pasajeros=pasajeros+pasajero.nombre+" "+pasajero.identificacion+"\n";
+			Persona pasajero = vuelo.getPuestos()[i].pasajero;
+			pasajeros=pasajeros+pasajero.getNombre()+" "+pasajero.getIdentificacion()+"\n";
 		}
 		return pasajeros;
 		
@@ -102,33 +102,33 @@ public class Empleado extends Persona{
 		Iterator<Vuelo> i = vuelos.iterator();
 		while(i.hasNext()) {
 			Vuelo x = i.next();
-			switch (x.estado) {
+			switch (x.getEstado()) {
 			case "Venta":
-				x.estado = "Abordaje";
+				x.setEstado("Abordaje");
 				break;
 			case "Abordaje":
 				int azar = (int)(Math.random() * 10);
 				if(azar >= 5) {
-					x.estado = "Despego";
+					x.setEstado("Despego");
 				}else {
-					x.estado = "Retrasado";
+					x.setEstado("Retrasado");
 				}
 				break;
 			case "Retrasado":
 				int azarremaster = (int)(Math.random() * 10);
 				if(azarremaster >= 2) {
-					x.estado = "Despego";
+					x.setEstado("Despego");
 				}
 				break;
 			case "Despego":
-				x.estado = "Volando";
+				x.setEstado("Volando");
 				break;
 			case "Volando":
-				x.estado = "Aterrizo";
+				x.setEstado("Aterrizo");
 				break;
 			case "Aterrizo":
 				x.finalizer();
-				x.estado="Venta";
+				x.setEstado("Venta");
 			
 			}
 		}	

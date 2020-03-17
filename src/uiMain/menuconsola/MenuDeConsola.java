@@ -23,7 +23,7 @@ public abstract class MenuDeConsola {
 				System.out.print("SALDO CUENTA Bancaria: ");
 				System.out.print(usuarioactual.cuentabancaria.getSaldo());
 				System.out.print("\nSALDO CUENTA MILLAS: ");
-				System.out.println(usuarioactual.cuentamillas.getMillas());
+				System.out.println(usuarioactual.getCuentamillas().getMillas());
 			}
 			while(i.hasNext()) {
 				OpcionDeMenu opcion = (OpcionDeMenu) i.next();

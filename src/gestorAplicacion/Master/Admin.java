@@ -40,7 +40,7 @@ public class Admin{
 			precio = 1200;
 			break;
 		}
-		if(cliente.cuentamillas.getMillas() >= precio) {
+		if(cliente.getCuentamillas().getMillas() >= precio) {
 			Admin.empleados.get(0).ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
 		}
@@ -53,7 +53,7 @@ public class Admin{
 		Iterator i = clientes.iterator();
 		while(i.hasNext()) {
 			busqueda = (Cliente) i.next();
-			if(busqueda.identificacion == id) {
+			if(busqueda.getIdentificacion() == id) {
 				break;
 			}
 			posicion++;
