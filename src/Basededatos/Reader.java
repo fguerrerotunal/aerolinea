@@ -1,23 +1,11 @@
-package baseDeDatos;
+package Basededatos;
 import java.io.*;
-import java.util.Iterator;
-import org.json.*;
-import com.google.*;
-import com.google.gson.Gson;
-
-import gestorAplicacion.AtencionAlCliente.Cliente;
-import gestorAplicacion.Master.Admin;
-import gestorAplicacion.Master.Aeropuerto;
-import gestorAplicacion.Master.Empleado;
-import gestorAplicacion.Master.Vuelo;
-public class Reader{
-	File fichero=new File("");
-	Gson filter=new Gson();
-	//maldita sea
-	String JSON = filter.toJson(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
+import gestorAplicacion.*;
+public class Reader {
+	private static ObjectInputStream entradas;
+	static File fichero = new File("");
+	static Object Objeto;
 	public static void Leer(){
-		
-		FileReader Reader=new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 		try {
 
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));

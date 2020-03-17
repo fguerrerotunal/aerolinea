@@ -2,9 +2,9 @@ package uiMain.menuconsola;
 
 import java.util.Iterator;
 
-import gestorAplicacion.AtencionAlCliente.Reserva;
-import gestorAplicacion.Master.Empleado;
-import gestorAplicacion.Master.Vuelo;
+import gestorAplicacion.Empleado;
+import gestorAplicacion.Reserva;
+import gestorAplicacion.Vuelo;
 
 public class ComprarTiquete  extends OpcionDeMenu{
 
