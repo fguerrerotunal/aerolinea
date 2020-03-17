@@ -1,8 +1,5 @@
 package Basededatos;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Iterator;
 import org.json.*;
 import gestorAplicacion.AtencionAlCliente.Cliente;
@@ -11,7 +8,7 @@ import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reader{
-	JsonParser parser=new JsonParser();
+	JsonParser parser=new JSONStringer();
 	File fichero=new File("");
 	public static void Leer throws java.io.IOExcepcion(){
 		
