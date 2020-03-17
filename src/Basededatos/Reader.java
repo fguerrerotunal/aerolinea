@@ -1,7 +1,8 @@
 package Basededatos;
-import java.io.*;
-
-import gestorAplicacion.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Aeropuerto;
