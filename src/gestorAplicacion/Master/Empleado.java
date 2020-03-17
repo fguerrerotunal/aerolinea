@@ -13,7 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 public class Empleado extends Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
-	String ocupacion;
+	private String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
@@ -23,6 +23,14 @@ public class Empleado extends Persona implements Serializable{
 		this.ocupacion = ocupacion;
 	}
 	
+	public String getOcupacion() {
+		return ocupacion;
+	}
+
+	public void setOcupacion(String ocupacion) {
+		this.ocupacion = ocupacion;
+	}
+
 	public String Historial(){
 		Iterator i = historial.iterator();
 		String historial = "Historial de acciones del sistema";

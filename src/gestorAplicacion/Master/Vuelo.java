@@ -9,14 +9,14 @@ import java.text.SimpleDateFormat;
 public class Vuelo  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	static int cantidadVuelos = 0;
-	public Reserva[] puestos = new Reserva[20];
-	int numeroVuelo;
-	public int precioTiquete;
-	Calendar fecha=Calendar.getInstance();
-	Aeropuerto destino;
-	Aeropuerto salida;
-	public String estado = "Venta";
-	int puertaAbordaje;
+	private Reserva[] puestos = new Reserva[20];
+	private int numeroVuelo;
+	private int precioTiquete;
+	private Calendar fecha=Calendar.getInstance();
+	private Aeropuerto destino;
+	private Aeropuerto salida;
+	private String estado = "Venta";
+	private int puertaAbordaje;
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
@@ -28,9 +28,104 @@ public class Vuelo  implements Serializable {
 		this.salida = salida;
 		this.destino= destino;
 		this.puertaAbordaje = puertaAbordaje;
+	}	
+	
+	public Reserva[] getPuestos() {
+		return puestos;
 	}
-	
-	
+
+
+
+	public void setPuestos(Reserva[] puestos) {
+		this.puestos = puestos;
+	}
+
+
+
+	public int getNumeroVuelo() {
+		return numeroVuelo;
+	}
+
+
+
+	public void setNumeroVuelo(int numeroVuelo) {
+		this.numeroVuelo = numeroVuelo;
+	}
+
+
+
+	public int getPrecioTiquete() {
+		return precioTiquete;
+	}
+
+
+
+	public void setPrecioTiquete(int precioTiquete) {
+		this.precioTiquete = precioTiquete;
+	}
+
+
+
+	public Calendar getFecha() {
+		return fecha;
+	}
+
+
+
+	public void setFecha(Calendar fecha) {
+		this.fecha = fecha;
+	}
+
+
+
+	public Aeropuerto getDestino() {
+		return destino;
+	}
+
+
+
+	public void setDestino(Aeropuerto destino) {
+		this.destino = destino;
+	}
+
+
+
+	public Aeropuerto getSalida() {
+		return salida;
+	}
+
+
+
+	public void setSalida(Aeropuerto salida) {
+		this.salida = salida;
+	}
+
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+
+	public int getPuertaAbordaje() {
+		return puertaAbordaje;
+	}
+
+
+
+	public void setPuertaAbordaje(int puertaAbordaje) {
+		this.puertaAbordaje = puertaAbordaje;
+	}
+
+
+
 	public String toString(String tipo) {
 		String info = "";
 		String recorrido = this.salida.getCiudad() +"-"+ this.destino.getCiudad();
