@@ -11,11 +11,12 @@ import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reader{
-	static File fichero=new File("");
-	static Gson filter=new Gson();
+	File fichero=new File("");
+	Gson filter=new Gson();
+	String JSON = filter.toJson(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 	public static void Leer(){
-		String JSON = filter.toJson(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
-		Admin.clientes=
+		
+		FileReader Reader=new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 		try {
 
 			entradas = new ObjectInputStream(new FileInputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
