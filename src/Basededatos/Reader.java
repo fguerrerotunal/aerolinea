@@ -13,6 +13,7 @@ import gestorAplicacion.Master.Vuelo;
 public class Reader{
 	File fichero=new File("");
 	Gson filter=new Gson();
+	//maldita sea
 	String JSON = filter.toJson(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 	public static void Leer(){
 		
