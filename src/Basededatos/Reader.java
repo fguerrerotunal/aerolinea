@@ -2,14 +2,15 @@ package Basededatos;
 import java.io.*;
 import java.util.Iterator;
 import org.json.*;
+import com.google.*;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reader{
-	JsonParser parser=new JSONStringer();
 	File fichero=new File("");
+	String JSON = gson.toJson(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 	public static void Leer(){
 		
 		FileReader Reader=new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
