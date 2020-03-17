@@ -1,7 +1,7 @@
 package uiMain.menuconsola;
 
-import gestorAplicacion.AtencionAlCliente.Cliente;
-import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Admin;
+import gestorAplicacion.Cliente;
 
 public class NuevoRegistro extends OpcionDeMenu{
 	
