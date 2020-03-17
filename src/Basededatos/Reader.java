@@ -10,7 +10,7 @@ import gestorAplicacion.Master.Vuelo;
 public class Reader{
 	JsonParser parser=new JSONStringer();
 	File fichero=new File("");
-	public static void Leer throws java.io.IOExcepcion(){
+	public static void Leer(){
 		
 		FileReader Reader=new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
 		try {
