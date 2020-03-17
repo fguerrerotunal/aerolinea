@@ -10,7 +10,7 @@ public abstract class Persona implements Serializable{
 	private String nombre;
 	private String direccion;
 	private String correo;
-	private Vector<String> historial = new Vector<>();
+	protected Vector<String> historial = new Vector<>();
 	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 
 	public Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){

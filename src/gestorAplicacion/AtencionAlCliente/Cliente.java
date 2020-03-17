@@ -52,12 +52,10 @@ public class Cliente extends Persona{
 	}
 	
 	public String ConsultarVuelos(){
-		//this.AñadirHistorial("Consulta vuelos disponibles");
 		return Admin.empleados.get(0).VuelosDisponibles();
 	}
 	
 	public String ConsultarEstadoVuelos(){
-		//this.AñadirHistorial("Consulta estado de vuelos");
 		return Admin.empleados.get(0).EstadoVuelos();
 	}
 	
@@ -75,9 +73,9 @@ public class Cliente extends Persona{
 		int costo = reserva.getCosto();
 		switch (medio) {
 			case 0:
-				if(this.cuentabancaria.getSaldo() >= costo) {
-					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
-					System.out.println("\nSaldo restante: "+this.cuentabancaria.getSaldo());
+				if((this.getCuentabancaria()).getSaldo() >= costo) {
+					(this.getCuentabancaria()).setSaldo((this.getCuentabancaria()).getSaldo() - costo);
+					System.out.println("\nSaldo restante: "+ (this.getCuentabancaria()).getSaldo());
 					transaccion = true;
 				}
 				break;
@@ -96,7 +94,7 @@ public class Cliente extends Persona{
 			return "Transaccion realizada satisfactoriamente";
 		}else {
 			this.cancelarReserva(reserva);
-			this.cuentabancaria.Actualizar();
+			this.getCuentabancaria().Actualizar();
 			return "Transaccion fallida,se ha cancelado tu reserva";
 		}
 	}
@@ -107,7 +105,7 @@ public class Cliente extends Persona{
 	
 	public String Pasabordo(Reserva reserva) {
 		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
-					"PASAJERO: " + nombre + "\n" + 
+					"PASAJERO: " + getNombre() + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
 		return A + reserva.vuelo.toString("pasabordo");
 	}
@@ -125,9 +123,9 @@ public class Cliente extends Persona{
 	}
 	
 	public String cancelarReserva(Reserva reserva) {
-		if (reserva.vuelo.estado.equals("Venta")) {
+		if (reserva.vuelo.getEstado().equals("Venta")) {
 		int retorno=reserva.Finalize();
-		  cuentabancaria.add(retorno);
+		  getCuentabancaria().add(retorno);
 		  return "Cancelado exitosamente";
 		}
 		else
@@ -137,7 +135,7 @@ public class Cliente extends Persona{
 	public int Contarpuestos(Vuelo vuelo) {
 		int contador=0;
 		for (int i=0;i<20;i++) {
-			if(vuelo.puestos[i]!=null) {
+			if(vuelo.getPuestos()[i]!=null) {
 				contador++;
 			}
 		}
