@@ -1,4 +1,4 @@
-package baseDeDatos;
+package Basededatos;
 import java.io.*;
 import gestorAplicacion.*;
 import gestorAplicacion.Master.Admin;
