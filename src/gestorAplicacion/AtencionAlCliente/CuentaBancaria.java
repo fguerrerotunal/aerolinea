@@ -1,7 +1,7 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
-public class CuentaBancaria implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class CuentaBancaria{
+
 	static int cantidadCuentas;
 	private int numeroCuenta;
 	Persona titular;

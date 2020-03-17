@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.util.*;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
-public class Admin implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Admin{
+
 	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 

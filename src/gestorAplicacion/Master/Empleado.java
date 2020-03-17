@@ -11,8 +11,7 @@ import gestorAplicacion.AtencionAlCliente.Persona;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-public class Empleado extends Persona implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Empleado extends Persona{
 	private String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();

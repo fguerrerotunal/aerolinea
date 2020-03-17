@@ -1,8 +1,8 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.util.*;
 import java.io.*;
-public class CuentaMillas implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class CuentaMillas{
+
 	private static int cantidadCuentas;
 	private int numeroCuenta;
 	private Cliente titular;

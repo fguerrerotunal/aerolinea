@@ -9,8 +9,8 @@ import uiMain.menuconsola.*;
 import uiMain.menuconsola.MenuDeConsola;
 
 import java.io.*;
-public class Cliente extends Persona implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Cliente extends Persona{
+
 	private CuentaMillas cuentamillas;
 	private int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();

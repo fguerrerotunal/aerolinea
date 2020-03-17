@@ -1,7 +1,7 @@
 package gestorAplicacion.Master;
 import java.io.*;
-public class Aeropuerto implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class Aeropuerto{
+
 	private String nombre;
 	private String ciudad;
 	private String pais;
