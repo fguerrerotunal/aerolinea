@@ -3,8 +3,8 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-public abstract class Persona implements Serializable{
-	private static final long serialVersionUID = 1L;
+public abstract class Persona{
+
 	private int identificacion;
 	private  CuentaBancaria cuentabancaria;
 	private String nombre;
