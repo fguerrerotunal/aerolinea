@@ -1,4 +1,4 @@
-package Basededatos;
+package baseDeDatos;
 import java.io.*;
 import java.util.Iterator;
 import org.json.*;
