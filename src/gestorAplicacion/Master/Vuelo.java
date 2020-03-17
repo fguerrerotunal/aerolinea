@@ -179,9 +179,9 @@ public class Vuelo{
 		this.estado="Venta";
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){
-				this.puestos[i].pasajero.AñadirHistorial(this.toString("consulta"));
-				Admin.empleados.get(0).ModMillas(this.puestos[i].pasajero, this.precioTiquete/2);
-				this.puestos[i].pasajero.cartera.remove(this.puestos[i]);
+				this.puestos[i].getPasajero().AñadirHistorial(this.toString("consulta"));
+				Admin.empleados.get(0).ModMillas(this.puestos[i].getPasajero(), this.precioTiquete/2);
+				this.puestos[i].getPasajero().cartera.remove(this.puestos[i]);
 				this.puestos[i]=null;
 			}
 		}
