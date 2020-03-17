@@ -39,6 +39,10 @@ public class Reserva{
 	public Vuelo getVuelo() {
 		return vuelo;
 	}
+	
+	public Cliente getPasajero() {
+		return this.pasajero;
+	}
 
 	public void setSilla(int Nsilla){
 		costo += 45000;

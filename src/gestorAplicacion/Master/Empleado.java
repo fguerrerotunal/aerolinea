@@ -91,7 +91,7 @@ public class Empleado extends Persona{
 	String Consultarpasajeros(Vuelo vuelo) {
 		String pasajeros="(Nombre,Identificacion)\n";
 		for(int i = 0;i<20;i++) {
-			Persona pasajero = vuelo.getPuestos()[i].pasajero;
+			Persona pasajero = vuelo.getPuestos()[i].getPasajero();
 			pasajeros=pasajeros+pasajero.getNombre()+" "+pasajero.getIdentificacion()+"\n";
 		}
 		return pasajeros;
