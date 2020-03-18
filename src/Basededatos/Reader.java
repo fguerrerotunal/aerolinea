@@ -1,12 +1,8 @@
 package Basededatos;
 import java.io.*;
-
-import gestorAplicacion.*;
-import gestorAplicacion.AtencionAlCliente.Cliente;
-import gestorAplicacion.Master.Admin;
-import gestorAplicacion.Master.Aeropuerto;
-import gestorAplicacion.Master.Empleado;
-import gestorAplicacion.Master.Vuelo;
+import com.google.*;
+import gestorAplicacion.AtencionAlCliente.*;
+import gestorAplicacion.Master.*;
 public class Reader {
 	private static ObjectInputStream entradas;
 	static File fichero = new File("");
