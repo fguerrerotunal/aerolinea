@@ -1,6 +1,8 @@
 package Basededatos;
 import java.io.*;
 import gestorAplicacion.*;
+import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Empleado;
 public class Writer{
 	static File fichero = new File("");
 	static ObjectOutputStream entradas;

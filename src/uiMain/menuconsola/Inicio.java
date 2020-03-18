@@ -2,10 +2,10 @@ package uiMain.menuconsola;
 import java.util.Timer;
 import java.util.TimerTask;
 import Basededatos.Reader;
-import gestorAplicacion.Admin;
-import gestorAplicacion.Aeropuerto;
-import gestorAplicacion.Cliente;
-import gestorAplicacion.Empleado;
+import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Aeropuerto;
+import gestorAplicacion.Master.Empleado;
 
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
@@ -48,15 +48,15 @@ public class Inicio extends MenuDeConsola{
 		menucartera.opciones.add(imprimirpasabordo);
 		menucartera.opciones.add(cancelarreserva);
 		menucartera.opciones.add(atras);
+		//psaa toda la informacion al a base
+		Reader.Leer();
 		
-		//Reader.Leer();
-		
-		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
-		new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
-		new Aeropuerto("El Dorado","Bogota","Colombia");
-		new Aeropuerto("John F.Kennedy","New York","EEUU");
-		new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
-		new Aeropuerto("Pudong","Shanghai","China");
+		//Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
+		//new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
+		//new Aeropuerto("El Dorado","Bogota","Colombia");
+		//new Aeropuerto("John F.Kennedy","New York","EEUU");
+		//new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
+		//new Aeropuerto("Pudong","Shanghai","China");
 		Admin.premios.add("Silla: ...50");
 		Admin.premios.add("Mercado: ...100");
 		Admin.premios.add("Olla de arroz:  ...200");
@@ -66,34 +66,33 @@ public class Inicio extends MenuDeConsola{
 		Admin.premios.add("Viaje en pareja: ...1000");
 		Admin.premios.add("Viaje Familiar(max 4): ...1200");
 
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(3));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(4));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(0));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(2));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(3));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(4));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(0));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(1));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(3));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(4));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(0));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(1));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(2));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(4));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(0));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
-		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
-		Admin.clientes.add(new Cliente(1,1,"Guzman","Universidad nacional","gmaz@unalmail.com",1));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(3));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(4));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(0));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(2));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(3));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(4));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(0));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(1));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(3));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(4));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(0));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(1));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(2));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(4));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(0));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
+		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 15000,15000);//cada 3 min
+		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 		
 		inicio.LanzarMenu();
 		

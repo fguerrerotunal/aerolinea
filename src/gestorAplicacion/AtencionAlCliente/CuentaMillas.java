@@ -1,17 +1,17 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.util.*;
 import java.io.*;
-public class CuentaMillas{
-
-	private static int cantidadCuentas;
-	private int numeroCuenta;
-	private Cliente titular;
+public class CuentaMillas implements Serializable {
+	private static final long serialVersionUID = 1L;
+	static int cantidadCuentas;
+	int numeroCuenta;
+	Cliente titular;
 	private int millas = 100;
 	
 	CuentaMillas(Cliente titular, int numeroCuenta){
-		this.setTitular(titular);
-		this.setNumeroCuenta(numeroCuenta);
-		setCantidadCuentas(getCantidadCuentas() + 1);		
+		this.titular = titular;
+		this.numeroCuenta = numeroCuenta;
+		cantidadCuentas += 1;		
 	}
 	
 	public void setMillas(int millas){
@@ -20,30 +20,6 @@ public class CuentaMillas{
 	
 	public int getMillas(){
 		return millas;
-	}
-
-	public static int getCantidadCuentas() {
-		return cantidadCuentas;
-	}
-
-	public static void setCantidadCuentas(int cantidadCuentas) {
-		CuentaMillas.cantidadCuentas = cantidadCuentas;
-	}
-
-	public int getNumeroCuenta() {
-		return numeroCuenta;
-	}
-
-	public void setNumeroCuenta(int numeroCuenta) {
-		this.numeroCuenta = numeroCuenta;
-	}
-
-	public Cliente getTitular() {
-		return titular;
-	}
-
-	public void setTitular(Cliente titular) {
-		this.titular = titular;
 	}
 	
 }

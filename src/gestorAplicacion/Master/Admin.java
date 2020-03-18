@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.util.*;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
-public class Admin{
-
+public class Admin implements Serializable{
+	private static final long serialVersionUID = 1L;
 	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
@@ -40,7 +40,7 @@ public class Admin{
 			precio = 1200;
 			break;
 		}
-		if(cliente.getCuentamillas().getMillas() >= precio) {
+		if(cliente.cuentamillas.getMillas() >= precio) {
 			Admin.empleados.get(0).ModMillas(cliente, -precio);
 			aviso = "Premio canjeado correctamente";
 		}
@@ -53,7 +53,7 @@ public class Admin{
 		Iterator i = clientes.iterator();
 		while(i.hasNext()) {
 			busqueda = (Cliente) i.next();
-			if(busqueda.getIdentificacion() == id) {
+			if(busqueda.identificacion == id) {
 				break;
 			}
 			posicion++;

@@ -9,16 +9,16 @@ import uiMain.menuconsola.*;
 import uiMain.menuconsola.MenuDeConsola;
 
 import java.io.*;
-public class Cliente extends Persona{
-
-	private CuentaMillas cuentamillas;
-	private int pasaporte;
+public class Cliente extends Persona implements Serializable{
+	private static final long serialVersionUID = 1L;
+	public CuentaMillas cuentamillas;
+	int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();
 	
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
-		this.setCuentamillas(new CuentaMillas(this,identificacion));
-		this.setPasaporte(pasaporte);
+		this.cuentamillas = new CuentaMillas(this,identificacion);
+		this.pasaporte = pasaporte;
 	}
 	
 	public String Historial(){
@@ -52,10 +52,12 @@ public class Cliente extends Persona{
 	}
 	
 	public String ConsultarVuelos(){
+		//this.AñadirHistorial("Consulta vuelos disponibles");
 		return Admin.empleados.get(0).VuelosDisponibles();
 	}
 	
 	public String ConsultarEstadoVuelos(){
+		//this.AñadirHistorial("Consulta estado de vuelos");
 		return Admin.empleados.get(0).EstadoVuelos();
 	}
 	
@@ -73,16 +75,16 @@ public class Cliente extends Persona{
 		int costo = reserva.getCosto();
 		switch (medio) {
 			case 0:
-				if((this.getCuentabancaria()).getSaldo() >= costo) {
-					(this.getCuentabancaria()).setSaldo((this.getCuentabancaria()).getSaldo() - costo);
-					System.out.println("\nSaldo restante: "+ (this.getCuentabancaria()).getSaldo());
+				if(this.cuentabancaria.getSaldo() >= costo) {
+					this.cuentabancaria.setSaldo(this.cuentabancaria.getSaldo() - costo);
+					System.out.println("\nSaldo restante: "+this.cuentabancaria.getSaldo());
 					transaccion = true;
 				}
 				break;
 				
 			case 1:
 				int millas=(int)costo*2;
-				if(this.getCuentamillas().getMillas()  >= millas) {
+				if(this.cuentamillas.getMillas()  >= millas) {
 					Admin.empleados.get(0).ModMillas(this, -millas);
 					
 					transaccion = true;
@@ -94,7 +96,7 @@ public class Cliente extends Persona{
 			return "Transaccion realizada satisfactoriamente";
 		}else {
 			this.cancelarReserva(reserva);
-			this.getCuentabancaria().Actualizar();
+			this.cuentabancaria.Actualizar();
 			return "Transaccion fallida,se ha cancelado tu reserva";
 		}
 	}
@@ -105,9 +107,9 @@ public class Cliente extends Persona{
 	
 	public String Pasabordo(Reserva reserva) {
 		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
-					"PASAJERO: " + getNombre() + "\n" + 
+					"PASAJERO: " + nombre + "\n" + 
 					"ASIENTO: " + reserva.getSilla() + "\n";
-		return A + reserva.getVuelo().toString("pasabordo");
+		return A + reserva.vuelo.toString("pasabordo");
 	}
 
 	public String Cartera() {
@@ -123,9 +125,9 @@ public class Cliente extends Persona{
 	}
 	
 	public String cancelarReserva(Reserva reserva) {
-		if (reserva.getVuelo().getEstado().equals("Venta")) {
+		if (reserva.vuelo.estado.equals("Venta")) {
 		int retorno=reserva.Finalize();
-		  getCuentabancaria().add(retorno);
+		  cuentabancaria.add(retorno);
 		  return "Cancelado exitosamente";
 		}
 		else
@@ -135,26 +137,10 @@ public class Cliente extends Persona{
 	public int Contarpuestos(Vuelo vuelo) {
 		int contador=0;
 		for (int i=0;i<20;i++) {
-			if(vuelo.getPuestos()[i]!=null) {
+			if(vuelo.puestos[i]!=null) {
 				contador++;
 			}
 		}
 		return contador;
-	}
-
-	public int getPasaporte() {
-		return pasaporte;
-	}
-
-	public void setPasaporte(int pasaporte) {
-		this.pasaporte = pasaporte;
-	}
-
-	public CuentaMillas getCuentamillas() {
-		return cuentamillas;
-	}
-
-	public void setCuentamillas(CuentaMillas cuentamillas) {
-		this.cuentamillas = cuentamillas;
 	}
 }

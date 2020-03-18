@@ -2,7 +2,7 @@ package uiMain.menuconsola;
 
 import java.util.*;
 
-import gestorAplicacion.Cliente;
+import gestorAplicacion.AtencionAlCliente.Cliente;
 
 public abstract class MenuDeConsola {
 	Vector<OpcionDeMenu> opciones = new Vector<>();
@@ -20,8 +20,8 @@ public abstract class MenuDeConsola {
 			Iterator i = opciones.iterator();
 			System.out.println(this.Mensaje());
 			if(this instanceof MenuCliente) {
-				System.out.print("\nSALDO CUENTA Bancaria: ");
-				System.out.println(usuarioactual.cuentabancaria.getSaldo());
+				System.out.print("SALDO CUENTA Bancaria: ");
+				System.out.print(usuarioactual.cuentabancaria.getSaldo());
 				System.out.print("\nSALDO CUENTA MILLAS: ");
 				System.out.println(usuarioactual.cuentamillas.getMillas());
 			}
