@@ -12,8 +12,6 @@ import uiMain.menuconsola.opcionesdeMenu.ComprarTiquete;
 import uiMain.menuconsola.opcionesdeMenu.Descripccion;
 import uiMain.menuconsola.opcionesdeMenu.HistorialDeVuelo;
 import uiMain.menuconsola.opcionesdeMenu.ImprimirPasabordo;
-import uiMain.menuconsola.opcionesdeMenu.ModificarEquipaje;
-import uiMain.menuconsola.opcionesdeMenu.ModificarSilla;
 import uiMain.menuconsola.opcionesdeMenu.NuevoRegistro;
 import uiMain.menuconsola.opcionesdeMenu.Salir;
 import uiMain.menuconsola.opcionesdeMenu.UsuarioRegistrado;
@@ -34,9 +32,6 @@ public class Inicio extends MenuDeConsola{
 		Descripccion descripccion = new Descripccion();
 		Salir salir = new Salir();  //listo
 		ComprarTiquete comprartiquete = new ComprarTiquete();  
-		
-		ModificarSilla modificarsilla = new ModificarSilla(); //listo
-		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		
 //		CanjearMillas canjearmillas = new CanjearMillas();   //listo
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
