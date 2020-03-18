@@ -7,7 +7,7 @@ public class Reserva{
 	private Vuelo vuelo;
 	private Cliente pasajero;
 	private int silla;
-	private int equipaje;
+	private Boolean equipaje = true;
 	private int costo = 0;
 	
 	public Reserva(Vuelo vuelo, Cliente pasajero){
@@ -17,7 +17,7 @@ public class Reserva{
 		for(int i = 0; i < vuelo.getPuestos().length; i++) {
 			if(vuelo.getPuestos()[i] == null) {
 				this.vuelo.getPuestos()[i] = this;
-				this.silla=i;
+				this.silla=i+1;
 				break;
 			}
 			
@@ -29,7 +29,7 @@ public class Reserva{
 		return silla;
 	}
 	
-	public int getEquipaje() {
+	public Boolean getEquipaje() {
 		return equipaje;
 	}
 	
@@ -44,22 +44,22 @@ public class Reserva{
 		return this.pasajero;
 	}
 
-	public void setSilla(int Nsilla){
+	public String setSilla(int Nsilla){
 		costo += 45000;
 		if(vuelo.getPuestos()[Nsilla-1] == null) {
 			this.vuelo.getPuestos()[Nsilla-1] = this;
 			this.vuelo.getPuestos()[silla]=null;
-			this.silla=Nsilla-1;
-		}	
-		else System.out.println("La silla esta ocupada");
+			this.silla=Nsilla;
+			return "CAMBIO EXITOSO";
+		}else {
+			return "LA SILLA ESTA OCUPADA";
+		}
 	}
 
 
-	public void setEquipaje(int equipaje) {
-		this.equipaje = equipaje;
-		if(this.equipaje >= 20) {
-			costo += 30000;
-		}
+	public void setEquipaje() {
+		this.equipaje = false;
+		costo += 30000;
 	}
 	
 	public void setCosto(int costo) {

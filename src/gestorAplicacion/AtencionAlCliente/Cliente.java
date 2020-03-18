@@ -34,18 +34,14 @@ public class Cliente extends Persona{
 		this.historial.add(accion);
 	}
 	
-	public Boolean Reservar(Vuelo vuelo) {
-		Boolean x = false;
-	
+	public String Reservar(Vuelo vuelo) {
 			if (Contarpuestos(vuelo)<20) {
 				this.cartera.add(new Reserva(vuelo, this));
-				System.out.println("VUELO RESERVADO SATISFACTORIAMENTE");
-				x=true;
+				return "VUELO RESERVADO SATISFACTORIAMENTE";
 			}
 			else {
-				System.out.println("Vuelo sin asientos disponibles");
+				return "VUELOS SIN ASIENTOS DISPONIBLES";
 			}	
-		return x;
 	}
 	
 	public String ConsultarVuelos(){
@@ -56,12 +52,12 @@ public class Cliente extends Persona{
 		return Admin.empleados.get(0).EstadoVuelos();
 	}
 	
-	public void CambiarSilla(Reserva reserva, int silla) {
-		reserva.setSilla(silla);
+	public String CambiarSilla(Reserva reserva, int silla) {
+		return reserva.setSilla(silla);
 	}
 	
-	void CambiarEquipaje(Reserva reserva, int equipaje) {
-		reserva.setEquipaje(equipaje);
+	void CambiarEquipaje(Reserva reserva) {
+		reserva.setEquipaje();
 	}
 	
 	public String Pago(int medio, Reserva reserva) {
@@ -72,7 +68,6 @@ public class Cliente extends Persona{
 			case 0:
 				if((this.getCuentabancaria()).getSaldo() >= costo) {
 					(this.getCuentabancaria()).setSaldo((this.getCuentabancaria()).getSaldo() - costo);
-					System.out.println("\nSaldo restante: "+ (this.getCuentabancaria()).getSaldo());
 					transaccion = true;
 				}
 				break;
@@ -92,7 +87,7 @@ public class Cliente extends Persona{
 		}else {
 			this.cancelarReserva(reserva);
 			this.getCuentabancaria().Actualizar();
-			return "Transaccion fallida,se ha cancelado tu reserva";
+			return "Transaccion fallida, se ha cancelado tu reserva";
 		}
 	}
 	
@@ -103,7 +98,8 @@ public class Cliente extends Persona{
 	public String Pasabordo(Reserva reserva) {
 		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
 					"PASAJERO: " + getNombre() + "\n" + 
-					"ASIENTO: " + reserva.getSilla() + "\n";
+					"ASIENTO: " + reserva.getSilla() + "\n" + 
+					"¿LIMITE EQUIPAJE?: " + reserva.getEquipaje()+"\n";
 		return A + reserva.getVuelo().toString("pasabordo");
 	}
 
