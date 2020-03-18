@@ -1,4 +1,7 @@
-package uiMain.menuconsola;
+package uiMain.menuconsola.opcionesdeMenu;
+
+import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.OpcionDeMenu;
 
 public class CancelarReserva extends OpcionDeMenu{
 	

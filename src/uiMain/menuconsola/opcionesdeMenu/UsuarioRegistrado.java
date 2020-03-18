@@ -1,15 +1,17 @@
-package uiMain.menuconsola;
+package uiMain.menuconsola.opcionesdeMenu;
 
 import gestorAplicacion.Master.Admin;
+import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.OpcionDeMenu;
 public class UsuarioRegistrado extends OpcionDeMenu{
 	
 	MenuDeConsola sigmenu;
 	
-	UsuarioRegistrado(){
+	public UsuarioRegistrado(){
 		
 	}
 	
-	UsuarioRegistrado(MenuDeConsola sigmenu){
+	public UsuarioRegistrado(MenuDeConsola sigmenu){
 		this.sigmenu=sigmenu;
 	}
 	public String Nombre() {

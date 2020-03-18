@@ -1,6 +1,8 @@
-package uiMain.menuconsola;
+package uiMain.menuconsola.opcionesdeMenu;
 
 import gestorAplicacion.Master.Admin;
+import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.OpcionDeMenu;
 
 public class CanjearMillas  extends OpcionDeMenu{
 

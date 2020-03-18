@@ -1,6 +1,8 @@
-package uiMain.menuconsola;
+package uiMain.menuconsola.opcionesdeMenu;
 
 import gestorAplicacion.AtencionAlCliente.Reserva;
+import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.OpcionDeMenu;
 
 public class ModificarSilla  extends OpcionDeMenu{
 

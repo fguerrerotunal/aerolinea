@@ -7,7 +7,7 @@ import gestorAplicacion.AtencionAlCliente.Cliente;
 public abstract class MenuDeConsola {
 	
 	Vector<OpcionDeMenu> opciones = new Vector<>();
-	static Cliente usuarioactual;
+	public static Cliente usuarioactual;
 	Scanner sc = new Scanner(System.in);
 	
 	public abstract String Mensaje();

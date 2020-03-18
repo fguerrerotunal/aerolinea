@@ -4,7 +4,20 @@ import java.util.TimerTask;
 import Basededatos.Reader;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 //import gestorAplicacion.Master.Admin;
-import gestorAplicacion.Master.*;;
+import gestorAplicacion.Master.*;
+import uiMain.menuconsola.opcionesdeMenu.Autores;
+import uiMain.menuconsola.opcionesdeMenu.CancelarReserva;
+import uiMain.menuconsola.opcionesdeMenu.Cartera;
+import uiMain.menuconsola.opcionesdeMenu.ComprarTiquete;
+import uiMain.menuconsola.opcionesdeMenu.Descripccion;
+import uiMain.menuconsola.opcionesdeMenu.HistorialDeVuelo;
+import uiMain.menuconsola.opcionesdeMenu.ImprimirPasabordo;
+import uiMain.menuconsola.opcionesdeMenu.ModificarEquipaje;
+import uiMain.menuconsola.opcionesdeMenu.ModificarSilla;
+import uiMain.menuconsola.opcionesdeMenu.NuevoRegistro;
+import uiMain.menuconsola.opcionesdeMenu.Salir;
+import uiMain.menuconsola.opcionesdeMenu.UsuarioRegistrado;
+import uiMain.menuconsola.opcionesdeMenu.VuelosDelDia;;
 
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
@@ -20,13 +33,15 @@ public class Inicio extends MenuDeConsola{
 		Autores autores = new Autores(); 
 		Descripccion descripccion = new Descripccion();
 		Salir salir = new Salir();  //listo
-		ComprarTiquete comprartiquete = new ComprarTiquete();  //listo
-		CanjearMillas canjearmillas = new CanjearMillas();   //listo
+		ComprarTiquete comprartiquete = new ComprarTiquete();  
+		
+		ModificarSilla modificarsilla = new ModificarSilla(); //listo
+		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
+		
+//		CanjearMillas canjearmillas = new CanjearMillas();   //listo
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
 		Cartera cartera1 = new Cartera();  // listo
 		VuelosDelDia vuelos = new VuelosDelDia();  //listo
-		ModificarSilla modificarsilla = new ModificarSilla(); //listo
-		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		ImprimirPasabordo imprimirpasabordo = new ImprimirPasabordo();  //listo
 		CancelarReserva cancelarreserva = new CancelarReserva(); // listo
 		

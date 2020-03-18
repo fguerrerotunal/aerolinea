@@ -1,4 +1,6 @@
-package uiMain.menuconsola;
+package uiMain.menuconsola.opcionesdeMenu;
+
+import uiMain.menuconsola.OpcionDeMenu;
 
 public class Autores extends OpcionDeMenu{
 
