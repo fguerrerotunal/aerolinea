@@ -1,7 +1,6 @@
 package uiMain.menuconsola;
 
 import gestorAplicacion.AtencionAlCliente.Reserva;
-import gestorAplicacion.Master.Empleado;
 
 public class ModificarEquipaje  extends OpcionDeMenu{
 
@@ -12,7 +11,7 @@ public class ModificarEquipaje  extends OpcionDeMenu{
 	public void Ejecutar() {
 			System.out.println("Vuelo a cambiar equipaje: ");
 			int posicion = sc.nextInt();
-			if(MenuDeConsola.usuarioactual.cartera.get(posicion).vuelo.estado.equals("Venta")){
+			if(MenuDeConsola.usuarioactual.cartera.get(posicion).getVuelo().getEstado().equals("Venta")){
 			System.out.println("Nuevo peso del equipaje: ");
 			int Npeso = sc.nextInt();
 			

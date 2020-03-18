@@ -3,9 +3,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import Basededatos.Reader;
 import gestorAplicacion.AtencionAlCliente.Cliente;
-import gestorAplicacion.Master.Admin;
-import gestorAplicacion.Master.Aeropuerto;
-import gestorAplicacion.Master.Empleado;
+//import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.*;;
 
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
@@ -15,48 +14,48 @@ public class Inicio extends MenuDeConsola{
 		
 		Inicio inicio = new Inicio();
 		MenuCliente menucliente = new MenuCliente();
-		MenuCartera menucartera = new MenuCartera();
 
 		UsuarioRegistrado usuarioregistrado = new UsuarioRegistrado(menucliente); // listo
 		NuevoRegistro nuevoregistro = new NuevoRegistro(); //listo
-		VuelosDelDia vuelos = new VuelosDelDia();  //listo
+		Autores autores = new Autores(); 
+		Descripccion descripccion = new Descripccion();
 		Salir salir = new Salir();  //listo
 		ComprarTiquete comprartiquete = new ComprarTiquete();  //listo
 		CanjearMillas canjearmillas = new CanjearMillas();   //listo
 		HistorialDeVuelo historialdevuelo = new HistorialDeVuelo(); //listo
-		Cartera cartera = new Cartera(menucartera);  //listo
 		Cartera cartera1 = new Cartera();  // listo
+		VuelosDelDia vuelos = new VuelosDelDia();  //listo
 		ModificarSilla modificarsilla = new ModificarSilla(); //listo
 		ModificarEquipaje modificarequipaje = new ModificarEquipaje(); //listo
 		ImprimirPasabordo imprimirpasabordo = new ImprimirPasabordo();  //listo
 		CancelarReserva cancelarreserva = new CancelarReserva(); // listo
-		Atras atras = new Atras(menucliente);  //listo
 		
 		inicio.opciones.add(usuarioregistrado);
 		inicio.opciones.add(nuevoregistro);
-		inicio.opciones.add(vuelos);
+		inicio.opciones.add(autores);
+		inicio.opciones.add(descripccion);
 		inicio.opciones.add(salir);
 		menucliente.opciones.add(comprartiquete);
-		menucliente.opciones.add(canjearmillas);
 		menucliente.opciones.add(historialdevuelo);
-		menucliente.opciones.add(cartera);
+		menucliente.opciones.add(cartera1);
 		menucliente.opciones.add(vuelos);
+		menucliente.opciones.add(imprimirpasabordo);
+		menucliente.opciones.add(cancelarreserva);
 		menucliente.opciones.add(salir);
-		menucartera.opciones.add(cartera1);
-		menucartera.opciones.add(modificarsilla);
-		menucartera.opciones.add(modificarequipaje);
-		menucartera.opciones.add(imprimirpasabordo);
-		menucartera.opciones.add(cancelarreserva);
-		menucartera.opciones.add(atras);
-		//psaa toda la informacion al a base
-		Reader.Leer();
+//		menucartera.opciones.add(modificarsilla);
+//		menucartera.opciones.add(modificarequipaje);
+//		menucliente.opciones.add(canjearmillas);
 		
-		//Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
-		//new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
-		//new Aeropuerto("El Dorado","Bogota","Colombia");
-		//new Aeropuerto("John F.Kennedy","New York","EEUU");
-		//new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
-		//new Aeropuerto("Pudong","Shanghai","China");
+		//psaa toda la informacion al a base
+		//Reader.Leer();
+		
+		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
+		new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
+		new Aeropuerto("El Dorado","Bogota","Colombia");
+		new Aeropuerto("John F.Kennedy","New York","EEUU");
+		new Aeropuerto("Barajas Adolfo Suarez","Madrid","España");
+		new Aeropuerto("Pudong","Shanghai","China");
+		
 		Admin.premios.add("Silla: ...50");
 		Admin.premios.add("Mercado: ...100");
 		Admin.premios.add("Olla de arroz:  ...200");
@@ -66,26 +65,29 @@ public class Inicio extends MenuDeConsola{
 		Admin.premios.add("Viaje en pareja: ...1000");
 		Admin.premios.add("Viaje Familiar(max 4): ...1200");
 
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(3));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(4));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(0));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(2));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(3));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(4));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(0));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(1));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(3));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(4));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(0));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(1));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(2));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(4));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(0));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
-		//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(1));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(2));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(3));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(4));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(0));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(2));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(3));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(4));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(0));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(1));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(3));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(2), Admin.destinos.get(4));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(0));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(1));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(2));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(3), Admin.destinos.get(4));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(0));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
+		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
+		
+		Admin.clientes.add(new Cliente(1,12,"fedrico guerrero", "as5d4","@",234));
+		
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {

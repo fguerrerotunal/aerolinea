@@ -1,4 +1,5 @@
 package uiMain.menuconsola;
+
 public class VuelosDelDia  extends OpcionDeMenu{
 
 	public String Nombre() {

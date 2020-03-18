@@ -1,12 +1,9 @@
 package gestorAplicacion.AtencionAlCliente;
-import gestorAplicacion.*;
+
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Vuelo;
 
 import java.util.*;
-
-import uiMain.menuconsola.*;
-import uiMain.menuconsola.MenuDeConsola;
 
 import java.io.*;
 public class Cliente extends Persona{

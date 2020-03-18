@@ -1,4 +1,5 @@
 package uiMain.menuconsola;
+
 import gestorAplicacion.Master.Admin;
 public class UsuarioRegistrado extends OpcionDeMenu{
 	

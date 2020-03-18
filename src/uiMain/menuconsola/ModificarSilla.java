@@ -11,7 +11,7 @@ public class ModificarSilla  extends OpcionDeMenu{
 	public void Ejecutar() {
 		System.out.println("Vuelo a cambiar silla: ");
 		int posicion = sc.nextInt();
-		if(MenuDeConsola.usuarioactual.cartera.get(posicion).vuelo.estado.equals("Venta")){
+		if(MenuDeConsola.usuarioactual.cartera.get(posicion).getVuelo().getEstado().equals("Venta")){
 			Reserva x=MenuDeConsola.usuarioactual.cartera.get(posicion);
 			System.out.println(x.getVuelo().toString("sillas"));
 			System.out.println("Escoge un nuevo puesto");
