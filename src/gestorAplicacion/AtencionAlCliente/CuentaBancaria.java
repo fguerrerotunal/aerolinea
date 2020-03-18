@@ -1,13 +1,13 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
-public class CuentaBancaria implements Serializable{
-	private static final long serialVersionUID = 1L;
+public class CuentaBancaria{
+
 	static int cantidadCuentas;
-	int numeroCuenta;
+	private int numeroCuenta;
 	Persona titular;
 	private int saldo = 12500*4*15;
 	
-	CuentaBancaria(int numeroCuenta, Persona titular){
+	public CuentaBancaria(int numeroCuenta, Persona titular){
 		cantidadCuentas += 1;
 		this.numeroCuenta = numeroCuenta;
 		this.titular = titular;
@@ -21,11 +21,17 @@ public class CuentaBancaria implements Serializable{
 		this.saldo = saldo;
 	}
 	
-	void Actualizar(){
+	public void Actualizar(){
 		saldo += 1000000*15;
 	}
-	void add(int nv) {
+	public void add(int nv) {
 		saldo=saldo+nv;
+	}
+	public void  setCuentaB(int x){
+		this.numeroCuenta = x;
+	}
+	public int getCuentaB() {
+		return this.numeroCuenta;
 	}
 
 }
