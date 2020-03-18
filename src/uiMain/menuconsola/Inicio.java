@@ -16,7 +16,7 @@ public class Inicio extends MenuDeConsola{
 		Inicio inicio = new Inicio();
 		MenuCliente menucliente = new MenuCliente();
 		MenuCartera menucartera = new MenuCartera();
-		
+
 		UsuarioRegistrado usuarioregistrado = new UsuarioRegistrado(menucliente); // listo
 		NuevoRegistro nuevoregistro = new NuevoRegistro(); //listo
 		VuelosDelDia vuelos = new VuelosDelDia();  //listo
