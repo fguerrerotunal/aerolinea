@@ -52,9 +52,6 @@ public class Inicio extends MenuDeConsola{
 		menucliente.opciones.add(imprimirpasabordo);
 		menucliente.opciones.add(cancelarreserva);
 		menucliente.opciones.add(salir);
-//		menucartera.opciones.add(modificarsilla);
-//		menucartera.opciones.add(modificarequipaje);
-//		menucliente.opciones.add(canjearmillas);
 		
 		//psaa toda la informacion al a base
 		//Reader.Leer();
