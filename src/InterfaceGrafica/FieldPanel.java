@@ -2,6 +2,8 @@ package InterfaceGrafica;
 
 import java.lang.reflect.Array;
 
+import javafx.scene.layout.Pane;
+
 public class FieldPanel extends Pane {
 	
 	String tituloCriterios;
@@ -21,7 +23,7 @@ public class FieldPanel extends Pane {
 	}
 	
 	public String getValue(String criterio) {
-		String valor;
+		String valor="";
 		for(int i = 0; i< this.criterios.length;i++) {
 			if(this.criterios[i].equals(criterio)) {
 				valor = this.valores[i]; 
