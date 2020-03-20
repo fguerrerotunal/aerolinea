@@ -3,23 +3,35 @@ package InterfaceGrafica;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
 public class VInicio extends Application {
 
-	//decliracion elementos varios
+	//declaracion elementos varios
 	Menu menuSalir = new Menu("Salir");
 	Menu menuDescrip = new Menu("Descripccion");
-	Button registro =new button("Registrarse");
-	Button ingreso =new button("Ingresar");
+	Button registro =new Button("Registrarse");
+	Button ingreso =new Button("Ingresar");
 	Image vidapng = new Image(getClass().getResourceAsStream(""));
 	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 	Label bienvenida = new Label("AEROLINEA LUNA`S \n BIENVENIDO");
@@ -38,7 +50,6 @@ public class VInicio extends Application {
 		GridPane topright = new GridPane();
 		BorderPane bottomright = new BorderPane();
 		MenuBar menuinicio = new MenuBar();
-		SeparatorMenuItem separator = new SeparatorMenuItem();
 		
 		//modificacion de elementos varios
 		//topright
@@ -73,12 +84,12 @@ public class VInicio extends Application {
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
-		ToprightHendlerClass toprighthandler = new ToprightHandlerClass();
+		ToprightHandlerClass toprighthandler = new ToprightHandlerClass();
 		registro.setOnAction(toprighthandler);
 		ingreso.setOnAction(toprighthandler);
 		
 		//oyentes de hojas de vida (mouse events)
-		hojavida.setOnMouseClicked(hvidahandler);
+		hojaVida.setOnMouseClicked(hvidahandler);
 		
 		//oyentes de fotos (mouse events)
 		bfotos.setOnMouseEntered(bfotoshandler);
@@ -89,7 +100,8 @@ public class VInicio extends Application {
 		menuDescrip.setOnAction(menuhandler);
 		
 		//scene
-		menuinicio.getItems().addAll(menuSalir, separator, menuDescrip);
+		menuinicio.getMenus().add(menuSalir);
+		menuinicio.getMenus().add(menuDescrip);
 		root.setTop(menuinicio);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
@@ -105,7 +117,7 @@ public class VInicio extends Application {
 	}
 	
 	public static void main(String[] args) {
-		Launch(args);
+		launch(args);
 
 	}
 	
@@ -114,7 +126,7 @@ public class VInicio extends Application {
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
 			if(accion instanceof Menu) {
-				if(accion.equals(menusalir)) {
+				if(accion.equals(menuSalir)) {
 					System.exit(0);
 				}else {
 					//donde poner la descripccion?
@@ -123,7 +135,7 @@ public class VInicio extends Application {
 		}
 	}
 	
-	class ToprightHendlerClass implements EventHandler<ActionEvent> {
+	class ToprightHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();

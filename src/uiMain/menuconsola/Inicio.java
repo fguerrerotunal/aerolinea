@@ -21,6 +21,8 @@ public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
 		return "AEROLINEA LUNA`S";
 	}
+	
+	/*
 	public static void main(String[] args) {
 		
 		Inicio inicio = new Inicio();
@@ -106,4 +108,5 @@ public class Inicio extends MenuDeConsola{
 		inicio.LanzarMenu();
 		
 	}
+	*/
 }
