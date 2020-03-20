@@ -32,6 +32,11 @@ public class VInicio extends Application {
 	
 	static File imagen = new File("");
 	
+	//stage y scenas
+	Stage Vapp;
+	Scene Vinicio, Vcliente;
+	
+	BorderPane clientes = new BorderPane();
 	//declaracion elementos varios
 	MenuItem menuSalir = new MenuItem("Salir");
 	MenuItem menuDescrip = new MenuItem("Descripccion");
@@ -45,9 +50,10 @@ public class VInicio extends Application {
 	Button bfotos = new Button("puto");
 
 	@Override
-	public void start(Stage inicio) throws Exception {
+	public void start(Stage ventana) throws Exception {
+		Vapp = ventana;
 		
-		//Creacion de elementos iniciales
+		//Creacion de elementos iniciales inico
 		BorderPane root = new BorderPane();
 		BorderPane left = new BorderPane();
 		BorderPane right = new BorderPane();
@@ -58,6 +64,10 @@ public class VInicio extends Application {
 		MenuBar barramenu = new MenuBar();
 		Menu menuInicio = new Menu("Inicio");
 		SeparatorMenuItem separador = new SeparatorMenuItem();
+		
+		//creacion de elementos iniciales Vclientes
+		Button hola = new Button("prueba");
+		clientes.setCenter(hola);
 		
 		//modificacion de elementos varios
 		//topright
@@ -86,6 +96,7 @@ public class VInicio extends Application {
 		bienvenida.setMaxWidth(Double.MAX_VALUE);
 		bienvenida.setMaxHeight(Double.MAX_VALUE);
 		topleft.setCenter(bienvenida);
+		
 		
 		//bottomleft 
 		//bfotos.setGraphic(new ImageView(fotos));
@@ -125,15 +136,12 @@ public class VInicio extends Application {
 		root.setLeft(left);
 		root.setRight(right);
 		
-		left.setStyle("-fx-background-color: BLUE;");
-		right.setStyle("-fx-background-color: YELLOW;");
-		bottomleft.setStyle("-fx-background-color: YELLOW;");
-		bottomright.setStyle("-fx-background-color: BLUE;");
-		
-		Scene scene = new Scene(root,1000,1000);
-		inicio.setTitle("AEROLINEA LUNA`S");
-		inicio.setScene(scene);
-		inicio.show();
+		Scene Vinicio = new Scene(root,1000,1000);
+		Scene Vcliente = new Scene(clientes,1000,1000);
+		Vapp.setTitle("AEROLINEA LUNA`S");
+		Vapp.setScene(Vinicio);
+		Vapp.setResizable(false);
+		Vapp.show();
 	}
 	
 	public static void main(String[] args) {
@@ -166,7 +174,9 @@ public class VInicio extends Application {
 					//formulario registro
 					
 				}else {
-					bienvenida.setText("a");
+					//Vapp.setTitle("ventana cliente");
+					Vapp.setScene(Vcliente);
+					//bienvenida.setText("a");
 					//formulario ingreso
 					
 				}
