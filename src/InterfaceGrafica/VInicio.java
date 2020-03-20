@@ -29,6 +29,11 @@ import javafx.event.EventHandler;
 
 public class VInicio extends Application {
 
+
+	public static void main(String[] args) {
+		launch(args);
+
+	}
 	
 	static File imagen = new File("");
 	
@@ -37,6 +42,7 @@ public class VInicio extends Application {
 	Scene Vinicio, Vcliente;
 	
 	BorderPane clientes = new BorderPane();
+	
 	//declaracion elementos varios
 	MenuItem menuSalir = new MenuItem("Salir");
 	MenuItem menuDescrip = new MenuItem("Descripccion");
@@ -54,7 +60,7 @@ public class VInicio extends Application {
 		Vapp = ventana;
 		
 		//Creacion de elementos iniciales inico
-		BorderPane root = new BorderPane();
+		BorderPane ventanainicio = new BorderPane();
 		BorderPane left = new BorderPane();
 		BorderPane right = new BorderPane();
 		BorderPane topleft = new BorderPane();
@@ -109,6 +115,7 @@ public class VInicio extends Application {
 		registro.setOnAction(toprighthandler);
 		ingreso.setOnAction(toprighthandler);
 		
+		
 		//oyentes de hojas de vida (mouse events)
 		hojaVida.setOnMouseClicked(hvidahandler);
 		
@@ -126,40 +133,45 @@ public class VInicio extends Application {
 		topright.setPrefHeight(300);
 		bottomleft.setPrefHeight(700);
 		bottomright.setPrefHeight(700);
-		root.setTop(barramenu);
+		ventanainicio.setTop(barramenu);
 		left.setPrefSize(500, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
 		right.setPrefSize(500, Double.MAX_VALUE);
 		right.setTop(topright);
 		right.setBottom(bottomright);
-		root.setLeft(left);
-		root.setRight(right);
+		ventanainicio.setLeft(left);
+		ventanainicio.setRight(right);
 		
-		Scene Vinicio = new Scene(root,1000,1000);
+		Scene Vinicio = new Scene(ventanainicio,1000,1000);	
 		Scene Vcliente = new Scene(clientes,1000,1000);
+		
+		//cambio de escena
+		//ingreso.setOnAction(new EventHandler<ActionEvent>() {
+		//	
+		//	@Override
+		//	public void handle(ActionEvent event) {
+		//		Vapp.setTitle("ventana Cliente");
+		//		Vapp.setScene(Vcliente);
+		//		
+		//	}
+		//});
+		
 		Vapp.setTitle("AEROLINEA LUNA`S");
 		Vapp.setScene(Vinicio);
 		Vapp.setResizable(false);
 		Vapp.show();
 	}
 	
-	public static void main(String[] args) {
-		launch(args);
-
-	}
-	
 	class MenuHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
-			if(accion instanceof MenuItem) {
-				if(accion.equals(menuSalir)) {
-					System.exit(0);
-				}else {
-					bienvenida.setText("descrip");
-					//donde poner la descripccion?
-				}
+			if(accion.equals(menuSalir)) {
+				System.exit(0);
+			}else {
+				bienvenida.setText("descrip");
+				//donde poner la descripccion?
 			}
 		}
 	}
@@ -172,9 +184,7 @@ public class VInicio extends Application {
 				bienvenida.setText("b");
 				//formulario registro
 			}else {
-				//Vapp.setTitle("ventana cliente");
-				Vapp.setScene(Vcliente);
-				//bienvenida.setText("a");
+				bienvenida.setText("a");
 				//formulario ingreso	
 			}
 		}
