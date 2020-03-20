@@ -18,7 +18,20 @@ public class Writer{
 	static PrintWriter pw;
 	static FileWriter ficheros = null;
 	public static void Escribir() {
+		
 	        try {
+	        	BufferedWriter bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json"));
+	    		bw.write("");
+	    		bw.close();
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json"));
+	    		bw.write("");
+	    		bw.close();
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json"));
+	    		bw.write("");
+	    		bw.close();
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json"));
+	    		bw.write("");
+	    		bw.close();
 	        	try {	
 		        Vector<Aeropuerto> Aeropuertos= new Vector<>();
 		        Aeropuertos=Admin.destinos;
