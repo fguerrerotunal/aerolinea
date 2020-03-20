@@ -41,9 +41,22 @@ public class VInicio extends Application {
 	Stage Vapp;
 	Scene Vinicio, Vcliente;
 	
+	//declaracion elementos varios Vcliente
 	BorderPane clientes = new BorderPane();
+	MenuItem Usuario = new MenuItem("Usuario");
+	MenuItem Salir = new MenuItem("Salir");
+	MenuItem Acercade = new MenuItem("Acerca de");
+	MenuItem comprarTiquete = new MenuItem("Comprar Tiquete");
+	MenuItem historialVuelo = new MenuItem("Historal de Vuelo");
+	MenuItem cartera = new MenuItem("Cartera");
+	MenuItem vuelosdia = new MenuItem("Vuelos del Dia");
+	MenuItem pasabordo = new MenuItem("Imprimir Pasabordo");
+	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
+	Label procesoAct = new Label("Nombre del proceso o consulta");
+	Label consulta = new Label("Colnsultas aqui");
+	FieldPanel formulario;
 	
-	//declaracion elementos varios
+	//declaracion elementos varios inicio
 	MenuItem menuSalir = new MenuItem("Salir");
 	MenuItem menuDescrip = new MenuItem("Descripccion");
 	Button registro =new Button("Registrarse");
@@ -59,11 +72,25 @@ public class VInicio extends Application {
 	public void start(Stage ventana) throws Exception {
 		Vapp = ventana;
 		
+		SeparatorMenuItem separador = new SeparatorMenuItem();
 		//Vclientes
 		//creacion de elementos iniciales Vclientes
-		Button hola = new Button("prueba");
-		clientes.setCenter(hola);
+		MenuBar barraMenuC = new MenuBar(); 
+		Menu Archivo = new Menu("Archivo");
+		Menu PyC = new Menu("Procesos y Consultas");
+		Menu ayuda = new Menu("Ayuda");
 		
+		//Modificacion Elementos varios
+		Archivo.getItems().addAll(Usuario, separador, Salir);
+		PyC.getItems().addAll(comprarTiquete, separador, historialVuelo, separador, cartera, separador, vuelosdia, separador, pasabordo, separador, cancelreserva);
+		ayuda.getItems().add(Acercade);
+		barraMenuC.getMenus().addAll(Archivo, PyC, ayuda);
+		
+		
+		//scene cliente
+		clientes.setTop(procesoAct);
+		clientes.setCenter(consulta);
+		clientes.setBottom(formulario);
 		
 		
 		
@@ -78,7 +105,6 @@ public class VInicio extends Application {
 		BorderPane bottomright = new BorderPane();
 		MenuBar barramenu = new MenuBar();
 		Menu menuInicio = new Menu("Inicio");
-		SeparatorMenuItem separador = new SeparatorMenuItem();
 		
 		//modificacion de elementos varios
 		//topright
@@ -132,7 +158,7 @@ public class VInicio extends Application {
 		menuSalir.setOnAction(menuhandler);
 		menuDescrip.setOnAction(menuhandler);
 		
-		//scene
+		//scene inicio
 		menuInicio.getItems().addAll(menuSalir, separador, menuDescrip);
 		barramenu.getMenus().add(menuInicio);
 		topright.setPrefHeight(300);
@@ -151,16 +177,28 @@ public class VInicio extends Application {
 		Scene Vinicio = new Scene(ventanainicio,1000,1000);	
 		Scene Vcliente = new Scene(clientes,1000,1000);
 		
-		//cambio de escena
-		//ingreso.setOnAction(new EventHandler<ActionEvent>() {
+		
+		//cambio de escena inicio a cliente
+		//Salir.setOnAction(new EventHandler<ActionEvent>() {
 		//	
 		//	@Override
 		//	public void handle(ActionEvent event) {
-		//		Vapp.setTitle("ventana Cliente");
-		//		Vapp.setScene(Vcliente);
+		//		Vapp.setTitle("AEROLINEA LUNA`S");
+		//		Vapp.setScene(Vinicio);
 		//		
 		//	}
 		//});
+				
+		//cambio de escena cliente a inicio
+		Salir.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				Vapp.setTitle("AEROLINEA LUNA`S");
+				Vapp.setScene(Vinicio);
+				
+			}
+		});
 		
 		Vapp.setTitle("AEROLINEA LUNA`S");
 		Vapp.setScene(Vinicio);
