@@ -82,5 +82,11 @@ public class Reserva{
 	public void setCodigovuelo(int codigovuelo) {
 		this.codigovuelo = codigovuelo;
 	}
+	public void setpasajero(Cliente cliente) {
+		this.pasajero=cliente;
+	}
+	public void setpasajero(Vuelo vuelo) {
+		this.vuelo=vuelo;
+	}
 
 }
