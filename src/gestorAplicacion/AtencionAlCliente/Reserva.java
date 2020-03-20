@@ -11,6 +11,7 @@ public class Reserva{
 	private int costo = 0;
 	
 	public Reserva(Vuelo vuelo, Cliente pasajero){
+		this.codigovuelo= vuelo.getNumeroVuelo();
 		this.vuelo = vuelo;
 		this.pasajero = pasajero;
 		this.costo += vuelo.getPrecioTiquete();

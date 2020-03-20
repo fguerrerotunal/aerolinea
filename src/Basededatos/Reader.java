@@ -11,43 +11,24 @@ import gestorAplicacion.AtencionAlCliente.*;
 import gestorAplicacion.Master.*;
 import java.io.*;
 public class Reader {
-	static Gson archivo=new Gson();
+	static Gson gson=new Gson();
 	static File fichero = new File("");
+	FileReader ficheros=null;
 	public static void Leer(){
 		try {
-	  
-	        Type listType = new TypeToken<Vector<Aeropuerto>>(){}.getType();
-			Admin.destinos= archivo.fromJson(Aeropuertos,listType);
+		       JsonParser parser = new JsonParser();
+		        FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json");
+		        JsonElement Aeropuertos = parser.parse(fr);
+		        while(true) {
+		        	Aeropuertos=null;
+		        	break;}
+		        
 		}catch(Exception e){
 			System.out.println("ERROR al entrar los datos");
 			System.out.println(e);
 			}
-		JsonParser parser = new JsonParser();
-		try{
-			Object obj = parser.parse(new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
-			 
-			JsonObject jsonObject = (JsonObject) obj;
-	 
-			String nombre = (String) jsonObject.get("nombre");
-			System.out.println("nombre:"+nombre);
-	 
-			long edad = (Long) jsonObject.get("edad");
-			System.out.println("edad:"+edad);
-	 
-			// recorrer arreglo
-			JSONArray leng= (JSONArray) jsonObject.get("lenguajes_favoritos");
-			System.out.println("lenguajes_favoritos:");
-			Iterator iterator =leng.iterator();
-			while (iterator.hasNext()) {
-				System.out.println(iterator.next());
-			}
-			
-		}catch(Exception ex){
-			System.err.println("Error: "+ex.toString());
-		}finally{
-			
-		}
+
 
 	}  
-
+	
 }
