@@ -7,24 +7,38 @@ import com.google.gson.Gson;
 import gestorAplicacion.*;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 public class Writer{
+	static Gson gson = new Gson();
 	static File fichero = new File("");
-	static ObjectOutputStream entradas;
+	static PrintWriter pw;
 	public static void Escribir() {
 	        try {
-	        	Gson gson = new Gson();
-	        	FileWriter ficheros = null;
-	        	PrintWriter pw=new PrintWriter(ficheros);
 	        	try {	
-		        Vector<Cliente> clientes= new Vector<>();
-		        clientes=Admin.clientes;
-		        String json = gson.toJson(clientes);
-				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
+		        Vector<Aeropuerto> Aeropuertos= new Vector<>();
+		        FileWriter ficheros = null;
+		        Aeropuertos=Admin.destinos;
+		        String json = gson.toJson(Aeropuertos);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
+				pw=new PrintWriter(ficheros);
+	            pw.println(json);
+	            ficheros.close();
+	            ficheros = null;
+	            }catch(IOException e1) {
+	        		System.out.println("Error adentro en Clientes: "+e1);
+	        	}
+	        	try {	
+		        Vector<Empleado> Empleados= new Vector<>();
+		        FileWriter ficheros = null;
+		        Empleados=Admin.empleados;
+		        String json = gson.toJson(Empleados);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
+				pw=new PrintWriter(ficheros);
 	            pw.println(json);
 	            ficheros.close();
 	            }catch(IOException e1) {
-	        		System.out.println("Error adentro en Clientes: "+e1);
+	        		System.out.println("Error adentro en Empleados: "+e1);
 	        	}
 			
 	        
@@ -66,10 +80,14 @@ public class Writer{
 	        
 	        
 	        catch (Exception e1) {
-				System.out.println("No funciono"+e1);
-				// TODO Auto-generated catch block
+				System.out.println("\n No funciono general: "+e1);
 				e1.printStackTrace();
 			}
 
 }
+	public void Escliente(Cliente a) {
+		
+	}
+	
+	
 	}
