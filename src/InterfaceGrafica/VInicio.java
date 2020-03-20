@@ -1,5 +1,7 @@
 package InterfaceGrafica;
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,16 +29,20 @@ import javafx.event.EventHandler;
 
 public class VInicio extends Application {
 
+	
+	static File imagen = new File("");
+	
 	//declaracion elementos varios
 	Menu menuSalir = new Menu("Salir");
 	Menu menuDescrip = new Menu("Descripccion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
-	Image vidapng = new Image(getClass().getResourceAsStream(""));
-	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+	//Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
+	//Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+	Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label("AEROLINEA LUNA`S \n BIENVENIDO");
-	Image fotos = new Image(getClass().getResourceAsStream(""));
-	Button bfotos = new Button();
+	//Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
+	Button bfotos = new Button("puto");
 
 	@Override
 	public void start(Stage inicio) throws Exception {
@@ -57,30 +63,32 @@ public class VInicio extends Application {
 		topright.setHgap(5);
 		topright.setAlignment(Pos.CENTER);
 		topright.add(registro,0,0);
-		topright.add(registro,0,1);
+		topright.add(ingreso,0,1);
 		
 		
 		//bottomright 
-		hojaVida.setTextFill(Color.web(""));
+		hojaVida.setTextFill(Color.RED);
 		hojaVida.setWrapText(true);
-		hojaVida.setFont(new Font("Arial",80));
+		hojaVida.setFont(new Font("Arial",40));
 		hojaVida.setContentDisplay(ContentDisplay.BOTTOM);
-		hojaVida.setMaxWidth(Double.MAX_VALUE);
-		hojaVida.setMaxHeight(Double.MAX_VALUE);
+		//hojaVida.setMaxWidth(Double.MAX_VALUE);
+		//hojaVida.setMaxHeight(Double.MAX_VALUE);
+		hojaVida.setMaxWidth(400);
+		hojaVida.setMaxHeight(40);
 		bottomright.setCenter(hojaVida);
 		
 		//topleft
-		bienvenida.setTextFill(Color.web(""));
+		bienvenida.setTextFill(Color.RED);
 		bienvenida.setWrapText(true);
-		bienvenida.setFont(new Font("Arial",80));
-		bienvenida.setMaxWidth(Double.MAX_VALUE);
-		bienvenida.setMaxHeight(Double.MAX_VALUE);
+		bienvenida.setFont(new Font("Arial",40));
+		bienvenida.setMaxWidth(80);
+		bienvenida.setMaxHeight(80);
 		topleft.setCenter(bienvenida);
 		
 		//bottomleft 
-		bfotos.setGraphic(new ImageView(fotos));
-		bfotos.setMaxWidth(Double.MAX_VALUE);
-		bfotos.setMaxHeight(Double.MAX_VALUE);
+		//bfotos.setGraphic(new ImageView(fotos));
+		bfotos.setMaxWidth(80);
+		bfotos.setMaxHeight(80);
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
@@ -125,13 +133,14 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
-			if(accion instanceof Menu) {
-				if(accion.equals(menuSalir)) {
-					System.exit(0);
-				}else {
+			//if(accion instanceof Menu) {
+				//if(accion.equals(menuSalir)) {
+					bienvenida.setText("puto proyecto de mierda");
+					//System.exit(0);
+				//}else {
 					//donde poner la descripccion?
-				}
-			}
+				//}
+			//}
 		}
 	}
 	
@@ -141,11 +150,11 @@ public class VInicio extends Application {
 			Object accion = e.getSource();
 			if(accion instanceof Button) {
 				if(accion.equals(registro)) {
-					
+					bienvenida.setText("b");
 					//formulario registro
 					
 				}else {
-					
+					bienvenida.setText("a");
 					//formulario ingreso
 					
 				}
@@ -156,6 +165,7 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> hvidahandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
+			hojaVida.setText("puto proyecto de mierda");
 				// hvida : combio foto
 			
 		}
@@ -164,7 +174,7 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-				// bfotos: ciclo combio fotos
+			bienvenida.setText("asd");
 			
 		}
 	};
