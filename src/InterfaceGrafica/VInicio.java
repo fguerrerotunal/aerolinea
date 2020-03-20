@@ -33,8 +33,8 @@ public class VInicio extends Application {
 	static File imagen = new File("");
 	
 	//declaracion elementos varios
-	Menu menuSalir = new Menu("Salir");
-	Menu menuDescrip = new Menu("Descripccion");
+	MenuItem menuSalir = new MenuItem("Salir");
+	MenuItem menuDescrip = new MenuItem("Descripccion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
 	//Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
@@ -55,7 +55,9 @@ public class VInicio extends Application {
 		BorderPane bottomleft = new BorderPane();
 		GridPane topright = new GridPane();
 		BorderPane bottomright = new BorderPane();
-		MenuBar menuinicio = new MenuBar();
+		MenuBar barramenu = new MenuBar();
+		Menu menuInicio = new Menu("Inicio");
+		SeparatorMenuItem separador = new SeparatorMenuItem();
 		
 		//modificacion de elementos varios
 		//topright
@@ -108,9 +110,9 @@ public class VInicio extends Application {
 		menuDescrip.setOnAction(menuhandler);
 		
 		//scene
-		menuinicio.getMenus().add(menuSalir);
-		menuinicio.getMenus().add(menuDescrip);
-		root.setTop(menuinicio);
+		menuInicio.getItems().addAll(menuSalir, separador, menuDescrip);
+		barramenu.getMenus().add(menuInicio);
+		root.setTop(barramenu);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
 		right.setTop(topright);
@@ -133,14 +135,14 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
-			//if(accion instanceof Menu) {
-				//if(accion.equals(menuSalir)) {
-					bienvenida.setText("puto proyecto de mierda");
-					//System.exit(0);
-				//}else {
+			if(accion instanceof MenuItem) {
+				if(accion.equals(menuSalir)) {
+					System.exit(0);
+				}else {
+					bienvenida.setText("descrip");
 					//donde poner la descripccion?
-				//}
-			//}
+				}
+			}
 		}
 	}
 	
