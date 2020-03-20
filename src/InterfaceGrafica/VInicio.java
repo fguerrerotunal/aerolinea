@@ -168,18 +168,14 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
-			if(accion instanceof Button) {
-				if(accion.equals(registro)) {
-					bienvenida.setText("b");
-					//formulario registro
-					
-				}else {
-					//Vapp.setTitle("ventana cliente");
-					Vapp.setScene(Vcliente);
-					//bienvenida.setText("a");
-					//formulario ingreso
-					
-				}
+			if(accion.equals(registro)) {
+				bienvenida.setText("b");
+				//formulario registro
+			}else {
+				//Vapp.setTitle("ventana cliente");
+				Vapp.setScene(Vcliente);
+				//bienvenida.setText("a");
+				//formulario ingreso	
 			}
 		}
 	}
