@@ -15,7 +15,7 @@ public class Empleado extends Persona{
 	private String ocupacion;
 	static int puertaAbordaje = 0;
 	public static Vector<Vuelo> vuelos = new Vector<>();
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
+	
 	
 	public Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
@@ -41,6 +41,7 @@ public class Empleado extends Persona{
 	}
 	
 	public void AñadirHistorial(String accion) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		this.historial.add(dateFormat.format(Calendar.getInstance()) + " "+ accion);
 	}
 	//vuelos en venta
