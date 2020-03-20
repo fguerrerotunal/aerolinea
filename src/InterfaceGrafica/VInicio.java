@@ -59,6 +59,15 @@ public class VInicio extends Application {
 	public void start(Stage ventana) throws Exception {
 		Vapp = ventana;
 		
+		//Vclientes
+		//creacion de elementos iniciales Vclientes
+		Button hola = new Button("prueba");
+		clientes.setCenter(hola);
+		
+		
+		
+		
+		//Vinicio
 		//Creacion de elementos iniciales inico
 		BorderPane ventanainicio = new BorderPane();
 		BorderPane left = new BorderPane();
@@ -70,10 +79,6 @@ public class VInicio extends Application {
 		MenuBar barramenu = new MenuBar();
 		Menu menuInicio = new Menu("Inicio");
 		SeparatorMenuItem separador = new SeparatorMenuItem();
-		
-		//creacion de elementos iniciales Vclientes
-		Button hola = new Button("prueba");
-		clientes.setCenter(hola);
 		
 		//modificacion de elementos varios
 		//topright
