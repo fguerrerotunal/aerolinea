@@ -1,7 +1,6 @@
 package gestorAplicacion.Master;
 import java.io.*;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
@@ -11,7 +10,6 @@ public class Admin{
 	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
-	public static DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 
 	public static String Premios(Cliente cliente, int posicionpremio) {
 		String aviso = "Millas insuficientes";
