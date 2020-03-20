@@ -73,8 +73,8 @@ public class VInicio extends Application {
 		hojaVida.setWrapText(true);
 		hojaVida.setFont(new Font("Arial",40));
 		hojaVida.setContentDisplay(ContentDisplay.BOTTOM);
-		//hojaVida.setMaxWidth(Double.MAX_VALUE);
-		//hojaVida.setMaxHeight(Double.MAX_VALUE);
+		hojaVida.setMaxWidth(Double.MAX_VALUE);
+		hojaVida.setMaxHeight(Double.MAX_VALUE);
 		hojaVida.setMaxWidth(400);
 		hojaVida.setMaxHeight(40);
 		bottomright.setCenter(hojaVida);
@@ -83,14 +83,14 @@ public class VInicio extends Application {
 		bienvenida.setTextFill(Color.RED);
 		bienvenida.setWrapText(true);
 		bienvenida.setFont(new Font("Arial",40));
-		bienvenida.setMaxWidth(80);
-		bienvenida.setMaxHeight(80);
+		bienvenida.setMaxWidth(Double.MAX_VALUE);
+		bienvenida.setMaxHeight(Double.MAX_VALUE);
 		topleft.setCenter(bienvenida);
 		
 		//bottomleft 
 		//bfotos.setGraphic(new ImageView(fotos));
-		bfotos.setMaxWidth(80);
-		bfotos.setMaxHeight(80);
+		bfotos.setMaxWidth(Double.MAX_VALUE);
+		bfotos.setMaxHeight(Double.MAX_VALUE);
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
@@ -112,15 +112,25 @@ public class VInicio extends Application {
 		//scene
 		menuInicio.getItems().addAll(menuSalir, separador, menuDescrip);
 		barramenu.getMenus().add(menuInicio);
+		topright.setPrefHeight(300);
+		bottomleft.setPrefHeight(700);
+		bottomright.setPrefHeight(700);
 		root.setTop(barramenu);
+		left.setPrefSize(500, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
+		right.setPrefSize(500, Double.MAX_VALUE);
 		right.setTop(topright);
 		right.setBottom(bottomright);
 		root.setLeft(left);
 		root.setRight(right);
 		
-		Scene scene = new Scene(root,300,400);
+		left.setStyle("-fx-background-color: BLUE;");
+		right.setStyle("-fx-background-color: YELLOW;");
+		bottomleft.setStyle("-fx-background-color: YELLOW;");
+		bottomright.setStyle("-fx-background-color: BLUE;");
+		
+		Scene scene = new Scene(root,1000,1000);
 		inicio.setTitle("AEROLINEA LUNA`S");
 		inicio.setScene(scene);
 		inicio.show();
