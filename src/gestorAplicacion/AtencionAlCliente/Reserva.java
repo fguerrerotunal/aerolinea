@@ -4,8 +4,8 @@ import java.io.*;
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
 
-	private Vuelo vuelo;
-	private Cliente pasajero;
+	private transient Vuelo vuelo;
+	private transient Cliente pasajero;
 	private int silla;
 	private Boolean equipaje = true;
 	private int costo = 0;

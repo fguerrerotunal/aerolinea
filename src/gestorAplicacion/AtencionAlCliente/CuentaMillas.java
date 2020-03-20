@@ -5,7 +5,7 @@ public class CuentaMillas{
 
 	private static int cantidadCuentas;
 	private int numeroCuenta;
-	private Cliente titular;
+	private transient Cliente titular;
 	private int millas = 100;
 	
 	CuentaMillas(Cliente titular, int numeroCuenta){

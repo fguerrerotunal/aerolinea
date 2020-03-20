@@ -1,12 +1,13 @@
 package Basededatos;
 import java.io.*;
 import java.util.Vector;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import gestorAplicacion.*;
 import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.AtencionAlCliente.Persona;
+import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
@@ -32,61 +33,32 @@ public class Writer{
 	        		System.out.println("Error adentro en Aeropuertos: "+e1);
 	        	}
 	        	try {
-	        		FileWriter ficheros=null;
-	        		for(int i=0;i<Admin.empleados.size();i++) {
-	        			
-	        		}
+			        FileWriter ficheros = null;
+			        String json = gson.toJson(Empleado.vuelos);
+			        Type listType = new TypeToken<Vector<Vuelo>>(){}.getType();
+			        Vector<Vuelo> arrayDeJson = gson.fromJson(json, listType);
+			        json=gson.toJson(arrayDeJson);
+					ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json",true);
+					pw=new PrintWriter(ficheros);
+		            pw.println(json);
+		            ficheros.close();
+		            if (null != ficheros) {
+		                ficheros.close();}
+
  	            }catch(IOException e1) {
 	        		System.out.println("Error adentro en Empleados: "+e1);
 	        	}
-			
+
+
 	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        } 
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        catch (Exception e1) {
+
+
+	        }catch (Exception e1) {
 				System.out.println("\n No funciono general: "+e1);
 				e1.printStackTrace();
 			}
 
 }
-	public void Escliente(Cliente a) {
-		
-	}
 	
 	
 	}
