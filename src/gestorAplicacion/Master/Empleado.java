@@ -4,10 +4,8 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
-
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.AtencionAlCliente.Persona;
-
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

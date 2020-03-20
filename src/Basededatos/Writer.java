@@ -12,12 +12,12 @@ import gestorAplicacion.Master.Empleado;
 public class Writer{
 	static Gson gson = new Gson();
 	static File fichero = new File("");
+	static FileWriter ficheros = null;
 	static PrintWriter pw;
 	public static void Escribir() {
 	        try {
 	        	try {	
 		        Vector<Aeropuerto> Aeropuertos= new Vector<>();
-		        FileWriter ficheros = null;
 		        Aeropuertos=Admin.destinos;
 		        String json = gson.toJson(Aeropuertos);
 				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
@@ -25,46 +25,27 @@ public class Writer{
 	            pw.println(json);
 	            ficheros.close();
 	            ficheros = null;
-	            }catch(IOException e1) {
-	        		System.out.println("Error adentro en Clientes: "+e1);
-	        	}
-	        	try {	
-		        Vector<Empleado> Empleados= new Vector<>();
-		        FileWriter ficheros = null;
-		        Empleados=Admin.empleados;
-		        String json = gson.toJson(Empleados);
+	            //empleados
+	            Vector<Vuelo> Vuelos= new Vector<>();
+		        Vuelos=Admin.empleados.get(0).vuelos;
+		        json = gson.toJson(Empleado);
 				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
 				pw=new PrintWriter(ficheros);
 	            pw.println(json);
 	            ficheros.close();
+	            ficheros = null;
+	          
 	            }catch(IOException e1) {
-	        		System.out.println("Error adentro en Empleados: "+e1);
+	        		System.out.println("Error IO");
 	        	}
-			
+	            			
 	        
 	        
 	        
 	        
 	        
 	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
+
 	        
 	        
 	        } 
