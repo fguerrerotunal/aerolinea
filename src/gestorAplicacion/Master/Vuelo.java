@@ -18,8 +18,7 @@ public class Vuelo{
 	private Aeropuerto salida;
 	private String estado = "Venta";
 	private int puertaAbordaje;	
-	
-	
+
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		cantidadVuelos += 1;
