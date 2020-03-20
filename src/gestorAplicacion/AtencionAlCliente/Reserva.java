@@ -3,7 +3,7 @@ import java.io.*;
 
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
-
+	private int codigovuelo;
 	private transient Vuelo vuelo;
 	private transient Cliente pasajero;
 	private int silla;
@@ -70,6 +70,16 @@ public class Reserva{
 		this.vuelo.getPuestos()[silla]=null;
 		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
 		return vuelo.getPrecioTiquete();
+	}
+
+
+	public int getCodigovuelo() {
+		return codigovuelo;
+	}
+
+
+	public void setCodigovuelo(int codigovuelo) {
+		this.codigovuelo = codigovuelo;
 	}
 
 }

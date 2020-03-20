@@ -48,6 +48,34 @@ public class Writer{
  	            }catch(IOException e1) {
 	        		System.out.println("Error adentro en Empleados: "+e1);
 	        	}
+	        	try {	
+		        Vector<Cliente> Clientes= new Vector<>();
+		        FileWriter ficheros = null;
+		        Clientes=Admin.clientes;
+		        String json = gson.toJson(Clientes);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json",true);
+				pw=new PrintWriter(ficheros);
+	            pw.println(json);
+	            ficheros.close();
+	            if (null != ficheros) {
+	                ficheros.close();}
+	            }catch(IOException e1) {
+	        		System.out.println("Error adentro en Aeropuertos: "+e1);
+	        	}
+	        	try {	
+		        Vector<Empleado> Empleados= new Vector<>();
+		        FileWriter ficheros = null;
+		        Empleados=Admin.empleados;
+		        String json = gson.toJson(Empleados);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json",true);
+				pw=new PrintWriter(ficheros);
+	            pw.println(json);
+	            ficheros.close();
+	            if (null != ficheros) {
+	                ficheros.close();}
+	            }catch(IOException e1) {
+	        		System.out.println("Error adentro en Aeropuertos: "+e1);
+	        	}
 
 
 	        

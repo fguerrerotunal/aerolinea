@@ -4,7 +4,7 @@ public class CuentaBancaria{
 
 	static int cantidadCuentas;
 	private int numeroCuenta;
-	Persona titular;
+	transient Persona titular;
 	private int saldo = 12500*4*15;
 	
 	public CuentaBancaria(int numeroCuenta, Persona titular){

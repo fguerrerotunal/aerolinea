@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 public class Empleado extends Persona{
 	private String ocupacion;
 	static int puertaAbordaje = 0;
-	public static Vector<Vuelo> vuelos = new Vector<>();
+	public static transient Vector<Vuelo> vuelos = new Vector<>();
 	
 	
 	public Empleado(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, String ocupacion){

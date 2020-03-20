@@ -11,7 +11,7 @@ public abstract class Persona{
 	private String direccion;
 	private String correo;
 	protected Vector<String> historial = new Vector<>();
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+	transient DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 
 	public Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){
 		this.identificacion = identificacion;
