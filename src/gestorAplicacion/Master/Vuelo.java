@@ -17,6 +17,7 @@ public class Vuelo{
 	private Aeropuerto salida;
 	private String estado = "Venta";
 	private int puertaAbordaje;	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		cantidadVuelos += 1;
 		this.numeroVuelo = cantidadVuelos;
@@ -130,11 +131,11 @@ public class Vuelo{
 		
 		switch (tipo) {
 		case "consulta":
-			info = info + Integer.toString(numeroVuelo) +"\t \t"+ Integer.toString(precioTiquete) +"\t "+ Admin.dateFormat.format(fecha.getTime()) +"\t"+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t \t"+ Integer.toString(precioTiquete) +"\t "+ dateFormat.format(fecha.getTime()) +"\t"+ recorrido;
 			break;
 		case "pasabordo":
 			info = "VUELO: " + numeroVuelo +"\n"+
-					"EN SALA: " + Admin.dateFormat.format(fecha.getTime()) + "\n"+
+					"EN SALA: " + dateFormat.format(fecha.getTime()) + "\n"+
 					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
 					"ORIGEN: " + salida.getCiudad() + "\n"+
 					"DESTINO: " + destino.getCiudad() + "\n";
