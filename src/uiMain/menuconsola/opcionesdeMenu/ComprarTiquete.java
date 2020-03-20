@@ -17,7 +17,7 @@ public class ComprarTiquete  extends OpcionDeMenu{
 	
 	public void Ejecutar() {
 		Boolean imp = false;
-		Iterator i = Empleado.getVuelos().iterator();
+		Iterator i = Empleado.vuelos.iterator();
 		while(i.hasNext()) {
 			if(((Vuelo) i.next()).getEstado().equals("Venta")) {
 				imp = true;
@@ -30,9 +30,9 @@ public class ComprarTiquete  extends OpcionDeMenu{
 			System.out.println("Seleccione un vuelo: ");
 			int vuelo = sc.nextInt();
 			
-			System.out.println("ESTA ACCION TIENE UN COSTO DE: "+Empleado.getVuelos().get(vuelo).getPrecioTiquete()+"\n¿DESEA CONTINUAR?\nSI=0    NO=1");
+			System.out.println("ESTA ACCION TIENE UN COSTO DE: "+Empleado.vuelos.get(vuelo).getPrecioTiquete()+"\n¿DESEA CONTINUAR?\nSI=0    NO=1");
 			int continuar = sc.nextInt();
-			String verificacion = (MenuDeConsola.usuarioactual.Reservar(Empleado.getVuelos().get(vuelo)));
+			String verificacion = (MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(vuelo)));
 			System.out.println(verificacion);
 			System.out.println("");
 			Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
