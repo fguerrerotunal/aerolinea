@@ -6,23 +6,26 @@ import gestorAplicacion.AtencionAlCliente.Reserva;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 public class Vuelo{
 
 	static int cantidadVuelos = 0;
 	private Reserva[] puestos = new Reserva[20];
 	private int numeroVuelo;
 	private int precioTiquete;
-	private Calendar fecha=Calendar.getInstance();
+	private String fecha;
 	private Aeropuerto destino;
 	private Aeropuerto salida;
 	private String estado = "Venta";
 	private int puertaAbordaje;	
-	DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
+	
+	
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		cantidadVuelos += 1;
 		this.numeroVuelo = cantidadVuelos;
 		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
-		this.fecha = fecha;
+		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
 		this.estado="Venta";
 		this.salida = salida;
 		this.destino= destino;
@@ -66,13 +69,19 @@ public class Vuelo{
 
 
 	public Calendar getFecha() {
-		return fecha;
+		String[] fechArray = fecha.split("-");
+		int dia = Integer.valueOf(fechArray[0]);
+		int mes = Integer.valueOf(fechArray[1]) - 1;
+		int anio = Integer.valueOf(fechArray[2]);
+		Calendar c1 = new GregorianCalendar(anio, mes, dia);
+		return c1;
 	}
 
 
 
 	public void setFecha(Calendar fecha) {
-		this.fecha = fecha;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
+		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
 	}
 
 
@@ -126,16 +135,17 @@ public class Vuelo{
 
 
 	public String toString(String tipo) {
+		
 		String info = "";
 		String recorrido = this.salida.getCiudad() +"-"+ this.destino.getCiudad();
 		
 		switch (tipo) {
 		case "consulta":
-			info = info + Integer.toString(numeroVuelo) +"\t \t"+ Integer.toString(precioTiquete) +"\t "+ dateFormat.format(fecha.getTime()) +"\t"+ recorrido;
+			info = info + Integer.toString(numeroVuelo) +"\t \t"+ Integer.toString(precioTiquete) +"\t "+ fecha +"\t"+ recorrido;
 			break;
 		case "pasabordo":
 			info = "VUELO: " + numeroVuelo +"\n"+
-					"EN SALA: " + dateFormat.format(fecha.getTime()) + "\n"+
+					"EN SALA: " + fecha + "\n"+
 					"PUERTA DE ABORAJE: " + puertaAbordaje + "\n" +
 					"ORIGEN: " + salida.getCiudad() + "\n"+
 					"DESTINO: " + destino.getCiudad() + "\n";
@@ -170,11 +180,13 @@ public class Vuelo{
 	}
 
 	public void finalizer() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		cantidadVuelos += 1;
 		this.numeroVuelo =cantidadVuelos+20;
 		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
-		this.fecha = Calendar.getInstance();
+		Calendar fecha = Calendar.getInstance();
 		fecha.add(Calendar.MINUTE,(int)Math.random()*(4-2+1)+2);
+		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
 		this.estado="Venta";
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){
