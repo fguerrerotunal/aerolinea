@@ -1,37 +1,75 @@
 package Basededatos;
 import java.io.*;
+import java.util.Vector;
+
+import com.google.gson.Gson;
+
 import gestorAplicacion.*;
+import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
 public class Writer{
 	static File fichero = new File("");
 	static ObjectOutputStream entradas;
 	public static void Escribir() {
-		try {
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
-			for (int i=0;i<Admin.destinos.size();i++) {
-				entradas.writeObject(Admin.destinos.get(i));
-			}
-			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.txt"));
-			for (int i=0;i<Admin.clientes.size();i++) {
-				entradas.writeObject(Admin.clientes.get(i));
-			}
-			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.txt"));
-			for (int i=0;i<Admin.empleados.size();i++) {
-				entradas.writeObject(Admin.empleados.get(i));
-			}
-			entradas.close(); 
-			entradas=new ObjectOutputStream(new FileOutputStream(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.txt"));
-			for (int i=0;i<Empleado.vuelos.size();i++) {
-				entradas.writeObject(Empleado.vuelos.get(i));
-			}
-			entradas.close(); 
+	        try {
+	        	Gson gson = new Gson();
+	        	FileWriter ficheros = null;
+	        	PrintWriter pw=new PrintWriter(ficheros);
+	        	try {	
+		        Vector<Cliente> clientes= new Vector<>();
+		        clientes=Admin.clientes;
+		        String json = gson.toJson(clientes);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt");
+	            pw.println(json);
+	            ficheros.close();
+	            }catch(IOException e1) {
+	        		System.out.println("Error adentro en Clientes: "+e1);
+	        	}
 			
-		} catch (IOException e) {
-			System.out.println("ERROR"+ e.getMessage()+"  "+e.toString());
-		}
-		
-	}
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        } 
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        catch (Exception e1) {
+				System.out.println("No funciono"+e1);
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
 }
+	}
