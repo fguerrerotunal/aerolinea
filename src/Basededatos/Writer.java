@@ -9,6 +9,7 @@ import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
+import gestorAplicacion.Master.Vuelo;
 public class Writer{
 	static Gson gson = new Gson();
 	static File fichero = new File("");
@@ -29,10 +30,10 @@ public class Writer{
 	        		System.out.println("Error adentro en Clientes: "+e1);
 	        	}
 	        	try {	
-		        Vector<Empleado> Empleados= new Vector<>();
+		        Vector<Cliente> Clientes= new Vector<>();
 		        FileWriter ficheros = null;
-		        Empleados=Admin.empleados;
-		        String json = gson.toJson(Empleados);
+		        Clientes=Admin.clientes;
+		        String json = gson.toJson(Clientes);
 				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
 				pw=new PrintWriter(ficheros);
 	            pw.println(json);

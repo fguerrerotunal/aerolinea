@@ -15,8 +15,7 @@ public class Reader {
 	static File fichero = new File("");
 	public static void Leer(){
 		try {
-	       JsonElement Aeropuertos=lector.parse(new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.txt"));
-	       
+	  
 	        Type listType = new TypeToken<Vector<Aeropuerto>>(){}.getType();
 			Admin.destinos= archivo.fromJson(Aeropuertos,listType);
 		}catch(Exception e){
