@@ -24,7 +24,7 @@ public class Reader {
 		       Vector<Aeropuerto> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.destinos= arrayDeJson;
 		}catch(Exception e){
-			System.out.println("ERROR al entrar los datos");
+			System.out.println("ERROR al entrar aeropuertos");
 			System.out.println(e);
 			}
 		try {
@@ -35,9 +35,12 @@ public class Reader {
 		       Type listType = new TypeToken<Vector<Vuelo>>(){}.getType();
 		       Vector<Vuelo> arrayDeJson = gson.fromJson(json, listType);
 		       Empleado.vuelos= arrayDeJson;
+		       for (int i=0;i<Empleado.vuelos.size();i++) {
+		    	   Empleado.vuelos.get(i).setPuestos(new Reserva[20]);
+		       }
 		      
 		}catch(Exception e){
-			System.out.println("ERROR al entrar los datos");
+			System.out.println("ERROR al entrar los vuelos");
 			System.out.println(e);
 			}
 		try {
@@ -49,7 +52,7 @@ public class Reader {
 		       Vector<Empleado> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.empleados= arrayDeJson;
 		}catch(Exception e){
-			System.out.println("ERROR al entrar los datos");
+			System.out.println("ERROR al entrar empleado");
 			System.out.println(e);
 			}
 		try {
@@ -60,19 +63,20 @@ public class Reader {
 		       Type listType = new TypeToken<Vector<Cliente>>(){}.getType();
 		       Vector<Cliente> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.clientes= arrayDeJson;
-		       for (int i=0;i<Admin.clientes.size();i++) {
+		       System.out.println(Admin.clientes.size());
+		       for (int i=0;i<=Admin.clientes.size()-1;i++) {
 		    	   Cliente cliente =Admin.clientes.get(i);
-		    	   for (int j=0;i<Admin.clientes.get(i).cartera.size();i++) {
-		    		   Reserva reserva=cliente.cartera.get(j);
-		    		   
-		    	   }
-		       }
-		       for (int i=0;i<Admin.clientes.size();i++) {
-		    	   Cliente cliente =Admin.clientes.get(i);
-		    	   cliente.getCuentabancaria().setTitular(cliente);;
+		    	   System.out.println(cliente.getNombre());
+		    	   cliente.getCuentabancaria().setTitular(cliente);
+		    	   cliente.getCuentamillas().setTitular(cliente);
+		    	   for (int j=0;i<=Admin.clientes.get(i).cartera.size()-1;i++) {
+		    		   Reserva Reserva=cliente.cartera.get(j);
+		    		   Reserva.setpasajero(cliente);
+		    		   Reserva.asignarReserva(Reserva);
+		    	   }  
 		       }
 		}catch(Exception e){
-			System.out.println("ERROR al entrar los datos");
+			System.out.println("ERROR al entrar cliente");
 			System.out.println(e);
 			}
 
