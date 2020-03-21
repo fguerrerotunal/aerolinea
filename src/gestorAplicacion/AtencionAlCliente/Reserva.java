@@ -1,6 +1,7 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
 
+import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
 	private int codigovuelo;
@@ -85,8 +86,20 @@ public class Reserva{
 	public void setpasajero(Cliente cliente) {
 		this.pasajero=cliente;
 	}
-	public void setpasajero(Vuelo vuelo) {
-		this.vuelo=vuelo;
+	public void asignarReserva() {
+		for(Vuelo i:Empleado.vuelos ) {
+			if(this.getCodigovuelo()==i.getNumeroVuelo()) {
+				this.setvuelo(i);
+				i.getPuestos()[this.getSilla()-1]=this;
+			}
+		}
+
+	}
+
+
+	public void setvuelo(Vuelo vuelo2) {
+		this.vuelo=vuelo2;
+		
 	}
 
 }

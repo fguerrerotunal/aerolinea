@@ -4,10 +4,10 @@ public class CuentaBancaria{
 
 	static int cantidadCuentas;
 	private int numeroCuenta;
-	private transient Persona titular;
+	private transient int titular;
 	private int saldo = 12500*4*15;
 	
-	public CuentaBancaria(int numeroCuenta, Persona titular){
+	public CuentaBancaria(int numeroCuenta, int titular){
 		cantidadCuentas += 1;
 		this.numeroCuenta = numeroCuenta;
 		this.setTitular(titular);
@@ -34,11 +34,11 @@ public class CuentaBancaria{
 		return this.numeroCuenta;
 	}
 
-	public Persona getTitular() {
+	public int getTitular() {
 		return titular;
 	}
 
-	public void setTitular(Persona titular) {
+	public void setTitular(int titular) {
 		this.titular = titular;
 	}
 

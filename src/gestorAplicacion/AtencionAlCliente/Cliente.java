@@ -107,7 +107,7 @@ public class Cliente extends Persona{
 		String cartera = "No cuentas con reservas activas por el momento.";
 		if(!this.cartera.isEmpty()) {
 			cartera = "";
-			Iterator i = this.cartera.iterator();
+			Iterator<Reserva> i = this.cartera.iterator();
 			while(i.hasNext()) {
 				cartera = cartera + Pasabordo((Reserva) i.next()) + "\n";
 			}

@@ -1,1 +1,1 @@
-[{"cuentamillas":{"numeroCuenta":1,"millas":100},"pasaporte":234,"cartera":[],"identificacion":1,"cuentabancaria":{"numeroCuenta":12,"saldo":750000},"nombre":"fedrico guerrero","direccion":"as5d4","correo":"","historial":[]}]
+[{"cuentamillas":{"numeroCuenta":1,"millas":100},"pasaporte":234,"cartera":[{"codigovuelo":2,"silla":1,"equipaje":true,"costo":0},{"codigovuelo":21,"silla":1,"equipaje":true,"costo":353024}],"identificacion":1,"cuentabancaria":{"numeroCuenta":12,"saldo":532569},"nombre":"fedrico guerrero","direccion":"as5d4","correo":"","historial":[]}]

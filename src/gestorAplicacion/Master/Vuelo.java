@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 public class Vuelo{
 
 	static int cantidadVuelos = 0;
-	private Reserva[] puestos = new Reserva[20];
+	private transient Reserva[] puestos = new Reserva[20];
 	private int numeroVuelo;
 	private int precioTiquete;
 	private String fecha;
@@ -197,12 +197,5 @@ public class Vuelo{
 		}
 		
 	}
-	public boolean comprobarvuelo(int n,int vuelo) {
-		if(n==vuelo) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+
 }
