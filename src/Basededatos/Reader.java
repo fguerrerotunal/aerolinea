@@ -9,6 +9,8 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import gestorAplicacion.AtencionAlCliente.*;
 import gestorAplicacion.Master.*;
+import uiMain.menuconsola.opcionesdeMenu.Cartera;
+
 import java.io.*;
 public class Reader {
 	static Gson gson=new Gson();
@@ -67,9 +69,17 @@ public class Reader {
 		    	   Cliente.getCuentabancaria().setTitular(Cliente.getIdentificacion());
 		    	   Cliente.getCuentamillas().setTitular(Cliente);
 		    	   for(Reserva Reserva :Cliente.cartera) {
-		    		   Reserva.setpasajero(Cliente);
-		    		   Reserva.asignarReserva();
-		    		   
+		    		   int a=Reserva.getCodigovuelo();
+		    		   boolean b=Reserva.getEquipaje();
+		    		   Cliente c=Cliente;
+		    		   int d=Reserva.getCosto();
+		    		   int e=Reserva.getSilla();
+		    		   Vuelo f=Reserva.asignarReserva();
+		    		   Cliente.cartera.remove(Reserva);
+		    		   Reserva=new Reserva(a,f,c,d,b,e);
+		    		   Cliente.cartera.add(Reserva);
+		    		   f.getPuestos()[e]=Reserva;
+		    		      
 		    	   }
 		       }
 		}catch(Exception e){

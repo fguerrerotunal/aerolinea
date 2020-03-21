@@ -25,6 +25,11 @@ public class Reserva{
 			
 		}	
 	}
+	public Reserva(int codigo,Vuelo vuelo,Cliente pasajero,int costo,boolean equipaje,int silla){
+			
+	}
+			
+		
 	
 	
 	public int getSilla() {
@@ -86,16 +91,16 @@ public class Reserva{
 	public void setpasajero(Cliente cliente) {
 		this.pasajero=cliente;
 	}
-	public void asignarReserva() {
+	public Vuelo asignarReserva() {
 		for(Vuelo i:Empleado.vuelos ) {
 			if(this.getCodigovuelo()==i.getNumeroVuelo()) {
-				this.setvuelo(i);
-				System.out.println("Funciona");
-				i.getPuestos()[this.getSilla()-1]=this;
-				
-				
+				return i;
+	
 			}
 		}
+
+			return vuelo ;
+		
 
 	}
 
