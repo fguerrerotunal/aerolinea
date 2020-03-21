@@ -169,20 +169,20 @@ public class VInicio extends Application {
 		barramenu.getMenus().add(menuInicio);
 		ventanainicio.setTop(barramenu);
 		topright.setPrefHeight(300);
-		bottomleft.setPrefHeight(700);
-		bottomright.setPrefHeight(700);
-		left.setPrefSize(500, Double.MAX_VALUE);
+		bottomleft.setPrefHeight(500);
+		bottomright.setPrefHeight(500);
+		left.setPrefSize(400, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
-		right.setPrefSize(500, Double.MAX_VALUE);
+		right.setPrefSize(400, Double.MAX_VALUE);
 		right.setTop(topright);
 		right.setBottom(bottomright);
 		ventanainicio.setLeft(left);
 		ventanainicio.setRight(right);
 		
 		//definicion scenas
-		Scene Vinicio = new Scene(ventanainicio,1000,1000);	
-		Scene Vcliente = new Scene(clientes,1000,1000);
+		Scene Vinicio = new Scene(ventanainicio,800,800);	
+		Scene Vcliente = new Scene(clientes,800,800);
 		
 		//cambio de escena inicio a cliente
 		ingreso.setOnAction(new EventHandler<ActionEvent>() {
