@@ -5,6 +5,8 @@ import gestorAplicacion.Master.Vuelo;
 
 import java.util.*;
 
+import Utilidades.modificarVuelo;
+
 import java.io.*;
 public class Cliente extends Persona{
 
@@ -115,14 +117,14 @@ public class Cliente extends Persona{
 		return cartera;
 	}
 	
-	public String cancelarReserva(Reserva reserva) {
+	public String cancelarReserva(Reserva reserva) throws modificarVuelo{
 		if (reserva.getVuelo().getEstado().equals("Venta")) {
 		int retorno=reserva.Finalize();
 		  getCuentabancaria().add(retorno);
 		  return "Cancelado exitosamente";
 		}
 		else
-			return "los vuelos solo se puede cancelar en tiempo de venta";
+			throw new modificarVuelo();
 	}
 	
 	public int Contarpuestos(Vuelo vuelo) {
