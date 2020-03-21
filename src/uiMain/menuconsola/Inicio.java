@@ -95,7 +95,7 @@ public class Inicio extends MenuDeConsola{
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
 		
 		Admin.clientes.add(new Cliente(1,12,"fedrico guerrero", "as5d4","",234));
-		**/
+		*/
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {

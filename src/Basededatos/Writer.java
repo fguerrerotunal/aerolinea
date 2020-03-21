@@ -63,6 +63,7 @@ public class Writer{
 	        	try {	
 		        Vector<Cliente> Clientes= new Vector<>();
 		        Clientes=Admin.clientes;
+		        borrarenlaces(Clientes);
 		        String json = gson.toJson(Clientes);
 				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json",true);
 				pw=new PrintWriter(ficheros);
@@ -97,6 +98,14 @@ public class Writer{
 			}
 
 }
+	private static void borrarenlaces(Vector<Cliente> clientes) {
+		for (Cliente i:clientes) {
+			for(Reserva j:i.cartera) {
+				j.setvuelo(null);
+				j.setpasajero(null);
+			}
+		}
+	}
 	
 	
 	}

@@ -5,8 +5,8 @@ import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
 	private int codigovuelo;
-	private transient Vuelo vuelo;
-	private transient Cliente pasajero;
+	private Vuelo vuelo;
+	private Cliente pasajero;
 	private int silla;
 	private Boolean equipaje = true;
 	private int costo = 0;
@@ -26,7 +26,12 @@ public class Reserva{
 		}	
 	}
 	public Reserva(int codigo,Vuelo vuelo,Cliente pasajero,int costo,boolean equipaje,int silla){
-			
+			this.codigovuelo=codigo;
+			this.setvuelo(vuelo);
+			this.setpasajero(pasajero);
+			this.setCosto(costo);
+			this.SetEquipaje(equipaje);
+			this.setSilla(silla);	
 	}
 			
 		
@@ -36,7 +41,7 @@ public class Reserva{
 		return silla;
 	}
 	
-	public Boolean getEquipaje() {
+	public boolean getEquipaje() {
 		return equipaje;
 	}
 	
@@ -68,7 +73,9 @@ public class Reserva{
 		this.equipaje = false;
 		costo += 30000;
 	}
-	
+	public void SetEquipaje(boolean equipaje) {
+		this.equipaje = equipaje;
+	}
 	public void setCosto(int costo) {
 		this.costo = costo;
 	}
