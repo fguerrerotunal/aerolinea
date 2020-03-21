@@ -64,8 +64,6 @@ public class Reader {
 		       Vector<Cliente> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.clientes= arrayDeJson;
 		       for (Cliente Cliente : Admin.clientes) {
-		    	   Type listType2 = new TypeToken<Vector<Reserva>>(){}.getType();
-			       Vector<Reserva> arrayDeJson1 = gson.fromJson(json, listType2);
 		    	   Cliente.getCuentabancaria().setTitular(Cliente.getIdentificacion());
 		    	   Cliente.getCuentamillas().setTitular(Cliente);
 		    	   for(Reserva Reserva :Cliente.cartera) {
