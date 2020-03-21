@@ -54,7 +54,9 @@ public class VInicio extends Application {
 	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
 	Label procesoAct = new Label("Nombre del proceso o consulta");
 	Label consulta = new Label("Colnsultas aqui");
-	FieldPanel formulario;
+	
+	String[] criterios = new String[] {"Codigo", "Nombre", "Descripción", "Ubicación"};
+	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", null, null);
 	
 	//declaracion elementos varios inicio
 	MenuItem menuSalir = new MenuItem("Salir");
@@ -72,26 +74,30 @@ public class VInicio extends Application {
 	public void start(Stage ventana) throws Exception {
 		Vapp = ventana;
 		
-		SeparatorMenuItem separador = new SeparatorMenuItem();
 		//Vclientes
 		//creacion de elementos iniciales Vclientes
 		MenuBar barraMenuC = new MenuBar(); 
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
+		BorderPane clientes2 = new BorderPane();
 		
 		//Modificacion Elementos varios
-		Archivo.getItems().addAll(Usuario, separador, Salir);
-		PyC.getItems().addAll(comprarTiquete, separador, historialVuelo, separador, cartera, separador, vuelosdia, separador, pasabordo, separador, cancelreserva);
-		ayuda.getItems().add(Acercade);
 		barraMenuC.getMenus().addAll(Archivo, PyC, ayuda);
+		Archivo.getItems().addAll(Usuario, new SeparatorMenuItem(),Salir);
+		PyC.getItems().addAll(comprarTiquete, new SeparatorMenuItem(), historialVuelo, new SeparatorMenuItem(),cartera,new SeparatorMenuItem(), vuelosdia,new SeparatorMenuItem(), pasabordo,new SeparatorMenuItem(), cancelreserva);
+		ayuda.getItems().add(Acercade);
 		
+		//oyentes de menu
+		MenuClienteHandlerClass menuClientehandler = new MenuClienteHandlerClass();
+		Usuario.setOnAction(menuClientehandler);
 		
 		//scene cliente
-		clientes.setTop(procesoAct);
-		clientes.setCenter(consulta);
-		clientes.setBottom(formulario);
-		
+		clientes.setTop(barraMenuC);
+		clientes.setCenter(clientes2);
+		clientes2.setTop(procesoAct);
+		clientes2.setCenter(consulta);
+		clientes2.setBottom(formulario);
 		
 		
 		//Vinicio
@@ -144,7 +150,7 @@ public class VInicio extends Application {
 		//oyentes de botones topright
 		ToprightHandlerClass toprighthandler = new ToprightHandlerClass();
 		registro.setOnAction(toprighthandler);
-		ingreso.setOnAction(toprighthandler);
+		//ingreso.setOnAction(toprighthandler);
 		
 		
 		//oyentes de hojas de vida (mouse events)
@@ -159,12 +165,12 @@ public class VInicio extends Application {
 		menuDescrip.setOnAction(menuhandler);
 		
 		//scene inicio
-		menuInicio.getItems().addAll(menuSalir, separador, menuDescrip);
+		menuInicio.getItems().addAll(menuSalir, new SeparatorMenuItem(), menuDescrip);
 		barramenu.getMenus().add(menuInicio);
+		ventanainicio.setTop(barramenu);
 		topright.setPrefHeight(300);
 		bottomleft.setPrefHeight(700);
 		bottomright.setPrefHeight(700);
-		ventanainicio.setTop(barramenu);
 		left.setPrefSize(500, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
@@ -174,20 +180,20 @@ public class VInicio extends Application {
 		ventanainicio.setLeft(left);
 		ventanainicio.setRight(right);
 		
+		//definicion scenas
 		Scene Vinicio = new Scene(ventanainicio,1000,1000);	
 		Scene Vcliente = new Scene(clientes,1000,1000);
 		
-		
 		//cambio de escena inicio a cliente
-		//Salir.setOnAction(new EventHandler<ActionEvent>() {
-		//	
-		//	@Override
-		//	public void handle(ActionEvent event) {
-		//		Vapp.setTitle("AEROLINEA LUNA`S");
-		//		Vapp.setScene(Vinicio);
-		//		
-		//	}
-		//});
+		ingreso.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+				Vapp.setTitle("Cliente: asdasd");
+				Vapp.setScene(Vcliente);
+				
+			}
+		});
 				
 		//cambio de escena cliente a inicio
 		Salir.setOnAction(new EventHandler<ActionEvent>() {
@@ -249,4 +255,15 @@ public class VInicio extends Application {
 			
 		}
 	};
+	
+	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
+		@Override
+		public void handle(ActionEvent e) {
+			Object accion = e.getSource();
+			consulta.setText("descrip");
+			//donde poner la descripccion?
+			
+		}
+	}
+	
 }
