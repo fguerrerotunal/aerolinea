@@ -32,7 +32,11 @@ public class Reserva{
 			this.setpasajero(pasajero);
 			this.setCosto(costo);
 			this.SetEquipaje(equipaje);
-			this.setSilla(silla);	
+			try{
+				this.setSilla(silla);	
+			}catch(sillaOcupada e){
+				
+			}
 	}
 	
 	public int getSilla() {
