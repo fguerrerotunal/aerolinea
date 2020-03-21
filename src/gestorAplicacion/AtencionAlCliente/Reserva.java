@@ -89,9 +89,10 @@ public class Reserva{
 	public void asignarReserva() {
 		for(Vuelo i:Empleado.vuelos ) {
 			if(this.getCodigovuelo()==i.getNumeroVuelo()) {
+				this.setvuelo(i);
 				System.out.println("Funciona");
 				i.getPuestos()[this.getSilla()-1]=this;
-				this.setvuelo(i);
+				
 				
 			}
 		}
