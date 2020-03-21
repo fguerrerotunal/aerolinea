@@ -87,7 +87,11 @@ public class Cliente extends Persona{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			this.cancelarReserva(reserva);
+			try {
+				this.cancelarReserva(reserva);
+			}catch(modificarVuelo e){
+				
+			}
 			this.getCuentabancaria().Actualizar();
 			return "Transaccion fallida, se ha cancelado tu reserva";
 		}
