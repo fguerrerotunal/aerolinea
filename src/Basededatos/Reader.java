@@ -93,6 +93,7 @@ public class Reader {
  		   int e=hi[i].getSilla();
  		   Vuelo f=hi[i].asignarReserva();
  		   Reserva restaurar=new Reserva(a,f,c,d,b,e);
+ 		   f.getPuestos()[e-1]=restaurar;
 		   A.add(restaurar);
 		}
 		

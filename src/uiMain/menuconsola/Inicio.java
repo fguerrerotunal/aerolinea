@@ -23,7 +23,6 @@ public class Inicio extends MenuDeConsola{
 	}
 	
 	public static void main(String[] args) {
-		Reader.Leer();
 		Inicio inicio = new Inicio();
 		MenuCliente menucliente = new MenuCliente();
 
@@ -55,7 +54,7 @@ public class Inicio extends MenuDeConsola{
 		menucliente.opciones.add(salir);
 		
 		//psaa toda la informacion al a base
-		
+		Reader.Leer();
 		
 		Admin.premios.add("Silla: ...50");
 		Admin.premios.add("Mercado: ...100");
@@ -66,8 +65,8 @@ public class Inicio extends MenuDeConsola{
 		Admin.premios.add("Viaje en pareja: ...1000");
 		Admin.premios.add("Viaje Familiar(max 4): ...1200");
 		
-/*
-		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
+
+/*		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
 		new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
 		new Aeropuerto("El Dorado","Bogota","Colombia");
 		new Aeropuerto("John F.Kennedy","New York","EEUU");
@@ -93,7 +92,6 @@ public class Inicio extends MenuDeConsola{
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
-		
 		Admin.clientes.add(new Cliente(1,12,"fedrico guerrero", "as5d4","",234));
 		*/
 		Timer timer = new Timer();
@@ -102,7 +100,7 @@ public class Inicio extends MenuDeConsola{
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 10000,10000);//cada 1 min
+		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 		
 		inicio.LanzarMenu();
 		
