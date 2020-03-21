@@ -24,11 +24,23 @@ public class FieldPanel extends Pane {
 		this.valores = valores;
 		this.habilitado = habilitado;
 		
-		for(int i = 0; i < criterios.length-1;i++) {
-			
-			((GridPane) this.getChildren().get(0)).add(new Label(criterios[i]), i, 0);
-			((GridPane) this.getChildren().get(0)).add(new TextField(valores[i]), i, 1);
-			
+		GridPane grid = ((GridPane) this.getChildren().get(0));
+		for(int i = 0; i < criterios.length-1;i++) {	
+			grid.add(new Label(criterios[i]), 0, i);
+			TextField s = new TextField("");
+			try {
+				s.setText(valores[i]);
+				grid.add(s, 1, i);
+			}catch(Exception e) {
+				grid.add(s, 1, i);
+			}
+			try{
+				if(!habilitado[i]) {
+					s.setEditable(false);
+				}
+			}catch(Exception e){
+				
+			}
 		}
 	}
 	
