@@ -1,6 +1,7 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
 
+import Utilidades.sillaOcupada;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 public class Reserva{
@@ -33,9 +34,6 @@ public class Reserva{
 			this.SetEquipaje(equipaje);
 			this.setSilla(silla);	
 	}
-			
-		
-	
 	
 	public int getSilla() {
 		return silla;
@@ -56,7 +54,7 @@ public class Reserva{
 		return this.pasajero;
 	}
 
-	public String setSilla(int Nsilla){
+	public String setSilla(int Nsilla) throws sillaOcupada{
 		costo += 45000;
 		if(vuelo.getPuestos()[Nsilla-1] == null) {
 			this.vuelo.getPuestos()[Nsilla-1] = this;
@@ -64,7 +62,7 @@ public class Reserva{
 			this.silla=Nsilla;
 			return "CAMBIO EXITOSO";
 		}else {
-			return "LA SILLA ESTA OCUPADA";
+			throw new sillaOcupada();
 		}
 	}
 

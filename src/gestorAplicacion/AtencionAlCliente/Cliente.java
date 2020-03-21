@@ -5,6 +5,10 @@ import gestorAplicacion.Master.Vuelo;
 
 import java.util.*;
 
+import Utilidades.modificarVuelo;
+import Utilidades.saldoInsuficiente;
+import Utilidades.sillaOcupada;
+
 import java.io.*;
 public class Cliente extends Persona{
 
@@ -53,15 +57,19 @@ public class Cliente extends Persona{
 	}
 	
 	public String CambiarSilla(Reserva reserva, int silla) {
-		return reserva.setSilla(silla);
+		try{
+			return reserva.setSilla(silla);
+		}catch(sillaOcupada e) {
+			return e.getMessage();
+		}
 	}
 	
 	void CambiarEquipaje(Reserva reserva) {
 		reserva.setEquipaje();
 	}
 	
-	public String Pago(int medio, Reserva reserva) {
-
+	public String Pago(int medio, Reserva reserva) throws saldoInsuficiente {
+		
 		boolean transaccion = false;
 		int costo = reserva.getCosto();
 		switch (medio) {
@@ -71,12 +79,12 @@ public class Cliente extends Persona{
 					transaccion = true;
 				}
 				break;
-				
+			
 			case 1:
 				int millas=(int)costo*2;
 				if(this.getCuentamillas().getMillas()  >= millas) {
 					Admin.empleados.get(0).ModMillas(this, -millas);
-					
+				
 					transaccion = true;
 				}
 				break;
@@ -85,10 +93,15 @@ public class Cliente extends Persona{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			this.cancelarReserva(reserva);
+			try {
+				this.cancelarReserva(reserva);
+			}catch(modificarVuelo e){
+			
+			}
 			this.getCuentabancaria().Actualizar();
-			return "Transaccion fallida, se ha cancelado tu reserva";
+			throw new saldoInsuficiente();
 		}
+		
 	}
 	
 	public String CanjearMillas(int premio) {
@@ -115,14 +128,14 @@ public class Cliente extends Persona{
 		return cartera;
 	}
 	
-	public String cancelarReserva(Reserva reserva) {
+	public String cancelarReserva(Reserva reserva) throws modificarVuelo{
 		if (reserva.getVuelo().getEstado().equals("Venta")) {
 		int retorno=reserva.Finalize();
 		  getCuentabancaria().add(retorno);
 		  return "Cancelado exitosamente";
 		}
 		else
-			return "los vuelos solo se puede cancelar en tiempo de venta";
+			throw new modificarVuelo();
 	}
 	
 	public int Contarpuestos(Vuelo vuelo) {

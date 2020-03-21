@@ -2,6 +2,7 @@ package uiMain.menuconsola.opcionesdeMenu;
 
 import java.util.Iterator;
 
+import Utilidades.saldoInsuficiente;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
@@ -15,7 +16,7 @@ public class ComprarTiquete  extends OpcionDeMenu{
 		return "Comprar tiquete.";
 	}
 	
-	public void Ejecutar() {
+	public void Ejecutar() { 
 		Boolean imp = false;
 		Iterator i = Empleado.vuelos.iterator();
 		while(i.hasNext()) {
@@ -54,7 +55,11 @@ public class ComprarTiquete  extends OpcionDeMenu{
 				}
 				System.out.println("¿Que medio de pago desea usar?\nEfectivo = 0\tMillas = 1");
 				int medio = sc.nextInt();
-				System.out.println(MenuDeConsola.usuarioactual.Pago(medio,reserva));
+				try{
+					System.out.println(MenuDeConsola.usuarioactual.Pago(medio,reserva));
+				}catch(saldoInsuficiente e) {
+					System.out.println(e);
+				}
 				
 			}else {
 				System.out.println("OPERACON CANCELADA");
