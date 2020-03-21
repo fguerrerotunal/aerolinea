@@ -7,6 +7,7 @@ import java.util.*;
 
 import Utilidades.modificarVuelo;
 import Utilidades.saldoInsuficiente;
+import Utilidades.sillaOcupada;
 
 import java.io.*;
 public class Cliente extends Persona{
@@ -56,7 +57,11 @@ public class Cliente extends Persona{
 	}
 	
 	public String CambiarSilla(Reserva reserva, int silla) {
-		return reserva.setSilla(silla);
+		try{
+			return reserva.setSilla(silla);
+		}catch(sillaOcupada e) {
+			return e.getMessage();
+		}
 	}
 	
 	void CambiarEquipaje(Reserva reserva) {
