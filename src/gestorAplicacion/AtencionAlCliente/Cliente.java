@@ -6,6 +6,7 @@ import gestorAplicacion.Master.Vuelo;
 import java.util.*;
 
 import Utilidades.modificarVuelo;
+import Utilidades.saldoInsuficiente;
 
 import java.io.*;
 public class Cliente extends Persona{
@@ -62,8 +63,8 @@ public class Cliente extends Persona{
 		reserva.setEquipaje();
 	}
 	
-	public String Pago(int medio, Reserva reserva) {
-
+	public String Pago(int medio, Reserva reserva) throws saldoInsuficiente {
+		
 		boolean transaccion = false;
 		int costo = reserva.getCosto();
 		switch (medio) {
@@ -73,12 +74,12 @@ public class Cliente extends Persona{
 					transaccion = true;
 				}
 				break;
-				
+			
 			case 1:
 				int millas=(int)costo*2;
 				if(this.getCuentamillas().getMillas()  >= millas) {
 					Admin.empleados.get(0).ModMillas(this, -millas);
-					
+				
 					transaccion = true;
 				}
 				break;
@@ -90,11 +91,12 @@ public class Cliente extends Persona{
 			try {
 				this.cancelarReserva(reserva);
 			}catch(modificarVuelo e){
-				
+			
 			}
 			this.getCuentabancaria().Actualizar();
-			return "Transaccion fallida, se ha cancelado tu reserva";
+			throw new saldoInsuficiente();
 		}
+		
 	}
 	
 	public String CanjearMillas(int premio) {
