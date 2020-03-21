@@ -14,7 +14,7 @@ public abstract class Persona{
 
 	public Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){
 		this.identificacion = identificacion;
-		this.cuentabancaria = new CuentaBancaria(cuentabancaria,this);
+		this.cuentabancaria = new CuentaBancaria(cuentabancaria,identificacion);
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.correo = correo;

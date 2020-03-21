@@ -63,21 +63,14 @@ public class Reader {
 		       Type listType = new TypeToken<Vector<Cliente>>(){}.getType();
 		       Vector<Cliente> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.clientes= arrayDeJson;
-		       for (int i=0;i<Admin.clientes.size()-1;i++) {
-		    	   Cliente cliente =Admin.clientes.get(i);
-		    	   System.out.println(cliente.getNombre());
-		    	   cliente.getCuentabancaria().setTitular(cliente);
-		    	   cliente.getCuentamillas().setTitular(cliente);
-		    	   if (cliente.cartera.size()>0) {
-		    		   
-			    	   for (int j=0;i<=Admin.clientes.get(i).cartera.size()-1;i++) {
-			    		   Reserva Reserva=cliente.cartera.get(j);
-			    		   Reserva.setpasajero(Admin.clientes.get(i));
-			    		   Reserva.asignarReserva(Reserva);
-			    	   } 
+		       for (Cliente Cliente : Admin.clientes) {
+		    	   Cliente.getCuentabancaria().setTitular(Cliente.getIdentificacion());
+		    	   Cliente.getCuentamillas().setTitular(Cliente);
+		    	   for(Reserva Reserva :Cliente.cartera) {
+		    		   Reserva.setpasajero(Cliente);
+		    		   Reserva.asignarReserva();
 		    		   
 		    	   }
-
 		       }
 		}catch(Exception e){
 			System.out.println("ERROR al entrar cliente");

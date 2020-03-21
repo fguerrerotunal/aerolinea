@@ -86,23 +86,18 @@ public class Reserva{
 	public void setpasajero(Cliente cliente) {
 		this.pasajero=cliente;
 	}
-	public void setpasajero(Vuelo vuelo) {
-		this.vuelo=vuelo;
-	}
-	public void asignarReserva(Reserva rese) {
-		for(int i=0;i<Empleado.vuelos.size()-1;i++) {
-			if(rese.getCodigovuelo()==vuelo.getNumeroVuelo()) {
-				rese.setvuelo(vuelo);
-				vuelo.getPuestos()[rese.getSilla()-1]=rese;
-				System.out.println(rese.getVuelo());
-				break;
+	public void asignarReserva() {
+		for(Vuelo i:Empleado.vuelos ) {
+			if(this.getCodigovuelo()==i.getNumeroVuelo()) {
+				this.setvuelo(i);
+				i.getPuestos()[this.getSilla()-1]=this;
 			}
 		}
 
 	}
 
 
-	private void setvuelo(Vuelo vuelo2) {
+	public void setvuelo(Vuelo vuelo2) {
 		this.vuelo=vuelo2;
 		
 	}
