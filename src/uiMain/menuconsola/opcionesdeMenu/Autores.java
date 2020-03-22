@@ -18,7 +18,7 @@ public class Autores extends OpcionDeMenu{
 				+ "nombre + cedula "
 				+ "\n "
 				+ "\n"
-				+ "nombre + cedula"
+				+ "Federico Guerrero Trejos: 1002899765"
 				+ "\n"
 				+ "\n"
 				+ "nombre + cedula");
