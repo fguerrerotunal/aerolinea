@@ -20,7 +20,7 @@ public class CancelarReserva extends OpcionDeMenu{
 				System.out.println("No cuentas con reservas activas por el momento.");
 			}
 		}catch(modificarVuelo e) {
-			System.out.println(e);;
+			System.out.println(e.getMessage());;
 		}
 		
 	}
