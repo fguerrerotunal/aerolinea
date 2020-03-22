@@ -76,7 +76,7 @@ public class VInicio extends Application {
 	MenuItem menuDescrip = new MenuItem("Descripccion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
-	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.jpg"));
+	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
 	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 	//Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label(Descripccion.mensaje);
@@ -300,11 +300,12 @@ public class VInicio extends Application {
 		public void handle(MouseEvent e) {
 			// hvida : combio foto
 			imgposvida++;
-			if(imgpos==8) {
-				imgpos=6;
+			if(imgposvida==9) {
+				imgposvida=6;
 			}
-			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
-			hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
+			hojaVida.getChildrenUnmodifiable().add((new ImageView(vidapng)));
+			bienvenida.setText("b");
 		}
 	};
 	
