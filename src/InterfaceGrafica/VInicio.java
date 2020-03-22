@@ -26,6 +26,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -167,6 +168,7 @@ public class VInicio extends Application {
 		menuDescrip.setOnAction(menuhandler);
 		
 		//scene inicio
+		
 		Screen screen = Screen.getPrimary();
 	    Rectangle2D bounds = screen.getVisualBounds();
 	    Vapp.setX(bounds.getMinX());
@@ -178,23 +180,24 @@ public class VInicio extends Application {
 		barramenu.getMenus().add(menuInicio);
 		ventanainicio.setTop(barramenu);
 		
-		topleft.setPrefHeight(Vapp.getHeight()*0.3);
-		topright.setPrefHeight(Vapp.getHeight()*0.3);
-		bottomleft.setPrefHeight(Vapp.getHeight()*0.7);
-		bottomright.setPrefHeight(Vapp.getHeight()*0.7);
-		topleft.setPrefWidth(Vapp.getWidth()*0.5);
-		topright.setPrefWidth(Vapp.getWidth()*0.5);
-		bottomleft.setPrefWidth(Vapp.getWidth()*0.5);
-		bottomright.setPrefWidth(Vapp.getWidth()*0.5);
+		topleft.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.3));
+		topright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.3));
+		bottomleft.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
+		bottomright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
+		topleft.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
+		topright.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
+		bottomleft.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
+		topright.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
 		
-		left.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
-		right.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
 		right.setTop(topright);
 		right.setBottom(bottomright);
 		ventanainicio.setLeft(left);
 		ventanainicio.setRight(right);
+		
+		left.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
+		right.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
 		
 		//definicion scenas
 		Scene Vinicio = new Scene(ventanainicio);	
@@ -224,8 +227,8 @@ public class VInicio extends Application {
 		
 		Vapp.setTitle("AEROLINEA LUNA`S");
 		Vapp.setScene(Vinicio);
-		Vapp.setResizable(true);
 		Vapp.show();
+
 	}
 	
 	class MenuHandlerClass implements EventHandler<ActionEvent> {
@@ -271,6 +274,7 @@ public class VInicio extends Application {
 			
 		}
 	};
+
 	
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
