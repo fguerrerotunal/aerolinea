@@ -80,11 +80,11 @@ public class VInicio extends Application {
 	//Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 	Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label(Descripccion.mensaje);
-	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
+	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
 	Button bfotos = new Button();
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
-	
+	int imgpos = 0;
 	@Override
 	public void start(Stage ventana) throws Exception {
 		Reader.Leer();
@@ -164,7 +164,6 @@ public class VInicio extends Application {
 		
 		
 		//bottomleft 
-		//bfotos.setGraphic(new ImageView(fotos));
 		bfotos.setMaxWidth(Double.MAX_VALUE);
 		bfotos.setMaxHeight(Double.MAX_VALUE);
 		bfotos.setGraphic(new ImageView(fotos));
@@ -307,8 +306,12 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-			bienvenida.setText("\"El lado oscuro te llama\"");
-			
+			imgpos++;
+			if(imgpos==3) {
+				imgpos=0;
+			}
+			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
+			bfotos.setGraphic(new ImageView(fotos));
 		}
 	};
 
