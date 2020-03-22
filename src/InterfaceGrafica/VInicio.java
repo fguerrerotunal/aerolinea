@@ -82,8 +82,8 @@ public class VInicio extends Application {
 	Label bienvenida = new Label("AEROLINEA LUNA`S \n BIENVENIDO");
 	//Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
 	Button bfotos = new Button("puto");
-	TextField id = new TextField("Identificacion");
-	Button Aceptar = new Button("Ingresar");
+	TextField id = new TextField();
+	Button Aceptar = new Button("Ingresar1");
 	
 	@Override
 	public void start(Stage ventana) throws Exception {
@@ -219,7 +219,9 @@ public class VInicio extends Application {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Alert a = new Alert(AlertType.CONFIRMATION);
+				Alert a = new Alert(AlertType.INFORMATION);
+				a.setTitle("AEROLINEA LUNA`S");
+				a.setHeaderText(null);
 				try{
 					int posicion = Admin.BuscarCliente(Integer.valueOf(id.getText()));
 					MenuDeConsola.usuarioactual = Admin.clientes.get(posicion);
@@ -229,7 +231,7 @@ public class VInicio extends Application {
 				}catch(clienteInexistente e) {
 					a.setContentText(e.getMessage());
 				}finally{
-					a.show();
+					a.showAndWait();
 				}
 					
 				
@@ -269,14 +271,18 @@ public class VInicio extends Application {
 	class ToprightHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
+			Label b = new Label("Identificacion");
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
 				bienvenida.setText("b");
 				//formulario registro
 			}else {
 				//formulario ingreso
-				topright.add(id,0,0);
-				topright.add(Aceptar,0,1);
+				topright.getChildren().remove(registro);
+				topright.getChildren().remove(ingreso);
+				topright.add(b,0,0);
+				topright.add(id,0,1);
+				topright.add(Aceptar,0,2);
 			}
 		}
 	}
