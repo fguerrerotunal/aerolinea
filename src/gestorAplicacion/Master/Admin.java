@@ -3,15 +3,15 @@ import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
 
-import Utilidades.clienteInexistente;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 public class Admin{
-
+	
+//lista donde estan todos los vuelos,clientes,empleados
 	public static Vector<Cliente>clientes= new Vector <>();
 	public static Vector<Empleado>empleados= new Vector <>();
 	public static Vector<String> premios = new Vector<>(); 
 	public static Vector<Aeropuerto> destinos = new Vector<>();
-
+//metodo que se utiliza para comprobar si las millas del cliente son suficientes para el premio que quiere canjear
 	public static String Premios(Cliente cliente, int posicionpremio) {
 		String aviso = "Millas insuficientes";
 		int precio = 0;
@@ -47,8 +47,8 @@ public class Admin{
 		}
 		return aviso;
 	}
-	
-	public static int BuscarCliente(int id) throws clienteInexistente{
+	//metodo que se encarga de buscar un cliente utilizando su identificacion
+	public static int BuscarCliente(int id) {
 		int posicion = 0;
 		Cliente busqueda;
 		Iterator i = clientes.iterator();
@@ -60,11 +60,12 @@ public class Admin{
 			posicion++;
 		}
 		if(posicion==clientes.size()) {
-			throw new clienteInexistente();
+			posicion = -1;
 		}
 		return posicion;
 	}
 
+	//metodo que se encarga de imprimir los premios que puede canjear el usuario
 	public static String ImprimirPremios() {
 		String premios = "PREMIOS DISPONIBLES: \n";
 		int posicion=0;
