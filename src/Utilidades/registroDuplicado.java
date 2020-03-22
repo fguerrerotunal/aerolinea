@@ -2,7 +2,7 @@ package Utilidades;
 
 public class registroDuplicado extends EPropios{
 
-	registroDuplicado() {
+	public registroDuplicado() {
 		super("Usuario Existente. Intentalo de nuevo");
 	}
 
