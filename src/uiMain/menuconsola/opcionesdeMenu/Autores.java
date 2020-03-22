@@ -15,12 +15,12 @@ public class Autores extends OpcionDeMenu{
 		System.out.println("CREADO POR: "
 				+ "\n "
 				+ "\n "
-				+ "nombre + cedula "
+				+ "Jhoan Leandro Ramirez Martinez + 1000397798 "
 				+ "\n "
 				+ "\n"
 				+ "Federico Guerrero Trejos: 1002899765"
 				+ "\n"
 				+ "\n"
-				+ "nombre + cedula");
+				+ "Cristian Jaramillo Ramirez + 1000901462");
 	}
 }
