@@ -306,7 +306,7 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-			bienvenida.setText("asd");
+			bienvenida.setText("\"El lado oscuro te llama\"");
 			
 		}
 	};
