@@ -19,6 +19,7 @@ public class Reader {
 	static File fichero = new File("");
 	FileReader ficheros=null;
 	public static void Leer(){
+		//Pasa los Aeropuertos a el programa
 		try {
 		       JsonParser parser = new JsonParser();
 		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json");
@@ -31,6 +32,7 @@ public class Reader {
 			System.out.println("ERROR al entrar aeropuertos");
 			System.out.println(e);
 			}
+		//pasa los Vuelos al programa
 		try {
 		       JsonParser parser = new JsonParser();
 		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json");
@@ -40,6 +42,7 @@ public class Reader {
 		       Vector<Vuelo> arrayDeJson = gson.fromJson(json, listType);
 		       Empleado.vuelos= arrayDeJson;
 		       for (int i=0;i<Empleado.vuelos.size();i++) {
+		    	   //crea en cada vuelo la lista reservas para poder añadir a los pasajeros
 		    	   Empleado.vuelos.get(i).setPuestos(new Reserva[20]);
 		       }
 		      
@@ -47,6 +50,7 @@ public class Reader {
 			System.out.println("ERROR al entrar los vuelos");
 			System.out.println(e);
 			}
+		//pasa los empleados a el empleado
 		try {
 		       JsonParser parser = new JsonParser();
 		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json");
@@ -59,6 +63,7 @@ public class Reader {
 			System.out.println("ERROR al entrar empleado");
 			System.out.println(e);
 			}
+		//pasa los usuarios o clientes al programa
 		try {
 		       JsonParser parser = new JsonParser();
 		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json");
@@ -68,6 +73,7 @@ public class Reader {
 		       Vector<Cliente> arrayDeJson = gson.fromJson(json, listType);
 		       Admin.clientes= arrayDeJson;
 		       for (Cliente Cliente : Admin.clientes) {
+		    	   //asigna a cada cliente su cartera y a sus carteras sus respectivos vuelos 
 		    	   Cliente.getCuentabancaria().setTitular(Cliente.getIdentificacion());
 		    	   Cliente.getCuentamillas().setTitular(Cliente);
 		    	   String jsoncartera=gson.toJson(Cliente.cartera);
@@ -83,6 +89,7 @@ public class Reader {
 
 
 	}
+	// convierte la lista de cartera generada en la escritura vector
 	private static Vector<Reserva> VectorReservas(Reserva[] hi,Cliente cliente) {
 		Vector<Reserva> A=new Vector<>();
 		for(int i=0;i<hi.length;i++) {

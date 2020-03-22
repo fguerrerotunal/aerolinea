@@ -19,6 +19,7 @@ public class Writer{
 	static FileWriter ficheros = null;
 	public static void Escribir() {
 		
+		//borrar toda la informacion que tenian antes los archivos para las bases de datos 
 	        try {
 	        	BufferedWriter bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json"));
 	    		bw.write("");
@@ -32,6 +33,7 @@ public class Writer{
 	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json"));
 	    		bw.write("");
 	    		bw.close();
+	    		//guarda los aeropuertos en la base de datos
 	        	try {	
 		        Vector<Aeropuerto> Aeropuertos= new Vector<>();
 		        Aeropuertos=Admin.destinos;
@@ -45,6 +47,7 @@ public class Writer{
 	            }catch(IOException e1) {
 	        		System.out.println("Error adentro en Aeropuertos: "+e1);
 	        	}
+	        	//guarda los empleados en la base de datos 
 	        	try {
 			        String json = gson.toJson(Empleado.vuelos);
 			        Type listType = new TypeToken<Vector<Vuelo>>(){}.getType();
@@ -60,6 +63,7 @@ public class Writer{
  	            }catch(IOException e1) {
 	        		System.out.println("Error adentro en Empleados: "+e1);
 	        	}
+	        	//guarda los clientes en la base de datos 
 	        	try {	
 		        Vector<Cliente> Clientes= new Vector<>();
 		        Clientes=Admin.clientes;
@@ -74,6 +78,7 @@ public class Writer{
 	            }catch(IOException e1) {
 	        		System.out.println("Error adentro en Aeropuertos: "+e1);
 	        	}
+	        	//guarda los empleados en la base de datos
 	        	try {	
 		        Vector<Empleado> Empleados= new Vector<>();
 		        Empleados=Admin.empleados;
@@ -98,6 +103,7 @@ public class Writer{
 			}
 
 }
+	//convierte atributos de la cartera de cliente a null(Vuelo,pasajero) para que no se generen problemas al guardar
 	private static void borrarenlaces(Vector<Cliente> clientes) {
 		for (Cliente i:clientes) {
 			for(Reserva j:i.cartera) {

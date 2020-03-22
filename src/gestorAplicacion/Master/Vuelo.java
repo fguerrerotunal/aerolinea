@@ -189,7 +189,7 @@ public class Vuelo{
 		}
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		cantidadVuelos += 1;
-		this.numeroVuelo =cantidadVuelos+20;
+		this.numeroVuelo =cantidadVuelos;
 		this.precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
 		Calendar fecha = Calendar.getInstance();
 		fecha.add(Calendar.MINUTE,(int)Math.random()*(4-2+1)+2);
