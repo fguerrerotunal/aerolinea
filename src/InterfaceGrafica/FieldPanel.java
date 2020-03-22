@@ -29,7 +29,7 @@ public class FieldPanel extends Pane {
 		grid.setVgap(5);
 		grid.setHgap(5);
 		grid.setAlignment(Pos.CENTER);
-		for(int i = 0; i < criterios.length-1;i++) {	
+		for(int i = 0; i < criterios.length;i++) {	
 			grid.add(new Label(criterios[i]), 0, i);
 			TextField s = new TextField("");
 			try {
