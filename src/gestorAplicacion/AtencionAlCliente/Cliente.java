@@ -50,15 +50,15 @@ public class Cliente extends Persona{
 				return "VUELOS SIN ASIENTOS DISPONIBLES";
 			}	
 	}
-	//
+	//Metodo que retorna la lista de vuelos disponibles al hacer la consulta
 	public String ConsultarVuelos(){
 		return Admin.empleados.get(0).VuelosDisponibles();
 	}
-	
+	//Metodo que devuelve el estado de los vuelos para al hacer la consulta
 	public String ConsultarEstadoVuelos(){
 		return Admin.empleados.get(0).EstadoVuelos();
 	}
-	
+	//Metodo para cambiar la silla en un vuelo de un determinado usuario, utilizando su reserva
 	public String CambiarSilla(Reserva reserva, int silla) {
 		try{
 			return reserva.setSilla(silla);
@@ -66,11 +66,11 @@ public class Cliente extends Persona{
 			return e.getMessage();
 		}
 	}
-	
+	//Metodo para cambiar el equipaje del usuario cuando este elimina el limite de equipaje(esto genera costos)
 	void CambiarEquipaje(Reserva reserva) {
 		reserva.setEquipaje();
 	}
-	
+	//Metodo el cual se ejecuta al realizar el pago de una Reserva
 	public String Pago(int medio, Reserva reserva) throws saldoInsuficiente {
 		
 		boolean transaccion = false;
@@ -102,11 +102,11 @@ public class Cliente extends Persona{
 		}
 		
 	}
-	
+	//Metodo que se ejecuta cuando el cliente utiliza sus millas para canjear un premio
 	public String CanjearMillas(int premio) {
 		return Admin.Premios(this, premio);
 	}
-	
+	//Metodo que imprime el tiquete o pasabordo de una Reserva de un cliente
 	public String Pasabordo(Reserva reserva) {
 		String A = "PASE DE ABORDAR/BOARDING PASS: "+ cartera.indexOf(reserva) +"\n"+
 					"PASAJERO: " + getNombre() + "\n" + 
@@ -114,7 +114,7 @@ public class Cliente extends Persona{
 					"¿LIMITE EQUIPAJE?: " + reserva.getEquipaje()+"\n";
 		return A + reserva.getVuelo().toString("pasabordo");
 	}
-
+//Metodo que imprime las reservas actuales que tiene el usuario 
 	public String Cartera() {
 		String cartera = "No cuentas con reservas activas por el momento.";
 		if(!this.cartera.isEmpty()) {
@@ -126,7 +126,7 @@ public class Cliente extends Persona{
 		}
 		return cartera;
 	}
-	
+	//Metodo que se ejecuta cuando un cliente quiere cancelar la reserva
 	public String cancelarReserva(Reserva reserva) throws modificarVuelo{
 		if (reserva.getVuelo().getEstado().equals("Venta")) {
 			int retorno=reserva.Finalize();
@@ -136,7 +136,7 @@ public class Cliente extends Persona{
 		else
 			throw new modificarVuelo();
 	}
-	
+	//Metodo que revisa si hay puestos disponibles en un vuelo 
 	public int Contarpuestos(Vuelo vuelo) {
 		int contador=0;
 		for (int i=0;i<20;i++) {
@@ -146,7 +146,7 @@ public class Cliente extends Persona{
 		}
 		return contador;
 	}
-
+//Getters y Setters de los Atributos del CLiente
 	public int getPasaporte() {
 		return pasaporte;
 	}

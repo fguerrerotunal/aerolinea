@@ -1,18 +1,26 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
 public class CuentaBancaria{
-
+//Atributos de los objeto de tipo clase cuentabancaria
 	static int cantidadCuentas;
 	private int numeroCuenta;
 	private transient int titular;
 	private int saldo = 12500*4*15;
-	
+	//Constructor
 	public CuentaBancaria(int numeroCuenta, int titular){
 		cantidadCuentas += 1;
 		this.numeroCuenta = numeroCuenta;
 		this.setTitular(titular);
 	}
-	
+	//actualiza el saldo del cliente
+	public void Actualizar(){
+		saldo += 1000000*15;
+	}
+	//Agrega saldo a la cuenta del cliente
+	public void add(int nv) {
+		saldo=saldo+nv;
+	}
+	//Getters y setters de la clase
 	public int getSaldo() {
 		return saldo;
 	}
@@ -20,13 +28,7 @@ public class CuentaBancaria{
 	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
-	
-	public void Actualizar(){
-		saldo += 1000000*15;
-	}
-	public void add(int nv) {
-		saldo=saldo+nv;
-	}
+
 	public void  setCuentaB(int x){
 		this.numeroCuenta = x;
 	}
