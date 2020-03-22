@@ -1,5 +1,4 @@
 package InterfaceGrafica;
-
 import java.io.File;
 
 import Basededatos.Reader;
@@ -81,8 +80,8 @@ public class VInicio extends Application {
 	//Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 	Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label(Descripccion.mensaje);
-	//Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
-	Button bfotos = new Button("puto");
+	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
+	Button bfotos = new Button();
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
 	
@@ -168,6 +167,7 @@ public class VInicio extends Application {
 		//bfotos.setGraphic(new ImageView(fotos));
 		bfotos.setMaxWidth(Double.MAX_VALUE);
 		bfotos.setMaxHeight(Double.MAX_VALUE);
+		bfotos.setGraphic(new ImageView(fotos));
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
@@ -216,6 +216,7 @@ public class VInicio extends Application {
 		
 		left.prefWidthProperty().bind(Vapp.widthProperty().multiply(0.5));
 		right.prefWidthProperty().bind(Vapp.widthProperty().multiply(0.5));
+		
 		
 		//definicion scenas
 		Scene Vinicio = new Scene(ventanainicio);	
@@ -306,7 +307,7 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-			bienvenida.setText("asd");
+			bienvenida.setText("\"El lado oscuro te llama\"");
 			
 		}
 	};
