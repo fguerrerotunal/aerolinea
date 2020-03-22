@@ -53,8 +53,9 @@ public class Empleado extends Persona{
 			Vuelo vuelo = (Vuelo)i.next();
 			if(vuelo.getEstado().equals("Venta")) {
 				vuelosDisponibles = vuelosDisponibles + "\n" + posicion +"\t"+vuelo.toString("consulta");
-				posicion++;
+				
 			}
+			posicion++;
 		}
 		return vuelosDisponibles;
 	}
