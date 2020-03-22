@@ -93,11 +93,7 @@ public class Cliente extends Persona{
 			reserva.setCosto(0);
 			return "Transaccion realizada satisfactoriamente";
 		}else {
-			try {
-				this.cancelarReserva(reserva);
-			}catch(modificarVuelo e){
-			
-			}
+			this.cartera.remove(reserva);
 			this.getCuentabancaria().Actualizar();
 			throw new saldoInsuficiente();
 		}
