@@ -116,7 +116,9 @@ public class VInicio extends Application {
 		clientes2.setTop(procesoAct);
 		clientes2.setCenter(consulta);
 		clientes2.setBottom(formulario);
-		
+		BorderPane.setAlignment(procesoAct, Pos.CENTER);
+		BorderPane.setAlignment(consulta, Pos.CENTER);
+		BorderPane.setAlignment(formulario, Pos.CENTER);
 		
 		//Vinicio
 		//Creacion de elementos iniciales inico
@@ -189,7 +191,6 @@ public class VInicio extends Application {
 		menuDescrip.setOnAction(menuhandler);
 		
 		//scene inicio
-		
 		Screen screen = Screen.getPrimary();
 	    Rectangle2D bounds = screen.getVisualBounds();
 	    Vapp.setX(bounds.getMinX());

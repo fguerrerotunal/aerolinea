@@ -2,6 +2,7 @@ package InterfaceGrafica;
 
 import java.lang.reflect.Array;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -25,6 +26,9 @@ public class FieldPanel extends Pane {
 		this.habilitado = habilitado;
 		
 		GridPane grid = ((GridPane) this.getChildren().get(0));
+		grid.setVgap(5);
+		grid.setHgap(5);
+		grid.setAlignment(Pos.CENTER);
 		for(int i = 0; i < criterios.length-1;i++) {	
 			grid.add(new Label(criterios[i]), 0, i);
 			TextField s = new TextField("");
