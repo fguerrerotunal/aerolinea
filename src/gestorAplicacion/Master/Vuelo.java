@@ -179,14 +179,6 @@ public class Vuelo{
 	}
 
 	public void finalizer() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
-		cantidadVuelos += 1;
-		this.numeroVuelo =cantidadVuelos+20;
-		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
-		Calendar fecha = Calendar.getInstance();
-		fecha.add(Calendar.MINUTE,(int)Math.random()*(4-2+1)+2);
-		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
-		this.estado="Venta";
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){
 				this.puestos[i].getPasajero().AñadirHistorial(this.toString("consulta"));
@@ -195,6 +187,15 @@ public class Vuelo{
 				this.puestos[i]=null;
 			}
 		}
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
+		cantidadVuelos += 1;
+		this.numeroVuelo =cantidadVuelos+20;
+		this.precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
+		Calendar fecha = Calendar.getInstance();
+		fecha.add(Calendar.MINUTE,(int)Math.random()*(4-2+1)+2);
+		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
+		this.estado="Venta";
+		
 		
 	}
 

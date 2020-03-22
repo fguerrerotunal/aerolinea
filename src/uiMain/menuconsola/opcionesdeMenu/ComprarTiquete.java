@@ -65,9 +65,10 @@ public class ComprarTiquete  extends OpcionDeMenu{
 				System.out.println("OPERACON CANCELADA");
 			}
 		}else {
-			Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(Admin.destinos.size()-1));
-			Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(Admin.destinos.size()-2));
-			this.Ejecutar();
+			//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(0), Admin.destinos.get(Admin.destinos.size()-1));
+			//Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(1), Admin.destinos.get(Admin.destinos.size()-2));
+			//this.Ejecutar();
+			System.out.println("no hay vuelos");
 		}
 		
 	}
