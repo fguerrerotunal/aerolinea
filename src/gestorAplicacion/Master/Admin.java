@@ -2,6 +2,7 @@ package gestorAplicacion.Master;
 import java.io.*;
 import java.text.DateFormat;
 import java.util.*;
+import Utilidades.clienteInexistente;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
 public class Admin{
@@ -48,7 +49,7 @@ public class Admin{
 		return aviso;
 	}
 	//metodo que se encarga de buscar un cliente utilizando su identificacion
-	public static int BuscarCliente(int id) {
+	public static int BuscarCliente(int id) throws clienteInexistente {
 		int posicion = 0;
 		Cliente busqueda;
 		Iterator i = clientes.iterator();
@@ -60,7 +61,7 @@ public class Admin{
 			posicion++;
 		}
 		if(posicion==clientes.size()) {
-			posicion = -1;
+			throw new clienteInexistente();
 		}
 		return posicion;
 	}
