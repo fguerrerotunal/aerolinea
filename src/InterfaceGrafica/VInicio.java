@@ -312,7 +312,7 @@ public class VInicio extends Application {
 		@Override
 		public void handle(MouseEvent e) {
 			imgpos++;
-			if(imgpos==4) {
+			if(imgpos==3) {
 				imgpos=0;
 			}
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
