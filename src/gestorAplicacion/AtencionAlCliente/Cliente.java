@@ -126,9 +126,9 @@ public class Cliente extends Persona{
 	
 	public String cancelarReserva(Reserva reserva) throws modificarVuelo{
 		if (reserva.getVuelo().getEstado().equals("Venta")) {
-		int retorno=reserva.Finalize();
-		  getCuentabancaria().add(retorno);
-		  return "Cancelado exitosamente";
+			int retorno=reserva.Finalize();
+			getCuentabancaria().add(retorno);
+			return "Cancelado exitosamente";
 		}
 		else
 			throw new modificarVuelo();
