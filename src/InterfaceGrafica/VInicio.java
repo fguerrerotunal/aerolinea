@@ -187,11 +187,10 @@ public class VInicio extends Application {
 		bottomleft.setPrefWidth(Vapp.getWidth()*0.5);
 		bottomright.setPrefWidth(Vapp.getWidth()*0.5);
 		
-		
 		left.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
+		right.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
-		right.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
 		right.setTop(topright);
 		right.setBottom(bottomright);
 		ventanainicio.setLeft(left);
@@ -199,7 +198,7 @@ public class VInicio extends Application {
 		
 		//definicion scenas
 		Scene Vinicio = new Scene(ventanainicio);	
-		Scene Vcliente = new Scene(clientes,800,800);
+		Scene Vcliente = new Scene(clientes);
 		
 		//cambio de escena inicio a cliente
 		ingreso.setOnAction(new EventHandler<ActionEvent>() {
