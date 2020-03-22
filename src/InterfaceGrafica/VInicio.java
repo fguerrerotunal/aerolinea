@@ -317,8 +317,8 @@ public class VInicio extends Application {
 			}
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
 			ImageView asd = new ImageView(fotos);
-			asd.setFitWidth(bfotos.getWidth());
-			asd.setFitHeight(bfotos.getHeight());
+			asd.setFitWidth(Vapp.getWidth()*0.5);
+			asd.setFitHeight(fotos.getHeight()*0.7);
 			bfotos.setGraphic(asd);
 		}
 	};
