@@ -4,14 +4,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 public abstract class Persona{
-
+//Atributos de los objetos de clase Persona
 	private int identificacion;
 	private  CuentaBancaria cuentabancaria;
 	private String nombre;
 	private String direccion;
 	private String correo;
 	protected Vector<String> historial = new Vector<>();
-
+//Constructor
 	public Persona(int identificacion, int cuentabancaria, String nombre, String direccion, String correo){
 		this.identificacion = identificacion;
 		this.cuentabancaria = new CuentaBancaria(cuentabancaria,identificacion);
@@ -19,11 +19,13 @@ public abstract class Persona{
 		this.direccion = direccion;
 		this.correo = correo;
 	}
-	
+	//Metodo abstactos arraigados a la clase persona y sus hijos empleado y Cliente
 	public abstract String Historial();
 	
 	public abstract void AñadirHistorial(String accion);
 	
+	
+	//Getters y Setters de la clase
 	public int getIdentificacion() {
 		return identificacion;
 	}
