@@ -36,6 +36,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.opcionesdeMenu.Descripccion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -79,11 +80,11 @@ public class VInicio extends Application {
 	//Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
 	//Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 	Label hojaVida = new Label("DESARROLLADORES");
-	Label bienvenida = new Label("AEROLINEA LUNA`S \n BIENVENIDO");
+	Label bienvenida = new Label(Descripccion.mensaje);
 	//Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
 	Button bfotos = new Button("puto");
 	TextField id = new TextField();
-	Button Aceptar = new Button("Ingresar1");
+	Button Aceptar = new Button("Ingresar");
 	
 	@Override
 	public void start(Stage ventana) throws Exception {
@@ -107,6 +108,7 @@ public class VInicio extends Application {
 		//oyentes de menu
 		MenuClienteHandlerClass menuClientehandler = new MenuClienteHandlerClass();
 		Usuario.setOnAction(menuClientehandler);
+		Acercade.setOnAction(menuClientehandler);
 		
 		//scene cliente
 		clientes.setTop(barraMenuC);
@@ -129,6 +131,10 @@ public class VInicio extends Application {
 		
 		//modificacion de elementos varios
 		//topright
+		registro.prefHeightProperty().bind(topright.heightProperty().multiply(0.4));
+		registro.prefWidthProperty().bind(topright.widthProperty().multiply(0.4));
+		ingreso.prefHeightProperty().bind(topright.heightProperty().multiply(0.4));
+		ingreso.prefWidthProperty().bind(topright.widthProperty().multiply(0.4));
 		topright.setVgap(5);
 		topright.setHgap(5);
 		topright.setAlignment(Pos.CENTER);
@@ -137,7 +143,7 @@ public class VInicio extends Application {
 		
 		
 		//bottomright 
-		hojaVida.setTextFill(Color.RED);
+		hojaVida.setTextFill(Color.BLACK);
 		hojaVida.setWrapText(true);
 		hojaVida.setFont(new Font("Arial",40));
 		hojaVida.setContentDisplay(ContentDisplay.BOTTOM);
@@ -148,9 +154,9 @@ public class VInicio extends Application {
 		bottomright.setCenter(hojaVida);
 		
 		//topleft
-		bienvenida.setTextFill(Color.RED);
+		bienvenida.setTextFill(Color.BLACK);
 		bienvenida.setWrapText(true);
-		bienvenida.setFont(new Font("Arial",40));
+		bienvenida.setFont(new Font("Arial",30));
 		bienvenida.setMaxWidth(Double.MAX_VALUE);
 		bienvenida.setMaxHeight(Double.MAX_VALUE);
 		topleft.setCenter(bienvenida);
@@ -274,8 +280,8 @@ public class VInicio extends Application {
 			Label b = new Label("Identificacion");
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
-				bienvenida.setText("b");
 				//formulario registro
+				bienvenida.setText("b");
 			}else {
 				//formulario ingreso
 				topright.getChildren().remove(registro);
@@ -308,10 +314,22 @@ public class VInicio extends Application {
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
-			Object accion = e.getSource();
-			consulta.setText("descrip");
-			//donde poner la descripccion?
+			String accion = (((MenuItem) e.getSource()).getText());
+			Alert a = new Alert(AlertType.INFORMATION);
+			a.setTitle("AEROLINEA LUNA`S");
+			a.setHeaderText(null);
 			
+			switch (accion){
+			case "Usuario":
+				a.setContentText("asfasdfdfds");
+				a.showAndWait();
+				break;
+			case "Acerca de":
+				consulta.setText(accion);
+				break;
+			
+			}
+			//donde poner la descripccion?
 		}
 	}
 	
