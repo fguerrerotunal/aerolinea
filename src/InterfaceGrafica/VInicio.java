@@ -305,7 +305,6 @@ public class VInicio extends Application {
 			}
 			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
 			hojaVida.setGraphic(new ImageView(vidapng));
-			bienvenida.setText("basdasd");
 		}
 	};
 	
@@ -317,7 +316,10 @@ public class VInicio extends Application {
 				imgpos=0;
 			}
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
-			bfotos.setGraphic(new ImageView(fotos));
+			ImageView asd = new ImageView(fotos);
+			asd.setFitWidth(bfotos.getWidth());
+			asd.setFitHeight(bfotos.getHeight());
+			bfotos.setGraphic(asd);
 		}
 	};
 
@@ -340,7 +342,7 @@ public class VInicio extends Application {
 				break;
 			
 			}
-			//donde poner la descripccion?
+			//donde poner la descripccion?.
 		}
 	}
 	
