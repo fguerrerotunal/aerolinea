@@ -304,7 +304,7 @@ public class VInicio extends Application {
 				imgposvida=6;
 			}
 			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
-			hojaVida.getChildrenUnmodifiable().add((new ImageView(vidapng)));
+			hojaVida.setGraphic(new ImageView(vidapng));
 			bienvenida.setText("basdasd");
 		}
 	};
