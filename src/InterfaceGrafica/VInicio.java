@@ -76,15 +76,16 @@ public class VInicio extends Application {
 	MenuItem menuDescrip = new MenuItem("Descripccion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
-	//Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
-	//Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
-	Label hojaVida = new Label("DESARROLLADORES");
+	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.jpg"));
+	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+	//Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label(Descripccion.mensaje);
 	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
 	Button bfotos = new Button();
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
 	int imgpos = 0;
+	int imgposvida = 6;
 	@Override
 	public void start(Stage ventana) throws Exception {
 		Reader.Leer();
@@ -297,9 +298,13 @@ public class VInicio extends Application {
 	EventHandler<MouseEvent> hvidahandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-			hojaVida.setText("puto proyecto de mierda");
-				// hvida : combio foto
-			
+			// hvida : combio foto
+			imgposvida++;
+			if(imgpos==8) {
+				imgpos=6;
+			}
+			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
+			hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
 		}
 	};
 	
