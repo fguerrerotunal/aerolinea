@@ -2,13 +2,20 @@ package InterfaceGrafica;
 
 import java.io.File;
 
+import Basededatos.Reader;
+import Utilidades.clienteInexistente;
+import gestorAplicacion.Master.Admin;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.*;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -16,6 +23,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +35,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import uiMain.menuconsola.MenuDeConsola;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -62,6 +71,7 @@ public class VInicio extends Application {
 	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", null, null);
 	
 	//declaracion elementos varios inicio
+	GridPane topright = new GridPane();
 	MenuItem menuSalir = new MenuItem("Salir");
 	MenuItem menuDescrip = new MenuItem("Descripccion");
 	Button registro =new Button("Registrarse");
@@ -72,9 +82,12 @@ public class VInicio extends Application {
 	Label bienvenida = new Label("AEROLINEA LUNA`S \n BIENVENIDO");
 	//Image fotos = new Image(getClass().getResourceAsStream("./imagenes/image.jpg"));
 	Button bfotos = new Button("puto");
-
+	TextField id = new TextField("Identificacion");
+	Button Aceptar = new Button("Ingresar");
+	
 	@Override
 	public void start(Stage ventana) throws Exception {
+		Reader.Leer();
 		Vapp = ventana;
 		
 		//Vclientes
@@ -110,7 +123,6 @@ public class VInicio extends Application {
 		BorderPane right = new BorderPane();
 		BorderPane topleft = new BorderPane();
 		BorderPane bottomleft = new BorderPane();
-		GridPane topright = new GridPane();
 		BorderPane bottomright = new BorderPane();
 		MenuBar barramenu = new MenuBar();
 		Menu menuInicio = new Menu("Inicio");
@@ -153,7 +165,10 @@ public class VInicio extends Application {
 		//oyentes de botones topright
 		ToprightHandlerClass toprighthandler = new ToprightHandlerClass();
 		registro.setOnAction(toprighthandler);
-		//ingreso.setOnAction(toprighthandler);
+		ingreso.setOnAction(toprighthandler);
+		//ingreso
+	
+		
 		
 		
 		//oyentes de hojas de vida (mouse events)
@@ -200,12 +215,23 @@ public class VInicio extends Application {
 		Scene Vcliente = new Scene(clientes);
 		
 		//cambio de escena inicio a cliente
-		ingreso.setOnAction(new EventHandler<ActionEvent>() {
+		Aceptar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				Vapp.setTitle("Cliente: asdasd");
-				Vapp.setScene(Vcliente);
+				Alert a = new Alert(AlertType.CONFIRMATION);
+				try{
+					int posicion = Admin.BuscarCliente(Integer.valueOf(id.getText()));
+					MenuDeConsola.usuarioactual = Admin.clientes.get(posicion);
+					a.setContentText("Ingreso exitoso.");
+					Vapp.setTitle("Cliente: " + MenuDeConsola.usuarioactual.getNombre());
+					Vapp.setScene(Vcliente);
+				}catch(clienteInexistente e) {
+					a.setContentText(e.getMessage());
+				}finally{
+					a.show();
+				}
+					
 				
 			}
 		});
@@ -248,8 +274,9 @@ public class VInicio extends Application {
 				bienvenida.setText("b");
 				//formulario registro
 			}else {
-				bienvenida.setText("a");
-				//formulario ingreso	
+				//formulario ingreso
+				topright.add(id,0,0);
+				topright.add(Aceptar,0,1);
 			}
 		}
 	}
