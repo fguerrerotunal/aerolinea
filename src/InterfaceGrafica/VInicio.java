@@ -185,6 +185,7 @@ public class VInicio extends Application {
 		//oyentes de fotos (mouse events)
 		bfotos.setOnMouseEntered(bfotoshandler);
 		
+		
 		//oyentes de menu
 		MenuHandlerClass menuhandler = new MenuHandlerClass();
 		menuSalir.setOnAction(menuhandler);
@@ -304,7 +305,10 @@ public class VInicio extends Application {
 				imgposvida=6;
 			}
 			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
-			hojaVida.setGraphic(new ImageView(vidapng));
+			ImageView asd = new ImageView(vidapng);
+			asd.setFitWidth(Vapp.getWidth()*0.5);
+			asd.setFitHeight(fotos.getHeight()*0.7);
+			hojaVida.setGraphic(asd);
 		}
 	};
 	
