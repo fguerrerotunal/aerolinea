@@ -184,11 +184,7 @@ public class VInicio extends Application {
 		topright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.3));
 		bottomleft.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
 		bottomright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
-		topleft.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
-		topright.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
-		bottomleft.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
-		topright.prefWidthProperty().bind(Vapp.maxWidthProperty().multiply(0.5));
-		
+
 		left.setTop(topleft);
 		left.setBottom(bottomleft);
 		right.setTop(topright);
@@ -196,8 +192,8 @@ public class VInicio extends Application {
 		ventanainicio.setLeft(left);
 		ventanainicio.setRight(right);
 		
-		left.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
-		right.setPrefSize(Vapp.getWidth()*0.5, Double.MAX_VALUE);
+		left.prefWidthProperty().bind(Vapp.widthProperty().multiply(0.5));
+		right.prefWidthProperty().bind(Vapp.widthProperty().multiply(0.5));
 		
 		//definicion scenas
 		Scene Vinicio = new Scene(ventanainicio);	
