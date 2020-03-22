@@ -11,17 +11,19 @@ import Utilidades.sillaOcupada;
 
 import java.io.*;
 public class Cliente extends Persona{
-
+	
+//atributos asignados a la persona cuando esta es un cliente
 	private CuentaMillas cuentamillas;
 	private int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();
 	
+	//constructor de cliente
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
 		this.setCuentamillas(new CuentaMillas(this,identificacion));
 		this.setPasaporte(pasaporte);
 	}
-	
+	//devuelve un String con el Historial de vuelos con el cliente
 	public String Historial(){
 		String historial = "AUN NO HAS USADO NUESTROS SERVICIOS";
 		if(!this.historial.isEmpty()) {
@@ -33,11 +35,12 @@ public class Cliente extends Persona{
 		}
 		return historial;
 	}
-	
+	//añade un vuelo al historial del cliente
 	public void AñadirHistorial(String accion) {
 		this.historial.add(accion);
 	}
-	
+	//añade una reserva a la cartera del cliente y imprime que su reserva se realizo,
+	///de no ser posible devuelve un mensaje de que no se logro hacer esto
 	public String Reservar(Vuelo vuelo) {
 			if (Contarpuestos(vuelo)<20) {
 				this.cartera.add(new Reserva(vuelo, this));
@@ -47,7 +50,7 @@ public class Cliente extends Persona{
 				return "VUELOS SIN ASIENTOS DISPONIBLES";
 			}	
 	}
-	
+	//
 	public String ConsultarVuelos(){
 		return Admin.empleados.get(0).VuelosDisponibles();
 	}
