@@ -58,7 +58,7 @@ public class ComprarTiquete  extends OpcionDeMenu{
 				try{
 					System.out.println(MenuDeConsola.usuarioactual.Pago(medio,reserva));
 				}catch(saldoInsuficiente e) {
-					System.out.println(e);
+					System.out.println(e.getMessage());
 				}
 				
 			}else {

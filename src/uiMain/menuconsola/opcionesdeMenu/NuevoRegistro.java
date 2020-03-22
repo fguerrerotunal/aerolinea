@@ -1,5 +1,7 @@
 package uiMain.menuconsola.opcionesdeMenu;
 
+import Utilidades.clienteInexistente;
+import Utilidades.registroDuplicado;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import uiMain.menuconsola.OpcionDeMenu;
@@ -26,8 +28,14 @@ public class NuevoRegistro extends OpcionDeMenu{
 		String correo = sc.next();
 		System.out.println("Numero de Pasaporte");
 		int pasaporte = sc.nextInt();
-		Admin.clientes.add(new Cliente(id, cuenta, nombre, direccion, correo, pasaporte));
-		System.out.println("Registrado Correctamente.");
-		
+		try {
+			Admin.BuscarCliente(id);
+			throw new registroDuplicado();
+		}catch(clienteInexistente e){
+			Admin.clientes.add(new Cliente(id, cuenta, nombre, direccion, correo, pasaporte));
+			System.out.println("Registrado Correctamente.");
+		}catch(registroDuplicado e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
