@@ -81,7 +81,6 @@ public class VInicio extends Application {
 	//Label hojaVida = new Label("DESARROLLADORES");
 	Label bienvenida = new Label(Descripccion.mensaje);
 	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
-	ImageView asd = new ImageView(fotos);
 	Button bfotos = new Button();
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
@@ -168,9 +167,7 @@ public class VInicio extends Application {
 		//bottomleft 
 		bfotos.setMaxWidth(Double.MAX_VALUE);
 		bfotos.setMaxHeight(Double.MAX_VALUE);
-		asd.setFitWidth(Vapp.getWidth()*0.5);
-		asd.setFitHeight(fotos.getHeight()*0.7);
-		bfotos.setGraphic(asd);
+		bfotos.setGraphic(new ImageView(fotos));
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
@@ -315,11 +312,13 @@ public class VInicio extends Application {
 		@Override
 		public void handle(MouseEvent e) {
 			imgpos++;
-			if(imgpos==4) {
+			if(imgpos==3) {
 				imgpos=0;
 			}
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
-			asd = new ImageView(fotos);
+			ImageView asd = new ImageView(fotos);
+			asd.setFitWidth(Vapp.getWidth()*0.5);
+			asd.setFitHeight(fotos.getHeight()*0.7);
 			bfotos.setGraphic(asd);
 		}
 	};
