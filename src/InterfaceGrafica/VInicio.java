@@ -84,8 +84,10 @@ public class VInicio extends Application {
 	Label bfotos;
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
+	Button Cancel = new Button("Cancelar");
 	int imgpos = 0;
 	int imgposvida = 6;
+	
 	
 	
 	
@@ -225,6 +227,16 @@ public class VInicio extends Application {
 		Scene Vcliente = new Scene(clientes);
 		
 		//cambio de escena inicio a cliente
+		Cancel.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent event) {
+					topright.getChildren().removeAll(id, Aceptar,Cancel);
+					topright.add(registro,0,0);
+					topright.add(ingreso,0,1);
+			}
+		});
+
 		Aceptar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
@@ -239,7 +251,7 @@ public class VInicio extends Application {
 					Vapp.setTitle("Cliente: " + MenuDeConsola.usuarioactual.getNombre());
 					Vapp.setScene(Vcliente);
 				}catch(clienteInexistente e) {
-					topright.getChildren().removeAll(id, Aceptar);
+					topright.getChildren().removeAll(id, Aceptar,Cancel);
 					topright.getChildren().remove(0);
 					topright.add(registro,0,0);
 					topright.add(ingreso,0,1);
@@ -257,7 +269,7 @@ public class VInicio extends Application {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				topright.getChildren().removeAll(id, Aceptar);
+				topright.getChildren().removeAll(id, Aceptar,Cancel);
 				topright.getChildren().remove(0);
 				topright.add(registro,0,0);
 				topright.add(ingreso,0,1);
@@ -305,9 +317,11 @@ public class VInicio extends Application {
 			}else {
 				topright.getChildren().remove(registro);
 				topright.getChildren().remove(ingreso);
-				topright.add(b,0,0);
-				topright.add(id,0,1);
-				topright.add(Aceptar,0,2);
+				id.setMaxWidth(Double.MAX_VALUE);
+				topright.add(b,0,1);
+				topright.add(id,0,2,2,1);
+				topright.add(Aceptar,0,3);
+				topright.add(Cancel,1,3);
 			}
 		}
 	}
