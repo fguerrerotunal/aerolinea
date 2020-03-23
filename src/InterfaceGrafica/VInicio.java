@@ -147,7 +147,7 @@ public class VInicio extends Application {
 		//bottomright 
 		hojaVida.setTextFill(Color.BLACK);
 		hojaVida.setWrapText(true);
-		hojaVida.setFont(new Font("Arial",40));
+		hojaVida.setFont(new Font("Arial",30));
 		hojaVida.setContentDisplay(ContentDisplay.BOTTOM);
 		hojaVida.setMaxWidth(Double.MAX_VALUE);
 		hojaVida.setMaxHeight(Double.MAX_VALUE);
@@ -159,8 +159,9 @@ public class VInicio extends Application {
 		bienvenida.setTextFill(Color.BLACK);
 		bienvenida.setWrapText(true);
 		bienvenida.setFont(new Font("Arial",30));
-		bienvenida.setMaxWidth(Double.MAX_VALUE);
-		bienvenida.setMaxHeight(Double.MAX_VALUE);
+		bienvenida.setPrefWidth(Double.MAX_VALUE);
+		bienvenida.setPrefHeight(Double.MAX_VALUE);
+		bienvenida.setAlignment(Pos.BASELINE_CENTER);
 		topleft.setCenter(bienvenida);
 		
 		
