@@ -35,6 +35,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.opcionesdeMenu.Autores;
 import uiMain.menuconsola.opcionesdeMenu.Descripccion;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -78,14 +79,16 @@ public class VInicio extends Application {
 	Button ingreso =new Button("Ingresar");
 	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
 	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
-	//Label hojaVida = new Label("DESARROLLADORES");
-	Label bienvenida = new Label(Descripccion.mensaje);
+	Label bienvenida = new Label("AEROLINEA LUNA`S");
 	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
 	Label bfotos;
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
 	int imgpos = 0;
 	int imgposvida = 6;
+	
+	
+	
 	@Override
 	public void start(Stage ventana) throws Exception {
 		Reader.Leer();
@@ -181,7 +184,7 @@ public class VInicio extends Application {
 		
 		//oyentes de fotos (mouse events)
 		bfotos.setOnMouseEntered(bfotoshandler);
-		
+		bfotos.setOnMouseExited(bfotoshandler);
 		
 		//oyentes de menu
 		MenuHandlerClass menuhandler = new MenuHandlerClass();
@@ -235,6 +238,10 @@ public class VInicio extends Application {
 					Vapp.setTitle("Cliente: " + MenuDeConsola.usuarioactual.getNombre());
 					Vapp.setScene(Vcliente);
 				}catch(clienteInexistente e) {
+					topright.getChildren().removeAll(id, Aceptar);
+					topright.getChildren().remove(0);
+					topright.add(registro,0,0);
+					topright.add(ingreso,0,1);
 					a.setContentText(e.getMessage());
 				}finally{
 					a.showAndWait();
@@ -249,6 +256,10 @@ public class VInicio extends Application {
 			
 			@Override
 			public void handle(ActionEvent event) {
+				topright.getChildren().removeAll(id, Aceptar);
+				topright.getChildren().remove(0);
+				topright.add(registro,0,0);
+				topright.add(ingreso,0,1);
 				Vapp.setTitle("AEROLINEA LUNA`S");
 				Vapp.setScene(Vinicio);
 				
@@ -261,6 +272,7 @@ public class VInicio extends Application {
 
 	}
 	
+	//handler menus
 	class MenuHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
@@ -268,22 +280,20 @@ public class VInicio extends Application {
 			if(accion.equals(menuSalir)) {
 				System.exit(0);
 			}else {
-				bienvenida.setText("descrip");
-				//donde poner la descripccion?
+				bienvenida.setText(Descripccion.mensaje);
 			}
 		}
 	}
-	
+	//formulario registro
+	//formulario ingreso
 	class ToprightHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
 			Label b = new Label("Identificacion");
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
-				//formulario registro
 				bienvenida.setText("b");
 			}else {
-				//formulario ingreso
 				topright.getChildren().remove(registro);
 				topright.getChildren().remove(ingreso);
 				topright.add(b,0,0);
@@ -293,10 +303,11 @@ public class VInicio extends Application {
 		}
 	}
 	
+	// hvida : combio foto
 	EventHandler<MouseEvent> hvidahandler = new EventHandler<MouseEvent>(){
 		@Override
 		public void handle(MouseEvent e) {
-			// hvida : combio foto
+			
 			imgposvida++;
 			if(imgposvida==9) {
 				imgposvida=6;
@@ -309,13 +320,15 @@ public class VInicio extends Application {
 		}
 	};
 	
+	//fotos: cambio
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
+		boolean cambio = false;
 		@Override
 		public void handle(MouseEvent e) {
 			imgpos++;
-			if(imgpos==4) {
+			if(imgpos==5) {
 				imgpos=0;
-			}
+			}				
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
 			ImageView asd = new ImageView(fotos);
 			asd.setFitWidth(Vapp.getWidth()*0.5);
@@ -324,7 +337,7 @@ public class VInicio extends Application {
 		}
 	};
 
-	
+	//handler menu ventana cliente
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
@@ -335,15 +348,15 @@ public class VInicio extends Application {
 			
 			switch (accion){
 			case "Usuario":
-				a.setContentText("asfasdfdfds");
+				a.setContentText(MenuDeConsola.usuarioactual.toString());
 				a.showAndWait();
 				break;
 			case "Acerca de":
-				consulta.setText(accion);
+				a.setContentText(Autores.getMensaje());
+				a.showAndWait();
 				break;
 			
 			}
-			//donde poner la descripccion?.
 		}
 	}
 	

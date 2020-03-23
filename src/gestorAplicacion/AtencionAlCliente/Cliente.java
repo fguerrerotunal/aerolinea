@@ -146,6 +146,18 @@ public class Cliente extends Persona{
 		}
 		return contador;
 	}
+	
+	//metodo que presenta de forma mas organizada la info del usuario
+	public String toString() {
+		String mensaje = "Usuario Actual:\n"
+				+ this.getNombre() +"\n"
+				+ "ID: "+this.getIdentificacion()+"\n"
+				+ "CORREO: "+this.getCorreo()+"\n"
+				+"DIRECCION: "+this.getDireccion()+"\n"
+				+"# PASAPORTE: "+this.getPasaporte();
+				
+		return mensaje;
+	}
 //Getters y Setters de los Atributos del CLiente
 	public int getPasaporte() {
 		return pasaporte;
