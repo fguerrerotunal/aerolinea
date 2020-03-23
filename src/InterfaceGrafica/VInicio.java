@@ -30,6 +30,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -73,7 +74,8 @@ public class VInicio extends Application {
 	ButtonType Cregistro = new ButtonType("Cancelar");
 	
 	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
-	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", null, null);
+	String[] valores = new String[] {"", "", "", "","",""};
+	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", valores, null);
 	
 	//declaracion elementos varios inicio
 	GridPane topright = new GridPane();
@@ -107,6 +109,8 @@ public class VInicio extends Application {
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
 		BorderPane clientes2 = new BorderPane();
+		Label tutorial = new Label("hola");
+		BorderPane tutoInicio = new BorderPane();
 		
 		//Modificacion Elementos varios
 		barraMenuC.getMenus().addAll(Archivo, PyC, ayuda);
@@ -122,9 +126,10 @@ public class VInicio extends Application {
 		//scene cliente
 		clientes.setTop(barraMenuC);
 		clientes.setCenter(clientes2);
+		tutoInicio.setCenter(tutorial);
 		clientes2.setTop(procesoAct);
 		clientes2.setCenter(consulta);
-		clientes2.setBottom(formulario);
+		clientes2.setBottom(tutoInicio);
 		BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		BorderPane.setAlignment(consulta, Pos.CENTER);
 		BorderPane.setAlignment(formulario, Pos.CENTER);
@@ -273,6 +278,7 @@ public class VInicio extends Application {
 			
 			@Override
 			public void handle(ActionEvent event) {
+				MenuDeConsola.usuarioactual = null;
 				topright.getChildren().removeAll(id, Aceptar,Cancel);
 				topright.getChildren().remove(0);
 				topright.add(registro,0,0);
@@ -318,6 +324,7 @@ public class VInicio extends Application {
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
 						+ "      datos");
+				//handlers 
 				Optional<ButtonType> result = a.showAndWait();
 				if(result.get()==Nregistro) {
 					formulario.GuardarDatos();
@@ -326,7 +333,6 @@ public class VInicio extends Application {
 				}else {
 					a.close();
 				}
-				bienvenida.setText("b");
 			}else {
 				topright.getChildren().remove(registro);
 				topright.getChildren().remove(ingreso);

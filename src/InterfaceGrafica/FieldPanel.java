@@ -22,9 +22,11 @@ public class FieldPanel extends Pane {
 		this.tituloCriterios = tituloCriterios;
 		this.criterios = criterios;
 		this.tituloValores = tituloValores;
-		if(valores == null) {
-			this.valores = new String[criterios.length-1];
-		}
+		//if(valores == null) {
+			//this.valores = new String[criterios.length-1];
+		//}else{
+		this.valores = valores;
+		//}
 		this.habilitado = habilitado;
 		
 		GridPane grid = ((GridPane) this.getChildren().get(0));
@@ -63,8 +65,12 @@ public class FieldPanel extends Pane {
 	public void GuardarDatos(){
 		GridPane grid = ((GridPane) this.getChildren().get(0));
 		for(int i = 0; i < criterios.length;i++) {	
-			TextField a = (TextField) grid.getChildren().get(i+1);
-			this.valores[i] = a.getText();
+			TextField a;
+			a = (TextField) grid.getChildren().get((2*i)+1);
+			if(!(a.getText()).equals("")) {
+				this.valores[i] = a.getText();
+				a.setText("");
+			}
 		}
 	}
 	
