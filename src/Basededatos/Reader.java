@@ -22,7 +22,7 @@ public class Reader {
 		//Pasa los Aeropuertos a el programa
 		try {
 		       JsonParser parser = new JsonParser();
-		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json");
+		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Aeropuertos.json");
 		       JsonElement Aeropuertos = parser.parse(fr);	
 		       String json = gson.toJson(Aeropuertos);
 		       Type listType = new TypeToken<Vector<Aeropuerto>>(){}.getType();
@@ -35,7 +35,7 @@ public class Reader {
 		//pasa los Vuelos al programa
 		try {
 		       JsonParser parser = new JsonParser();
-		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json");
+		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Vuelos.json");
 		       JsonElement Aeropuertos = parser.parse(fr);	
 		       String json = gson.toJson(Aeropuertos);
 		       Type listType = new TypeToken<Vector<Vuelo>>(){}.getType();
@@ -53,7 +53,7 @@ public class Reader {
 		//pasa los empleados a el empleado
 		try {
 		       JsonParser parser = new JsonParser();
-		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json");
+		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Empleados.json");
 		       JsonElement Aeropuertos = parser.parse(fr);	
 		       String json = gson.toJson(Aeropuertos);
 		       Type listType = new TypeToken<Vector<Empleado>>(){}.getType();
@@ -66,7 +66,7 @@ public class Reader {
 		//pasa los usuarios o clientes al programa
 		try {
 		       JsonParser parser = new JsonParser();
-		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json");
+		       FileReader fr = new FileReader(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Clientes.json");
 		       JsonElement Clientes = parser.parse(fr);	
 		       String json = gson.toJson(Clientes);
 		       Type listType = new TypeToken<Vector<Cliente>>(){}.getType();
