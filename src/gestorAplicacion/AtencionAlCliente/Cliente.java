@@ -149,7 +149,7 @@ public class Cliente extends Persona{
 	
 	//metodo que presenta de forma mas organizada la info del usuario
 	public String toString() {
-		String mensaje = "Usuario Actual:\n"
+		String mensaje = "Nombre de cliente: "
 				+ this.getNombre() +"\n"
 				+ "ID: "+this.getIdentificacion()+"\n"
 				+ "CORREO: "+this.getCorreo()+"\n"
