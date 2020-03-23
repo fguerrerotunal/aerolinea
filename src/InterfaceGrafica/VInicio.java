@@ -158,7 +158,7 @@ public class VInicio extends Application {
 		//topleft
 		bienvenida.setTextFill(Color.BLACK);
 		bienvenida.setWrapText(true);
-		bienvenida.setFont(new Font("Arial", 25));
+		bienvenida.setFont(new Font("Arial", 16));
 		bienvenida.setPrefWidth(Double.MAX_VALUE);
 		bienvenida.setPrefHeight(Double.MAX_VALUE);
 		bienvenida.setAlignment(Pos.BASELINE_CENTER);
@@ -180,7 +180,7 @@ public class VInicio extends Application {
 		hojaVida.setOnMouseClicked(hvidahandler);
 		
 		//oyentes de fotos (mouse events)
-		bfotos.setOnMouseDragged(bfotoshandler);
+		bfotos.setOnMouseEntered(bfotoshandler);
 		
 		
 		//oyentes de menu
