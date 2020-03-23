@@ -8,7 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 public class Vuelo{
-
+//Atributos de los objetos de tipo Clase Vuelo
 	static int cantidadVuelos = 0;
 	private transient Reserva[] puestos = new Reserva[20];
 	private int numeroVuelo;
@@ -18,7 +18,8 @@ public class Vuelo{
 	private Aeropuerto salida;
 	private String estado = "Venta";
 	private int puertaAbordaje;	
-
+	
+//Constructor de vuelo
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
 		cantidadVuelos += 1;
@@ -30,7 +31,7 @@ public class Vuelo{
 		this.destino= destino;
 		this.puertaAbordaje = puertaAbordaje;
 	}	
-	
+	//Getters Y setters de la clase vuelo
 	public Reserva[] getPuestos() {
 		return puestos;
 	}
@@ -64,27 +65,6 @@ public class Vuelo{
 	public void setPrecioTiquete(int precioTiquete) {
 		this.precioTiquete = precioTiquete;
 	}
-
-
-
-	public Calendar getFecha() {
-		String[] fechArray = fecha.split("-");
-		int dia = Integer.valueOf(fechArray[0]);
-		int mes = Integer.valueOf(fechArray[1]) - 1;
-		int anio = Integer.valueOf(fechArray[2]);
-		Calendar c1 = new GregorianCalendar(anio, mes, dia);
-		return c1;
-	}
-
-
-
-	public void setFecha(Calendar fecha) {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
-		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
-	}
-
-
-
 	public Aeropuerto getDestino() {
 		return destino;
 	}
@@ -131,8 +111,23 @@ public class Vuelo{
 		this.puertaAbordaje = puertaAbordaje;
 	}
 
+//Retorna la fecha del vuelo
+	public Calendar getFecha() {
+		String[] fechArray = fecha.split("-");
+		int dia = Integer.valueOf(fechArray[0]);
+		int mes = Integer.valueOf(fechArray[1]) - 1;
+		int anio = Integer.valueOf(fechArray[2]);
+		Calendar c1 = new GregorianCalendar(anio, mes, dia);
+		return c1;
+	}
 
 
+///asigna fecha al vuelo
+	public void setFecha(Calendar fecha) {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
+		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
+	}
+//devuelve dependiendo el tipo de String que se le de un resultado del vuelo
 	public String toString(String tipo) {
 		
 		String info = "";
@@ -177,7 +172,7 @@ public class Vuelo{
 	
 		return info;
 	}
-
+//finalizer se encarga de resetear los vuelos para poder utilizarlos 
 	public void finalizer() {
 		for(int i = 0;i<20;i++){ 
 			if(this.puestos[i]!=null){

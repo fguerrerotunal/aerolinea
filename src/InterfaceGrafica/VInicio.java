@@ -1,8 +1,10 @@
 package InterfaceGrafica;
 import java.io.File;
+import java.util.Optional;
 
 import Basededatos.Reader;
 import Utilidades.clienteInexistente;
+import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -67,8 +69,10 @@ public class VInicio extends Application {
 	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
 	Label procesoAct = new Label("Nombre del proceso o consulta");
 	Label consulta = new Label("Colnsultas aqui");
+	ButtonType Nregistro = new ButtonType("Aceptar");
+	ButtonType Cregistro = new ButtonType("Cancelar");
 	
-	String[] criterios = new String[] {"Codigo", "Nombre", "Descripción", "Ubicación"};
+	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
 	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", null, null);
 	
 	//declaracion elementos varios inicio
@@ -308,11 +312,20 @@ public class VInicio extends Application {
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
 				Alert a = new Alert(AlertType.INFORMATION);
+				a.getButtonTypes().remove(0);
+				a.getButtonTypes().setAll(Nregistro, Cregistro);
 				a.setGraphic(formulario);
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
 						+ "      datos");
-				a.showAndWait();
+				Optional<ButtonType> result = a.showAndWait();
+				if(result.get()==Nregistro) {
+					formulario.GuardarDatos();
+					Admin.clientes.add(new Cliente(Integer.parseInt(formulario.getValue("ID")), Integer.parseInt(formulario.getValue("Cuenta Bancaria")), formulario.getValue("Nombre"), formulario.getValue("Direccion"), formulario.getValue("Correo"), Integer.parseInt(formulario.getValue("Pasaporte"))));
+					a.close();
+				}else {
+					a.close();
+				}
 				bienvenida.setText("b");
 			}else {
 				topright.getChildren().remove(registro);

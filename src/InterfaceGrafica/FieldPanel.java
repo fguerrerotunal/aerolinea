@@ -22,7 +22,9 @@ public class FieldPanel extends Pane {
 		this.tituloCriterios = tituloCriterios;
 		this.criterios = criterios;
 		this.tituloValores = tituloValores;
-		this.valores = valores;
+		if(valores == null) {
+			this.valores = new String[criterios.length-1];
+		}
 		this.habilitado = habilitado;
 		
 		GridPane grid = ((GridPane) this.getChildren().get(0));
@@ -56,6 +58,14 @@ public class FieldPanel extends Pane {
 			}
 		}
 		return valor;
+	}
+	
+	public void GuardarDatos(){
+		GridPane grid = ((GridPane) this.getChildren().get(0));
+		for(int i = 0; i < criterios.length;i++) {	
+			TextField a = (TextField) grid.getChildren().get(i+1);
+			this.valores[i] = a.getText();
+		}
 	}
 	
 }
