@@ -198,8 +198,8 @@ public class VInicio extends Application {
 	    Rectangle2D bounds = screen.getVisualBounds();
 	    Vapp.setX(bounds.getMinX());
 	    Vapp.setY(bounds.getMinY());
-	    Vapp.setWidth(bounds.getWidth()*0.8);
-	    Vapp.setHeight(bounds.getHeight()*0.9);
+	    Vapp.setWidth(720);
+	    Vapp.setHeight(720);
 	    
 		menuInicio.getItems().addAll(menuSalir, new SeparatorMenuItem(), menuDescrip);
 		barramenu.getMenus().add(menuInicio);
@@ -309,7 +309,7 @@ public class VInicio extends Application {
 			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
 			ImageView asd = new ImageView(vidapng);
 			asd.setFitWidth(Vapp.getWidth()*0.5);
-			asd.setFitHeight(fotos.getHeight()*0.7);
+			asd.setFitHeight(Vapp.getHeight()*0.7);
 			hojaVida.setGraphic(asd);
 		}
 	};
@@ -324,7 +324,7 @@ public class VInicio extends Application {
 			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
 			ImageView asd = new ImageView(fotos);
 			asd.setFitWidth(Vapp.getWidth()*0.5);
-			asd.setFitHeight(fotos.getHeight()*0.7);
+			asd.setFitHeight(Vapp.getHeight()*0.7);
 			bfotos.setGraphic(asd);
 		}
 	};
