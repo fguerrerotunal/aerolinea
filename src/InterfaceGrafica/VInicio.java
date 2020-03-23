@@ -158,7 +158,7 @@ public class VInicio extends Application {
 		//topleft
 		bienvenida.setTextFill(Color.BLACK);
 		bienvenida.setWrapText(true);
-		bienvenida.setFont(new Font("Arial",30));
+		bienvenida.setFont(new Font("Arial", 25));
 		bienvenida.setPrefWidth(Double.MAX_VALUE);
 		bienvenida.setPrefHeight(Double.MAX_VALUE);
 		bienvenida.setAlignment(Pos.BASELINE_CENTER);
@@ -205,7 +205,7 @@ public class VInicio extends Application {
 		barramenu.getMenus().add(menuInicio);
 		ventanainicio.setTop(barramenu);
 		
-		topleft.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.3));
+		topleft.setPrefSize(Vapp.getWidth()*0.5,Vapp.getHeight()*0.3);
 		topright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.3));
 		bottomleft.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
 		bottomright.prefHeightProperty().bind(Vapp.heightProperty().multiply(0.7));
