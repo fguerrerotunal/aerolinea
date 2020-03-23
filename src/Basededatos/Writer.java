@@ -21,16 +21,16 @@ public class Writer{
 		
 		//borrar toda la informacion que tenian antes los archivos para las bases de datos 
 	        try {
-	        	BufferedWriter bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json"));
+	        	BufferedWriter bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Aeropuertos.json"));
 	    		bw.write("");
 	    		bw.close();
-	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json"));
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Vuelos.json"));
 	    		bw.write("");
 	    		bw.close();
-	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json"));
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Clientes.json"));
 	    		bw.write("");
 	    		bw.close();
-	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json"));
+	        	bw = new BufferedWriter(new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Empleados.json"));
 	    		bw.write("");
 	    		bw.close();
 	    		//guarda los aeropuertos en la base de datos
@@ -38,7 +38,7 @@ public class Writer{
 		        Vector<Aeropuerto> Aeropuertos= new Vector<>();
 		        Aeropuertos=Admin.destinos;
 		        String json = gson.toJson(Aeropuertos);
-				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Aeropuertos.json",true);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Aeropuertos.json",true);
 				pw=new PrintWriter(ficheros);
 	            pw.println(json);
 	            ficheros.close();
@@ -53,7 +53,7 @@ public class Writer{
 			        Type listType = new TypeToken<Vector<Vuelo>>(){}.getType();
 			        Vector<Vuelo> arrayDeJson = gson.fromJson(json, listType);
 			        json=gson.toJson(arrayDeJson);
-					ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Vuelos.json",true);
+					ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Vuelos.json",true);
 					pw=new PrintWriter(ficheros);
 		            pw.println(json);
 		            ficheros.close();
@@ -69,7 +69,7 @@ public class Writer{
 		        Clientes=Admin.clientes;
 		        borrarenlaces(Clientes);
 		        String json = gson.toJson(Clientes);
-				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Clientes.json",true);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Clientes.json",true);
 				pw=new PrintWriter(ficheros);
 	            pw.println(json);
 	            ficheros.close();
@@ -83,7 +83,7 @@ public class Writer{
 		        Vector<Empleado> Empleados= new Vector<>();
 		        Empleados=Admin.empleados;
 		        String json = gson.toJson(Empleados);
-				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\Empleados.json",true);
+				ficheros = new FileWriter(fichero.getAbsolutePath()+"\\src\\Basededatos\\temp\\Empleados.json",true);
 				pw=new PrintWriter(ficheros);
 	            pw.println(json);
 	            ficheros.close();
