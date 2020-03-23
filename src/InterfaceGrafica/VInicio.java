@@ -268,6 +268,8 @@ public class VInicio extends Application {
 		});
 		
 		Vapp.setTitle("AEROLINEA LUNA`S");
+		Vapp.setX((bounds.getMaxX()-720)/2);
+		Vapp.setY((bounds.getMaxY()-720)/2);
 		Vapp.setScene(Vinicio);
 		Vapp.show();
 
@@ -293,6 +295,12 @@ public class VInicio extends Application {
 			Label b = new Label("Identificacion");
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
+				Alert a = new Alert(AlertType.INFORMATION);
+				a.setGraphic(formulario);
+				a.setTitle("FORMULARIO REGISTRO");
+				a.setHeaderText("   Ingreso de \n"
+						+ "      datos");
+				a.showAndWait();
 				bienvenida.setText("b");
 			}else {
 				topright.getChildren().remove(registro);
