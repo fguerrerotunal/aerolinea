@@ -195,8 +195,7 @@ public class VInicio extends Application {
 		
 		//oyentes de fotos (mouse events)
 		bfotos.setOnMouseEntered(bfotoshandler);
-		bfotos.setOnMouseExited(bfotoshandler);
-		bfotos.setOnMouseMoved(bfotoshandler);
+
 		
 		//oyentes de menu
 		MenuHandlerClass menuhandler = new MenuHandlerClass();
