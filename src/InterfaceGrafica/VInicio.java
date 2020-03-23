@@ -169,23 +169,18 @@ public class VInicio extends Application {
 		bfotos = new Label("", new ImageView(fotos));
 		bfotos.setPrefWidth(Double.MAX_VALUE);
 		bfotos.setPrefHeight(Double.MAX_VALUE);
-		
 		bottomleft.setCenter(bfotos);
 		
 		//oyentes de botones topright
 		ToprightHandlerClass toprighthandler = new ToprightHandlerClass();
 		registro.setOnAction(toprighthandler);
 		ingreso.setOnAction(toprighthandler);
-		//ingreso
-	
-		
-		
 		
 		//oyentes de hojas de vida (mouse events)
 		hojaVida.setOnMouseClicked(hvidahandler);
 		
 		//oyentes de fotos (mouse events)
-		bfotos.setOnMouseEntered(bfotoshandler);
+		bfotos.setOnMouseDragged(bfotoshandler);
 		
 		
 		//oyentes de menu
