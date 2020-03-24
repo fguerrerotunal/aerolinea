@@ -457,20 +457,26 @@ public class VInicio extends Application {
 				}
 				else {
 					consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
-					HBox seleccion=new HBox();
-			        for (int i=0;i<MenuDeConsola.usuarioactual.getCartera().size();i++) {
-			        	String codigo=String.valueOf(i+1);
-			        	seleccion.getChildren().add(new Button(codigo));
+					String[] c1 = {"Seleccione el # de Reserva a imprimir"};
+	                String[] v1 = {""};
+	                FieldPanel Reservaimp = new FieldPanel("",c1,"",v1,null);
+	                Button Aceptar=new Button("Aceptar");
+	                GridPane boton=(GridPane) Reservaimp.getChildren().get(0);
+	                boton.setAlignment(Pos.TOP_CENTER);
+	                boton.setPrefHeight(Vapp.getHeight()*0.2);
+	                boton.setPrefWidth(Vapp.getWidth()*0.2);
+	                boton.add(Aceptar, 2, 0);
+	                clientes2.setBottom(boton);
+	                Aceptar.setOnAction(new EventHandler<ActionEvent>() {
+	                    public void handle(ActionEvent event) {
+	                        Reservaimp.GuardarDatos();
+	                        int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
+	                        consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.cartera.get(i-1)));
+	                    }});
+	                
 			        }
-			        GridPane PANEL=new GridPane();
-			        Label  text= new Label("Seleccione el numero de su reserva: ");
-	                PANEL.setAlignment(Pos.TOP_CENTER);
-	                PANEL.setPrefHeight(Vapp.getHeight()*0.2);
-	                PANEL.setPrefWidth(Vapp.getWidth()*0.2);
-	                clientes2.setBottom(PANEL);
-	                PANEL.add(text, 0, 0);
-	                PANEL.add(seleccion, 1, 0);
-				}
+
+				
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
