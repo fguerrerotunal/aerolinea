@@ -449,19 +449,32 @@ public class VInicio extends Application {
 			case "Imprimir Pasabordo":
 				procesoAct.setText(accion);
 				String comprobante= MenuDeConsola.usuarioactual.Cartera();
+				consulta.setFont(new Font("Agency FB",25));
 				if (comprobante.equals("No cuentas con reservas activas por el momento.")) {
-					consulta.setText("llega el verano y me paso la mano");
+					consulta.setText("No cuentas con reservas activas por el momento.");
 				}
 				else {
-					a.setTitle("Cartera");
-					a.setContentText(MenuDeConsola.usuarioactual.Cartera());
-					a.showAndWait();
+					consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
+					HBox seleccion=new HBox();
+			        for (int i=0;i<MenuDeConsola.usuarioactual.getCartera().size();i++) {
+			        	String codigo=String.valueOf(i+1);
+			        	seleccion.getChildren().add(new Button(codigo));
+			        }
+			        GridPane PANEL=new GridPane();
+			        Label  text= new Label("Seleccione el numero de su reserva: ");
+	                PANEL.setAlignment(Pos.TOP_CENTER);
+	                PANEL.setPrefHeight(Vapp.getHeight()*0.2);
+	                PANEL.setPrefWidth(Vapp.getWidth()*0.2);
+	                clientes2.setBottom(PANEL);
+	                PANEL.add(text, 0, 0);
+	                PANEL.add(seleccion, 1, 0);
 				}
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
 				consulta.setText("aa");
 				break;
+		    
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		}

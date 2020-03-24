@@ -158,6 +158,17 @@ public class Cliente extends Persona{
 				
 		return mensaje;
 	}
+	public String VuelosReservados() {
+		String vuelosDisponibles = "#Reserva\t #Vuelo\t    Silla\t\tFecha/Hora \t Salida-Destino";
+		int contador=1;
+		for(Reserva i:this.cartera) {
+			
+			vuelosDisponibles=vuelosDisponibles+"\n\t"+contador+"\t\t"+i.getVuelo().getNumeroVuelo()+"\t\t"+i.getSilla()+"\t"+i.getVuelo().getFechaString()+
+					"\t"+i.getVuelo().getSalida().getCiudad()+"-"+i.getVuelo().getDestino().getCiudad() ;
+			contador++;
+			}
+		return vuelosDisponibles;}
+
 //Getters y Setters de los Atributos del CLiente
 	public int getPasaporte() {
 		return pasaporte;
@@ -173,5 +184,8 @@ public class Cliente extends Persona{
 
 	public void setCuentamillas(CuentaMillas cuentamillas) {
 		this.cuentamillas = cuentamillas;
+	}
+	public Vector<Reserva> getCartera() {
+		return this.cartera;
 	}
 }

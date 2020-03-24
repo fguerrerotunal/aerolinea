@@ -120,6 +120,9 @@ public class Vuelo{
 		Calendar c1 = new GregorianCalendar(anio, mes, dia);
 		return c1;
 	}
+	public String getFechaString() {
+		return this.fecha;
+	}
 
 
 ///asigna fecha al vuelo
@@ -167,7 +170,7 @@ public class Vuelo{
 				}
 			}
 			break;
-			
+						
 		}
 	
 		return info;
