@@ -407,6 +407,7 @@ public class VInicio extends Application {
 			a.setTitle("AEROLINEA LUNA`S");
 			a.setHeaderText(null);
 			clientes2.setCenter(consulta);
+			aux.setContent(null);
 			clientes2.setBottom(null);
 			consulta.setText("");
 			String accion = (((MenuItem) e.getSource()).getText());
@@ -473,34 +474,48 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
+				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
 				clientes2.setCenter(aux);
 				consulta.setStyle("-fx-background-color: CYAN;");
 				consulta.setPrefWidth(clientes2.getWidth());
+				
 				String[] c1 = {"Reserva a cancelar"};
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
-				clientes.setBottom(formcancelar);
-				formcancelar.GuardarDatos();
-				try{
-					if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
-						MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
-					}else {
-						;
+				Button Aceptar=new Button("Aceptar");
+                GridPane boton=(GridPane) formcancelar.getChildren().get(0);
+                boton.add(Aceptar, 1, 1);
+                
+                clientes2.setBottom(formcancelar);
+				BorderPane.setAlignment(formcancelar,Pos.CENTER);
+				
+				Aceptar.setOnAction(new EventHandler<ActionEvent>() {
+
+					@Override
+					public void handle(ActionEvent event) {
+						formcancelar.GuardarDatos();
+						try{
+							if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
+								MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
+							}else {
+								a.setContentText("No cuentas con reservas activas por el momento.");
+								a.showAndWait();
+							}
+						}catch(modificarVuelo e) {
+								a.setContentText(e.getMessage());
+								a.showAndWait();
+						}catch (NumberFormatException e1) {
+							a.setContentText(e1.getMessage());
+							a.showAndWait();
+						}
 					}
-				}catch(modificarVuelo e1) {
-					System.out.println(e1.getMessage());;
-				}
-				try {
-					MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
-				} catch (modificarVuelo e2) {
 					
-				} catch (NumberFormatException e3) {
-					// TODO Auto-generated catch block
-					e3.printStackTrace();
-				}
+				});
+				
 				
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
