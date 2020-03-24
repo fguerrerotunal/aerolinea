@@ -119,6 +119,12 @@ public class VInicio extends Application {
 		PyC.getItems().addAll(comprarTiquete, new SeparatorMenuItem(), historialVuelo, new SeparatorMenuItem(),cartera,new SeparatorMenuItem(), vuelosdia,new SeparatorMenuItem(), pasabordo,new SeparatorMenuItem(), cancelreserva);
 		ayuda.getItems().add(Acercade);
 		
+		//PROBAR LETRAS Y COLOR
+		procesoAct.setTextFill(Color.GRAY);
+		procesoAct.setFont(new Font("Agency FB",40));	
+		consulta.setTextFill(Color.GRAY);
+		consulta.setFont(new Font("Agency FB",14));
+		
 		//oyentes de menu
 		MenuClienteHandlerClass menuClientehandler = new MenuClienteHandlerClass();
 		Usuario.setOnAction(menuClientehandler);
@@ -138,6 +144,8 @@ public class VInicio extends Application {
 		clientes2.setTop(procesoAct);
 		clientes2.setCenter(consulta);
 		clientes2.setBottom(tutoInicio);
+		//PROBAR COLORES
+		clientes2.setStyle("-fx-background-color: CYAN;");
 		BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		BorderPane.setAlignment(consulta, Pos.CENTER);
 		BorderPane.setAlignment(tutoInicio, Pos.CENTER);
@@ -395,7 +403,7 @@ public class VInicio extends Application {
 			a.setHeaderText(null);
 			
 			clientes2.setBottom(null);
-			
+			consulta.setText("");
 			String accion = (((MenuItem) e.getSource()).getText());
 			switch (accion){
 			case "Usuario":
@@ -446,6 +454,7 @@ public class VInicio extends Application {
 				consulta.setText("aa");
 				break;
 			}
+			BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		}
 	}
 	
