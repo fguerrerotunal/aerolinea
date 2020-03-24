@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import Basededatos.Reader;
 import Utilidades.clienteInexistente;
+import Utilidades.modificarVuelo;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import javafx.application.Application;
@@ -78,6 +79,7 @@ public class VInicio extends Application {
 	Label consulta = new Label("Colnsultas aqui");
 	ButtonType Nregistro = new ButtonType("Aceptar");
 	ButtonType Cregistro = new ButtonType("Cancelar");
+	ScrollPane aux = new ScrollPane();
 	
 	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
 	String[] valores = new String[] {"", "", "", "","",""};
@@ -434,7 +436,6 @@ public class VInicio extends Application {
 				break;
 			case "Cartera":
 				procesoAct.setText(accion);
-				ScrollPane aux = new ScrollPane();
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
@@ -472,9 +473,35 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
-				consulta.setText("aa");
-				break;
-		    
+				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				aux.setContent(consulta);
+				consulta.setAlignment(Pos.CENTER);
+				clientes2.setCenter(aux);
+				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setPrefWidth(clientes2.getWidth());
+				String[] c1 = {"Reserva a cancelar"};
+				String[] v1 = {""};
+				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
+				clientes.setBottom(formcancelar);
+				formcancelar.GuardarDatos();
+				try{
+					if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
+						MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
+					}else {
+						;
+					}
+				}catch(modificarVuelo e1) {
+					System.out.println(e1.getMessage());;
+				}
+				try {
+					MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
+				} catch (modificarVuelo e2) {
+					
+				} catch (NumberFormatException e3) {
+					// TODO Auto-generated catch block
+					e3.printStackTrace();
+				}
+				
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		}
