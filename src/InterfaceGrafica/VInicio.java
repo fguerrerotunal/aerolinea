@@ -431,7 +431,10 @@ public class VInicio extends Application {
 				break;
 			case "Imprimir Pasabordo":
 				procesoAct.setText(accion);
-				consulta.setText("a");
+				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				if (consulta.getText().equals("No cuentas con reservas activas por el momento.")) {
+					consulta.setText("llega el verano y me paso la mano");
+				}
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
