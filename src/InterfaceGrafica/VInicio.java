@@ -77,7 +77,7 @@ public class VInicio extends Application {
 	
 	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
 	String[] valores = new String[] {"", "", "", "","",""};
-	FieldPanel formulario = new FieldPanel("Criterio", criterios, "Valor", valores, null);
+	FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, null);
 	
 	//declaracion elementos varios inicio
 	GridPane topright = new GridPane();
@@ -335,15 +335,15 @@ public class VInicio extends Application {
 				Alert a = new Alert(AlertType.INFORMATION);
 				a.getButtonTypes().remove(0);
 				a.getButtonTypes().setAll(Nregistro, Cregistro);
-				a.setGraphic(formulario);
+				a.setGraphic(formularioRegis);
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
 						+ "      datos");
 				//handlers 
 				Optional<ButtonType> result = a.showAndWait();
 				if(result.get()==Nregistro) {
-					formulario.GuardarDatos();
-					Admin.clientes.add(new Cliente(Integer.parseInt(formulario.getValue("ID")), Integer.parseInt(formulario.getValue("Cuenta Bancaria")), formulario.getValue("Nombre"), formulario.getValue("Direccion"), formulario.getValue("Correo"), Integer.parseInt(formulario.getValue("Pasaporte"))));
+					formularioRegis.GuardarDatos();
+					Admin.clientes.add(new Cliente(Integer.parseInt(formularioRegis.getValue("ID")), Integer.parseInt(formularioRegis.getValue("Cuenta Bancaria")), formularioRegis.getValue("Nombre"), formularioRegis.getValue("Direccion"), formularioRegis.getValue("Correo"), Integer.parseInt(formularioRegis.getValue("Pasaporte"))));
 					a.close();
 				}else {
 					a.close();
