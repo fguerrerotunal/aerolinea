@@ -59,11 +59,12 @@ public class VInicio extends Application {
 	
 	//declaracion elementos varios Vcliente
 	BorderPane clientes = new BorderPane();
+	BorderPane clientes2 = new BorderPane();
 	MenuItem Usuario = new MenuItem("Usuario");
 	MenuItem Salir = new MenuItem("Salir");
 	MenuItem Acercade = new MenuItem("Acerca de");
 	MenuItem comprarTiquete = new MenuItem("Comprar Tiquete");
-	MenuItem historialVuelo = new MenuItem("Historal de Vuelo");
+	MenuItem historialVuelo = new MenuItem("Historial de Vuelo");
 	MenuItem cartera = new MenuItem("Cartera");
 	MenuItem vuelosdia = new MenuItem("Vuelos del Dia");
 	MenuItem pasabordo = new MenuItem("Imprimir Pasabordo");
@@ -108,7 +109,6 @@ public class VInicio extends Application {
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
-		BorderPane clientes2 = new BorderPane();
 		Label tutorial = new Label("hola");
 		BorderPane tutoInicio = new BorderPane();
 		
@@ -122,6 +122,13 @@ public class VInicio extends Application {
 		MenuClienteHandlerClass menuClientehandler = new MenuClienteHandlerClass();
 		Usuario.setOnAction(menuClientehandler);
 		Acercade.setOnAction(menuClientehandler);
+		cartera.setOnAction(menuClientehandler);
+		comprarTiquete.setOnAction(menuClientehandler);
+		historialVuelo.setOnAction(menuClientehandler);
+		vuelosdia.setOnAction(menuClientehandler);
+		pasabordo.setOnAction(menuClientehandler);
+		cancelreserva.setOnAction(menuClientehandler);
+		
 		
 		//scene cliente
 		clientes.setTop(barraMenuC);
@@ -132,7 +139,7 @@ public class VInicio extends Application {
 		clientes2.setBottom(tutoInicio);
 		BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		BorderPane.setAlignment(consulta, Pos.CENTER);
-		BorderPane.setAlignment(formulario, Pos.CENTER);
+		BorderPane.setAlignment(tutoInicio, Pos.CENTER);
 		
 		//Vinicio
 		//Creacion de elementos iniciales inico
@@ -382,11 +389,13 @@ public class VInicio extends Application {
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
-			String accion = (((MenuItem) e.getSource()).getText());
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setTitle("AEROLINEA LUNA`S");
 			a.setHeaderText(null);
 			
+			clientes2.setBottom(null);
+			
+			String accion = (((MenuItem) e.getSource()).getText());
 			switch (accion){
 			case "Usuario":
 				a.setContentText(MenuDeConsola.usuarioactual.toString());
@@ -396,7 +405,30 @@ public class VInicio extends Application {
 				a.setContentText(Autores.getMensaje());
 				a.showAndWait();
 				break;
-			
+			case "Comprar Tiquete":
+				procesoAct.setText(accion);
+				consulta.setText("a");
+				break;
+			case "Historial de Vuelo":
+				procesoAct.setText(accion);
+				consulta.setText(MenuDeConsola.usuarioactual.Historial());
+				break;
+			case "Cartera":
+				procesoAct.setText(accion);
+				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				break;
+			case "Vuelos del Dia":
+				procesoAct.setText(accion);
+				consulta.setText("a");
+				break;
+			case "Imprimir Pasabordo":
+				procesoAct.setText(accion);
+				consulta.setText("a");
+				break;
+			case "Cancelar Reserva":
+				procesoAct.setText(accion);
+				consulta.setText("a");
+				break;
 			}
 		}
 	}
