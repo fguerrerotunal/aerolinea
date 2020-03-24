@@ -17,6 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -406,8 +407,15 @@ public class VInicio extends Application {
 				a.showAndWait();
 				break;
 			case "Comprar Tiquete":
+				GridPane V = new GridPane();
 				procesoAct.setText(accion);
-				consulta.setText("a");
+				consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+				Label p1 = new Label("Seleccione un vuelo: ");
+				V.setPrefHeight(200);
+				V.setPrefWidth(Double.MAX_VALUE);
+				clientes2.setBottom(V);
+				V.add(p1, 0, 0);
+
 				break;
 			case "Historial de Vuelo":
 				procesoAct.setText(accion);
