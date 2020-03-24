@@ -427,7 +427,7 @@ public class VInicio extends Application {
 				break;
 			case "Vuelos del Dia":
 				procesoAct.setText(accion);
-				consulta.setText("a");
+				consulta.setText(Admin.empleados.get(0).EstadoVuelos());
 				break;
 			case "Imprimir Pasabordo":
 				procesoAct.setText(accion);
@@ -436,6 +436,7 @@ public class VInicio extends Application {
 					consulta.setText("llega el verano y me paso la mano");
 				}
 				else {
+					a.setTitle("Cartera");
 					a.setContentText(MenuDeConsola.usuarioactual.Cartera());
 					a.showAndWait();
 				}
