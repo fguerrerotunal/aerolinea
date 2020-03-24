@@ -8,6 +8,7 @@ import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.*;
@@ -23,6 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -31,6 +34,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -123,7 +127,7 @@ public class VInicio extends Application {
 		procesoAct.setTextFill(Color.GRAY);
 		procesoAct.setFont(new Font("Agency FB",40));	
 		consulta.setTextFill(Color.GRAY);
-		consulta.setFont(new Font("Agency FB",14));
+		consulta.setFont(new Font("Agency FB",20));
 		
 		//oyentes de menu
 		MenuClienteHandlerClass menuClientehandler = new MenuClienteHandlerClass();
@@ -379,7 +383,6 @@ public class VInicio extends Application {
 	
 	//fotos: cambio
 	EventHandler<MouseEvent> bfotoshandler = new EventHandler<MouseEvent>(){
-		boolean cambio = false;
 		@Override
 		public void handle(MouseEvent e) {
 			imgpos++;
@@ -401,7 +404,7 @@ public class VInicio extends Application {
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setTitle("AEROLINEA LUNA`S");
 			a.setHeaderText(null);
-			
+			clientes2.setCenter(consulta);
 			clientes2.setBottom(null);
 			consulta.setText("");
 			String accion = (((MenuItem) e.getSource()).getText());
@@ -431,7 +434,13 @@ public class VInicio extends Application {
 				break;
 			case "Cartera":
 				procesoAct.setText(accion);
+				ScrollPane aux = new ScrollPane();
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				aux.setContent(consulta);
+				consulta.setAlignment(Pos.CENTER);
+				clientes2.setCenter(aux);
+				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setPrefWidth(clientes2.getWidth());
 				break;
 			case "Vuelos del Dia":
 				procesoAct.setText(accion);
