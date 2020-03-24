@@ -427,7 +427,7 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
-				consulta.setText("a");
+				consulta.setText("aa");
 				break;
 			}
 		}
