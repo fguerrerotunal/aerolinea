@@ -451,9 +451,8 @@ public class VInicio extends Application {
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
-						
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
-						P.getItems().addAll(datos());
+						P.getItems().setAll(datos());
 					} 
 				}));
 				GridPane V = new GridPane();
