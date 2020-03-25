@@ -88,7 +88,7 @@ public class VInicio extends Application {
 	MenuItem pasabordo = new MenuItem("Imprimir Pasabordo");
 	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
 	Label procesoAct = new Label("Nombre del proceso o consulta");
-	Label consulta = new Label("Colnsultas aqui");
+	Label consulta = new Label("Colnsultas");
 	ButtonType Nregistro = new ButtonType("Aceptar");
 	ButtonType Cregistro = new ButtonType("Cancelar");
 	ScrollPane aux = new ScrollPane();
@@ -128,7 +128,7 @@ public class VInicio extends Application {
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
-		Label tutorial = new Label("hola");
+		Label tutorial = new Label("");
 		BorderPane tutoInicio = new BorderPane();
 		
 		//Modificacion Elementos varios
@@ -316,6 +316,11 @@ public class VInicio extends Application {
 				topright.getChildren().remove(0);
 				topright.add(registro,0,0);
 				topright.add(ingreso,0,1);
+				clientes2.setTop(procesoAct);
+				clientes2.setCenter(consulta);
+				procesoAct.setText("Nombre del proceso o consulta");
+				consulta.setText("Colnsultas");
+				clientes2.setBottom(tutoInicio);
 				Vapp.setTitle("AEROLINEA LUNA`S");
 				Vapp.setScene(Vinicio);
 				
