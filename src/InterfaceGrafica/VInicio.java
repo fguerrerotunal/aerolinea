@@ -691,7 +691,7 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
-				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
 				
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
