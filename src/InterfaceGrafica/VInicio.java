@@ -60,7 +60,7 @@ public class VInicio extends Application {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 5000,5000);//cada 1 min
+		timer.schedule(estadoVuelos, 10000,10000);//cada 1 min
 
 		
 		Admin.premios.add("Silla: 50");
@@ -540,9 +540,7 @@ public class VInicio extends Application {
 					public void handle(MouseEvent event) {
 						
 							try{
-								
 								if(!MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue())).equals(null)) {
-								
 									V.getChildren().removeAll(V.getChildren());
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
@@ -554,68 +552,71 @@ public class VInicio extends Application {
 									V.add(Con,6,0,2,1);
 									procesoAct.setText(accion);		
 								}
-								
-							}catch(NullPointerException e) {
-								datoFaltante error = new datoFaltante("Numero de vuelo");
-	                    		a.setContentText(error.getMessage());
-	                    		a.showAndWait();
+						}catch(NullPointerException e) {
+							datoFaltante error = new datoFaltante("Numero de vuelo");
+	                   		a.setContentText(error.getMessage());
+	                   		a.showAndWait();
 							}
-							if(Le.getValue().equals("SI")) {
-								MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).setEquipaje();
-							}
-							
-							Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
-								
-								@Override
-								public void handle(MouseEvent event) {
-									if(P.getValue()!=null) {
-									procesoAct.setText("Sillas del vuelo: "+ P.getValue());
-									Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
-									V.add(p2, 3, 3);
-									V.add(Si, 4,3);
-									MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getVuelo().toString("sillas");
-									MenuDeConsola.usuarioactual.CambiarSilla(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1), Si.getValue());
-									a.setContentText("Esta Accion puede generar costos desea continuar");
-		                    		a.showAndWait();
-									}
-									else {
-										
-									}
-								}
-							}));
-							Cancelr.setOnMouseClicked((new EventHandler<MouseEvent>() {
-								
-								@Override
-								public void handle(MouseEvent event) {
-									V.getChildren().removeAll(V.getChildren());
-									V.add(p1, 0, 3);
-									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
-									V.add(Act, 0, 0,2,1);
-									V.add(Acp, 6, 0,2,1);
-									MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).Finalize();
-
-								}
-							}));
-							Con.setOnMouseClicked((new EventHandler<MouseEvent>() {
-								@Override
-								public void handle(MouseEvent event) {
-									V.getChildren().removeAll(V.getChildren());
-									V.add(p1, 0, 3);
-									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
-									V.add(Act, 0, 0,2,1);
-									V.add(Acp, 6, 0,2,1);
-									consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
-								} 
-							}));
-							}
+					}
+				}));
+				Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					
+					@Override
+					public void handle(MouseEvent event) {
+						a.setContentText("Esta Accion puede generar costos desea continuar");
+                		a.showAndWait();
+						
+						procesoAct.setText("Sillas del vuelo: "+ P.getValue());
+						Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
+						MenuDeConsola.usuarioactual.CambiarSilla(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1), Si.getValue());
+						consulta.setText(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getVuelo().toString("sillas"));
+						V.getChildren().removeAll(V.getChildren());
+						V.add(p1, 0, 3);
+						V.add(P, 1, 3);
+						V.add(new Label("  "), 5, 3);
+						V.add(p3, 6, 3);
+						V.add(Le, 7,3);
+						V.add(Cancelr,0,0,2,1);
+						V.add(Silla,3,0,2,1);
+						V.add(Con,6,0,2,1);
+						V.add(p2, 3, 3);
+						V.add(Si, 4,3);
+						
+						
+						
+					}
+				}));
+				Cancelr.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					
+					@Override
+					public void handle(MouseEvent event) {
+						V.getChildren().removeAll(V.getChildren());
+						V.add(p1, 0, 3);
+						V.add(P, 1, 3);
+						V.add(new Label("  "), 2, 3);
+						V.add(new Label("  "), 3, 2);
+						V.add(Act, 0, 0,2,1);
+						V.add(Acp, 6, 0,2,1);
+						MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).Finalize();
+					}
 				}));
 				
-				
-
+				Con.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent event) {
+						V.getChildren().removeAll(V.getChildren());
+						V.add(p1, 0, 3);
+						V.add(P, 1, 3);
+						V.add(new Label("  "), 2, 3);
+						V.add(new Label("  "), 3, 2);
+						V.add(Act, 0, 0,2,1);
+						V.add(Acp, 6, 0,2,1);
+						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+						if(Le.getValue().equals("SI")) {
+							MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).setEquipaje();
+						}
+					}
+				}));
 				break;
 			case "Vuelos del Dia":
 				GridPane Gp = new GridPane();
