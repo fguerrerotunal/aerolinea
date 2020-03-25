@@ -676,6 +676,7 @@ public class VInicio extends Application {
 							try{
 								if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
 									MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(reservaF));
+									consulta.setText(MenuDeConsola.usuarioactual.Cartera());
 								}else {
 									a.setContentText("No cuentas con reservas activas por el momento.");
 									a.showAndWait();
