@@ -22,7 +22,7 @@ public class Vuelo{
 //Constructor de vuelo
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
-		cantidadVuelos += 1;
+		cantidadVuelos++;
 		this.numeroVuelo = cantidadVuelos;
 		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
 		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
