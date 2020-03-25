@@ -10,6 +10,7 @@ import Utilidades.modificarVuelo;
 import Utilidades.registroDuplicado;
 import Utilidades.tipoDato;
 import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.AtencionAlCliente.Persona;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
@@ -60,6 +61,7 @@ public class VInicio extends Application {
 			}
 		};
 		timer.schedule(estadoVuelos, 5000,5000);//cada 1 min
+
 		
 		Admin.premios.add("Silla: 50");
 		Admin.premios.add("Mercado: 100");
@@ -98,19 +100,16 @@ public class VInicio extends Application {
 	ButtonType Cregistro = new ButtonType("Cancelar");
 	
 	
-	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
-	String[] valores = new String[] {"", "", "", "","",""};
-	FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, null);
-	
 	//declaracion elementos varios inicio
 	GridPane topright = new GridPane();
 	MenuItem menuSalir = new MenuItem("Salir");
-	MenuItem menuDescrip = new MenuItem("Descripccion");
+	MenuItem menuDescrip = new MenuItem("Descripcion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
 	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
 	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
-	Label bienvenida = new Label("AEROLINEA LUNA`S");
+	Label bienvenida = new Label("AEROLINEA LUNA`S\n"
+			+ "     BIENVENIDO");
 	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
 	Label bfotos;
 	TextField id = new TextField();
@@ -373,6 +372,12 @@ public class VInicio extends Application {
 				Alert a = new Alert(AlertType.INFORMATION);
 				a.getButtonTypes().remove(0);
 				a.getButtonTypes().setAll(Cregistro);
+				
+				String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
+				String identificacionAut = String.valueOf(Persona.getNumero_de_clientes()+1);
+				String[] valores = new String[] {identificacionAut, "", "", "","",""};
+				boolean[] habilitados = new boolean[] {false};
+				FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, habilitados);
 				a.setGraphic(formularioRegis);
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
@@ -726,6 +731,7 @@ public class VInicio extends Application {
 							try{
 								if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
 									MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(reservaF));
+									consulta.setText(MenuDeConsola.usuarioactual.Cartera());
 								}else {
 									a.setContentText("No cuentas con reservas activas por el momento.");
 									a.showAndWait();

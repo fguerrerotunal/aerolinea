@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 public class Vuelo{
 //Atributos de los objetos de tipo Clase Vuelo
-	static int cantidadVuelos = 0;
+	static int cantidadVuelos = Empleado.vuelos.size();
 	private transient Reserva[] puestos = new Reserva[20];
 	private int numeroVuelo;
 	private int precioTiquete;
@@ -22,7 +22,7 @@ public class Vuelo{
 //Constructor de vuelo
 	Vuelo(Calendar fecha, Aeropuerto destino, Aeropuerto salida, int puertaAbordaje){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd hh:mm");
-		cantidadVuelos += 1;
+		cantidadVuelos++;
 		this.numeroVuelo = cantidadVuelos;
 		precioTiquete = ((int)(Math.random()*(500000-125000+1)+125000));
 		this.fecha = String.valueOf(dateFormat.format(fecha.getTime()));
