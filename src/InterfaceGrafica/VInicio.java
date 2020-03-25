@@ -128,6 +128,7 @@ public class VInicio extends Application {
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
+
 		Label tutorial = new Label("En esta aplicación el usuario tendrá la capacidad de comprar vuelos,\n"
 				+ " revisar y cancelar los ya pagados, además podrá canjear sus millas por diferentes premios.\n"
 				+ " en la parte superior se encuentra los menús donde podrá acceder a estas funcionalidades.");
@@ -166,7 +167,7 @@ public class VInicio extends Application {
 		clientes2.setCenter(consulta);
 		clientes2.setBottom(tutoInicio);
 		//PROBAR COLORES
-		clientes2.setStyle("-fx-background-color: CYAN;");
+		clientes2.setStyle("-fx-background-color: LIGHTGRAY;");
 		BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		BorderPane.setAlignment(consulta, Pos.CENTER);
 		BorderPane.setAlignment(tutoInicio, Pos.CENTER);
@@ -509,10 +510,10 @@ public class VInicio extends Application {
 			case "Cartera":
 				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
-				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
+				aux.setContent(consulta);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				break;
 			case "Imprimir Pasabordo":
@@ -555,7 +556,8 @@ public class VInicio extends Application {
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
+				aux.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				
 				String[] c1 = {"Reserva a cancelar"};
