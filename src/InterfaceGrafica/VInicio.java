@@ -128,7 +128,7 @@ public class VInicio extends Application {
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
-		Label tutorial = new Label("");
+		Label tutorial = new Label("PONER AQUI TUTORIAL");
 		BorderPane tutoInicio = new BorderPane();
 		
 		//Modificacion Elementos varios
