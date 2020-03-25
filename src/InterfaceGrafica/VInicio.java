@@ -525,6 +525,7 @@ public class VInicio extends Application {
 					@Override
 					public void handle(MouseEvent event) {
 						MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).Finalize();
+						V.add(Act, 0, 0,2,1);
 					}
 				}));
 				Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
