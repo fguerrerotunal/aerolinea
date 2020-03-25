@@ -1,13 +1,18 @@
 package InterfaceGrafica;
 import java.io.File;
-import java.util.Optional;
+import java.util.*;
+
 
 import Basededatos.Reader;
 import Utilidades.clienteInexistente;
 import Utilidades.modificarVuelo;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Empleado;
+import gestorAplicacion.Master.Vuelo;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -403,6 +408,7 @@ public class VInicio extends Application {
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
+			Button Act= new Button("Actualizar");
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setTitle("AEROLINEA LUNA`S");
 			a.setHeaderText(null);
@@ -411,6 +417,7 @@ public class VInicio extends Application {
 			clientes2.setBottom(null);
 			consulta.setText("");
 			String accion = (((MenuItem) e.getSource()).getText());
+			
 			switch (accion){
 			case "Usuario":
 				a.setContentText(MenuDeConsola.usuarioactual.toString());
@@ -421,15 +428,76 @@ public class VInicio extends Application {
 				a.showAndWait();
 				break;
 			case "Comprar Tiquete":
-				GridPane V = new GridPane();
 				procesoAct.setText(accion);
+				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
+
+					@Override
+					public void handle(MouseEvent event) {
+						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+					} 
+				}));
+				GridPane V = new GridPane();
+				Vector<Integer> NV = new Vector<>();
+				Iterator<Vuelo> i = Empleado.vuelos.iterator();
+	    		int posicion = 0;
+	    		while(i.hasNext()) {
+	    			Vuelo vuelo = (Vuelo)i.next();
+	    			if(vuelo.getEstado().equals("Venta")) {
+	    				NV.add(posicion);
+	    			}
+	    			posicion++;
+	    		}
+				ObservableList<Integer> options = 
+					    FXCollections.observableArrayList(
+					    	NV
+					    );
+				final ComboBox<Integer> P = new ComboBox<Integer>(options);
+				ComboBox<String> Si = new ComboBox<String>();
+	    		Si.getItems().addAll(
+	    			    "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"
+	    			);
+	    		ComboBox<String> Le = new ComboBox<String>();
+	    		Le.getItems().addAll(
+	    			    "Si","NO"
+	    			);
 				consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 				Label p1 = new Label("Seleccione un vuelo: ");
-				V.setPrefHeight(200);
-				V.setPrefWidth(Double.MAX_VALUE);
+				Label p2 = new Label("Seleccione una silla: ");
+				Label p3 = new Label("¿Limite de equipaje?: ");
+				V.setAlignment(Pos.TOP_CENTER);
+				V.setPrefHeight(Vapp.getHeight()*0.1);
+				V.setPrefWidth(Vapp.getWidth()*0.2);
 				clientes2.setBottom(V);
-				V.add(p1, 0, 0);
+				Act.setMaxWidth(Double.MAX_VALUE);
+				V.add(p1, 0, 3);
+				V.add(P, 1, 3);
+				V.add(new Label(" "), 2, 3);
+				V.add(p2, 3, 3);
+				V.add(Si, 4,3);
+				V.add(new Label(" "), 5, 3);
+				V.add(p3, 6, 3);
+				V.add(Le, 7,3);
+				
 
+				V.add(Act, 3, 0,2,1);
+				
+				break;
+			case "Vuelos del Dia":
+				GridPane Gp = new GridPane();
+				Gp.setPrefHeight(Vapp.getHeight()*0.1);
+				Gp.setPrefWidth(Vapp.getWidth()*0.2);
+				Gp.add(Act, 0, 0);
+				Gp.setAlignment(Pos.TOP_CENTER);
+				clientes2.setBottom(Gp);
+				procesoAct.setText(accion);
+				consulta.setText(Admin.empleados.get(0).EstadoVuelos());
+				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
+
+					@Override
+					public void handle(MouseEvent event) {
+						consulta.setText(Admin.empleados.get(0).EstadoVuelos());
+					} 
+				}));
 				break;
 			case "Historial de Vuelo":
 				procesoAct.setText(accion);
@@ -443,10 +511,6 @@ public class VInicio extends Application {
 				clientes2.setCenter(aux);
 				consulta.setStyle("-fx-background-color: CYAN;");
 				consulta.setPrefWidth(clientes2.getWidth());
-				break;
-			case "Vuelos del Dia":
-				procesoAct.setText(accion);
-				consulta.setText(Admin.empleados.get(0).EstadoVuelos());
 				break;
 			case "Imprimir Pasabordo":
 				procesoAct.setText(accion);
