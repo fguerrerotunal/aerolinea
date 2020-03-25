@@ -163,7 +163,7 @@ public class VInicio extends Application {
 		clientes2.setCenter(consulta);
 		clientes2.setBottom(tutoInicio);
 		//PROBAR COLORES
-		clientes2.setStyle("-fx-background-color: CYAN;");
+		clientes2.setStyle("-fx-background-color: LIGHTGRAY;");
 		BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		BorderPane.setAlignment(consulta, Pos.CENTER);
 		BorderPane.setAlignment(tutoInicio, Pos.CENTER);
@@ -519,10 +519,10 @@ public class VInicio extends Application {
 			case "Cartera":
 				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
-				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
+				aux.setContent(consulta);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				break;
 			case "Imprimir Pasabordo":
@@ -565,7 +565,8 @@ public class VInicio extends Application {
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: CYAN;");
+				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
+				aux.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				
 				String[] c1 = {"Reserva a cancelar"};
