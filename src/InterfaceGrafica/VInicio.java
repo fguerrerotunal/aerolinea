@@ -477,7 +477,7 @@ public class VInicio extends Application {
 				V.add(new Label(" "), 5, 3);
 				V.add(p3, 6, 3);
 				V.add(Le, 7,3);
-				
+				V.add(new Label(" "), 3, 2);
 
 				V.add(Act, 3, 0,2,1);
 				
