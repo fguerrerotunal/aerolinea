@@ -119,8 +119,6 @@ public class VInicio extends Application {
 	int imgposvida = 6;
 	
 	
-	
-	
 	@Override
 	public void start(Stage ventana) throws Exception {
 		
