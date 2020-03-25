@@ -119,8 +119,6 @@ public class VInicio extends Application {
 	int imgposvida = 6;
 	
 	
-	
-	
 	@Override
 	public void start(Stage ventana) throws Exception {
 		
@@ -571,20 +569,10 @@ public class VInicio extends Application {
 									if(P.getValue()!=null) {
 									procesoAct.setText("Sillas del vuelo: "+ P.getValue());
 									Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
-									
 									V.add(p2, 3, 3);
 									V.add(Si, 4,3);
-									try{
-										if(Si.getValue().equals(null)) {
-											MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getVuelo().toString("sillas");
-											MenuDeConsola.usuarioactual.CambiarSilla(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1), Si.getValue());
-											
-										}
-									}catch(NullPointerException e) {
-										datoFaltante error = new datoFaltante("Silla");
-			                    		a.setContentText(error.getMessage());
-			                    		a.showAndWait();
-									}
+									MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getVuelo().toString("sillas");
+									MenuDeConsola.usuarioactual.CambiarSilla(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1), Si.getValue());
 									a.setContentText("Esta Accion puede generar costos desea continuar");
 		                    		a.showAndWait();
 									}
