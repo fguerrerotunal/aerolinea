@@ -58,7 +58,7 @@ public class VInicio extends Application {
 
 
 	public static void main(String[] args) {
-		
+		Reader.Leer();
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {
@@ -119,7 +119,7 @@ public class VInicio extends Application {
 	
 	@Override
 	public void start(Stage ventana) throws Exception {
-		Reader.Leer();
+		
 		Vapp = ventana;
 		
 		//Vclientes
