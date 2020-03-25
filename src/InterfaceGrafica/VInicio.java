@@ -7,6 +7,7 @@ import Basededatos.Reader;
 import Utilidades.clienteInexistente;
 import Utilidades.modificarVuelo;
 import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
@@ -456,21 +457,26 @@ public class VInicio extends Application {
 				a.setContentText(Autores.getMensaje());
 				a.showAndWait();
 				break;
+				
 			case "Comprar Tiquete":
+				Button Acp = new Button("Aceptar");
+				Button Cancelr = new Button("Aceptar");
+				Button Silla = new Button("Aceptar");
 				procesoAct.setText(accion);
 				ComboBox<Integer> P = new ComboBox<Integer>();
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
+						Act.setText("Actualizar");
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 						P.getItems().setAll(datos());
 					} 
 				}));
 				GridPane V = new GridPane();
 				P.getItems().setAll(datos());
-				ComboBox<String> Si = new ComboBox<String>();
+				ComboBox<Integer> Si = new ComboBox<Integer>();
 	    		Si.getItems().addAll(
-	    			    "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"
+	    			    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
 	    			);
 	    		ComboBox<String> Le = new ComboBox<String>();
 	    		Le.getItems().addAll(
@@ -485,6 +491,9 @@ public class VInicio extends Application {
 				V.setPrefWidth(Vapp.getWidth()*0.2);
 				clientes2.setBottom(V);
 				Act.setMaxWidth(Double.MAX_VALUE);
+				Acp.setMaxWidth(Double.MAX_VALUE);
+				Cancelr.setMaxWidth(Double.MAX_VALUE);
+				Silla.setMaxWidth(Double.MAX_VALUE);
 				V.add(p1, 0, 3);
 				V.add(P, 1, 3);
 				V.add(new Label("  "), 2, 3);
@@ -494,8 +503,44 @@ public class VInicio extends Application {
 				V.add(p3, 6, 3);
 				V.add(Le, 7,3);
 				V.add(new Label("  "), 3, 2);
-				V.add(Act, 3, 0,2,1);
-				
+				V.add(Act, 0, 0,2,1);
+				V.add(Acp, 6, 0,2,1);
+				V.add(Silla,3,0,2,1);
+				Acp.setOnMouseClicked((new EventHandler<MouseEvent>() {
+
+					@Override
+					public void handle(MouseEvent event) {
+						V.add(Cancelr,0,0,2,1);
+						procesoAct.setText(accion);
+						MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue()));
+						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
+						MenuDeConsola.usuarioactual.CambiarSilla(reserva, Si.getValue());
+						if(Le.getValue().equals("SI")) {
+							reserva.setEquipaje();
+						}
+					}
+				}));
+				Cancelr.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					
+					@Override
+					public void handle(MouseEvent event) {
+						MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).Finalize();
+					}
+				}));
+				Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					
+					@Override
+					public void handle(MouseEvent event) {
+						if(P.getValue()!=null) {
+						procesoAct.setText("Escoja su silla");
+						consulta.setText(Empleado.vuelos.get(P.getValue()).toString("sillas"));
+						}
+						else {
+							
+						}
+					}
+				}));
+
 				break;
 			case "Vuelos del Dia":
 				GridPane Gp = new GridPane();
