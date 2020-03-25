@@ -129,10 +129,11 @@ public class VInicio extends Application {
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
 
-		Label tutorial = new Label("En esta aplicación el usuario tendrá la capacidad de comprar vuelos,\n"
+		Label tutorial = new Label("                 En esta aplicación el usuario tendrá la capacidad de comprar vuelos,\n"
 				+ " revisar y cancelar los ya pagados, además podrá canjear sus millas por diferentes premios.\n"
 				+ " en la parte superior se encuentra los menús donde podrá acceder a estas funcionalidades.");
-		tutorial.setFont(new Font("Agency FB",12));
+		tutorial.setFont(new Font(STYLESHEET_CASPIAN,15));
+
 		BorderPane tutoInicio = new BorderPane();
 		
 		//Modificacion Elementos varios
