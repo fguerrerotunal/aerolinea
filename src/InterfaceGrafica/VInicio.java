@@ -66,6 +66,16 @@ public class VInicio extends Application {
 			}
 		};
 		timer.schedule(estadoVuelos, 20000,20000);//cada 1 min
+		
+		Admin.premios.add("Silla: 50");
+		Admin.premios.add("Mercado: 100");
+		Admin.premios.add("Olla de arroz:  200");
+		Admin.premios.add("Computador: 300");
+		Admin.premios.add("Nevera: 500");
+		Admin.premios.add("Viaje gratis: 800");
+		Admin.premios.add("Viaje en pareja: 1000");
+		Admin.premios.add("Viaje Familiar(max 4): 1200");
+		
 		launch(args);
 	}
 	
@@ -87,11 +97,12 @@ public class VInicio extends Application {
 	MenuItem vuelosdia = new MenuItem("Vuelos del Dia");
 	MenuItem pasabordo = new MenuItem("Imprimir Pasabordo");
 	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
+	MenuItem canjearPremio = new MenuItem("Canjear Premio");
 	Label procesoAct = new Label("Nombre del proceso o consulta");
 	Label consulta = new Label("Colnsultas");
 	ButtonType Nregistro = new ButtonType("Aceptar");
 	ButtonType Cregistro = new ButtonType("Cancelar");
-	ScrollPane aux = new ScrollPane();
+	
 	
 	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
 	String[] valores = new String[] {"", "", "", "","",""};
@@ -140,7 +151,7 @@ public class VInicio extends Application {
 		//Modificacion Elementos varios
 		barraMenuC.getMenus().addAll(Archivo, PyC, ayuda);
 		Archivo.getItems().addAll(Usuario, new SeparatorMenuItem(),Salir);
-		PyC.getItems().addAll(comprarTiquete, new SeparatorMenuItem(), historialVuelo, new SeparatorMenuItem(),cartera,new SeparatorMenuItem(), vuelosdia,new SeparatorMenuItem(), pasabordo,new SeparatorMenuItem(), cancelreserva);
+		PyC.getItems().addAll(comprarTiquete,new SeparatorMenuItem(), canjearPremio, new SeparatorMenuItem(), historialVuelo, new SeparatorMenuItem(),cartera,new SeparatorMenuItem(), vuelosdia,new SeparatorMenuItem(), pasabordo,new SeparatorMenuItem(), cancelreserva);
 		ayuda.getItems().add(Acercade);
 		
 		//PROBAR LETRAS Y COLOR
@@ -159,7 +170,7 @@ public class VInicio extends Application {
 		vuelosdia.setOnAction(menuClientehandler);
 		pasabordo.setOnAction(menuClientehandler);
 		cancelreserva.setOnAction(menuClientehandler);
-		
+		canjearPremio.setOnAction(menuClientehandler);
 		
 		//scene cliente
 		clientes.setTop(barraMenuC);
@@ -426,7 +437,12 @@ public class VInicio extends Application {
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
+			ScrollPane aux = new ScrollPane();
+			consulta.prefHeightProperty().bind(aux.heightProperty());
+			aux.prefWidthProperty().bind(clientes.widthProperty());
+			//consulta.prefWidthProperty().bind(aux.widthProperty());
 			Button Act= new Button("Actualizar");
+			GridPane auxgrid;
 			Alert a = new Alert(AlertType.INFORMATION);
 			a.setTitle("AEROLINEA LUNA`S");
 			a.setHeaderText(null);
@@ -526,17 +542,19 @@ public class VInicio extends Application {
 				}
 				else {
 					consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
-					String[] c1 = {"Seleccione el # de Reserva a imprimir"};
-	                String[] v1 = {""};
-	                FieldPanel Reservaimp = new FieldPanel("",c1,"",v1,null);
+					String[] c = {"Seleccione el # de Reserva a imprimir"};
+	                String[] v = {""};
+	                FieldPanel Reservaimp = new FieldPanel("",c,"",v,null);
 	                Button Aceptar=new Button("Aceptar");
-	                GridPane boton=new GridPane();
-	                boton.setAlignment(Pos.TOP_CENTER);
-	                boton.setPrefHeight(Vapp.getHeight()*0.2);
-	                boton.setPrefWidth(Vapp.getWidth()*0.2);
-	                boton.add(Reservaimp, 0, 0);
-	                boton.add(Aceptar, 2, 0);
-	                clientes2.setBottom(boton);
+	                auxgrid=new GridPane();
+	                auxgrid.setAlignment(Pos.TOP_CENTER);
+	                auxgrid.setPrefHeight(Vapp.getHeight()*0.2);
+	                auxgrid.setPrefWidth(Vapp.getWidth()*0.2);
+	                auxgrid.add(Reservaimp, 0, 0);
+	                auxgrid.add(Aceptar, 2, 0);
+	                auxgrid.setVgap(5);
+	                auxgrid.setHgap(5);
+	                clientes2.setBottom(auxgrid);
 	                Aceptar.setOnMouseClicked(new EventHandler<MouseEvent>() {
 	                    public void handle(MouseEvent event) {
 	                        Reservaimp.GuardarDatos();
@@ -551,7 +569,6 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
-				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
 				
 				aux.setContent(consulta);
@@ -565,12 +582,11 @@ public class VInicio extends Application {
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
 				Button Aceptar=new Button("Aceptar");
-                GridPane boton=(GridPane) formcancelar.getChildren().get(0);
-                boton.add(Aceptar, 1, 1);
+				auxgrid=(GridPane) formcancelar.getChildren().get(0);
+				auxgrid.add(Aceptar, 1, 1);
                 
                 clientes2.setBottom(formcancelar);
 				BorderPane.setAlignment(formcancelar,Pos.CENTER);
-				
 				Aceptar.setOnAction(new EventHandler<ActionEvent>() {
 
 					@Override
@@ -593,7 +609,31 @@ public class VInicio extends Application {
 					}
 					
 				});
-				
+				break;
+			case "Canjear Premio":
+				procesoAct.setText(accion);
+				consulta.setText(Admin.ImprimirPremios());
+				String[] c2 = {"Premio a canjear"};
+				String[] v2 = {""};
+				FieldPanel formpremios = new FieldPanel("",c2,"",v2,null);
+				Button Canjear=new Button("Canjear");
+				auxgrid=(GridPane) formpremios.getChildren().get(0);
+				auxgrid.add(Canjear, 1, 1);
+                
+                clientes2.setBottom(formpremios);
+				BorderPane.setAlignment(formpremios,Pos.CENTER);
+				Canjear.setOnAction(new EventHandler<ActionEvent>() {
+
+					@Override
+					public void handle(ActionEvent event) {
+						formpremios.GuardarDatos();
+						String canjeo = MenuDeConsola.usuarioactual.CanjearMillas(Integer.parseInt(formpremios.getValue("Premio a canjear")));
+						a.setContentText(canjeo);
+						a.showAndWait();
+					}
+					
+				});
+				break;
 				
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
