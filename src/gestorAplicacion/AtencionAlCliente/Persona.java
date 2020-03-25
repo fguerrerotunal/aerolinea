@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 public abstract class Persona{
 //Atributos de los objetos de clase Persona
+	
+
+	private static int numero_de_clientes = 1;
 	private int identificacion;
 	private  CuentaBancaria cuentabancaria;
 	private String nombre;
@@ -26,6 +29,9 @@ public abstract class Persona{
 	
 	
 	//Getters y Setters de la clase
+	public static int getNumero_de_clientes() {
+		return numero_de_clientes;
+	}
 	public int getIdentificacion() {
 		return identificacion;
 	}

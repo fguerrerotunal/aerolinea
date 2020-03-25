@@ -10,6 +10,7 @@ import Utilidades.modificarVuelo;
 import Utilidades.registroDuplicado;
 import Utilidades.tipoDato;
 import gestorAplicacion.AtencionAlCliente.Cliente;
+import gestorAplicacion.AtencionAlCliente.Persona;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
@@ -97,10 +98,6 @@ public class VInicio extends Application {
 	ButtonType Nregistro = new ButtonType("Aceptar");
 	ButtonType Cregistro = new ButtonType("Cancelar");
 	
-	
-	String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
-	String[] valores = new String[] {"", "", "", "","",""};
-	FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, null);
 	
 	//declaracion elementos varios inicio
 	GridPane topright = new GridPane();
@@ -373,6 +370,12 @@ public class VInicio extends Application {
 				Alert a = new Alert(AlertType.INFORMATION);
 				a.getButtonTypes().remove(0);
 				a.getButtonTypes().setAll(Cregistro);
+				
+				String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
+				String identificacionAut = String.valueOf(Persona.getNumero_de_clientes()+1);
+				String[] valores = new String[] {identificacionAut, "", "", "","",""};
+				boolean[] habilitados = new boolean[] {false};
+				FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, habilitados);
 				a.setGraphic(formularioRegis);
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
