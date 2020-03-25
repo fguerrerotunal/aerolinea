@@ -88,7 +88,7 @@ public class FieldPanel extends Pane {
 				this.valores[i] = a.getText();
 				a.setText("");
 			}else {
-				throw new datoFaltante();
+				throw new datoFaltante(this.criterios[i]);
 			}
 		}
 	}
