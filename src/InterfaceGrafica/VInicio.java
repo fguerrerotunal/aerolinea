@@ -107,7 +107,8 @@ public class VInicio extends Application {
 	Button ingreso =new Button("Ingresar");
 	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
 	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
-	Label bienvenida = new Label("AEROLINEA LUNA`S");
+	Label bienvenida = new Label("AEROLINEA LUNA`S\n"
+			+ "     BIENVENIDO");
 	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
 	Label bfotos;
 	TextField id = new TextField();
