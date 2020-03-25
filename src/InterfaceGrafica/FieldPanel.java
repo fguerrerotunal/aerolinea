@@ -2,11 +2,17 @@ package InterfaceGrafica;
 
 import java.lang.reflect.Array;
 
+import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import uiMain.menuconsola.MenuDeConsola;
 
 public class FieldPanel extends Pane {
 	
@@ -50,6 +56,18 @@ public class FieldPanel extends Pane {
 				
 			}
 		}
+		grid.add(new Button("Aceptar"), 0, criterios.length,2,1);
+		grid.add(new Button("Borrar"), 1, criterios.length,2,1);
+		
+		ObservableList<Node> asd = grid.getChildren();
+		((Button)asd.get(asd.size()-1)).setOnMouseClicked(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+            	for(int i = 0; i < criterios.length;i++) {	
+        			TextField a = (TextField) grid.getChildren().get((2*i)+1);
+        			a.setText("");
+        		}
+            }
+        });
 	}
 	
 	public String getValue(String criterio) {

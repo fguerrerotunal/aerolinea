@@ -11,8 +11,10 @@ import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -362,19 +364,26 @@ public class VInicio extends Application {
 			if(accion.equals(registro)) {
 				Alert a = new Alert(AlertType.INFORMATION);
 				a.getButtonTypes().remove(0);
-				a.getButtonTypes().setAll(Nregistro, Cregistro);
+				a.getButtonTypes().setAll(Cregistro);
 				a.setGraphic(formularioRegis);
 				a.setTitle("FORMULARIO REGISTRO");
 				a.setHeaderText("   Ingreso de \n"
 						+ "      datos");
 				//handlers 
-				Optional<ButtonType> result = a.showAndWait();
-				if(result.get()==Nregistro) {
-					formularioRegis.GuardarDatos();
-					Admin.clientes.add(new Cliente(Integer.parseInt(formularioRegis.getValue("ID")), Integer.parseInt(formularioRegis.getValue("Cuenta Bancaria")), formularioRegis.getValue("Nombre"), formularioRegis.getValue("Direccion"), formularioRegis.getValue("Correo"), Integer.parseInt(formularioRegis.getValue("Pasaporte"))));
-					a.close();
-				}else {
-					a.close();
+				ObservableList<Node> asd = ((GridPane) formularioRegis.getChildren().get(0)).getChildren();
+				((Button)asd.get(asd.size()-2)).setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    public void handle(MouseEvent event) {
+                    	formularioRegis.GuardarDatos();
+    					Admin.clientes.add(new Cliente(Integer.parseInt(formularioRegis.getValue("ID")), Integer.parseInt(formularioRegis.getValue("Cuenta Bancaria")), formularioRegis.getValue("Nombre"), formularioRegis.getValue("Direccion"), formularioRegis.getValue("Correo"), Integer.parseInt(formularioRegis.getValue("Pasaporte"))));
+    					a.close();
+                    }});
+				try {
+					Optional<ButtonType> result = a.showAndWait();
+					if(result.get()==Cregistro) {
+						a.close();
+					}
+				}catch(Exception q){
+					
 				}
 			}else {
 				topright.getChildren().remove(registro);
@@ -426,7 +435,6 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			ScrollPane aux = new ScrollPane();
-			aux.setStyle("-fx-background-color: LIGHTGRAY;");
 			Button Act= new Button("Actualizar");
 			GridPane auxgrid;
 			Alert a = new Alert(AlertType.INFORMATION);
@@ -530,17 +538,13 @@ public class VInicio extends Application {
 					String[] c = {"Seleccione el # de Reserva a imprimir"};
 	                String[] v = {""};
 	                FieldPanel Reservaimp = new FieldPanel("",c,"",v,null);
-	                Button Aceptar=new Button("Aceptar");
-	                auxgrid=new GridPane();
-	                auxgrid.setAlignment(Pos.TOP_CENTER);
-	                auxgrid.setPrefHeight(Vapp.getHeight()*0.2);
-	                auxgrid.setPrefWidth(Vapp.getWidth()*0.2);
-	                auxgrid.add(Reservaimp, 0, 0);
-	                auxgrid.add(Aceptar, 2, 0);
-	                auxgrid.setVgap(5);
-	                auxgrid.setHgap(5);
-	                clientes2.setBottom(auxgrid);
-	                Aceptar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	      
+	                auxgrid=(GridPane) Reservaimp.getChildren().get(0);
+	                clientes2.setBottom(Reservaimp);
+	                BorderPane.setAlignment(Reservaimp,Pos.CENTER);
+	                
+	                ObservableList<Node> asd = auxgrid.getChildren();
+					((Button)asd.get(asd.size()-2)).setOnMouseClicked(new EventHandler<MouseEvent>() {
 	                    public void handle(MouseEvent event) {
 	                        Reservaimp.GuardarDatos();
 	                        int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
@@ -564,13 +568,13 @@ public class VInicio extends Application {
 				String[] c1 = {"Reserva a cancelar"};
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
-				Button Aceptar=new Button("Aceptar");
 				auxgrid=(GridPane) formcancelar.getChildren().get(0);
-				auxgrid.add(Aceptar, 1, 1);
-                
+				
                 clientes2.setBottom(formcancelar);
 				BorderPane.setAlignment(formcancelar,Pos.CENTER);
-				Aceptar.setOnAction(new EventHandler<ActionEvent>() {
+				
+				ObservableList<Node> asd1 = auxgrid.getChildren();
+				((Button)asd1.get(asd1.size()-2)).setOnAction(new EventHandler<ActionEvent>() {
 
 					@Override
 					public void handle(ActionEvent event) {
@@ -599,13 +603,13 @@ public class VInicio extends Application {
 				String[] c2 = {"Premio a canjear"};
 				String[] v2 = {""};
 				FieldPanel formpremios = new FieldPanel("",c2,"",v2,null);
-				Button Canjear=new Button("Canjear");
 				auxgrid=(GridPane) formpremios.getChildren().get(0);
-				auxgrid.add(Canjear, 1, 1);
                 
                 clientes2.setBottom(formpremios);
 				BorderPane.setAlignment(formpremios,Pos.CENTER);
-				Canjear.setOnAction(new EventHandler<ActionEvent>() {
+				
+				ObservableList<Node> asd2 = auxgrid.getChildren();
+				((Button)asd2.get(asd2.size()-2)).setOnAction(new EventHandler<ActionEvent>() {
 
 					@Override
 					public void handle(ActionEvent event) {
