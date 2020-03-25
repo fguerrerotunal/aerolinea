@@ -58,7 +58,7 @@ public class VInicio extends Application {
 
 
 	public static void main(String[] args) {
-		launch(args);
+		
 		Timer timer = new Timer();
 		TimerTask estadoVuelos =  new TimerTask() {
 			public void run() {
@@ -66,7 +66,7 @@ public class VInicio extends Application {
 			}
 		};
 		timer.schedule(estadoVuelos, 20000,20000);//cada 1 min
-
+		launch(args);
 	}
 	
 	static File imagen = new File("");
@@ -423,6 +423,7 @@ public class VInicio extends Application {
 			aux.setContent(null);
 			clientes2.setBottom(null);
 			consulta.setText("");
+			consulta.setFont(new Font("Agency FB",20));
 			String accion = (((MenuItem) e.getSource()).getText());
 			
 			switch (accion){
@@ -522,7 +523,7 @@ public class VInicio extends Application {
 			case "Imprimir Pasabordo":
 				procesoAct.setText(accion);
 				String comprobante= MenuDeConsola.usuarioactual.Cartera();
-				consulta.setFont(new Font("Agency FB",25));
+				
 				if (comprobante.equals("No cuentas con reservas activas por el momento.")) {
 					consulta.setText("No cuentas con reservas activas por el momento.");
 				}
