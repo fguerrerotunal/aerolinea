@@ -1,6 +1,7 @@
 package InterfaceGrafica;
 
 
+import Utilidades.datoFaltante;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -26,11 +27,7 @@ public class FieldPanel extends Pane {
 		this.tituloCriterios = tituloCriterios;
 		this.criterios = criterios;
 		this.tituloValores = tituloValores;
-		//if(valores == null) {
-			//this.valores = new String[criterios.length-1];
-		//}else{
 		this.valores = valores;
-		//}
 		this.habilitado = habilitado;
 		
 		GridPane grid = ((GridPane) this.getChildren().get(0));
@@ -78,7 +75,7 @@ public class FieldPanel extends Pane {
 		return valor;
 	}
 	
-	public void GuardarDatos(){
+	public void GuardarDatos() throws datoFaltante{
 		GridPane grid = ((GridPane) this.getChildren().get(0));
 		for(int i = 0; i < criterios.length;i++) {	
 			TextField a;
@@ -86,6 +83,8 @@ public class FieldPanel extends Pane {
 			if(!(a.getText()).equals("")) {
 				this.valores[i] = a.getText();
 				a.setText("");
+			}else {
+				throw new datoFaltante(this.criterios[i]);
 			}
 		}
 	}

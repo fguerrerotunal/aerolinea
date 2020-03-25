@@ -5,7 +5,10 @@ import java.util.*;
 
 import Basededatos.Reader;
 import Utilidades.clienteInexistente;
+import Utilidades.datoFaltante;
 import Utilidades.modificarVuelo;
+import Utilidades.registroDuplicado;
+import Utilidades.tipoDato;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
@@ -276,7 +279,7 @@ public class VInicio extends Application {
 		Scene Vinicio = new Scene(ventanainicio);	
 		Scene Vcliente = new Scene(clientes);
 		
-		//cambio de escena inicio a cliente
+		
 		Cancel.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
@@ -286,7 +289,8 @@ public class VInicio extends Application {
 					topright.add(ingreso,0,1);
 			}
 		});
-
+		
+		//cambio de escena inicio a cliente
 		Aceptar.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
@@ -306,6 +310,9 @@ public class VInicio extends Application {
 					topright.add(registro,0,0);
 					topright.add(ingreso,0,1);
 					a.setContentText(e.getMessage());
+				}catch(NumberFormatException e){
+            		tipoDato error = new tipoDato();
+            		a.setContentText(error.getMessage());
 				}finally{
 					a.showAndWait();
 				}
@@ -374,9 +381,28 @@ public class VInicio extends Application {
 				ObservableList<Node> asd = ((GridPane) formularioRegis.getChildren().get(0)).getChildren();
 				((Button)asd.get(asd.size()-2)).setOnMouseClicked(new EventHandler<MouseEvent>() {
                     public void handle(MouseEvent event) {
-                    	formularioRegis.GuardarDatos();
-    					Admin.clientes.add(new Cliente(Integer.parseInt(formularioRegis.getValue("ID")), Integer.parseInt(formularioRegis.getValue("Cuenta Bancaria")), formularioRegis.getValue("Nombre"), formularioRegis.getValue("Direccion"), formularioRegis.getValue("Correo"), Integer.parseInt(formularioRegis.getValue("Pasaporte"))));
-    					a.close();
+                    	a.close();
+                    	a.setGraphic(null);
+                    	a.setHeaderText(null);
+                    	try{
+                    		formularioRegis.GuardarDatos();
+                    		try {
+                    			Admin.BuscarCliente(Integer.parseInt(formularioRegis.getValue("ID")));
+                			throw new registroDuplicado();
+                    		}catch(clienteInexistente e){
+                    			Admin.clientes.add(new Cliente(Integer.parseInt(formularioRegis.getValue("ID")), Integer.parseInt(formularioRegis.getValue("Cuenta Bancaria")), formularioRegis.getValue("Nombre"), formularioRegis.getValue("Direccion"), formularioRegis.getValue("Correo"), Integer.parseInt(formularioRegis.getValue("Pasaporte"))));
+                    			a.setContentText("Registrado Correctamente.");
+                    		}catch(registroDuplicado e) {
+                    			a.setContentText(e.getMessage());
+                    		}
+                    	}catch(datoFaltante e){
+                    		a.setContentText(e.getMessage());
+                    	}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
+                    	}finally {
+                    		a.show();
+                    	}
                     }});
 				try {
 					Optional<ButtonType> result = a.showAndWait();
@@ -592,12 +618,26 @@ public class VInicio extends Application {
 	                ObservableList<Node> asd = auxgrid.getChildren();
 					((Button)asd.get(asd.size()-2)).setOnMouseClicked(new EventHandler<MouseEvent>() {
 	                    public void handle(MouseEvent event) {
-	                        Reservaimp.GuardarDatos();
-	                        int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
-	                        consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.getCartera().get(i)));
-	                        clientes2.setBottom(null);
-	                    }});
-	                
+	                    	try{
+	                    		Reservaimp.GuardarDatos();
+	                    		int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
+	                    		if(!(i >=0 && i < MenuDeConsola.usuarioactual.getCartera().size())) {
+	                    			throw new tipoDato();
+	                    		}
+	                    		consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.getCartera().get(i)));
+	                    		clientes2.setBottom(null);
+	                    	}catch(datoFaltante e){
+	                    		a.setContentText(e.getMessage());
+	                    		a.showAndWait();
+	                    	}catch(tipoDato e) {
+	                    		a.setContentText(e.getMessage());
+	                    		a.showAndWait();
+	                    	}catch(NumberFormatException e){
+	                    		tipoDato error = new tipoDato();
+	                    		a.setContentText(error.getMessage());
+	                    		a.showAndWait();
+	        				}
+	                    	}});
 			        }
 
 				
@@ -624,21 +664,37 @@ public class VInicio extends Application {
 
 					@Override
 					public void handle(ActionEvent event) {
-						formcancelar.GuardarDatos();
-						try{
-							if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
-								MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
-							}else {
-								a.setContentText("No cuentas con reservas activas por el momento.");
-								a.showAndWait();
+						try {
+							formcancelar.GuardarDatos();
+							int reservaF = Integer.parseInt(formcancelar.getValue("Reserva a cancelar"));
+							if(!(reservaF >=0 && reservaF < MenuDeConsola.usuarioactual.cartera.size())) {
+								throw new tipoDato();
 							}
-						}catch(modificarVuelo e) {
+							try{
+								if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
+									MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(reservaF));
+								}else {
+									a.setContentText("No cuentas con reservas activas por el momento.");
+									a.showAndWait();
+								}
+							}catch(modificarVuelo e) {
 								a.setContentText(e.getMessage());
 								a.showAndWait();
-						}catch (NumberFormatException e1) {
-							a.setContentText(e1.getMessage());
-							a.showAndWait();
-						}
+							}catch (NumberFormatException e) {
+								a.setContentText(e.getMessage());
+								a.showAndWait();
+							}
+						}catch(datoFaltante e){
+							a.setContentText(e.getMessage());
+                			a.showAndWait();
+                		}catch(tipoDato e){
+                			a.setContentText(e.getMessage());
+                			a.showAndWait();
+                		}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
+                    		a.showAndWait();
+        				}
 					}
 					
 				});
@@ -659,10 +715,20 @@ public class VInicio extends Application {
 
 					@Override
 					public void handle(ActionEvent event) {
-						formpremios.GuardarDatos();
-						String canjeo = MenuDeConsola.usuarioactual.CanjearMillas(Integer.parseInt(formpremios.getValue("Premio a canjear")));
-						a.setContentText(canjeo);
-						a.showAndWait();
+						try {
+							formpremios.GuardarDatos();
+							String canjeo = MenuDeConsola.usuarioactual.CanjearMillas(Integer.parseInt(formpremios.getValue("Premio a canjear")));
+							a.setContentText(canjeo);
+						}catch(datoFaltante e){
+							a.setContentText(e.getMessage());
+            			}catch(tipoDato e) {
+            				a.setContentText(e.getMessage());
+            			}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
+        				}finally {
+							a.showAndWait();
+            			}
 					}
 					
 				});

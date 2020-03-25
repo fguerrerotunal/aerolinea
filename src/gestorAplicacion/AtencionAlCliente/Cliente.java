@@ -8,6 +8,7 @@ import java.util.*;
 import Utilidades.modificarVuelo;
 import Utilidades.saldoInsuficiente;
 import Utilidades.sillaOcupada;
+import Utilidades.tipoDato;
 
 import java.io.*;
 public class Cliente extends Persona{
@@ -103,7 +104,10 @@ public class Cliente extends Persona{
 		
 	}
 	//Metodo que se ejecuta cuando el cliente utiliza sus millas para canjear un premio
-	public String CanjearMillas(int premio) {
+	public String CanjearMillas(int premio) throws tipoDato {
+		if(!(premio >=0 && premio <=7 )) {
+			throw new tipoDato();
+		}
 		return Admin.Premios(this, premio);
 	}
 	//Metodo que imprime el tiquete o pasabordo de una Reserva de un cliente
