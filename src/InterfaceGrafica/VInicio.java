@@ -96,7 +96,7 @@ public class VInicio extends Application {
 	MenuItem cancelreserva = new MenuItem("Cancelar Reserva");
 	MenuItem canjearPremio = new MenuItem("Canjear Premio");
 	Label procesoAct = new Label("Nombre del proceso o consulta");
-	Label consulta = new Label("Colnsultas");
+	Label consulta = new Label("Consultas");
 	ButtonType Nregistro = new ButtonType("Aceptar");
 	ButtonType Cregistro = new ButtonType("Cancelar");
 	
@@ -332,7 +332,7 @@ public class VInicio extends Application {
 				clientes2.setTop(procesoAct);
 				clientes2.setCenter(consulta);
 				procesoAct.setText("Nombre del proceso o consulta");
-				consulta.setText("Colnsultas");
+				consulta.setText("Consultas");
 				clientes2.setBottom(tutoInicio);
 				Vapp.setTitle("AEROLINEA LUNA`S");
 				Vapp.setScene(Vinicio);
@@ -480,7 +480,7 @@ public class VInicio extends Application {
 			
 			switch (accion){
 			case "Usuario":
-				a.setContentText(MenuDeConsola.usuarioactual.toString());
+				a.setContentText(MenuDeConsola.usuarioactual.toString()+"\n Saldo cuenta Bancaria: "+MenuDeConsola.usuarioactual.getCuentabancaria().getSaldo());
 				a.showAndWait();
 				break;
 			case "Acerca de":
@@ -752,7 +752,7 @@ public class VInicio extends Application {
 				break;
 			case "Cancelar Reserva":
 				procesoAct.setText(accion);
-				consulta.setText(MenuDeConsola.usuarioactual.Cartera());
+				consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
 				
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
