@@ -131,7 +131,8 @@ public class VInicio extends Application {
 
 		Label tutorial = new Label("                 En esta aplicación el usuario tendrá la capacidad de comprar vuelos,\n"
 				+ " revisar y cancelar los ya pagados, además podrá canjear sus millas por diferentes premios.\n"
-				+ " en la parte superior se encuentra los menús donde podrá acceder a estas funcionalidades.");
+				+ " en la parte superior se encuentra los menús donde podrá acceder a estas funcionalidades*.\n"
+				+ " *Algunas funcionalidades pueden generar costos extra.");
 		tutorial.setFont(new Font(STYLESHEET_CASPIAN,15));
 
 		BorderPane tutoInicio = new BorderPane();
