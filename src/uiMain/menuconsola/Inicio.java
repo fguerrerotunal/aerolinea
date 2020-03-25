@@ -65,8 +65,7 @@ public class Inicio extends MenuDeConsola{
 		Admin.premios.add("Viaje en pareja: ...1000");
 		Admin.premios.add("Viaje Familiar(max 4): ...1200");
 		
-/*
-		Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
+	/*	Admin.empleados.add(new Empleado(001,212,"Porky","Casa de nariño","porky@colombia.com","Servicios Varios"));
 		new Aeropuerto("Jose Maria Córdova","Rionegro","Colombia");
 		new Aeropuerto("El Dorado","Bogota","Colombia");
 		new Aeropuerto("John F.Kennedy","New York","EEUU");
@@ -100,7 +99,7 @@ public class Inicio extends MenuDeConsola{
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 20000,20000);//cada 1 min
+		timer.schedule(estadoVuelos, 2000,2000);//cada 1 min
 		
 		inicio.LanzarMenu();
 		
