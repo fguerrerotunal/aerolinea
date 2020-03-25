@@ -160,7 +160,7 @@ public class Cliente extends Persona{
 	}
 	public String VuelosReservados() {
 		String vuelosDisponibles = "#Reserva\t #Vuelo\t    Silla\t\tFecha/Hora \t Salida-Destino";
-		int contador=1;
+		int contador=0;
 		for(Reserva i:this.cartera) {
 			
 			vuelosDisponibles=vuelosDisponibles+"\n\t"+contador+"\t\t"+i.getVuelo().getNumeroVuelo()+"\t\t"+i.getSilla()+"\t"+i.getVuelo().getFechaString()+

@@ -461,17 +461,19 @@ public class VInicio extends Application {
 	                String[] v1 = {""};
 	                FieldPanel Reservaimp = new FieldPanel("",c1,"",v1,null);
 	                Button Aceptar=new Button("Aceptar");
-	                GridPane boton=(GridPane) Reservaimp.getChildren().get(0);
+	                GridPane boton=new GridPane();
 	                boton.setAlignment(Pos.TOP_CENTER);
 	                boton.setPrefHeight(Vapp.getHeight()*0.2);
 	                boton.setPrefWidth(Vapp.getWidth()*0.2);
+	                boton.add(Reservaimp, 0, 0);
 	                boton.add(Aceptar, 2, 0);
 	                clientes2.setBottom(boton);
-	                Aceptar.setOnAction(new EventHandler<ActionEvent>() {
-	                    public void handle(ActionEvent event) {
+	                Aceptar.setOnMouseClicked(new EventHandler<MouseEvent>() {
+	                    public void handle(MouseEvent event) {
 	                        Reservaimp.GuardarDatos();
 	                        int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
-	                        consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.cartera.get(i-1)));
+	                        consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.getCartera().get(i)));
+	                        clientes2.setBottom(null);
 	                    }});
 	                
 			        }
