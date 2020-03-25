@@ -1,6 +1,5 @@
 package InterfaceGrafica;
 
-import java.lang.reflect.Array;
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import uiMain.menuconsola.MenuDeConsola;
 
 public class FieldPanel extends Pane {
 	
