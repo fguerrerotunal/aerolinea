@@ -426,9 +426,7 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			ScrollPane aux = new ScrollPane();
-			consulta.prefHeightProperty().bind(aux.heightProperty());
-			aux.prefWidthProperty().bind(clientes.widthProperty());
-			//consulta.prefWidthProperty().bind(aux.widthProperty());
+			aux.setStyle("-fx-background-color: LIGHTGRAY;");
 			Button Act= new Button("Actualizar");
 			GridPane auxgrid;
 			Alert a = new Alert(AlertType.INFORMATION);
@@ -518,7 +516,6 @@ public class VInicio extends Application {
 				consulta.setAlignment(Pos.CENTER);
 				aux.setContent(consulta);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				break;
 			case "Imprimir Pasabordo":
@@ -562,8 +559,6 @@ public class VInicio extends Application {
 				aux.setContent(consulta);
 				consulta.setAlignment(Pos.CENTER);
 				clientes2.setCenter(aux);
-				consulta.setStyle("-fx-background-color: LIGHTGRAY;");
-				aux.setStyle("-fx-background-color: LIGHTGRAY;");
 				consulta.setPrefWidth(clientes2.getWidth());
 				
 				String[] c1 = {"Reserva a cancelar"};
