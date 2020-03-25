@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 public class Vuelo{
 //Atributos de los objetos de tipo Clase Vuelo
-	static int cantidadVuelos = 0;
+	static int cantidadVuelos = Empleado.vuelos.size();
 	private transient Reserva[] puestos = new Reserva[20];
 	private int numeroVuelo;
 	private int precioTiquete;
