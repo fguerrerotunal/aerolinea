@@ -1,5 +1,6 @@
 package uiMain.menuconsola.opcionesdeMenu;
 
+import Utilidades.tipoDato;
 import gestorAplicacion.Master.Admin;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
@@ -14,8 +15,11 @@ public class CanjearMillas  extends OpcionDeMenu{
 		System.out.println(Admin.ImprimirPremios());
 		System.out.println("¿Que premio deseas canjear?");
 		int premio = sc.nextInt();
-		System.out.println(MenuDeConsola.usuarioactual.CanjearMillas(premio));
-		
+		try {
+			System.out.println(MenuDeConsola.usuarioactual.CanjearMillas(premio));
+		}catch(tipoDato e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 }

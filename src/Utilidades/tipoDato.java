@@ -2,8 +2,8 @@ package Utilidades;
 
 public class tipoDato extends ESugeridos{
 	
-	tipoDato(){
-		super("Tipo de dato incorrecto.\n"
+	public tipoDato(){
+		super("Tipo de dato incorrecto o inexistente.\n"
 				+ "Por Favor intentalo de nuevo.");
 	}
 }

@@ -8,6 +8,7 @@ import Utilidades.clienteInexistente;
 import Utilidades.datoFaltante;
 import Utilidades.modificarVuelo;
 import Utilidades.registroDuplicado;
+import Utilidades.tipoDato;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
@@ -309,6 +310,9 @@ public class VInicio extends Application {
 					topright.add(registro,0,0);
 					topright.add(ingreso,0,1);
 					a.setContentText(e.getMessage());
+				}catch(NumberFormatException e){
+            		tipoDato error = new tipoDato();
+            		a.setContentText(error.getMessage());
 				}finally{
 					a.showAndWait();
 				}
@@ -393,6 +397,9 @@ public class VInicio extends Application {
                     		}
                     	}catch(datoFaltante e){
                     		a.setContentText(e.getMessage());
+                    	}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
                     	}finally {
                     		a.show();
                     	}
@@ -613,12 +620,22 @@ public class VInicio extends Application {
 	                    	try{
 	                    		Reservaimp.GuardarDatos();
 	                    		int i=Integer.valueOf(Reservaimp.getValue("Seleccione el # de Reserva a imprimir"));
+	                    		if(!(i >=0 && i < MenuDeConsola.usuarioactual.getCartera().size())) {
+	                    			throw new tipoDato();
+	                    		}
 	                    		consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(MenuDeConsola.usuarioactual.getCartera().get(i)));
 	                    		clientes2.setBottom(null);
 	                    	}catch(datoFaltante e){
 	                    		a.setContentText(e.getMessage());
-	                    		a.show();
-	                    	}
+	                    		a.showAndWait();
+	                    	}catch(tipoDato e) {
+	                    		a.setContentText(e.getMessage());
+	                    		a.showAndWait();
+	                    	}catch(NumberFormatException e){
+	                    		tipoDato error = new tipoDato();
+	                    		a.setContentText(error.getMessage());
+	                    		a.showAndWait();
+	        				}
 	                    	}});
 			        }
 
@@ -648,9 +665,13 @@ public class VInicio extends Application {
 					public void handle(ActionEvent event) {
 						try {
 							formcancelar.GuardarDatos();
+							int reservaF = Integer.parseInt(formcancelar.getValue("Reserva a cancelar"));
+							if(!(reservaF >=0 && reservaF < MenuDeConsola.usuarioactual.cartera.size())) {
+								throw new tipoDato();
+							}
 							try{
 								if(!MenuDeConsola.usuarioactual.cartera.isEmpty()) {
-									MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(Integer.parseInt(formcancelar.getValue("Reserva a cancelar"))));
+									MenuDeConsola.usuarioactual.cancelarReserva(MenuDeConsola.usuarioactual.cartera.get(reservaF));
 								}else {
 									a.setContentText("No cuentas con reservas activas por el momento.");
 									a.showAndWait();
@@ -658,14 +679,21 @@ public class VInicio extends Application {
 							}catch(modificarVuelo e) {
 								a.setContentText(e.getMessage());
 								a.showAndWait();
-							}catch (NumberFormatException e1) {
-								a.setContentText(e1.getMessage());
+							}catch (NumberFormatException e) {
+								a.setContentText(e.getMessage());
 								a.showAndWait();
 							}
 						}catch(datoFaltante e){
 							a.setContentText(e.getMessage());
                 			a.showAndWait();
-                		}
+                		}catch(tipoDato e){
+                			a.setContentText(e.getMessage());
+                			a.showAndWait();
+                		}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
+                    		a.showAndWait();
+        				}
 					}
 					
 				});
@@ -692,7 +720,12 @@ public class VInicio extends Application {
 							a.setContentText(canjeo);
 						}catch(datoFaltante e){
 							a.setContentText(e.getMessage());
-            			}finally {
+            			}catch(tipoDato e) {
+            				a.setContentText(e.getMessage());
+            			}catch(NumberFormatException e){
+                    		tipoDato error = new tipoDato();
+                    		a.setContentText(error.getMessage());
+        				}finally {
 							a.showAndWait();
             			}
 					}
