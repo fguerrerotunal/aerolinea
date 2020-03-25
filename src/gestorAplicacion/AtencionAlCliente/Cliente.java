@@ -49,7 +49,8 @@ public class Cliente extends Persona{
 				return "VUELO RESERVADO SATISFACTORIAMENTE";
 			}
 			else {
-				return "VUELOS SIN ASIENTOS DISPONIBLES";
+				return "VUELOS SIN ASIENTOS DISPONIBLES.\n"
+						+ "OPERACON CANCELADA";
 			}	
 	}
 	//Metodo que retorna la lista de vuelos disponibles al hacer la consulta

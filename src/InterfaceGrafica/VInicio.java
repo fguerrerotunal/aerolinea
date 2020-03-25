@@ -8,6 +8,7 @@ import Utilidades.clienteInexistente;
 import Utilidades.datoFaltante;
 import Utilidades.modificarVuelo;
 import Utilidades.registroDuplicado;
+import Utilidades.saldoInsuficiente;
 import Utilidades.tipoDato;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.AtencionAlCliente.Persona;
@@ -490,7 +491,7 @@ public class VInicio extends Application {
 			case "Comprar Tiquete":
 				Button Acp = new Button("Aceptar");
 				Button Cancelr = new Button("Cancelar");
-				Button Silla = new Button("Cambiar silla?");
+				Button Silla = new Button("Cambiar silla");
 				Button Con = new Button("Continuar");
 				procesoAct.setText(accion);
 				ComboBox<Integer> P = new ComboBox<Integer>();
@@ -514,7 +515,7 @@ public class VInicio extends Application {
 	    			);
 	    		Le.getSelectionModel().select(1);
 				consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
-				Label p1 = new Label("Seleccione un vuelo: ");
+				Label p1 = new Label("Seleccione una posicion:");
 				Label p2 = new Label("Seleccione una silla: ");
 				Label p3 = new Label("¿Limite de equipaje?: ");
 				V.setAlignment(Pos.TOP_CENTER);
@@ -537,25 +538,46 @@ public class VInicio extends Application {
 					@Override
 					public void handle(MouseEvent event) {
 						
-							try{
-								if(!MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue())).equals(null)) {
-									V.getChildren().removeAll(V.getChildren());
-									V.add(p1, 0, 3);
-									V.add(P, 1, 3);
-									V.add(new Label("  "), 5, 3);
-									V.add(p3, 6, 3);
-									V.add(Le, 7,3);
-									V.add(Cancelr,0,0,2,1);
-									V.add(Silla,3,0,2,1);
-									V.add(Con,6,0,2,1);
-									procesoAct.setText(accion);		
-								}
+						try{
+							String verificacion = MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue()));
+							
+							//mostrar silla por defecto
+							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
+							
+							V.getChildren().removeAll(V.getChildren());
+							V.add(p1, 0, 3);
+							V.add(P, 1, 3);
+							V.add(new Label("  "), 5, 3);
+							V.add(p3, 6, 3);
+							V.add(Le, 7,3);
+							V.add(Cancelr,0,0,2,1);
+							V.add(Silla,3,0,2,1);
+							V.add(Con,6,0,2,1);
+							V.add(p2, 3, 3);
+							V.add(Si, 4,3);
+							Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
+							consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(reserva) +"\n"+reserva.getVuelo().toString("sillas"));
+							procesoAct.setText("Su Tiquete es:");
+							a.setContentText(verificacion);
+							a.showAndWait();
+							if(!(verificacion.equals("VUELO RESERVADO SATISFACTORIAMENTE"))){
+								
+								V.getChildren().removeAll(V.getChildren());
+								V.add(p1, 0, 3);
+								V.add(P, 1, 3);
+								V.add(new Label("  "), 2, 3);
+								V.add(new Label("  "), 3, 2);
+								V.add(Act, 0, 0,2,1);
+								V.add(Acp, 6, 0,2,1);
+							}
 						}catch(NullPointerException e) {
 							datoFaltante error = new datoFaltante("Numero de vuelo");
 	                   		a.setContentText(error.getMessage());
 	                   		a.showAndWait();
 							}
 					}
+					
+					
 				}));
 				Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					
@@ -563,23 +585,14 @@ public class VInicio extends Application {
 					public void handle(MouseEvent event) {
 						a.setContentText("Esta Accion puede generar costos desea continuar");
                 		a.showAndWait();
+                		Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
 						
-						procesoAct.setText("Sillas del vuelo: "+ P.getValue());
-						Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
-						MenuDeConsola.usuarioactual.CambiarSilla(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1), Si.getValue());
-						consulta.setText(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getVuelo().toString("sillas"));
-						V.getChildren().removeAll(V.getChildren());
-						V.add(p1, 0, 3);
-						V.add(P, 1, 3);
-						V.add(new Label("  "), 5, 3);
-						V.add(p3, 6, 3);
-						V.add(Le, 7,3);
-						V.add(Cancelr,0,0,2,1);
-						V.add(Silla,3,0,2,1);
-						V.add(Con,6,0,2,1);
-						V.add(p2, 3, 3);
-						V.add(Si, 4,3);
+						//cambio silla
+						String verifCambioSilla = MenuDeConsola.usuarioactual.CambiarSilla(reserva, Si.getValue());
 						
+						consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(reserva) +"\n"+reserva.getVuelo().toString("sillas"));
+						a.setContentText(verifCambioSilla);
+						a.showAndWait();
 						
 						
 					}
@@ -595,7 +608,11 @@ public class VInicio extends Application {
 						V.add(new Label("  "), 3, 2);
 						V.add(Act, 0, 0,2,1);
 						V.add(Acp, 6, 0,2,1);
-						MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).Finalize();
+						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
+						reserva.Finalize();
+						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+						a.setContentText("OPERACON CANCELADA");
+						a.showAndWait();
 					}
 				}));
 				
@@ -603,16 +620,60 @@ public class VInicio extends Application {
 					@Override
 					public void handle(MouseEvent event) {
 						V.getChildren().removeAll(V.getChildren());
-						V.add(p1, 0, 3);
-						V.add(P, 1, 3);
-						V.add(new Label("  "), 2, 3);
-						V.add(new Label("  "), 3, 2);
-						V.add(Act, 0, 0,2,1);
-						V.add(Acp, 6, 0,2,1);
-						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+						Button efectivo = new Button("Efectivo");
+						Button millas = new Button("Millas");
+						V.add(efectivo, 0, 0);
+						V.add(millas, 1, 0);
+						consulta.setText("seleccione metodo de pago.");
+						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
+						
 						if(Le.getValue().equals("SI")) {
-							MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).setEquipaje();
+							reserva.setEquipaje();
 						}
+						
+						efectivo.setOnMouseClicked((new EventHandler<MouseEvent>() {
+							@Override
+							public void handle(MouseEvent event) {
+								try{
+									a.setContentText(MenuDeConsola.usuarioactual.Pago(0,reserva));
+								}catch(saldoInsuficiente e) {
+									a.setContentText(e.getMessage());
+								}finally {
+									consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+									V.getChildren().removeAll(V.getChildren());
+									V.add(p1, 0, 3);
+									V.add(P, 1, 3);
+									V.add(new Label("  "), 2, 3);
+									V.add(new Label("  "), 3, 2);
+									V.add(Act, 0, 0,2,1);
+									V.add(Acp, 6, 0,2,1);
+									a.showAndWait();
+								}
+							}
+							
+						}));
+						
+						millas.setOnMouseClicked((new EventHandler<MouseEvent>() {
+							@Override
+							public void handle(MouseEvent event) {
+								try{
+									a.setContentText(MenuDeConsola.usuarioactual.Pago(1,reserva));
+								}catch(saldoInsuficiente e) {
+									a.setContentText(e.getMessage());
+								}finally {
+									consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+									V.getChildren().removeAll(V.getChildren());
+									V.add(p1, 0, 3);
+									V.add(P, 1, 3);
+									V.add(new Label("  "), 2, 3);
+									V.add(new Label("  "), 3, 2);
+									V.add(Act, 0, 0,2,1);
+									V.add(Acp, 6, 0,2,1);
+									a.showAndWait();
+								}
+							}
+							
+						}));
 					}
 				}));
 				break;
