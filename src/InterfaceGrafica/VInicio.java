@@ -476,13 +476,13 @@ public class VInicio extends Application {
 				Act.setMaxWidth(Double.MAX_VALUE);
 				V.add(p1, 0, 3);
 				V.add(P, 1, 3);
-				V.add(new Label(" "), 2, 3);
+				V.add(new Label("  "), 2, 3);
 				V.add(p2, 3, 3);
 				V.add(Si, 4,3);
-				V.add(new Label(" "), 5, 3);
+				V.add(new Label("  "), 5, 3);
 				V.add(p3, 6, 3);
 				V.add(Le, 7,3);
-				V.add(new Label(" "), 3, 2);
+				V.add(new Label("  "), 3, 2);
 				V.add(Act, 3, 0,2,1);
 				
 				break;
