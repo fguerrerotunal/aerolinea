@@ -102,7 +102,7 @@ public class VInicio extends Application {
 	//declaracion elementos varios inicio
 	GridPane topright = new GridPane();
 	MenuItem menuSalir = new MenuItem("Salir");
-	MenuItem menuDescrip = new MenuItem("Descripccion");
+	MenuItem menuDescrip = new MenuItem("Descripcion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
 	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
