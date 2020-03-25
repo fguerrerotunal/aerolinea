@@ -59,6 +59,13 @@ public class VInicio extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		Timer timer = new Timer();
+		TimerTask estadoVuelos =  new TimerTask() {
+			public void run() {
+				Admin.empleados.get(0).ActualizarVuelos();
+			}
+		};
+		timer.schedule(estadoVuelos, 20000,20000);//cada 1 min
 
 	}
 	
