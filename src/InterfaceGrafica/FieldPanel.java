@@ -27,11 +27,7 @@ public class FieldPanel extends Pane {
 		this.tituloCriterios = tituloCriterios;
 		this.criterios = criterios;
 		this.tituloValores = tituloValores;
-		//if(valores == null) {
-			//this.valores = new String[criterios.length-1];
-		//}else{
 		this.valores = valores;
-		//}
 		this.habilitado = habilitado;
 		
 		GridPane grid = ((GridPane) this.getChildren().get(0));
