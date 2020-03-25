@@ -65,7 +65,7 @@ public class VInicio extends Application {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 20000,20000);//cada 1 min
+		timer.schedule(estadoVuelos, 2000,2000);//cada 1 min
 		launch(args);
 	}
 	
@@ -128,7 +128,10 @@ public class VInicio extends Application {
 		Menu Archivo = new Menu("Archivo");
 		Menu PyC = new Menu("Procesos y Consultas");
 		Menu ayuda = new Menu("Ayuda");
-		Label tutorial = new Label("");
+		Label tutorial = new Label("En esta aplicación el usuario tendrá la capacidad de comprar vuelos,\n"
+				+ " revisar y cancelar los ya pagados, además podrá canjear sus millas por diferentes premios.\n"
+				+ " en la parte superior se encuentra los menús donde podrá acceder a estas funcionalidades.");
+		tutorial.setFont(new Font("Agency FB",12));
 		BorderPane tutoInicio = new BorderPane();
 		
 		//Modificacion Elementos varios
@@ -442,29 +445,17 @@ public class VInicio extends Application {
 				break;
 			case "Comprar Tiquete":
 				procesoAct.setText(accion);
+				ComboBox<Integer> P = new ComboBox<Integer>();
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
-
 					@Override
 					public void handle(MouseEvent event) {
+						
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+						P.getItems().addAll(datos());
 					} 
 				}));
 				GridPane V = new GridPane();
-				Vector<Integer> NV = new Vector<>();
-				Iterator<Vuelo> i = Empleado.vuelos.iterator();
-	    		int posicion = 0;
-	    		while(i.hasNext()) {
-	    			Vuelo vuelo = (Vuelo)i.next();
-	    			if(vuelo.getEstado().equals("Venta")) {
-	    				NV.add(posicion);
-	    			}
-	    			posicion++;
-	    		}
-				ObservableList<Integer> options = 
-					    FXCollections.observableArrayList(
-					    	NV
-					    );
-				final ComboBox<Integer> P = new ComboBox<Integer>(options);
+				
 				ComboBox<String> Si = new ComboBox<String>();
 	    		Si.getItems().addAll(
 	    			    "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"
@@ -491,7 +482,6 @@ public class VInicio extends Application {
 				V.add(p3, 6, 3);
 				V.add(Le, 7,3);
 				V.add(new Label(" "), 3, 2);
-
 				V.add(Act, 3, 0,2,1);
 				
 				break;
@@ -604,6 +594,21 @@ public class VInicio extends Application {
 				
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
+		}
+		public Vector<Integer> datos() {
+			Iterator<Vuelo> i = Empleado.vuelos.iterator();
+			Vector<Integer> NV = new Vector<>();
+			int posicion = 0;
+    		while(i.hasNext()) {
+    			Vuelo vuelo = (Vuelo)i.next();
+    			if(vuelo.getEstado().equals("Venta")) {
+    				NV.add(posicion);
+    			}
+    			posicion++;
+    		}
+			return NV;
+    		
+			
 		}
 	}
 	
