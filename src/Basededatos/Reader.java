@@ -14,10 +14,13 @@ import gestorAplicacion.Master.*;
 import uiMain.menuconsola.opcionesdeMenu.Cartera;
 
 import java.io.*;
+//Esta clase se usa para leer los datos los cuales se encuentran en los archivos 
+//.json en los cuales se guarda la informacion del usuario al salir.
 public class Reader {
 	static Gson gson=new Gson();
 	static File fichero = new File("");
 	FileReader ficheros=null;
+	//este metodo es el que se utiliza para poder realizar la lectura en el momento en que se llame.
 	public static void Leer(){
 		//Pasa los Aeropuertos a el programa
 		try {
