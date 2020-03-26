@@ -1,5 +1,9 @@
 package gestorAplicacion.Master;
 import java.io.*;
+
+/*
+ * clase que representa los destinos geograficos usados en la aplicacion 
+ */
 public class Aeropuerto{
 	//Atributos de los objetos tipo Clase Aeropuerto
 	private String nombre;

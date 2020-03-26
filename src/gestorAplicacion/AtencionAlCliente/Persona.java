@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /*
- * 
+ * esta clase representa a las personas que se involucran en los diferentes procesos de la aplicacion 
+ * tanto a empleados como a clientes.
  */
 public abstract class Persona{
 //Atributos de los objetos de clase Persona
