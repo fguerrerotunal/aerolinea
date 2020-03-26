@@ -16,16 +16,18 @@ import uiMain.menuconsola.opcionesdeMenu.NuevoRegistro;
 import uiMain.menuconsola.opcionesdeMenu.Salir;
 import uiMain.menuconsola.opcionesdeMenu.UsuarioRegistrado;
 import uiMain.menuconsola.opcionesdeMenu.VuelosDelDia;;
-
+/*
+ * esta clase se utiliza para ejecutar el programa por consola.
+ */
 public class Inicio extends MenuDeConsola{
 	public String Mensaje() {
 		return "AEROLINEA LUNA`S";
 	}
-	
+	//metodo principal para inicia el programa por consola
 	public static void main(String[] args) {
 		Inicio inicio = new Inicio();
 		MenuCliente menucliente = new MenuCliente();
-
+		//declaracion de elementos varios de inicio
 		UsuarioRegistrado usuarioregistrado = new UsuarioRegistrado(menucliente); // listo
 		NuevoRegistro nuevoregistro = new NuevoRegistro(); //listo
 		Autores autores = new Autores(); 

@@ -3,7 +3,9 @@ package uiMain.menuconsola;
 import java.util.*;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
-
+/*
+ * Esta clase es el menu generico de consola el cual se ejecuta al iniciar el programa y le muestra al usuario diferentes opciones
+ */
 public abstract class MenuDeConsola {
 	
 	Vector<OpcionDeMenu> opciones = new Vector<>();

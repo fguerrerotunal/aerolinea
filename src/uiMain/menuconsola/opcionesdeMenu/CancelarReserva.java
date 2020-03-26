@@ -3,7 +3,10 @@ package uiMain.menuconsola.opcionesdeMenu;
 import Utilidades.modificarVuelo;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * esta opcion de menu se llama cuando el usuario selecciona cancelar reserva, 
+ * se encarga de buscar la reserva que quiere cancelar y borrarla de su cartera
+ */
 public class CancelarReserva extends OpcionDeMenu{
 	
 	public String Nombre() {
