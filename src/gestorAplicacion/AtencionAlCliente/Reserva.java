@@ -12,6 +12,7 @@ public class Reserva{
 	private Boolean equipaje = true;
 	private int costo = 0;
 	
+	//constructor por defecto
 	public Reserva(Vuelo vuelo, Cliente pasajero){
 		this.codigovuelo= vuelo.getNumeroVuelo();
 		this.vuelo = vuelo;
@@ -26,6 +27,8 @@ public class Reserva{
 			
 		}	
 	}
+	
+	//construcctor reservado para la base de datos
 	public Reserva(int codigo,Vuelo vuelo,Cliente pasajero,int costo,boolean equipaje,int silla){
 			this.codigovuelo=codigo;
 			this.setvuelo(vuelo);
@@ -39,6 +42,7 @@ public class Reserva{
 			}
 	}
 	
+	//Getters y setters
 	public int getSilla() {
 		return silla;
 	}
@@ -57,7 +61,8 @@ public class Reserva{
 	public Cliente getPasajero() {
 		return this.pasajero;
 	}
-
+	
+	//cambio de silla verificando su disponibilidad antes de hacer el cambio 
 	public String setSilla(int Nsilla) throws sillaOcupada{
 		costo += 45000;
 		if(vuelo.getPuestos()[Nsilla-1] == null) {
@@ -70,36 +75,39 @@ public class Reserva{
 		}
 	}
 
-
+	
 	public void setEquipaje() {
 		this.equipaje = false;
 		costo += 30000;
 	}
+	
 	public void SetEquipaje(boolean equipaje) {
 		this.equipaje = equipaje;
 	}
+	
 	public void setCosto(int costo) {
 		this.costo = costo;
 	}
 	
-	public int Finalize(){
-		this.vuelo.getPuestos()[silla]=null;
-		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
-		return vuelo.getPrecioTiquete();
-	}
-
-
 	public int getCodigovuelo() {
 		return codigovuelo;
 	}
+	
 
+	public void setvuelo(Vuelo vuelo2) {
+		this.vuelo=vuelo2;
+		
+	}
 
 	public void setCodigovuelo(int codigovuelo) {
 		this.codigovuelo = codigovuelo;
 	}
+
 	public void setpasajero(Cliente cliente) {
 		this.pasajero=cliente;
 	}
+	
+	//metodo reservado para la base de datos para cargar las reservas
 	public Vuelo asignarReserva() {
 		for(Vuelo i:Empleado.vuelos ) {
 			if(this.getCodigovuelo()==i.getNumeroVuelo()) {
@@ -108,15 +116,13 @@ public class Reserva{
 			}
 		}
 
-			return vuelo ;
-		
-
+		return vuelo ;
 	}
 
-
-	public void setvuelo(Vuelo vuelo2) {
-		this.vuelo=vuelo2;
-		
+	//cancela la reserva  
+	public int Finalize(){
+		this.vuelo.getPuestos()[silla]=null;
+		this.pasajero.cartera.remove(this.pasajero.cartera.indexOf(this));
+		return vuelo.getPrecioTiquete();
 	}
-
 }
