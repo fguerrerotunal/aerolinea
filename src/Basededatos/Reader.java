@@ -85,9 +85,7 @@ public class Reader {
 			System.out.println("ERROR al entrar cliente");
 			System.out.println(e);
 			}
-
-
-
+		Vuelo.setCantidaddevuelos(Empleado.vuelos.get(Empleado.vuelos.size()-1).getNumeroVuelo());
 	}
 	// convierte la lista de cartera generada en la escritura vector
 	private static Vector<Reserva> VectorReservas(Reserva[] hi,Cliente cliente) {

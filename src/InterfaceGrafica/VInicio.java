@@ -4,6 +4,7 @@ import java.util.*;
 
 
 import Basededatos.Reader;
+import Basededatos.Writer;
 import Utilidades.clienteInexistente;
 import Utilidades.datoFaltante;
 import Utilidades.modificarVuelo;
@@ -14,6 +15,7 @@ import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.AtencionAlCliente.Persona;
 import gestorAplicacion.AtencionAlCliente.Reserva;
 import gestorAplicacion.Master.Admin;
+import gestorAplicacion.Master.Aeropuerto;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 import javafx.application.Application;
@@ -61,7 +63,7 @@ public class VInicio extends Application {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 10000,10000);//cada 1 min
+		timer.schedule(estadoVuelos, 5000,5000);//cada 1 min
 
 		
 		Admin.premios.add("Silla: 50");
@@ -72,7 +74,7 @@ public class VInicio extends Application {
 		Admin.premios.add("Viaje gratis: 800");
 		Admin.premios.add("Viaje en pareja: 1000");
 		Admin.premios.add("Viaje Familiar(max 4): 1200");
-		
+		//Admin.Reiniciar();
 		launch(args);
 	}
 	
@@ -354,6 +356,7 @@ public class VInicio extends Application {
 		public void handle(ActionEvent e) {
 			Object accion = e.getSource();
 			if(accion.equals(menuSalir)) {
+				Writer.Escribir();
 				System.exit(0);
 			}else {
 				bienvenida.setText(Descripccion.mensaje);
@@ -611,7 +614,7 @@ public class VInicio extends Application {
 						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
 						reserva.Finalize();
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
-						a.setContentText("OPERACON CANCELADA");
+						a.setContentText("OPERACION CANCELADA");
 						a.showAndWait();
 					}
 				}));
@@ -857,7 +860,7 @@ public class VInicio extends Application {
 			return NV;
     		
 			
-		}
+		}		
 	}
 	
 }
