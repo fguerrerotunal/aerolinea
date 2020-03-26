@@ -11,7 +11,9 @@ import gestorAplicacion.AtencionAlCliente.Persona;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+/*
+ * Clase la cual se encaarga de los procesos que no son correspondientes a las opciones de los clientes
+ */
 public class Empleado extends Persona{
 	//Atributos del empleado
 	private String ocupacion;

@@ -506,6 +506,7 @@ public class VInicio extends Application {
 				procesoAct.setText(accion);
 				ComboBox<Integer> P = new ComboBox<Integer>();
 				P.getItems().setAll(datos());
+				//Boton que recargar consultar Vuelos disponibles
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
@@ -539,6 +540,7 @@ public class VInicio extends Application {
 				V.add(P, 1, 3);
 				V.add(Act, 0, 0,2,1);
 				V.add(Acp, 6, 0,2,1);
+				//confirma y verifica el vuelo selecionado
 				Acp.setOnMouseClicked((new EventHandler<MouseEvent>() {
 
 					@Override
@@ -582,6 +584,7 @@ public class VInicio extends Application {
 					
 					
 				}));
+				//boton que confirma el cambio de la silla
 				Silla.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					
 					@Override
@@ -600,6 +603,7 @@ public class VInicio extends Application {
 						
 					}
 				}));
+				//boton que cancela por si te arrepientes de reserver
 				Cancelr.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					
 					@Override
@@ -619,7 +623,7 @@ public class VInicio extends Application {
 						a.showAndWait();
 					}
 				}));
-				
+				//bonton que te manda al proceso de pago
 				Con.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
