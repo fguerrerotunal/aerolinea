@@ -13,6 +13,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+/*
+ * formulario generico propuesto en el documento de la entrega
+ */
 public class FieldPanel extends Pane {
 	
 	String tituloCriterios;
@@ -21,6 +24,11 @@ public class FieldPanel extends Pane {
 	String[]  valores;
 	boolean[] habilitado;
 	
+	/*
+	 * constructor usando un Pane y un grid panel anidados
+	 * crea los labels y text field necesarios, ademas 
+	 * de los botones de aceptar y borrar 
+	 */
 	public FieldPanel(String tituloCriterios, String[] criterios, String tituloValores, String[] valores,
 			boolean[] habilitado) {
 		super(new GridPane());
@@ -54,6 +62,9 @@ public class FieldPanel extends Pane {
 		grid.add(new Button("Aceptar"), 0, criterios.length,2,1);
 		grid.add(new Button("Borrar"), 1, criterios.length,2,1);
 		
+		/*
+		 * oidor del boton "borrar", borra todos los text fields editables por el usuario.
+		 */
 		ObservableList<Node> asd = grid.getChildren();
 		((Button)asd.get(asd.size()-1)).setOnMouseClicked(new EventHandler<MouseEvent>() {
             public void handle(MouseEvent event) {
@@ -72,6 +83,10 @@ public class FieldPanel extends Pane {
         });
 	}
 	
+	/*
+	 * Metodo para conseguir cada uno de los valores ingresados,
+	 * segun el criterio recibido en el parametro
+	 */
 	public String getValue(String criterio) {
 		String valor="";
 		for(int i = 0; i< this.criterios.length;i++) {
@@ -82,6 +97,10 @@ public class FieldPanel extends Pane {
 		return valor;
 	}
 	
+	/*
+	 * Guarda los datos ingresados por el usuario y borra el 
+	 * contenido de los textfield
+	 */
 	public void GuardarDatos() throws datoFaltante{
 		GridPane grid = ((GridPane) this.getChildren().get(0));
 		for(int i = 0; i < criterios.length;i++) {	
