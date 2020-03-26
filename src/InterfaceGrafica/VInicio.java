@@ -514,7 +514,7 @@ public class VInicio extends Application {
 						Act.setText("Actualizar");
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 						P.getItems().setAll(datos());
-						P.getSelectionModel().clearSelection();
+						P.getSelectionModel().selectFirst();
 					} 
 				}));
 				
@@ -607,8 +607,8 @@ public class VInicio extends Application {
 					@Override
 					public void handle(MouseEvent event) {
 						procesoAct.setText(accion);
-						P.getSelectionModel().clearSelection();
 						P.getItems().setAll(datos());
+						P.getSelectionModel().selectFirst();
 						V.getChildren().removeAll(V.getChildren());
 						V.add(p1, 0, 3);
 						V.add(P, 1, 3);
@@ -626,8 +626,8 @@ public class VInicio extends Application {
 					@Override
 					public void handle(MouseEvent event) {
 						procesoAct.setText(accion);
-						P.getSelectionModel().clearSelection();
 						P.getItems().setAll(datos());
+						P.getSelectionModel().selectFirst();
 						V.getChildren().removeAll(V.getChildren());
 						Button efectivo = new Button("Efectivo");
 						Button millas = new Button("Millas");
