@@ -1,4 +1,4 @@
-//esta clase se encarga de hacer los procesos de tranferecias que tiene nuestra 
+//esta clase se encarga de hacer los procesos de tranferecia monetaría que tiene nuestra 
 //aplicacion con el usuario
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
