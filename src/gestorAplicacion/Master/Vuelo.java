@@ -1,3 +1,4 @@
+//esta clase se encarga de ubicar al usuario en su vuelo y brindar infarmacion sobre el
 package gestorAplicacion.Master;
 import java.util.*;
 
