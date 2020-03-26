@@ -467,6 +467,8 @@ public class VInicio extends Application {
 		@Override
 		public void handle(ActionEvent e) {
 			GridPane V = new GridPane();
+			V.setVgap(5);
+			V.setHgap(5);
 			V.setAlignment(Pos.TOP_CENTER);
 			V.setPrefHeight(Vapp.getHeight()*0.1);
 			V.setPrefWidth(Vapp.getWidth()*0.2);
@@ -502,6 +504,7 @@ public class VInicio extends Application {
 				Button Con = new Button("Continuar");
 				procesoAct.setText(accion);
 				ComboBox<Integer> P = new ComboBox<Integer>();
+				P.getItems().setAll(datos());
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
@@ -532,8 +535,6 @@ public class VInicio extends Application {
 				Con.setMaxWidth(Double.MAX_VALUE);
 				V.add(p1, 0, 3);
 				V.add(P, 1, 3);
-				V.add(new Label("  "), 2, 3);
-				V.add(new Label("  "), 3, 2);
 				V.add(Act, 0, 0,2,1);
 				V.add(Acp, 6, 0,2,1);
 				Acp.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -550,7 +551,6 @@ public class VInicio extends Application {
 							V.getChildren().removeAll(V.getChildren());
 							V.add(p1, 0, 3);
 							V.add(P, 1, 3);
-							V.add(new Label("  "), 5, 3);
 							V.add(p3, 6, 3);
 							V.add(Le, 7,3);
 							V.add(Cancelr,0,0,2,1);
@@ -568,8 +568,6 @@ public class VInicio extends Application {
 								V.getChildren().removeAll(V.getChildren());
 								V.add(p1, 0, 3);
 								V.add(P, 1, 3);
-								V.add(new Label("  "), 2, 3);
-								V.add(new Label("  "), 3, 2);
 								V.add(Act, 0, 0,2,1);
 								V.add(Acp, 6, 0,2,1);
 							}
@@ -607,8 +605,6 @@ public class VInicio extends Application {
 						V.getChildren().removeAll(V.getChildren());
 						V.add(p1, 0, 3);
 						V.add(P, 1, 3);
-						V.add(new Label("  "), 2, 3);
-						V.add(new Label("  "), 3, 2);
 						V.add(Act, 0, 0,2,1);
 						V.add(Acp, 6, 0,2,1);
 						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
