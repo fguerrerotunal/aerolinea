@@ -814,7 +814,7 @@ public class VInicio extends Application {
 			case "Canjear Premio":
 				V.getChildren().removeAll(V.getChildren());
 				procesoAct.setText(accion);
-				consulta.setText(Admin.ImprimirPremios());
+				consulta.setText("Sus millas: "+MenuDeConsola.usuarioactual.getCuentamillas().getMillas() +"\n\n"+ Admin.ImprimirPremios());
 				String[] c2 = {"Premio a canjear"};
 				String[] v2 = {""};
 				FieldPanel formpremios = new FieldPanel("",c2,"",v2,null);
