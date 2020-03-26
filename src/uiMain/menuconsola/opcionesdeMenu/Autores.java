@@ -1,7 +1,9 @@
 package uiMain.menuconsola.opcionesdeMenu;
 
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Esta opcion imprime la informacion de los autores del programa.
+ */
 public class Autores extends OpcionDeMenu{
 
 	private static String mensaje = "DESARROLLADORES: "
