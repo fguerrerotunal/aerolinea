@@ -159,7 +159,7 @@ public class Vuelo{
 					a = "[PUESTO: " + (Integer.valueOf(i)+Integer.valueOf(1)) + " LIBRE ]" ;
 				}
 				else {
-					a = "[PUESTO: " + i+1 + " OCUPADO ]" ;
+					a = "[PUESTO: " + (Integer.valueOf(i)+Integer.valueOf(1)) + " OCUPADO ]" ;
 				}
 				info = info + a;
 				if(i == 4 || i == 9 || i == 14 || i == 19) {
