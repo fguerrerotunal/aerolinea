@@ -194,7 +194,7 @@ public class Cliente extends Persona{
 	public Vector<Reserva> getCartera() {
 		return this.cartera;
 	}
-	public static void setNumero_de_clientes(int i) {
+	public void setNumero_de_clientes(int i) {
 		numero_de_clientes=i;
 		
 	}
