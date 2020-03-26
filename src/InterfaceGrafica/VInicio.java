@@ -847,7 +847,7 @@ public class VInicio extends Application {
 					
 				});
 				break;
-				
+				//
 			}
 			BorderPane.setAlignment(procesoAct, Pos.CENTER);
 		}
