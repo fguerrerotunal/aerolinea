@@ -14,7 +14,6 @@ import java.io.*;
 public class Cliente extends Persona{
 	
 //atributos asignados a la persona cuando esta es un cliente
-	private static int numero_de_clientes = 1;
 	private CuentaMillas cuentamillas;
 	private int pasaporte;
 	public Vector<Reserva> cartera = new Vector<>();
@@ -193,9 +192,5 @@ public class Cliente extends Persona{
 	}
 	public Vector<Reserva> getCartera() {
 		return this.cartera;
-	}
-	public void setNumero_de_clientes(int i) {
-		numero_de_clientes=i;
-		
 	}
 }

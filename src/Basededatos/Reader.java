@@ -86,7 +86,6 @@ public class Reader {
 			System.out.println(e);
 			}
 		Vuelo.setCantidaddevuelos(Empleado.vuelos.get(Empleado.vuelos.size()-1).getNumeroVuelo());
-		Admin.clientes.get(0).setNumero_de_clientes(Admin.clientes.size()-1);
 	}
 	// convierte la lista de cartera generada en la escritura vector
 	private static Vector<Reserva> VectorReservas(Reserva[] hi,Cliente cliente) {
