@@ -21,7 +21,6 @@ public class Cliente extends Persona{
 	//constructor de cliente
 	public Cliente(int identificacion, int cuentabancaria, String nombre, String direccion, String correo, int pasaporte){
 		super(identificacion, cuentabancaria, nombre, direccion, correo);
-		numero_de_clientes ++;
 		this.setCuentamillas(new CuentaMillas(this,identificacion));
 		this.setPasaporte(pasaporte);
 	}
