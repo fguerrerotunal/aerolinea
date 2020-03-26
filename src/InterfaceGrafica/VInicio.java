@@ -592,7 +592,7 @@ public class VInicio extends Application {
                 		Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
 						
 						//cambio silla
-						String verifCambioSilla = MenuDeConsola.usuarioactual.CambiarSilla(reserva, Si.getValue());
+                		String verifCambioSilla = MenuDeConsola.usuarioactual.CambiarSilla(reserva, Si.getValue());
 						
 						consulta.setText(MenuDeConsola.usuarioactual.Pasabordo(reserva) +"\n"+reserva.getVuelo().toString("sillas"));
 						a.setContentText(verifCambioSilla);
