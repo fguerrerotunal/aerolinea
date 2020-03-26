@@ -5,7 +5,7 @@ public class CuentaBancaria{
 	static int cantidadCuentas;
 	private int numeroCuenta;
 	private transient int titular;
-	private int saldo = 12500*4*15;
+	private int saldo = 1000000000;
 	//Constructor
 	public CuentaBancaria(int numeroCuenta, int titular){
 		cantidadCuentas += 1;
