@@ -368,6 +368,7 @@ public class VInicio extends Application {
 	class ToprightHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
+			
 			Label b = new Label("Identificacion");
 			Object accion = e.getSource();
 			if(accion.equals(registro)) {
@@ -468,6 +469,13 @@ public class VInicio extends Application {
 	class MenuClienteHandlerClass implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent e) {
+			GridPane V = new GridPane();
+			V.setVgap(5);
+			V.setHgap(5);
+			V.setAlignment(Pos.TOP_CENTER);
+			V.setPrefHeight(Vapp.getHeight()*0.1);
+			V.setPrefWidth(Vapp.getWidth()*0.2);
+			
 			ScrollPane aux = new ScrollPane();
 			Button Act= new Button("Actualizar");
 			GridPane auxgrid;
@@ -492,12 +500,14 @@ public class VInicio extends Application {
 				break;
 				
 			case "Comprar Tiquete":
+				V.getChildren().removeAll(V.getChildren());
 				Button Acp = new Button("Aceptar");
 				Button Cancelr = new Button("Cancelar");
 				Button Silla = new Button("Cambiar silla");
 				Button Con = new Button("Continuar");
 				procesoAct.setText(accion);
 				ComboBox<Integer> P = new ComboBox<Integer>();
+				P.getItems().setAll(datos());
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
@@ -506,8 +516,7 @@ public class VInicio extends Application {
 						P.getItems().setAll(datos());
 					} 
 				}));
-				GridPane V = new GridPane();
-				P.getItems().setAll(datos());
+				
 				ComboBox<Integer> Si = new ComboBox<Integer>();
 	    		Si.getItems().addAll(
 	    			    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
@@ -521,9 +530,6 @@ public class VInicio extends Application {
 				Label p1 = new Label("Seleccione una posicion:");
 				Label p2 = new Label("Seleccione una silla: ");
 				Label p3 = new Label("¿Limite de equipaje?: ");
-				V.setAlignment(Pos.TOP_CENTER);
-				V.setPrefHeight(Vapp.getHeight()*0.1);
-				V.setPrefWidth(Vapp.getWidth()*0.2);
 				clientes2.setBottom(V);
 				Act.setMaxWidth(Double.MAX_VALUE);
 				Acp.setMaxWidth(Double.MAX_VALUE);
@@ -532,8 +538,6 @@ public class VInicio extends Application {
 				Con.setMaxWidth(Double.MAX_VALUE);
 				V.add(p1, 0, 3);
 				V.add(P, 1, 3);
-				V.add(new Label("  "), 2, 3);
-				V.add(new Label("  "), 3, 2);
 				V.add(Act, 0, 0,2,1);
 				V.add(Acp, 6, 0,2,1);
 				Acp.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -550,7 +554,6 @@ public class VInicio extends Application {
 							V.getChildren().removeAll(V.getChildren());
 							V.add(p1, 0, 3);
 							V.add(P, 1, 3);
-							V.add(new Label("  "), 5, 3);
 							V.add(p3, 6, 3);
 							V.add(Le, 7,3);
 							V.add(Cancelr,0,0,2,1);
@@ -568,8 +571,6 @@ public class VInicio extends Application {
 								V.getChildren().removeAll(V.getChildren());
 								V.add(p1, 0, 3);
 								V.add(P, 1, 3);
-								V.add(new Label("  "), 2, 3);
-								V.add(new Label("  "), 3, 2);
 								V.add(Act, 0, 0,2,1);
 								V.add(Acp, 6, 0,2,1);
 							}
@@ -607,8 +608,6 @@ public class VInicio extends Application {
 						V.getChildren().removeAll(V.getChildren());
 						V.add(p1, 0, 3);
 						V.add(P, 1, 3);
-						V.add(new Label("  "), 2, 3);
-						V.add(new Label("  "), 3, 2);
 						V.add(Act, 0, 0,2,1);
 						V.add(Acp, 6, 0,2,1);
 						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
@@ -646,8 +645,6 @@ public class VInicio extends Application {
 									V.getChildren().removeAll(V.getChildren());
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
 									V.add(Act, 0, 0,2,1);
 									V.add(Acp, 6, 0,2,1);
 									a.showAndWait();
@@ -668,8 +665,6 @@ public class VInicio extends Application {
 									V.getChildren().removeAll(V.getChildren());
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
 									V.add(Act, 0, 0,2,1);
 									V.add(Acp, 6, 0,2,1);
 									a.showAndWait();
@@ -681,12 +676,10 @@ public class VInicio extends Application {
 				}));
 				break;
 			case "Vuelos del Dia":
-				GridPane Gp = new GridPane();
-				Gp.setPrefHeight(Vapp.getHeight()*0.1);
-				Gp.setPrefWidth(Vapp.getWidth()*0.2);
-				Gp.add(Act, 0, 0);
-				Gp.setAlignment(Pos.TOP_CENTER);
-				clientes2.setBottom(Gp);
+				V.getChildren().removeAll(V.getChildren());
+				V.add(Act, 0, 0);
+				V.setAlignment(Pos.TOP_CENTER);
+				clientes2.setBottom(V);
 				procesoAct.setText(accion);
 				consulta.setText(Admin.empleados.get(0).EstadoVuelos());
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -710,6 +703,7 @@ public class VInicio extends Application {
 				consulta.setPrefWidth(clientes2.getWidth());
 				break;
 			case "Imprimir Pasabordo":
+				V.getChildren().removeAll(V.getChildren());
 				procesoAct.setText(accion);
 				String comprobante= MenuDeConsola.usuarioactual.Cartera();
 				
@@ -723,7 +717,8 @@ public class VInicio extends Application {
 	                FieldPanel Reservaimp = new FieldPanel("",c,"",v,null);
 	      
 	                auxgrid=(GridPane) Reservaimp.getChildren().get(0);
-	                clientes2.setBottom(Reservaimp);
+	                V.add(Reservaimp,0,0);
+	                clientes2.setBottom(V);
 	                BorderPane.setAlignment(Reservaimp,Pos.CENTER);
 	                
 	                ObservableList<Node> asd = auxgrid.getChildren();
@@ -754,6 +749,7 @@ public class VInicio extends Application {
 				
 				break;
 			case "Cancelar Reserva":
+				V.getChildren().removeAll(V.getChildren());
 				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
 				
@@ -763,9 +759,9 @@ public class VInicio extends Application {
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
 				auxgrid=(GridPane) formcancelar.getChildren().get(0);
-				
-                clientes2.setBottom(formcancelar);
-				BorderPane.setAlignment(formcancelar,Pos.CENTER);
+				V.add(formcancelar, 0, 0);
+                clientes2.setBottom(V);
+
 				
 				ObservableList<Node> asd1 = auxgrid.getChildren();
 				((Button)asd1.get(asd1.size()-2)).setOnAction(new EventHandler<ActionEvent>() {
@@ -809,15 +805,15 @@ public class VInicio extends Application {
 				});
 				break;
 			case "Canjear Premio":
+				V.getChildren().removeAll(V.getChildren());
 				procesoAct.setText(accion);
 				consulta.setText(Admin.ImprimirPremios());
 				String[] c2 = {"Premio a canjear"};
 				String[] v2 = {""};
 				FieldPanel formpremios = new FieldPanel("",c2,"",v2,null);
 				auxgrid=(GridPane) formpremios.getChildren().get(0);
-                
-                clientes2.setBottom(formpremios);
-				BorderPane.setAlignment(formpremios,Pos.CENTER);
+                V.add(formpremios,0,0);
+                clientes2.setBottom(V);
 				
 				ObservableList<Node> asd2 = auxgrid.getChildren();
 				((Button)asd2.get(asd2.size()-2)).setOnAction(new EventHandler<ActionEvent>() {
