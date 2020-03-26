@@ -2,6 +2,7 @@ package gestorAplicacion.AtencionAlCliente;
 
 import gestorAplicacion.Master.Admin;
 import gestorAplicacion.Master.Vuelo;
+import uiMain.menuconsola.MenuDeConsola;
 
 import java.util.*;
 
@@ -159,7 +160,9 @@ public class Cliente extends Persona{
 				+ "ID: "+this.getIdentificacion()+"\n"
 				+ "CORREO: "+this.getCorreo()+"\n"
 				+"DIRECCION: "+this.getDireccion()+"\n"
-				+"# PASAPORTE: "+this.getPasaporte();
+				+"# PASAPORTE: "+this.getPasaporte()+"\n"
+				+"Saldo cuenta Bancaria: "+this.getCuentabancaria().getSaldo()+"\n"
+				+"Saldo millas: "+ this.getCuentamillas().getMillas();
 				
 		return mensaje;
 	}

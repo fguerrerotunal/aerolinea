@@ -491,7 +491,7 @@ public class VInicio extends Application {
 			
 			switch (accion){
 			case "Usuario":
-				a.setContentText(MenuDeConsola.usuarioactual.toString()+"\n Saldo cuenta Bancaria: "+MenuDeConsola.usuarioactual.getCuentabancaria().getSaldo());
+				a.setContentText(MenuDeConsola.usuarioactual.toString());
 				a.showAndWait();
 				break;
 			case "Acerca de":
