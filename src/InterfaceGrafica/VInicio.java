@@ -525,7 +525,7 @@ public class VInicio extends Application {
 	    		Le.getItems().addAll(
 	    			    "Si","NO"
 	    			);
-	    		Le.getSelectionModel().select(1);
+	    		Le.getSelectionModel().select(0);
 				consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 				Label p1 = new Label("Seleccione una posicion:");
 				Label p2 = new Label("Seleccione una silla: ");
