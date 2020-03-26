@@ -754,12 +754,9 @@ public class VInicio extends Application {
 				procesoAct.setText(accion);
 				consulta.setText(MenuDeConsola.usuarioactual.VuelosReservados());
 				
-				aux.setContent(consulta);
-				consulta.setAlignment(Pos.CENTER);
-				clientes2.setCenter(aux);
-				consulta.setPrefWidth(clientes2.getWidth());
+				//consulta.setPrefWidth(clientes2.getWidth());
 				
-				String[] c1 = {"Reserva a cancelar"};
+				String[] c1 = {"Reserva a cancelar:"};
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
 				auxgrid=(GridPane) formcancelar.getChildren().get(0);
