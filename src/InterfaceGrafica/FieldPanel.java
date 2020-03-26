@@ -59,7 +59,14 @@ public class FieldPanel extends Pane {
             public void handle(MouseEvent event) {
             	for(int i = 0; i < criterios.length;i++) {	
         			TextField a = (TextField) grid.getChildren().get((2*i)+1);
-        			a.setText("");
+        			try{
+        				if(habilitado[i]) {
+        					a.setText("");
+        				}
+        			}catch(Exception e){
+        				a.setText("");
+        			}
+        			
         		}
             }
         });
