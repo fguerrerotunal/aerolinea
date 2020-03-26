@@ -642,8 +642,6 @@ public class VInicio extends Application {
 									V.getChildren().removeAll(V.getChildren());
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
 									V.add(Act, 0, 0,2,1);
 									V.add(Acp, 6, 0,2,1);
 									a.showAndWait();
@@ -664,8 +662,6 @@ public class VInicio extends Application {
 									V.getChildren().removeAll(V.getChildren());
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
-									V.add(new Label("  "), 2, 3);
-									V.add(new Label("  "), 3, 2);
 									V.add(Act, 0, 0,2,1);
 									V.add(Acp, 6, 0,2,1);
 									a.showAndWait();
