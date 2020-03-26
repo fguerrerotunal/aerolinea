@@ -188,6 +188,7 @@ public class Vuelo{
 			if(this.puestos[i]!=null){
 				this.puestos[i].getPasajero().AñadirHistorial(this.toString("consulta"));
 				this.puestos[i].getPasajero().cartera.remove(this.puestos[i]);
+				Admin.empleados.get(0).ModMillas(this.puestos[i].getPasajero(),this.precioTiquete/4);
 				this.puestos[i]=null;
 			}
 		}
