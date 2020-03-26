@@ -1,9 +1,10 @@
 package gestorAplicacion.AtencionAlCliente;
 import java.io.*;
-
 import Utilidades.sillaOcupada;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
+
+
 public class Reserva{
 	private int codigovuelo;
 	private Vuelo vuelo;
@@ -67,7 +68,7 @@ public class Reserva{
 		costo += 45000;
 		if(vuelo.getPuestos()[Nsilla-1] == null) {
 			this.vuelo.getPuestos()[Nsilla-1] = this;
-			this.vuelo.getPuestos()[silla]=null;
+			this.vuelo.getPuestos()[silla-1]=null;
 			this.silla=Nsilla;
 			return "CAMBIO EXITOSO";
 		}else {
