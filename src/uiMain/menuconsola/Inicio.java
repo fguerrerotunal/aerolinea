@@ -65,13 +65,13 @@ public class Inicio extends MenuDeConsola{
 		Admin.premios.add("Viaje en pareja: ...1000");
 		Admin.premios.add("Viaje Familiar(max 4): ...1200");
 		Admin.Reiniciar();
-		//Timer timer = new Timer();
-		//TimerTask estadoVuelos =  new TimerTask() {
-		//	public void run() {
-		//		Admin.empleados.get(0).ActualizarVuelos();
-		//	}
-		//};
-		///timer.schedule(estadoVuelos, 2000,2000);//cada 1 min
+		Timer timer = new Timer();
+		TimerTask estadoVuelos =  new TimerTask() {
+			public void run() {
+				Admin.empleados.get(0).ActualizarVuelos();
+			}
+		};
+		timer.schedule(estadoVuelos, 2000,2000);//cada 1 min
 		
 		inicio.LanzarMenu();
 		
