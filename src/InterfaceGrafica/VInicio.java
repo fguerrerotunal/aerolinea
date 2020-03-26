@@ -627,6 +627,7 @@ public class VInicio extends Application {
 					public void handle(MouseEvent event) {
 						procesoAct.setText(accion);
 						P.getSelectionModel().clearSelection();
+						P.getItems().setAll(datos());
 						V.getChildren().removeAll(V.getChildren());
 						Button efectivo = new Button("Efectivo");
 						Button millas = new Button("Millas");
