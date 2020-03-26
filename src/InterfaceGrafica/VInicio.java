@@ -514,6 +514,7 @@ public class VInicio extends Application {
 						Act.setText("Actualizar");
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 						P.getItems().setAll(datos());
+						P.getSelectionModel().clearSelection();
 					} 
 				}));
 				
@@ -547,11 +548,11 @@ public class VInicio extends Application {
 						
 						try{
 							String verificacion = MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue()));
-							
-							//mostrar silla por defecto
-							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
-							
 							V.getChildren().removeAll(V.getChildren());
+							//mostrar silla por defecto
+							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla());
+							int x=P.getValue();
+							P.getItems().setAll(x);
 							V.add(p1, 0, 3);
 							V.add(P, 1, 3);
 							V.add(p3, 6, 3);
@@ -605,6 +606,9 @@ public class VInicio extends Application {
 					
 					@Override
 					public void handle(MouseEvent event) {
+						procesoAct.setText(accion);
+						P.getSelectionModel().clearSelection();
+						P.getItems().setAll(datos());
 						V.getChildren().removeAll(V.getChildren());
 						V.add(p1, 0, 3);
 						V.add(P, 1, 3);
@@ -621,6 +625,8 @@ public class VInicio extends Application {
 				Con.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
+						procesoAct.setText(accion);
+						P.getSelectionModel().clearSelection();
 						V.getChildren().removeAll(V.getChildren());
 						Button efectivo = new Button("Efectivo");
 						Button millas = new Button("Millas");
