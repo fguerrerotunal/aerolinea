@@ -20,7 +20,7 @@ public class Reserva{
 		for(int i = 0; i < vuelo.getPuestos().length; i++) {
 			if(vuelo.getPuestos()[i] == null) {
 				this.vuelo.getPuestos()[i] = this;
-				this.silla=i+1;
+				this.silla=i;
 				break;
 			}
 			
