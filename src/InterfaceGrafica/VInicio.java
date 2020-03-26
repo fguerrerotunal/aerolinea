@@ -550,7 +550,7 @@ public class VInicio extends Application {
 							String verificacion = MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue()));
 							V.getChildren().removeAll(V.getChildren());
 							//mostrar silla por defecto
-							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla());
+							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
 							int x=P.getValue();
 							P.getItems().setAll(x);
 							V.add(p1, 0, 3);
