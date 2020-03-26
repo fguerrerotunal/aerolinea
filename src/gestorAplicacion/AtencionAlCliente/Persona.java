@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+/*
+ * 
+ */
 public abstract class Persona{
 //Atributos de los objetos de clase Persona
 	

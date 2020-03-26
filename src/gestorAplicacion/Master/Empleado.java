@@ -11,6 +11,7 @@ import gestorAplicacion.AtencionAlCliente.Persona;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
 public class Empleado extends Persona{
 	//Atributos del empleado
 	private String ocupacion;

@@ -12,6 +12,10 @@ import Utilidades.sillaOcupada;
 import Utilidades.tipoDato;
 
 import java.io.*;
+
+/*
+ * objeto tipo cliente que representa a los usuarios de la aplicacion
+ */
 public class Cliente extends Persona{
 	
 //atributos asignados a la persona cuando esta es un cliente
@@ -41,8 +45,10 @@ public class Cliente extends Persona{
 	public void AñadirHistorial(String accion) {
 		this.historial.add(accion);
 	}
-	//añade una reserva a la cartera del cliente y imprime que su reserva se realizo,
-	///de no ser posible devuelve un mensaje de que no se logro hacer esto
+	/*
+	 * añade una reserva a la cartera del cliente y imprime que su reserva se realizo,
+	 * de no ser posible devuelve un mensaje de que no se logro hacer esto
+	*/
 	public String Reservar(Vuelo vuelo) {
 			if (Contarpuestos(vuelo)<20) {
 				this.cartera.add(new Reserva(vuelo, this));

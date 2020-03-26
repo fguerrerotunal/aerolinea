@@ -5,6 +5,11 @@ import java.util.*;
 import Utilidades.clienteInexistente;
 
 import gestorAplicacion.AtencionAlCliente.Cliente;
+
+/*
+ * clase "comodin" que representa y se le atribuyen funcionalidades de administrador del sistema.
+ * ademas guarda y puede cargar el estado inicial de la base de datos 
+ */
 public class Admin{
 	
 //lista donde estan todos los vuelos,clientes,empleados

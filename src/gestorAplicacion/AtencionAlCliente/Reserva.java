@@ -4,7 +4,9 @@ import Utilidades.sillaOcupada;
 import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 
-
+/*
+ * Objetos tipo reserva que establece una relacion entre los vuelos con los clientes.  
+ */
 public class Reserva{
 	private int codigovuelo;
 	private Vuelo vuelo;
