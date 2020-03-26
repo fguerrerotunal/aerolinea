@@ -377,7 +377,7 @@ public class VInicio extends Application {
 				a.getButtonTypes().setAll(Cregistro);
 				
 				String[] criterios = new String[] {"ID", "Cuenta Bancaria", "Nombre", "Direccion","Correo","Pasaporte"};
-				String identificacionAut = String.valueOf(Persona.getNumero_de_clientes()+1);
+				String identificacionAut = String.valueOf(Admin.clientes.size()+1);
 				String[] valores = new String[] {identificacionAut, "", "", "","",""};
 				boolean[] habilitados = new boolean[] {false};
 				FieldPanel formularioRegis = new FieldPanel("Criterio", criterios, "Valor", valores, habilitados);
