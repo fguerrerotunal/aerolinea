@@ -82,18 +82,21 @@ public class Reader {
 		    	   String jsoncartera=gson.toJson(Cliente.cartera);
 		    	   Reserva[] hi = gson.fromJson(jsoncartera,Reserva[].class);
 		    	   Vector<Reserva> asd=VectorReservas(hi,Cliente);
+
 		    	   Cliente.cartera=asd;
+		 
 		       }
 		}catch(Exception e){
 			System.out.println("ERROR al entrar cliente");
 			System.out.println(e);
 			}
 		Vuelo.setCantidaddevuelos(Empleado.vuelos.get(Empleado.vuelos.size()-1).getNumeroVuelo());
+
 	}
 	// convierte la lista de cartera generada en la escritura vector
 	private static Vector<Reserva> VectorReservas(Reserva[] hi,Cliente cliente) {
 		Vector<Reserva> A=new Vector<>();
-		for(int i=0;i<hi.length;i++) {
+		   for(int i=0;i<hi.length;i++) {
  		   int a=hi[i].getCodigovuelo();
  		   boolean b=hi[i].getEquipaje();
  		   Cliente c=cliente;
@@ -103,8 +106,8 @@ public class Reader {
  		   Reserva restaurar=new Reserva(a,f,c,d,b,e);
  		   f.getPuestos()[e-1]=restaurar;
 		   A.add(restaurar);
-		}
-		
+				}
+				
 		return A;
 	}  
 	

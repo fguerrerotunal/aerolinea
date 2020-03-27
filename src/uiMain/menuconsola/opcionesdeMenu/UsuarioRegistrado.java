@@ -4,6 +4,9 @@ import Utilidades.clienteInexistente;
 import gestorAplicacion.Master.Admin;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
+/*
+ * Opcion que se ejecuta cuando un usuario quiere ingresar a su cuenta
+ */
 public class UsuarioRegistrado extends OpcionDeMenu{
 	
 	MenuDeConsola sigmenu;

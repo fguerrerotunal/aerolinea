@@ -1,7 +1,9 @@
 package uiMain.menuconsola.opcionesdeMenu;
 
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Opcion que imprime una pequeña descripcion del programa
+ */
 public class Descripccion extends OpcionDeMenu{
 
 	public static String mensaje = "			Aerolinea LUNA`S			\n"
@@ -11,7 +13,7 @@ public class Descripccion extends OpcionDeMenu{
 		    + "que se manifiestan durante su uso.";
 	@Override
 	public String Nombre() {
-		String nombre = "Descripccion.";
+		String nombre = "Descripcion.";
 		return nombre;
 	}
 

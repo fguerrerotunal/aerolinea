@@ -110,7 +110,7 @@ public class Admin{
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(1));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(2));
 		Admin.empleados.get(0).NuevoVuelo(Admin.destinos.get(4), Admin.destinos.get(3));
-		Admin.clientes.add(new Cliente(1,12,"fedrico guerrero", "as5d4","",234));
+		Admin.clientes.add(new Cliente(1,1234,"Usuario de Prueba", "Aerolinealunas.net","informacion@aerolinealunas.com",000000));
 			
 		}
 }

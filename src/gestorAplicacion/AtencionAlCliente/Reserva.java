@@ -70,7 +70,11 @@ public class Reserva{
 		costo += 45000;
 		if(vuelo.getPuestos()[Nsilla-1] == null) {
 			this.vuelo.getPuestos()[Nsilla-1] = this;
-			this.vuelo.getPuestos()[silla-1]=null;
+			try {
+				this.vuelo.getPuestos()[silla-1]=null;
+			}
+			catch(Exception e){
+			}
 			this.silla=Nsilla;
 			return "CAMBIO EXITOSO";
 		}else {

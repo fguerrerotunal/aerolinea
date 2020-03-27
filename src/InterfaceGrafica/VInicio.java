@@ -61,8 +61,8 @@ public class VInicio extends Application {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 
+		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 		
 		Admin.premios.add("Silla: 50");
 		Admin.premios.add("Mercado: 100");
