@@ -800,23 +800,23 @@ public class VInicio extends Application {
 				
 				//consulta.setPrefWidth(clientes2.getWidth());
 				
-				String[] c1 = {"Reserva a cancelar:"};
+				String[] c1 = {"Reserva a cancelar: "};
 				String[] v1 = {""};
 				FieldPanel formcancelar = new FieldPanel("",c1,"",v1,null);
 				auxgrid=(GridPane) formcancelar.getChildren().get(0);
 				V.add(formcancelar, 0, 0);
                 clientes2.setBottom(V);
 
-				
 				ObservableList<Node> asd1 = auxgrid.getChildren();
 				((Button)asd1.get(asd1.size()-2)).setOnAction(new EventHandler<ActionEvent>() {
 
 					@Override
 					public void handle(ActionEvent event) {
+						
 						try {
 							formcancelar.GuardarDatos();
-							int reservaF = Integer.parseInt(formcancelar.getValue("Reserva a cancelar"));
-							if(!(reservaF >=0 && reservaF < MenuDeConsola.usuarioactual.cartera.size())) {
+							int reservaF = Integer.parseInt(formcancelar.getValue("Reserva a cancelar: "));
+							if(!(reservaF >=0 && reservaF <= MenuDeConsola.usuarioactual.cartera.size())) {
 								throw new tipoDato();
 							}
 							try{
@@ -831,8 +831,7 @@ public class VInicio extends Application {
 								a.setContentText(e.getMessage());
 								a.showAndWait();
 							}catch (NumberFormatException e) {
-								a.setContentText(e.getMessage());
-								a.showAndWait();
+								throw new NumberFormatException();
 							}
 						}catch(datoFaltante e){
 							a.setContentText(e.getMessage());
@@ -842,7 +841,7 @@ public class VInicio extends Application {
                 			a.showAndWait();
                 		}catch(NumberFormatException e){
                     		tipoDato error = new tipoDato();
-                    		a.setContentText(error.getMessage());
+                    		a.setContentText(error.getMessage()+"ASD");
                     		a.showAndWait();
         				}
 					}
