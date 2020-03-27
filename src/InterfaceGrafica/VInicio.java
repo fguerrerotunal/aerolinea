@@ -1,5 +1,7 @@
 package InterfaceGrafica;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 
@@ -107,11 +109,11 @@ public class VInicio extends Application {
 	MenuItem menuDescrip = new MenuItem("Descripcion");
 	Button registro =new Button("Registrarse");
 	Button ingreso =new Button("Ingresar");
-	Image vidapng = new Image(getClass().getResourceAsStream("./imagenes/6.PNG"));
-	Label hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+	Image vidapng;
+	Label hojaVida;
 	Label bienvenida = new Label("AEROLINEA LUNA`S\n"
 			+ "     BIENVENIDO");
-	Image fotos = new Image(getClass().getResourceAsStream("./imagenes/0.jpg"));
+	Image fotos;
 	Label bfotos;
 	TextField id = new TextField();
 	Button Aceptar = new Button("Ingresar");
@@ -124,6 +126,11 @@ public class VInicio extends Application {
 	public void start(Stage ventana) throws Exception {
 		
 		Vapp = ventana;
+		//imagenes
+		vidapng = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\InterfaceGrafica\\imagenes\\6.PNG"));
+		hojaVida = new Label("DESARROLLADORES", new ImageView(vidapng));
+		fotos = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\InterfaceGrafica\\imagenes\\0.jpg"));
+		
 		
 		//Vclientes
 		//creacion de elementos iniciales Vclientes
@@ -439,7 +446,12 @@ public class VInicio extends Application {
 			if(imgposvida==9) {
 				imgposvida=6;
 			}
-			vidapng = new Image(getClass().getResourceAsStream("./imagenes/"+ imgposvida +".PNG"));
+			try {
+				vidapng = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\InterfaceGrafica\\imagenes\\"+ imgposvida +".PNG"));
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			ImageView asd = new ImageView(vidapng);
 			asd.setFitWidth(Vapp.getWidth()*0.5);
 			asd.setFitHeight(Vapp.getHeight()*0.7);
@@ -455,7 +467,12 @@ public class VInicio extends Application {
 			if(imgpos==5) {
 				imgpos=0;
 			}				
-			fotos = new Image(getClass().getResourceAsStream("./imagenes/"+ imgpos +".jpg"));
+			try {
+				fotos = new Image(new FileInputStream(System.getProperty("user.dir") + "\\src\\InterfaceGrafica\\imagenes\\"+ imgpos +".jpg"));
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			ImageView asd = new ImageView(fotos);
 			asd.setFitWidth(Vapp.getWidth()*0.5);
 			asd.setFitHeight(Vapp.getHeight()*0.7);

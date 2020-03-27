@@ -1,3 +1,3 @@
-java -jar ejecutar.jar
+java -jar LUNAS.jar
 @echo off
 pause
