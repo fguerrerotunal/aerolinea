@@ -523,7 +523,7 @@ public class VInicio extends Application {
 	    			);
 	    		ComboBox<String> Le = new ComboBox<String>();
 	    		Le.getItems().addAll(
-	    			    "Si","NO"
+	    			    "SI","NO"
 	    			);
 	    		Le.getSelectionModel().select(0);
 				consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
@@ -638,7 +638,7 @@ public class VInicio extends Application {
 						consulta.setText("seleccione metodo de pago.");
 						Reserva reserva = MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1);
 						
-						if(Le.getValue().equals("SI")) {
+						if(Le.getValue().equals("NO")) {
 							reserva.setEquipaje();
 						}
 						
