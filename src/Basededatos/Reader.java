@@ -1,19 +1,17 @@
 package Basededatos;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Vector;
 import java.lang.reflect.Type;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import gestorAplicacion.AtencionAlCliente.*;
 import gestorAplicacion.Master.*;
-import uiMain.menuconsola.opcionesdeMenu.Cartera;
 
-import java.io.*;
+
+
 //Esta clase se usa para leer los datos los cuales se encuentran en los archivos 
 //.json en los cuales se guarda la informacion del usuario al salir.
 public class Reader {
