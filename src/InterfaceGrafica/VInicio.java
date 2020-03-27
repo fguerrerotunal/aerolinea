@@ -61,7 +61,7 @@ public class VInicio extends Application {
 				Admin.empleados.get(0).ActualizarVuelos();
 			}
 		};
-		timer.schedule(estadoVuelos, 5000,5000);//cada 1 min
+		timer.schedule(estadoVuelos, 60000,60000);//cada 1 min
 
 		
 		Admin.premios.add("Silla: 50");
@@ -499,6 +499,9 @@ public class VInicio extends Application {
 				
 			case "Comprar Tiquete":
 				V.getChildren().removeAll(V.getChildren());
+				Button F = new Button(">>>");
+				BorderPane.setAlignment(F, Pos.CENTER);
+				clientes2.setRight(F);
 				Button Acp = new Button("Aceptar");
 				Button Cancelr = new Button("Cancelar");
 				Button Silla = new Button("Cambiar silla");
@@ -510,13 +513,20 @@ public class VInicio extends Application {
 				Act.setOnMouseClicked((new EventHandler<MouseEvent>() {
 					@Override
 					public void handle(MouseEvent event) {
-						Act.setText("Actualizar");
 						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 						P.getItems().setAll(datos());
 						P.getSelectionModel().selectFirst();
 					} 
 				}));
-				
+				F.setOnMouseClicked((new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent event) {
+						Admin.empleados.get(0).ActualizarVuelos();
+						consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
+						P.getItems().setAll(datos());
+						P.getSelectionModel().selectFirst();
+					} 
+				}));
 				ComboBox<Integer> Si = new ComboBox<Integer>();
 	    		Si.getItems().addAll(
 	    			    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
@@ -549,8 +559,10 @@ public class VInicio extends Application {
 						try{
 							String verificacion = MenuDeConsola.usuarioactual.Reservar(Empleado.vuelos.get(P.getValue()));
 							V.getChildren().removeAll(V.getChildren());
+							
 							//mostrar silla por defecto
 							Si.getSelectionModel().select(MenuDeConsola.usuarioactual.cartera.get(MenuDeConsola.usuarioactual.cartera.size()-1).getSilla()-1);
+							clientes2.setRight(null);
 							int x=P.getValue();
 							P.getItems().setAll(x);
 							V.add(p1, 0, 3);
@@ -608,6 +620,8 @@ public class VInicio extends Application {
 					
 					@Override
 					public void handle(MouseEvent event) {
+						BorderPane.setAlignment(F, Pos.CENTER);
+						clientes2.setRight(F);
 						procesoAct.setText(accion);
 						P.getItems().setAll(datos());
 						P.getSelectionModel().selectFirst();
@@ -652,6 +666,8 @@ public class VInicio extends Application {
 								}finally {
 									consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 									V.getChildren().removeAll(V.getChildren());
+									BorderPane.setAlignment(F, Pos.CENTER);
+									clientes2.setRight(F);
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
 									V.add(Act, 0, 0,2,1);
@@ -672,6 +688,8 @@ public class VInicio extends Application {
 								}finally {
 									consulta.setText(MenuDeConsola.usuarioactual.ConsultarVuelos());
 									V.getChildren().removeAll(V.getChildren());
+									BorderPane.setAlignment(F, Pos.CENTER);
+									clientes2.setRight(F);
 									V.add(p1, 0, 3);
 									V.add(P, 1, 3);
 									V.add(Act, 0, 0,2,1);
