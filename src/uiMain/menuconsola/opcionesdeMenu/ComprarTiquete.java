@@ -10,7 +10,9 @@ import gestorAplicacion.Master.Empleado;
 import gestorAplicacion.Master.Vuelo;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Opcion del usuario registrado, le permite comprar un tiquete de los vuelos que estan en estado de ventas
+ */
 public class ComprarTiquete  extends OpcionDeMenu{
 
 	public String Nombre() {

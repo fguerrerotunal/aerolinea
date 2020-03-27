@@ -5,7 +5,9 @@ import Utilidades.registroDuplicado;
 import gestorAplicacion.AtencionAlCliente.Cliente;
 import gestorAplicacion.Master.Admin;
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Opcion la cual se ejecuta cuando un usuario se quiere registrar para ingresar a la aplicacion
+ */
 public class NuevoRegistro extends OpcionDeMenu{
 	
 	public String Nombre() {

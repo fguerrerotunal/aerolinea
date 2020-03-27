@@ -4,7 +4,10 @@ import Utilidades.tipoDato;
 import gestorAplicacion.Master.Admin;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Esta opcion es para cuando el usuario desea utilizar las millas conseguidas 
+ * para canjearlas por premios
+ */
 public class CanjearMillas  extends OpcionDeMenu{
 
 	public String Nombre() {

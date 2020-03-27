@@ -2,7 +2,9 @@ package uiMain.menuconsola.opcionesdeMenu;
 
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
-
+/*
+ * Imprime el pasabordo de una reserva en especifico del usuario
+ */
 public class ImprimirPasabordo  extends OpcionDeMenu{
 
 	public String Nombre() {
