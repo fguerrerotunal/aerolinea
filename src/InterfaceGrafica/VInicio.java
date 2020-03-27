@@ -483,6 +483,7 @@ public class VInicio extends Application {
 			clientes2.setCenter(consulta);
 			aux.setContent(null);
 			clientes2.setBottom(null);
+			clientes2.setRight(null);
 			consulta.setText("");
 			consulta.setFont(new Font("Agency FB",20));
 			String accion = (((MenuItem) e.getSource()).getText());
